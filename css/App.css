@@ -1,0 +1,14 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.h1Re {
+    color: #ff421a;
+    margin-bottom: 20px;
+}
+
+.checked {
+    color: #ff421a;
+}
