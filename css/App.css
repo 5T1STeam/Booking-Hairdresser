@@ -4,9 +4,10 @@ body {
     padding: 0;
 }
 
-.h1Re {
+h1 {
     color: #ff421a;
     margin-bottom: 20px;
+    font-size: 30px;
 }
 
 .checked {
