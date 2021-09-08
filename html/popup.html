@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PopUp</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!--Location-->
+    <script src='https://cdn.jsdelivr.net/gh/vietblogdao/js/districts.min.js'></script>
+
+    <link rel="stylesheet" href="../css/popup.css">
+
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- Popup Filter -->
+        <div title="popup-filter">
+            <button id="btn-popup-filter" type="button" class="btn" data-toggle="modal" data-target="#popup-filters">
+          Filters
+        </button>
+
+            <!-- Popup Filter -->
+            <div class="modal fade" id="popup-filters">
+                <div class="modal-dialog modal-lg ">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h6 class="modal-title" style="color: #797979;">Bộ lọc</h6>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <div class="service">
+                                <h5 class="modal-title">DỊCH VỤ</h5>
+                                <br>
+                                <!--Lấy dữ liệu từ SQL nên hiệu chỉnh sau-->
+                                <div class="group-service">
+                                    <label> 
+                                    <input type="checkbox"  name="service" class="service"  style="display: none;">
+                                    <span class="btn btn-service" for="">Cắt Tóc</span>
+                                </label>
+                                    <label> 
+                                    <input type="checkbox" name="service" class="service" style="display: none;">
+                                    <span class="btn btn-service">Làm Nail</span>
+                                </label>
+                                    <label> 
+                                    <input type="checkbox" name="service" class="service" style="display: none;">
+                                    <span class="btn btn-service">Duỗi Tóc</span>
+                                </label>
+                                    <label> 
+                                    <input type="checkbox" name="service" class="service" style="display: none;">
+                                    <span class="btn btn-service">Uốn Tóc</span>
+                                </label>
+                                    <!--có thể thêm-->
+
+                                </div>
+                                <br>
+                                <hr>
+
+                                <h5 class="modal-title">VỊ TRÍ</h5>
+                                <br>
+                                <div class="row justify-content-center">
+                                    <select name="calc_shipping_provinces" required="" class="col-sm-4 btn" id="locations-choose">
+                                <option value="">Tỉnh / Thành phố</option>
+                              </select>
+                                    <select name="calc_shipping_district" required="" class="col-sm-4 btn" id="locations-choose">
+                                <option value="">Quận / Huyện</option>
+                              </select>
+                                    <input class="billing_address_1" name="" type="hidden" value="">
+                                    <input class="billing_address_2" name="" type="hidden" value="">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn" id="btn-search" onclick="searchFilters()" data-dismiss="modal">Tìm Kiếm</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Popup Sort -->
+        <div title="popup-sort">
+            <button id="btn-popup-sort" type="button" class="btn" data-toggle="modal" data-target="#popup-sort">
+              Sort
+            </button>
+
+            <!-- The Modal -->
+            <div class="modal fade" id="popup-sort">
+                <div class="modal-dialog modal-sm ">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h5 class="modal-title">Sắp xếp kết quả theo</h5>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body" style="text-align: center;">
+                            <label class="center">
+                            <input type="radio" name="radiosort" class="radiosort" style="display:none;">
+                            <span class="btn btn-sort">Đề xuất bởi BoolStyle</span>
+                        </label>
+                            <label>
+                            <input type="radio" name="radiosort" class="radiosort" style="display:none;">
+                            <span class="btn btn-sort">Đánh giá cao</span>
+                        </label>
+                            <input type="hidden" class="sortby" value="">
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button id="btn-search" onclick="sort()" type="button" class="btn" data-dismiss="modal">Đồng ý</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Popup Book -->
+        <div title="popup-book">
+            <!-- Button to Open the Modal -->
+            <button id="btn-popup-book" type="button" class="btn" data-toggle="modal" data-target="#popup-book">
+            Booking
+            </button>
+
+            <!-- The Modal -->
+            <div class="modal fade" id="popup-book">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Đặt lịch</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <div class="group-day" style="text-align: center;">
+                                <label>
+                                    <input type="radio" name="radioday" class="radioday" style="display:none;">
+                                    <span class="btn btn-day">Thứ Hai</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="radioday" class="radioday" style="display:none;">
+                                    <span class="btn btn-day">Thứ Ba</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="radioday" class="radioday" style="display:none;">
+                                    <span class="btn btn-day">Thứ Tư</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="radioday" class="radioday" style="display:none;">
+                                    <span class="btn btn-day">Thứ Năm</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="radioday" class="radioday" style="display:none;">
+                                    <span class="btn btn-day">Thứ Sáu</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="radioday" class="radioday" style="display:none;">
+                                    <span class="btn btn-day">Thứ Bảy</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="radioday" class="radioday" style="display:none;">
+                                    <span class="btn btn-day">Chủ Nhật</span>
+                                </label>
+                            </div>
+                            <hr>
+                            <p id="full-day">Ngày - Tháng - Năm</p>
+                            <hr>
+                            <div class="row" style="text-align: center;">
+                                <div class="col-4">Sáng</div>
+                                <div class="col-4">Trưa</div>
+                                <div class="col-4">Chiều</div>
+                            </div>
+                            <hr>
+                            <div class="group-time row" style="text-align: center;">
+                                <div id="morning" class="col-4">
+                                    <!--tự hiện-->
+                                </div>
+                                <div id="afternoon" class="col-4">
+                                    <!--tự hiện-->
+                                </div>
+                                <div id="evening" class="col-4">
+                                    <!--tự hiện-->
+                                </div>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button id="btn-book" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/popup.js"></script>
+</body>
+
+
+</html>
