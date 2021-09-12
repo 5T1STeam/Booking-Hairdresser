@@ -13,3 +13,61 @@ h1 {
 .checked {
     color: #ff421a;
 }
+
+.img1 {
+    height: 300px;
+}
+
+.imgs {
+    padding-left: 20px;
+}
+
+.timeWork {
+    width: 100%;
+    display: flex;
+    /* margin: auto; */
+    /* flex-wrap: wrap; */
+}
+
+.day {
+    flex-basis: 50%;
+    text-align: left;
+}
+
+.time {
+    flex-basis: 50%;
+    text-align: right;
+}
+
+.day h3 {
+    font-size: 20px !important;
+}
+
+.time span {
+    font-size: 20px !important;
+}
+
+.report a {
+    text-decoration: none;
+}
+
+.h1Detail {
+    color: black;
+}
+
+.service {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+
+/* .serviceName {
+    flex-basis: 50%;
+} */
+
+.searchService {
+    width: 300px;
+    height: 40px;
+}
