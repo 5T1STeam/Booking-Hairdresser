@@ -10,9 +10,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="../css/owl.carousel.min.css">
     <link rel="stylesheet" href="../css/owl.theme.default.min.css">
     <link rel="stylesheet" href="../css/App.css">
@@ -45,10 +46,38 @@
 </head>
 
 <body>
+    <section id="Menu">
+        <div class="menus">
+            <div class="infoS">
+                <div class="infoShops">
+
+                    <div class="avata">
+                        <img src="../source/img/Ellipse 3-1.png" alt="">
+                    </div>
+                    <div class="menuInfo">
+                        <div class="NameMenu">
+                            <h1 class="h1Menu">Tuan Barber</h1>
+                        </div>
+                        <span class="addressMenu">Số 16, Thôn 8a, Xã eakly, Krông Pắc, Đaklak</span>
+                    </div>
+                </div>
+            </div>
+            <div class="booknowBtn">
+                <div class="centerBtn">
+                    <button class="sas mr-3"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                  </svg></button>
+                    <button type="button" class="btn booknow">Book now</button>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
     <div class="container">
         <div class="content">
             <div class="row">
-                <div class="col-8 content-left">
+                <div class="col-md-8 col-sm-12 order-sm-1 content-left">
 
                     <div class="owl-carousel owl-theme">
 
@@ -112,69 +141,72 @@
                     </div>
 
                     <hr>
+
                     <div class="Popular">
-                        <h2>Dịch vụ phổ biến <button class=" float-right bs"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <h2>Dịch vụ phổ biến <button class=" float-right bs" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
                       </svg></button></h2>
                     </div>
-                    <div class="listService">
-                        <div class="SN">
-                            <h3>Cắt tóc</h3>
+                    <div class="collapse" id="collapseExample">
+                        <div class="listService">
+                            <div class="SN">
+                                <h3>Cắt tóc</h3>
 
-                        </div>
-                        <div class="price">
-                            <div class="priceDetail">
-                                <div>
-                                    <div class="s">60.000đ</div>
-                                    <span class="so">1h</span>
-                                </div>
-                                <div class="bookBtn">
-                                    <button class="Btn">Book</button>
+                            </div>
+                            <div class="price">
+                                <div class="priceDetail">
+                                    <div>
+                                        <div class="s">60.000đ</div>
+                                        <span class="so">1h</span>
+                                    </div>
+                                    <div class="bookBtn">
+                                        <button class="Btn">Book</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="listService">
-                        <div class="SN">
-                            <h3>Cắt tóc-Cạo râu</h3>
+                        <hr>
+                        <div class="listService">
+                            <div class="SN">
+                                <h3>Cắt tóc-Cạo râu</h3>
 
-                        </div>
-                        <div class="price">
-                            <div class="priceDetail">
-                                <div>
-                                    <div class="s">70.000đ</div>
-                                    <span class="so">1h-15p</span>
-                                </div>
-                                <div class="bookBtn">
-                                    <button class="Btn">Book</button>
+                            </div>
+                            <div class="price">
+                                <div class="priceDetail">
+                                    <div>
+                                        <div class="s">70.000đ</div>
+                                        <span class="so">1h-15p</span>
+                                    </div>
+                                    <div class="bookBtn">
+                                        <button class="Btn">Book</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="listService">
-                        <div class="SN">
-                            <h3>Massage</h3>
+                        <hr>
+                        <div class="listService">
+                            <div class="SN">
+                                <h3>Massage</h3>
 
-                        </div>
-                        <div class="price">
-                            <div class="priceDetail">
-                                <div>
-                                    <div class="s">150.000đ</div>
-                                    <span class="so">1h</span>
-                                </div>
-                                <div class="bookBtn">
-                                    <button class="Btn">Book</button>
+                            </div>
+                            <div class="price">
+                                <div class="priceDetail">
+                                    <div>
+                                        <div class="s">150.000đ</div>
+                                        <span class="so">1h</span>
+                                    </div>
+                                    <div class="bookBtn">
+                                        <button class="Btn">Book</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <hr>
                     </div>
-                    <hr>
-                    <h2 class="h2AS">Tất cả dịch vụ <button class=" float-right bs"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                    <h2 class="h2AS">Tất cả dịch vụ <button class=" float-right bs" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
                       </svg></button></h2>
-                    <div class="allService">
+                    <div class="allService  collapse multi-collapse" id="multiCollapseExample2">
                         <div class="listService">
                             <div class="SN">
                                 <h3>Cắt tóc</h3>
@@ -265,6 +297,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="rule">
                         <h2>Quy định an toàn tại cửa hàng</h2>
                         <div class="row">
@@ -295,24 +328,33 @@
                         <button class="viewAll ">Xem tất cả<span >(20)</span></button>
                     </div>
                 </div>
-                <div class="col-4 content-right">
+                <div class="col-md-4 col-sm-12 order-sm-2 content-right">
                     <div class="location">
-                        <img src="../source/img/6.jpg" alt="" class=" img1">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d250875.47715672414!2d106.59748635152886!3d10.739930049995595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f225c70667f%3A0x80a1b67feed6e90d!2zTGnDqm0gQmFyYmVyIFNob3AgUXXhuq1uIDM!5e0!3m2!1svi!2s!4v1631669555373!5m2!1svi!2s"
+                            width="400" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         <!-- <div class="GPS">
 
                         </div> -->
                     </div>
-                    <h1>Giới thiệu</h1>
+                    <h1 class="Intro">Giới thiệu</h1>
                     <p>Tôi là Tuấn, và tôi là một nghệ sĩ thực thụ trong ng hề baber, người thích thể hiện bản thân với một chiếc kéo và m ột lưỡi dao cạo. Bất cứ khi nào tôi cầm những thứ đó lên, tôi sẽ tạo ra một kiệt tác ....</p>
-                    <a href="#">Xem thêm <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewbox="2 2 16 16">
+                    <a href="#" class="Mores">Xem thêm <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewbox="2 2 16 16">
                         <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
                       </svg></a>
+                    <h1 class="Intro">Nhân viên</h1>
                     <hr>
-                    <div class="mb-5 d-flex flex-row justify-content-start align-items-start">
+
+                    <div class="mb-3 d-flex flex-row justify-content-start align-items-start">
                         <img src="../source/img/Ellipse 3-1.png" alt="" class="imgs">
                         <img src="../source/img/Ellipse 3-1.png" alt="" class="imgs">
                         <img src="../source/img/Ellipse 3-1.png" alt="" class="imgs">
                     </div>
+                    <h1 class="Intro">Liên hệ và lịch làm việc</h1>
+                    <hr>
+                    <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-telephone-inbound-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM15.854.146a.5.5 0 0 1 0 .708L11.707 5H14.5a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793L15.146.146a.5.5 0 0 1 .708 0z"/>
+                      </svg> (+84) 346 - 066 - 476 <button class=" float-right call">Call</button></div>
+                    <hr>
 
                     <div class="timeWork">
                         <div class="day">
@@ -325,7 +367,7 @@
                             <h3>Thứ 7</h3>
 
                         </div>
-                        <div class="time">
+                        <div class="time lh-1">
                             <span>9:00AM <small>-</small>06:00PM</span><br>
                             <span>9:00AM <small>-</small>06:00PM</span><br>
                             <span>9:00AM <small>-</small>06:00PM</span><br>
@@ -347,11 +389,14 @@
         </div>
 
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script> -->
     <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/nav.js"></script>
     <script>
         $('.owl-carousel').owlCarousel({
             items: 1,
