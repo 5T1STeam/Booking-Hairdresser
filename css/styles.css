@@ -80,8 +80,6 @@ header {
 .bottom-section {
     position: absolute;
     bottom: 30%;
-    left: 10%;
-    right: 10%;
 }
 
 .video-container {
@@ -313,7 +311,7 @@ footer .container .noi-dung.about p {
     text-decoration: none;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     footer {
         padding: 40px;
     }
@@ -330,4 +328,71 @@ footer .container .noi-dung.about p {
     .contact {
         width: 100%;
     }
+    #form-search-2 {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 870px) {
+    .bottom-section {
+        display: none;
+    }
+    .video-container {
+        height: 50%;
+    }
+}
+
+@media screen and (max-width:670px) {
+    .section-form {
+        display: none;
+    }
+    .video-container {
+        height: 20%;
+    }
+    .topnav {
+        display: none;
+    }
+    .topnavre {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 670px) {
+    .topnavre {
+        display: none;
+    }
+}
+
+@media screen and (max-width:375px) {
+    .btn-topnavhide {
+        display: none;
+    }
+    .topnavhide-re {
+        display: block;
+    }
+    .video-container {
+        height: 10%;
+    }
+}
+
+@media screen and (min-width:375px) {
+    .btn-topnavhide {
+        display: block;
+    }
+    .topnavhide-re {
+        display: none;
+    }
+}
+
+.dropdown-menu {
+    background: rgb(56, 56, 56, 0.5);
+    border: none;
+}
+
+.dropdown-item {
+    color: #fff;
+}
+
+.dropdown-item:hover {
+    background: #FF421A;
 }
