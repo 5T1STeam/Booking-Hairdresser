@@ -1,0 +1,194 @@
+.btn:focus, .btn:active, button:focus, button:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  #image-gallery .modal-footer{
+    display: block;
+  }
+
+  .thumb{
+    padding: 0px !important;
+  }
+
+  .heading1{
+    font-size: 30px;
+    color: #ff421a;
+  }
+
+  .btn-showall{
+    color: #000000;
+    border: 2px solid;
+    border-color: #ff421a;
+    border-radius: 20px;
+    background-color: white;
+  }
+
+  .btn-showall:hover{
+    background-color: #ff421a;
+    color: white;
+  }
+
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+  .content {
+      width: 100%;
+     border-right: 1px solid;
+     border-color: rgb(211, 211, 211);
+  }
+ 
+  .ratings {
+      background-color: #fff;
+
+  }
+ 
+  .product-rating {
+      font-size: 50px
+  }
+ 
+  .stars i {
+      font-size: 18px;
+      color: #ff421a
+  }
+
+  .stars span{
+    font-size: 18px;
+  }
+ 
+  .rating-text {
+      margin-top: 10px;
+      font-size: 12px;
+      color: gray;
+  }
+
+  .product-rating{
+    font-size: 20px;
+  }
+
+  .shadow-sm{
+    border-color: rgb(207, 207, 207) !important;
+    border: 0.5px solid;
+  }
+
+  .progress{
+    height: 0.2rem !important;
+    width: 50% !important;
+    margin-right: 10px;
+  }
+
+  .five-star{
+    font-size: 12px;
+  }
+
+  body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .client-name{
+    font-weight: normal;
+    color: gray;
+    font-size: 12px;
+  }
+
+  .service-name{
+    font-weight: normal;
+    font-size: 15px;
+  }
+
+  .material-icons{
+    font-size: 15px !important;
+  }
+
+  .btn-in-rate{
+    color: #808080;
+    border: 1px solid;
+    border-color: #6d6d6d;
+    border-radius: 20px !important;
+    background-color: white;
+    width: 100%;
+    text-align: center;
+  }
+
+  
+
+  .btn-in-rate:hover{
+    color: #ff421a !important;
+    border-color: #ff421a !important;
+  }
+
+  .card-rating{
+    margin-bottom: 20px;
+  }
+
+  .pagination_rounded,
+.pagination_square {
+    display: inline-block;
+}
+
+.pagination_rounded ul {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.pagination_rounded li:first-child {
+    margin-left: 0px
+}
+
+.pagination_rounded ul li {
+    float: left;
+    margin-left: 20px;
+}
+
+.pagination_rounded ul li a {
+  border: 1px solid #ff421a !important;
+}
+
+.pagination_rounded ul li a:hover {
+  text-decoration: none;
+    background: #ff421a;
+    color: #fff;
+    border: 1px solid #ff421a;
+}
+
+a:link {
+    text-decoration: none
+}
+
+.pagination_rounded .prev {
+    border-radius: 35px;
+    line-height: 25px
+}
+
+.pagination_rounded ul li a {
+    float: left;
+    color: #000000;
+    border-radius: 50%;
+    line-height: 25px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    margin-bottom: 40px;
+    border: 1px solid #e0e0e0
+}
+
+.pagination_rounded .prev i {
+    margin-right: 10px;
+}
+
+.pagination_rounded .next {
+    border-radius: 35px;
+    line-height: 25px
+}
+
+.visible-xs {
+    display: none !important
+}
+
+.date-rating{
+font-size: 12px !important;
+}
+
+.location{
+  font-size: 12px;
+}
