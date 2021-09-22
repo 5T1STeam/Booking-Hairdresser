@@ -58,6 +58,7 @@ h1 {
     color: #fff !important;
     border-radius: 10px !important;
     width: max-content;
+    margin-right: 10px;
 }
 
 .btn-full:hover {
