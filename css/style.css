@@ -107,6 +107,7 @@ h1 {
     box-shadow: 3px 3px #9c9c9c;
     cursor: pointer;
     align-self: center;
+    height: 200px;
 }
 
 .card:hover {
@@ -116,6 +117,11 @@ h1 {
 .btn-outline-secondary {
     border: 3px solid !important;
     width: 100%;
-    border-color: gray !important;
+    border-color: #ff421a !important;
     border-radius: 15px !important;
+    margin-bottom: 10px;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #ff421a;
 }
