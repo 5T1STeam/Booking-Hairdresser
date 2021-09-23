@@ -186,11 +186,15 @@
           margin-bottom: 20px;
       }
       
-      .rule {
+      .rulesz {
           margin-top: 20px;
       }
       
-      .rule h2 {
+      .rulesz p {
+          margin-bottom: 0;
+      }
+      
+      .rulesz h2 {
           font-size: 20px;
       }
       /* .serviceName {
