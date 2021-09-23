@@ -368,6 +368,10 @@
           border-radius: 10px;
       }
       
+      .Rulesz {
+          margin-bottom: 5px !important;
+      }
+      
       @media screen and (max-width: 991px) {
           #Menu {
               display: none;
