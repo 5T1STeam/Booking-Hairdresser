@@ -1,9 +1,3 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
 h1 {
     color: #ff421a !important;
     font-size: 30px !important;
@@ -58,7 +52,6 @@ h1 {
     color: #fff !important;
     border-radius: 10px !important;
     width: max-content;
-    margin-right: 10px;
 }
 
 .btn-full:hover {
@@ -91,7 +84,7 @@ h1 {
     height: 450px;
 }
 
-.card-img-top {
+.imgTopic {
     width: 50% !important;
     align-self: center;
     margin: 10px 0px;
@@ -102,7 +95,7 @@ h1 {
     top: -300px;
 }
 
-.card {
+.infoTopic {
     width: 90%;
     border-radius: 15px !important;
     box-shadow: 3px 3px #9c9c9c;
@@ -111,7 +104,7 @@ h1 {
     height: 200px;
 }
 
-.card:hover {
+.infoTopic:hover {
     width: 100%;
 }
 
