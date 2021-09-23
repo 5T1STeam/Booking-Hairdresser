@@ -1,105 +1,106 @@
-.btn:focus, .btn:active, button:focus, button:active {
+.btn:focus,
+.btn:active,
+button:focus,
+button:active {
     outline: none !important;
     box-shadow: none !important;
-  }
-  
-  #image-gallery .modal-footer{
+}
+
+#image-gallery .modal-footer {
     display: block;
-  }
+}
 
-  .thumb{
+.thumb {
     padding: 0px !important;
-  }
+}
 
-  .heading1{
+.heading1 {
     font-size: 30px;
     color: #ff421a;
-  }
+}
 
-  .btn-showall{
+.btn-showall {
     color: #000000;
     border: 2px solid;
     border-color: #ff421a;
     border-radius: 20px;
     background-color: white;
-  }
+}
 
-  .btn-showall:hover{
+.btn-showall:hover {
     background-color: #ff421a;
     color: white;
-  }
+}
 
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+.content {
+    width: 100%;
+    border-right: 1px solid;
+    border-color: rgb(211, 211, 211);
+}
 
-  .content {
-      width: 100%;
-     border-right: 1px solid;
-     border-color: rgb(211, 211, 211);
-  }
- 
-  .ratings {
-      background-color: #fff;
+.ratings {
+    background-color: #fff;
+}
 
-  }
- 
-  .product-rating {
-      font-size: 50px
-  }
- 
-  .stars i {
-      font-size: 18px;
-      color: #ff421a
-  }
+.product-rating {
+    font-size: 50px
+}
 
-  .stars span{
+.stars i {
     font-size: 18px;
-  }
- 
-  .rating-text {
-      margin-top: 10px;
-      font-size: 12px;
-      color: gray;
-  }
+    color: #ff421a
+}
 
-  .product-rating{
+.stars span {
+    font-size: 18px;
+}
+
+.rating-text {
+    margin-top: 10px;
+    font-size: 12px;
+    color: gray;
+}
+
+.product-rating {
     font-size: 20px;
-  }
+}
 
-  .shadow-sm{
+.shadow-sm {
     border-color: rgb(207, 207, 207) !important;
     border: 0.5px solid;
-  }
+}
 
-  .progress{
+.progress {
     height: 0.2rem !important;
     width: 50% !important;
     margin-right: 10px;
-  }
+}
 
-  .five-star{
+.five-star {
     font-size: 12px;
-  }
+}
 
-  body{
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
+}
 
-  .client-name{
+.client-name {
     font-weight: normal;
     color: gray;
     font-size: 12px;
-  }
+}
 
-  .service-name{
+.service-name {
     font-weight: normal;
     font-size: 15px;
-  }
+}
 
-  .material-icons{
+.material-icons {
     font-size: 15px !important;
-  }
+}
 
-  .btn-in-rate{
+.btn-in-rate {
     color: #808080;
     border: 1px solid;
     border-color: #6d6d6d;
@@ -107,20 +108,18 @@
     background-color: white;
     width: 100%;
     text-align: center;
-  }
+}
 
-  
-
-  .btn-in-rate:hover{
+.btn-in-rate:hover {
     color: #ff421a !important;
     border-color: #ff421a !important;
-  }
+}
 
-  .card-rating{
+.card-rating {
     margin-bottom: 20px;
-  }
+}
 
-  .pagination_rounded,
+.pagination_rounded,
 .pagination_square {
     display: inline-block;
 }
@@ -141,11 +140,11 @@
 }
 
 .pagination_rounded ul li a {
-  border: 1px solid #ff421a !important;
+    border: 1px solid #ff421a !important;
 }
 
 .pagination_rounded ul li a:hover {
-  text-decoration: none;
+    text-decoration: none;
     background: #ff421a;
     color: #fff;
     border: 1px solid #ff421a;
@@ -185,10 +184,10 @@ a:link {
     display: none !important
 }
 
-.date-rating{
-font-size: 12px !important;
+.date-rating {
+    font-size: 12px !important;
 }
 
-.location{
-  font-size: 12px;
+.location {
+    font-size: 12px;
 }
