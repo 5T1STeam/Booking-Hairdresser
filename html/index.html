@@ -44,30 +44,127 @@
 <body>
     <header id="header">
         <div style="min-height: auto;">
-            <div class="container header-container">
+            <div class="container-fluid">
                 <nav class="navbar">
                     <a class="navbar-brand" href="../homepage.html">LOGO</a>
-                    <div class="nav justify-content-end">
+                    <div class="nav justify-content-end topnav">
                         <a class="nav-link" href="../homepage.html">Trang Chủ</a>
                         <a class="nav-link" href="../homepage.html">Danh Mục</a>
                         <a class="nav-link" href="../">Khám Phá</a>
                         <a class="btn btn-business" href="../business.html">Đối tác</a>
                         <a class="btn btn-login" href="../login.html">Sign in / Login</a>
                     </div>
+                    <div class="dropdown dropleft topnavre">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="bi bi-list"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Trang Chủ</a>
+                            <a class="dropdown-item" href="#">Danh Mục</a>
+                            <a class="dropdown-item" href="#">Khám Phá</a>
+                            <a class="dropdown-item" href="../business.html">Đối tác</a>
+                            <a class="dropdown-item" href="../login.html">Sign in / Login</a>
+                        </div>
+                    </div>
                 </nav>
             </div>
         </div>
-        <div class="overlay"></div>
+
         <div class="section-form">
             <!--Hiệu ứng chữ chạy-->
 
             <div id="form-search" class="input-group">
-                <input id="howto-input" type="text" class=" form-control " placeholder="How to design ">
-                <input id="location-input" type="text" class="form-control " placeholder="Location ">
+                <input id="howto-inpu t" type="text" class=" form-control " placeholder=" How to design" data-toggle="modal" data-target="#popup-howto">
+                <!-- The Service -->
+                <div class="modal fade" id="popup-howto">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <input id="model-input-howto" type="text" class="popup-howto form-control" placeholder="Bạn tìm dịch vụ gì?">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <div class="service">
+                                    <h5 class="modal-title">Dịch vụ phổ biến</h5>
+                                    <br>
+                                    <!--Lấy dữ liệu từ SQL nên hiệu chỉnh sau-->
+                                    <div class="group-service">
+                                        <label> 
+                                        <input type="checkbox"  name="service" class="service"  style="display: none;">
+                                        <span class="btn btn-service" for="">Cắt Tóc</span>
+                                    </label>
+                                        <label> 
+                                        <input type="checkbox" name="service" class="service" style="display: none;">
+                                        <span class="btn btn-service">Làm Nail</span>
+                                    </label>
+                                        <label> 
+                                        <input type="checkbox" name="service" class="service" style="display: none;">
+                                        <span class="btn btn-service">Duỗi Tóc</span>
+                                    </label>
+                                        <label> 
+                                        <input type="checkbox" name="service" class="service" style="display: none;">
+                                        <span class="btn btn-service">Uốn Tóc</span>
+                                    </label>
+                                        <!--có thể thêm-->
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn" id="btn-search" onclick="searchHowto()" data-dismiss="modal">Tìm Kiếm</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <input id="location-input" type="text" class="form-control " placeholder="Location " data-toggle="modal" data-target="#popup-location">
+                <!-- The Location -->
+                <div class="modal fade" id="popup-location">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <input id="model-input-howto" type="text" class="popup-howto form-control" placeholder="Địa điểm ?">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <div class="service">
+                                    <h5 class="modal-title">Vị trí</h5>
+
+                                    <!--Lấy dữ liệu từ SQL nên hiệu chỉnh sau-->
+                                    <div class="row justify-content-center">
+                                        <select name="calc_shipping_provinces" required="" class="col-sm-4 btn" id="locations-choose">
+                                    <option value="">Tỉnh / Thành phố</option>
+                                  </select>
+                                        <select name="calc_shipping_district" required="" class="col-sm-4 btn" id="locations-choose">
+                                    <option value="">Quận / Huyện</option>
+                                  </select>
+                                        <input class="billing_address_1" name="" type="hidden" value="">
+                                        <input class="billing_address_2" name="" type="hidden" value="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn" id="btn-search" onclick="searchLocation()" data-dismiss="modal">Tìm Kiếm</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="bottom-section">
+        <div class="bottom-section container-fluid">
             <nav class="nav justify-content-lg-center nav-fill">
                 <a class="nav-link" href="#">Hair Salon</a>
                 <a class="nav-link" href="#">Babershop</a>
@@ -93,16 +190,28 @@
             <source src="../source/video/banner.webm" type="video/webm" >
             </video>
         </div>
-        <div id="navhide" class="navbar fixed-top" style="background: #111;" hidden>
+        <div id="navhide" class="navbar fixed-top" style="background: rgb(43, 43, 43);" hidden>
             <div class="container">
                 <a class="navbar-brand" href="./homepage.html">LOGO</a>
                 <div id="form-search-2" class="input-group form-inline justify-content-center">
                     <input id="howto-2" type="text" class="form-control" placeholder="How to design">
                     <input id="location-2" type="text" class="form-control" placeholder="Location">
                 </div>
-                <div class="nav justify-content-end">
+                <div class="nav justify-content-end btn-topnavhide">
                     <a class="btn btn-business" href="../business.html">Đối tác</a>
                     <a class="btn btn-login" href="../login.html">Sign in / Login</a>
+                </div>
+                <div class="dropdown dropleft topnavhide-re">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="bi bi-list"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Trang Chủ</a>
+                        <a class="dropdown-item" href="#">Danh Mục</a>
+                        <a class="dropdown-item" href="#">Khám Phá</a>
+                        <a class="dropdown-item" href="../business.html">Đối tác</a>
+                        <a class="dropdown-item" href="../login.html">Sign in / Login</a>
+                    </div>
                 </div>
             </div>
         </div>
