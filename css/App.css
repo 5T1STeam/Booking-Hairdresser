@@ -1,365 +1,371 @@
-  * {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0px;
-      padding: 0px;
-  }
-  
-  h1 {
-      color: #ff421a;
-      font-size: 30px;
-  }
-  
-  .rating {
-      background-color: black;
-      border: none;
-      position: absolute;
-      top: 0;
-      right: 20px;
-      pointer-events: none;
-      display: inline-flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      align-items: center;
-      border-radius: 0 6px;
-      line-height: 24px;
-      width: 124px;
-      height: 60px;
-  }
-  
-  .ratingPoint {
-      color: white;
-      font-size: 30px;
-      line-height: 34px;
-      display: block;
-  }
-  
-  .reviewCount {
-      color: white;
-      font-size: 14px;
-      line-height: 16px;
-      word-wrap: break-word;
-      white-space: nowrap;
-      width: 100%;
-      text-align: center;
-      display: block;
-  }
-  
-  .checked {
-      color: #ff421a;
-  }
-  
-  .img1 {
-      height: 300px;
-  }
-  
-  .imgs {
-      padding-left: 20px;
-  }
-  
-  .timeWork {
-      width: 100%;
-      display: flex;
-      /* margin: auto; */
-      /* flex-wrap: wrap; */
-  }
-  
-  .sass {
-      text-decoration: none !important;
-  }
-  
-  .day {
-      flex-basis: 50%;
-      text-align: left;
-  }
-  
-  .SSS {
-      text-decoration: none;
-  }
-  
-  .day h3 {
-      font-weight: normal;
-  }
-  
-  .time {
-      flex-basis: 50%;
-      text-align: right;
-  }
-  
-  .time span {
-      font-weight: lighter;
-      margin-bottom: 15px;
-  }
-  
-  .GPS {
-      padding: 5px 16px;
-      bottom: 16px;
-      left: 16px;
-      right: 16px;
-      display: flex;
-      position: absolute;
-      background-color: #ffffff;
-      border: 1px solid #ff421a;
-      border-radius: 7px;
-      overflow: hidden;
-      box-shadow: 0 6px 10px 0 rgb(0, 0, 0/11%);
-  }
-  
-  .avata {
-      margin-right: 16px;
-      margin-right: 3px;
-      flex-basis: 40px;
-      flex-shrink: 0;
-      width: 40px;
-      height: 40px;
-      display: block;
-  }
-  
-  .avataImg {
-      position: relative;
-      display: block;
-  }
-  
-  .day h3 {
-      font-size: 20px !important;
-  }
-  
-  .time span {
-      font-size: 20px !important;
-  }
-  
-  .report a {
-      text-decoration: none;
-  }
-  
-  .shopInfo h1 button {
-      border: none;
-      background-color: #ffffff;
-  }
-  
-  .h1Detail {
-      color: black;
-      font-size: 36px;
-  }
-  
-  .address {
-      font-size: 18px;
-      margin-bottom: 30px;
-  }
-  
-  .service {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
-  }
-  
-  .serviceName h2 {
-      font-size: 20px;
-  }
-  
-  .Popular {
-      margin-bottom: 20px;
-  }
-  
-  .Popular h2 {
-      font-size: 20px;
-  }
-  
-  .Popular h2 button {
-      background-color: #ffffff;
-  }
-  
-  .h2AS button {
-      background-color: #ffffff;
-  }
-  
-  .SN h3 {
-      font-size: 20px;
-  }
-  
-  .Btn {
-      color: #ffffff;
-  }
-  
-  .h2AS {
-      font-size: 20px;
-      margin-bottom: 20px;
-  }
-  
-  .rule {
-      margin-top: 20px;
-  }
-  
-  .rule h2 {
-      font-size: 20px;
-  }
-  /* .serviceName {
+      * {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          margin: 0px;
+          padding: 0px;
+      }
+      
+      h1 {
+          color: #ff421a;
+          font-size: 30px;
+      }
+      
+      .rating {
+          background-color: black;
+          border: none;
+          position: absolute;
+          top: 0;
+          right: 20px;
+          pointer-events: none;
+          display: inline-flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          align-items: center;
+          border-radius: 0 6px;
+          line-height: 24px;
+          width: 124px;
+          height: 60px;
+      }
+      
+      .ratingPoint {
+          color: white;
+          font-size: 30px;
+          line-height: 34px;
+          display: block;
+      }
+      
+      .reviewCount {
+          color: white;
+          font-size: 14px;
+          line-height: 16px;
+          word-wrap: break-word;
+          white-space: nowrap;
+          width: 100%;
+          text-align: center;
+          display: block;
+      }
+      
+      .checked {
+          color: #ff421a;
+      }
+      
+      .img1 {
+          height: 300px;
+      }
+      
+      .imgs {
+          padding-left: 20px;
+      }
+      
+      .timeWork {
+          width: 100%;
+          display: flex;
+          /* margin: auto; */
+          /* flex-wrap: wrap; */
+      }
+      
+      .sass {
+          text-decoration: none !important;
+      }
+      
+      .day {
+          flex-basis: 50%;
+          text-align: left;
+      }
+      
+      .SSS {
+          text-decoration: none;
+      }
+      
+      .day h3 {
+          font-weight: normal;
+      }
+      
+      .time {
+          flex-basis: 50%;
+          text-align: right;
+      }
+      
+      .time span {
+          font-weight: lighter;
+          margin-bottom: 15px;
+      }
+      
+      .GPS {
+          padding: 5px 16px;
+          bottom: 16px;
+          left: 16px;
+          right: 16px;
+          display: flex;
+          position: absolute;
+          background-color: #ffffff;
+          border: 1px solid #ff421a;
+          border-radius: 7px;
+          overflow: hidden;
+          box-shadow: 0 6px 10px 0 rgb(0, 0, 0/11%);
+      }
+      
+      .avata {
+          margin-right: 16px;
+          margin-right: 3px;
+          flex-basis: 40px;
+          flex-shrink: 0;
+          width: 40px;
+          height: 40px;
+          display: block;
+      }
+      
+      .avataImg {
+          position: relative;
+          display: block;
+      }
+      
+      .day h3 {
+          font-size: 20px !important;
+      }
+      
+      .time span {
+          font-size: 20px !important;
+      }
+      
+      .report a {
+          text-decoration: none;
+      }
+      
+      .shopInfo h1 button {
+          border: none;
+          background-color: #ffffff;
+      }
+      
+      .h1Detail {
+          color: black;
+          font-size: 36px;
+      }
+      
+      .address {
+          font-size: 18px;
+          margin-bottom: 30px;
+      }
+      
+      .service {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
+      }
+      
+      .serviceName h2 {
+          font-size: 20px;
+      }
+      
+      .Popular {
+          margin-bottom: 20px;
+      }
+      
+      .Popular h2 {
+          font-size: 20px;
+      }
+      
+      .Popular h2 button {
+          background-color: #ffffff;
+      }
+      
+      .h2AS button {
+          background-color: #ffffff;
+      }
+      
+      .SN h3 {
+          font-size: 20px;
+      }
+      
+      .Btn {
+          color: #ffffff;
+      }
+      
+      .h2AS {
+          font-size: 20px;
+          margin-bottom: 20px;
+      }
+      
+      .rule {
+          margin-top: 20px;
+      }
+      
+      .rule h2 {
+          font-size: 20px;
+      }
+      /* .serviceName {
     flex-basis: 50%;
 } */
-  
-  .searchService {
-      width: 300px;
-      height: 40px;
-      font-size: 18px;
-  }
-  
-  .listService {
-      display: flex;
-  }
-  
-  .call {
-      border: 1px solid #ff421a;
-      background-color: #ffffff;
-      color: black;
-      width: 79px;
-      height: 33px;
-      border-radius: 5px;
-      margin-bottom: 10px;
-  }
-  
-  .intro {
-      font-size: 30px;
-      color: #ff421a;
-  }
-  
-  .Mores {
-      margin-bottom: 20px !important;
-  }
-  
-  .SN {
-      flex-grow: 2;
-  }
-  
-  .price {
-      display: flex;
-      flex-direction: column;
-      display: block;
-  }
-  
-  .priceDetail {
-      display: flex;
-      justify-content: flex-end;
-      margin-left: 12px;
-      flex-wrap: wrap;
-  }
-  
-  .s {
-      white-space: nowrap;
-      display: block;
-      text-align: right;
-  }
-  
-  .so {
-      display: block;
-      text-align: right;
-      color: #a9a9a9;
-  }
-  
-  .Btn {
-      margin-left: 10px;
-      display: inline-block;
-      font-weight: 600;
-      cursor: pointer;
-      text-align: center;
-      user-select: none;
-      box-sizing: border-box;
-      border: none;
-      border-radius: 7px;
-      background-color: #ff421a;
-      width: 60px;
-      height: 40px;
-  }
-  
-  .bs {
-      border: none;
-  }
-  
-  .viewAll {
-      border: 1px solid #ff421a;
-      border-radius: 8px;
-      width: 150px;
-      height: 40px;
-      background-color: #ffffff;
-  }
-  
-  .rule p {
-      margin-bottom: 5px !important;
-  }
-  
-  #Menu {
-      position: fixed;
-      top: -150px;
-      width: 100%;
-      transition: top 0.3s;
-      z-index: 2;
-  }
-  
-  .menus {
-      display: flex;
-      width: 100%;
-      height: 100px;
-      background-color: #ffffff;
-      box-shadow: 1px 1px rgba(46, 28, 28, 0.5);
-  }
-  
-  .infoS {
-      display: flex;
-      flex-direction: column;
-      display: block;
-      margin-top: 10px;
-      margin-left: 20px;
-  }
-  
-  .h1Menu {
-      color: black;
-  }
-  
-  .infoShops {
-      display: flex;
-      justify-content: flex-end;
-      margin-left: 12px;
-      flex-wrap: wrap;
-  }
-  
-  .nameMenu {
-      white-space: nowrap;
-      display: block;
-  }
-  
-  .addressMenu {
-      display: inline-block;
-      text-align: right;
-  }
-  
-  .booknowBtn {
-      flex-grow: 1;
-      text-align: right;
-      margin: 20px 20px;
-  }
-  
-  .menuInfo {
-      margin-top: 10px;
-  }
-  
-  .avata img {
-      width: 80px;
-      height: 80px;
-  }
-  
-  .avata {
-      margin-right: 50px;
-  }
-  
-  .sas {
-      background-color: #ffffff;
-      border: none;
-  }
-  
-  .booknow {
-      width: 335px;
-      height: 51px;
-      text-align: center;
-      background-color: #ff421a;
-      color: #ffffff;
-      border-radius: 10px;
-  }
+      
+      .searchService {
+          width: 300px;
+          height: 40px;
+          font-size: 18px;
+      }
+      
+      .listService {
+          display: flex;
+      }
+      
+      .call {
+          border: 1px solid #ff421a;
+          background-color: #ffffff;
+          color: black;
+          width: 79px;
+          height: 33px;
+          border-radius: 5px;
+          margin-bottom: 10px;
+      }
+      
+      .intro {
+          font-size: 30px;
+          color: #ff421a;
+      }
+      
+      .Mores {
+          margin-bottom: 20px !important;
+      }
+      
+      .SN {
+          flex-grow: 2;
+      }
+      
+      .price {
+          display: flex;
+          flex-direction: column;
+          display: block;
+      }
+      
+      .priceDetail {
+          display: flex;
+          justify-content: flex-end;
+          margin-left: 12px;
+          flex-wrap: wrap;
+      }
+      
+      .s {
+          white-space: nowrap;
+          display: block;
+          text-align: right;
+      }
+      
+      .so {
+          display: block;
+          text-align: right;
+          color: #a9a9a9;
+      }
+      
+      .Btn {
+          margin-left: 10px;
+          display: inline-block;
+          font-weight: 600;
+          cursor: pointer;
+          text-align: center;
+          user-select: none;
+          box-sizing: border-box;
+          border: none;
+          border-radius: 7px;
+          background-color: #ff421a;
+          width: 60px;
+          height: 40px;
+      }
+      
+      .bs {
+          border: none;
+      }
+      
+      .viewAll {
+          border: 1px solid #ff421a;
+          border-radius: 8px;
+          width: 150px;
+          height: 40px;
+          background-color: #ffffff;
+      }
+      
+      .rule p {
+          margin-bottom: 5px !important;
+      }
+      
+      #Menu {
+          position: fixed;
+          top: -150px;
+          width: 100%;
+          transition: top 0.3s;
+          z-index: 2;
+      }
+      
+      .menus {
+          display: flex;
+          width: 100%;
+          height: 100px;
+          background-color: #ffffff;
+          box-shadow: 1px 1px rgba(46, 28, 28, 0.5);
+      }
+      
+      .infoS {
+          display: flex;
+          flex-direction: column;
+          display: block;
+          margin-top: 10px;
+          margin-left: 20px;
+      }
+      
+      .h1Menu {
+          color: black;
+      }
+      
+      .infoShops {
+          display: flex;
+          justify-content: flex-end;
+          margin-left: 12px;
+          flex-wrap: wrap;
+      }
+      
+      .nameMenu {
+          white-space: nowrap;
+          display: block;
+      }
+      
+      .addressMenu {
+          display: inline-block;
+          text-align: right;
+      }
+      
+      .booknowBtn {
+          flex-grow: 1;
+          text-align: right;
+          margin: 20px 20px;
+      }
+      
+      .menuInfo {
+          margin-top: 10px;
+      }
+      
+      .avata img {
+          width: 80px;
+          height: 80px;
+      }
+      
+      .avata {
+          margin-right: 50px;
+      }
+      
+      .sas {
+          background-color: #ffffff;
+          border: none;
+      }
+      
+      .booknow {
+          width: 335px;
+          height: 51px;
+          text-align: center;
+          background-color: #ff421a;
+          color: #ffffff;
+          border-radius: 10px;
+      }
+      
+      @media screen and (max-width: 991px) {
+          #Menu {
+              display: none;
+          }
+      }
