@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hr {
+    height: 1px;
+    width: 80%;
+    background-color: #adb5bd;
+}
+
+.btn-book {
+    background-color: #FF421A;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #fff;
+    border: none;
+}
+
+.nameShopList {
+    font-size: 30px;
+}
+
+.hr1 {
+    height: 1px;
+    background-color: #adb5bd;
+    margin: 25px;
+    width: 100%;
+}
+
+.infoListz {
+    margin-top: 25px;
+}
+
+.btn-outline-secondary {
+    border: 3px solid !important;
+    width: 100%;
+    border-color: #ff421a !important;
+    border-radius: 15px !important;
+    margin-bottom: 15px;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #ff421a;
+}
+
+@media screen and (max-width: 700px) {
+    .btn-outline {
+        margin-bottom: 30px;
+    }
+}
