@@ -6,6 +6,7 @@ header {
     color: #ffffff !important;
     width: 100%;
     height: 50%;
+    margin-bottom: 50%;
 }
 
 .btn-login {
@@ -328,9 +329,6 @@ footer .container .noi-dung.about p {
     .contact {
         width: 100%;
     }
-    #form-search-2 {
-        display: none;
-    }
 }
 
 @media screen and (max-width: 870px) {
@@ -355,6 +353,12 @@ footer .container .noi-dung.about p {
     .topnavre {
         display: block;
     }
+    .btn-topnavhide {
+        display: none;
+    }
+    #form-search-2 {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 670px) {
@@ -364,23 +368,8 @@ footer .container .noi-dung.about p {
 }
 
 @media screen and (max-width:375px) {
-    .btn-topnavhide {
-        display: none;
-    }
-    .topnavhide-re {
-        display: block;
-    }
     .video-container {
         height: 10%;
-    }
-}
-
-@media screen and (min-width:375px) {
-    .btn-topnavhide {
-        display: block;
-    }
-    .topnavhide-re {
-        display: none;
     }
 }
 
@@ -395,4 +384,17 @@ footer .container .noi-dung.about p {
 
 .dropdown-item:hover {
     background: #FF421A;
+}
+
+.input-search {
+    background: rgba(247, 247, 247, 0.5);
+    border: none;
+    border-radius: 20px;
+    height: 35px;
+    margin: 0 20px;
+    text-align: center;
+}
+
+.input-search:active {
+    border: none;
 }
