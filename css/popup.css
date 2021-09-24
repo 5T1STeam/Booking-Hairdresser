@@ -41,6 +41,10 @@ body {
     font-size: 14px;
 }
 
+.service {
+    display: block;
+}
+
 .btn-service {
     border-radius: 50px;
     margin: 0 5px;
