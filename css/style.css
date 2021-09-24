@@ -1,115 +1,121 @@
-body{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
-  color: #ff421a !important;
-  font-size: 30px !important;
+    color: #ff421a !important;
+    font-size: 30px !important;
 }
 
-.watchmore{
-  color: #ff421a;
-  font-size: 20px;
-  cursor: pointer;
+.watchmore {
+    color: #ff421a;
+    font-size: 20px;
+    cursor: pointer;
 }
 
-.watchmore:hover{
-  color: #ffa492;
+.watchmore:hover {
+    color: #ffa492;
 }
 
-.heading1:hover{
+.heading1:hover {
     color: #fc9f8d;
 }
 
-.promotionimg{
-  opacity: 0.8;
-  max-width: 100%;
-  position: relative !important;
-  top: -20%;
-  cursor: pointer;
-  border-radius: 10px;
+.promotionimg {
+    opacity: 0.8;
+    max-width: 100%;
+    position: relative !important;
+    top: -20%;
+    cursor: pointer;
+    border-radius: 10px;
 }
-.promotionimg:hover{
+
+.promotionimg:hover {
     opacity: 1;
-    border: 1px solid ;
+    border: 1px solid;
     border-color: #ff421a;
 }
 
 .promotionText {
-  color: #ffffff;
-  font-weight: bold;
-  position: relative !important;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  cursor: pointer;
+    color: #ffffff;
+    font-weight: bold;
+    position: relative !important;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    cursor: pointer;
 }
 
 .promotionText:hover {
-  color: #ff421a;
+    color: #ff421a;
 }
 
 .btn-full {
-  background-color: #ff421a !important;
-  color: #fff !important;
-  border-radius: 10px !important;
-  width: max-content;
+    background-color: #ff421a !important;
+    color: #fff !important;
+    border-radius: 10px !important;
+    width: max-content;
 }
 
 .btn-full:hover {
-  background-color: #fd826a !important;
+    background-color: #fd826a !important;
 }
 
 .btn-outline {
-  border-radius: 10px !important;
-  border-color: #ff421a !important;
-  color: #ff421a !important;
+    border-radius: 10px !important;
+    border: 2px solid #ff421a !important;
+    color: #ff421a !important;
+    width: max-content;
+    width: 180px;
+    margin-left: 30px;
 }
 
 .btn-outline:hover {
-  background-color: #ff421a;
-  color: #ffffff !important;
-  border-color: #ff421a;
+    background-color: #ff421a;
+    color: #ffffff !important;
+    border-color: #ff421a;
 }
-.wrapper{
+
+.wrapper {
     margin: 10px 0px;
 }
 
-.inspiredbg{
+.inspiredbg {
     background-color: rgb(235, 231, 231);
     border-radius: 10px;
     margin: 0px 10%;
     height: 450px;
 }
 
-.card-img-top{
-  width: 50% !important;
-  align-self: center;
-  margin: 10px 0px;
+.card-img-top {
+    width: 50% !important;
+    align-self: center;
+    margin: 10px 0px;
 }
 
-.carouselinspired{
-  position: relative;
-  top: -300px;
+.carouselinspired {
+    position: relative;
+    top: -300px;
 }
 
-.card{
-  width: 90%;
-  border-radius: 15px !important;
-  box-shadow: 3px 3px #9c9c9c;
-  cursor: pointer;
-  align-self: center;
+.card {
+    width: 90%;
+    border-radius: 15px !important;
+    box-shadow: 3px 3px #9c9c9c;
+    cursor: pointer;
+    align-self: center;
 }
 
-.card:hover{
-  width: 100%;
+.card:hover {
+    width: 100%;
 }
 
-.btn-outline-secondary{
-  border: 3px solid !important;
-  width: 100%;
-  border-color: gray !important;
+.btn-outline-secondary {
+    border: 3px solid !important;
+    width: 100%;
+    border-color: gray !important;
+    border-radius: 15px !important;
 }
