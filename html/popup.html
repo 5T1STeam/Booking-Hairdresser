@@ -5,7 +5,7 @@
     <title>PopUp</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -37,14 +37,14 @@
                     <div class="modal-content">
 
                         <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h6 class="modal-title" style="color: #797979;">Bộ lọc</h6>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <div class="modal-header" style="background: #222222; color: #ffffff;">
+                            <h6 class="modal-title">Bộ lọc</h6>
+                            <button type="button" class="close" data-dismiss="modal" style="color:#ffffff">&times;</button>
                         </div>
 
                         <!-- Modal body -->
                         <div class="modal-body">
-                            <div class="service">
+                            <div class="service container">
                                 <h5 class="modal-title">DỊCH VỤ</h5>
                                 <br>
                                 <!--Lấy dữ liệu từ SQL nên hiệu chỉnh sau-->
@@ -102,16 +102,15 @@
             <button id="btn-popup-sort" type="button" class="btn" data-toggle="modal" data-target="#popup-sort">
               Sort
             </button>
-
             <!-- The Modal -->
             <div class="modal fade" id="popup-sort">
                 <div class="modal-dialog modal-sm ">
                     <div class="modal-content">
 
                         <!-- Modal Header -->
-                        <div class="modal-header">
+                        <div class="modal-header" style="background: #222222; color: #ffffff;">
                             <h5 class="modal-title">Sắp xếp kết quả theo</h5>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <button type="button" class="close" data-dismiss="modal" style="color: #fff;">&times;</button>
                         </div>
 
                         <!-- Modal body -->
@@ -137,7 +136,6 @@
             </div>
         </div>
 
-
         <!-- Popup Book -->
         <div title="popup-book">
             <!-- Button to Open the Modal -->
@@ -151,9 +149,9 @@
                     <div class="modal-content">
 
                         <!-- Modal Header -->
-                        <div class="modal-header">
+                        <div class="modal-header" style="background: #222222; color: #ffffff;">
                             <h4 class="modal-title">Đặt lịch</h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <button type="button" class="close" data-dismiss="modal" style="color:#fff;">&times;</button>
                         </div>
 
                         <!-- Modal body -->
@@ -219,6 +217,184 @@
                 </div>
             </div>
         </div>
+
+        <!-- Popup Book Shop -->
+        <div title="popup-book-shop">
+            <button id="btn-popup-bookshop" type="button" class="btn" data-toggle="modal" data-target="#popup-book-shop">
+          Booking Now
+        </button>
+
+            <!-- Popup bookshop -->
+            <div class="modal fade" id="popup-book-shop">
+                <div class="modal-dialog modal-lg ">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header" style="background: #222222; color: #fff;">
+                            <h6 class="modal-title">Chọn Dịch Vụ</h6>
+                            <button type="button" class="close" data-dismiss="modal" style="color: white;">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <div class="service">
+                                <!--Lấy dữ liệu từ SQL nên hiệu chỉnh sau-->
+                                <div class="group-inforshop row container justify-content-between">
+                                    <div class="col-8" style="font-weight: lighter;">
+                                        <h4>Tuấn Babershop</h4>
+                                        <p>43 Lũy Bán Bích, p. Tân Thới Hòa, Tân Phú, TP.HCM</p>
+                                    </div>
+                                    <div class="col-2" style="text-align:center;">
+                                        <div class="row justify-content-center" name="star">
+                                            <i class="bi bi-star-fill" style="color: #ff421a;"></i>
+                                            <i class="bi bi-star-fill" style="color: #ff421a;"></i>
+                                            <i class="bi bi-star-fill" style="color: #ff421a;"></i>
+                                            <i class="bi bi-star-fill" style="color: #ff421a;"></i>
+                                            <i class="bi bi-star-half" style="color: #ff421a;"></i>
+                                        </div>
+                                        <p style="font-size: 12px; font-weight: italic;">120 đánh giá</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="group-service">
+                                    <div class="row justify-content-between container">
+                                        <div class="col-6">
+                                            <h5 name="service-name">Cắt tóc</h5>
+                                        </div>
+                                        <div class="col-4" style="text-align:right;">
+                                            <p>100.000 VNĐ</p>
+                                            <p style="margin-top:-15px; font-size: 12px; font-weight: lighter">30 phút</p>
+                                        </div>
+                                        <div class="col-2" style="text-align:right;">
+                                            <button type="button" class="btn" id="btn-search" onclick="booking()" data-dismiss="modal">Booking</button>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row justify-content-between container">
+                                        <div class="col-6">
+                                            <h5 name="service-name">Cắt tóc - Cạo râu</h5>
+                                        </div>
+                                        <div class="col-4" style="text-align:right;">
+                                            <p>130.000 VNĐ</p>
+                                            <p style="margin-top:-15px; font-size: 12px; font-weight: lighter">40 phút</p>
+                                        </div>
+                                        <div class="col-2" style="text-align:right;">
+                                            <button type="button" class="btn" id="btn-search" onclick="booking()" data-dismiss="modal">Booking</button>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row justify-content-between container">
+                                        <div class="col-6">
+                                            <h5 name="service-name">Massage</h5>
+                                        </div>
+                                        <div class="col-4" style="text-align:right;">
+                                            <p>80.000 VNĐ</p>
+                                            <p style="margin-top:-15px; font-size: 12px; font-weight: lighter">30 phút</p>
+                                        </div>
+                                        <div class="col-2" style="text-align:right;">
+                                            <button type="button" class="btn" id="btn-search" onclick="booking()" data-dismiss="modal">Booking</button>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row justify-content-between container">
+                                        <div class="col-6">
+                                            <h5 name="service-name">Nhuộm tóc</h5>
+                                        </div>
+                                        <div class="col-4" style="text-align:right;">
+                                            <p>300.000 VNĐ</p>
+                                            <p style="margin-top:-15px; font-size: 12px; font-weight: lighter">60 phút</p>
+                                        </div>
+                                        <div class="col-2" style="text-align:right;">
+                                            <button type="button" class="btn" id="btn-search" onclick="booking()" data-dismiss="modal">Booking</button>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Popup Reports -->
+        <div title="popup-report">
+            <!-- Button trigger modal -->
+            <button id="btn-popup-report" type="button" class="btn" data-toggle="modal" data-target="#popup-report">
+                Reports
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="popup-report" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body" style="text-align: center;">
+                            <h5>Báo cáo hình ảnh hoặc nội dung</h5>
+                            <hr/>
+                        </div>
+                        <div class="modal-body" style="margin:-30px 70px 0; text-align:left;">
+                            <label class="radio-report">
+                                <input type="radio" name="radio-report">
+                                <span class="radio-report-fix"></span>
+                                <span>Nội dung phản cảm</span>
+                            </label>
+                            <hr>
+                            <label class="radio-report">
+                                <input type="radio" name="radio-report">
+                                <span class="radio-report-fix"></span>
+                                <span>Nội dung quá bạo lực</span>
+                            </label>
+                            <hr>
+                            <label class="radio-report">
+                                <input type="radio" name="radio-report">
+                                <span class="radio-report-fix"></span>
+                                <span>Chứa nội dung gây hấn</span>
+                            </label>
+                            <hr>
+                            <label class="radio-report">
+                                <input type="radio" name="radio-report">
+                                <span class="radio-report-fix"></span>
+                                <span>Cổ xúy hành động nguy hiểm</span>
+                            </label>
+                            <hr>
+                            <label class="radio-report">
+                                <input type="radio" name="radio-report">
+                                <span class="radio-report-fix"></span>
+                                <span>Ngược đãi trẻ em</span>
+                            </label>
+                            <hr>
+                            <label class="radio-report">
+                                <input type="radio" name="radio-report">
+                                <span class="radio-report-fix"></span>
+                                <span>Xâm hại quyền riêng tư của tôi</span>
+                            </label>
+                            <hr>
+                            <label class="radio-report">
+                                <input type="radio" name="radio-report">
+                                <span class="radio-report-fix"></span>
+                                <span>Phân biệt chúng tộc</span>
+                            </label>
+                            <hr>
+                            <label class="radio-report">
+                                <input type="radio" name="radio-report">
+                                <span class="radio-report-fix"></span>
+                                <span>Spam</span>
+                            </label>
+
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-cancel" data-dismiss="modal">Hủy</button>
+                            <button type="button" class="btn" id="btn-report">Báo Cáo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
     </div>
     <script src="../js/popup.js"></script>
 </body>
