@@ -53,6 +53,90 @@
 
 <body>
     <header id="header">
+        <!-- The Service -->
+        <div class="modal fade" id="popup-howto">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <input id="model-input-howto" type="text" class="popup-howto form-control" placeholder="Bạn tìm dịch vụ gì?">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="service">
+                            <h5 class="modal-title">Dịch vụ phổ biến</h5>
+                            <br>
+                            <!--Lấy dữ liệu từ SQL nên hiệu chỉnh sau-->
+                            <div class="group-service">
+                                <label> 
+                                <input type="checkbox"  name="service" class="service"  style="display: none;">
+                                <span class="btn btn-service" for="">Cắt Tóc</span>
+                            </label>
+                                <label> 
+                                <input type="checkbox" name="service" class="service" style="display: none;">
+                                <span class="btn btn-service">Làm Nail</span>
+                            </label>
+                                <label> 
+                                <input type="checkbox" name="service" class="service" style="display: none;">
+                                <span class="btn btn-service">Duỗi Tóc</span>
+                            </label>
+                                <label> 
+                                <input type="checkbox" name="service" class="service" style="display: none;">
+                                <span class="btn btn-service">Uốn Tóc</span>
+                            </label>
+                                <!--có thể thêm-->
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn" id="btn-search" onclick="searchHowto()" data-dismiss="modal">Tìm Kiếm</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- The Location -->
+        <div class="modal fade" id="popup-location">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <input id="model-input-howto" type="text" class="popup-howto form-control" placeholder="Địa điểm ?">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="service">
+                            <h5 class="modal-title">Vị trí</h5>
+
+                            <!--Lấy dữ liệu từ SQL nên hiệu chỉnh sau-->
+                            <div class="row justify-content-center">
+                                <select name="calc_shipping_provinces" required="" class="col-sm-4 btn" id="locations-choose">
+                            <option value="">Tỉnh / Thành phố</option>
+                          </select>
+                                <select name="calc_shipping_district" required="" class="col-sm-4 btn" id="locations-choose">
+                            <option value="">Quận / Huyện</option>
+                          </select>
+                                <input class="billing_address_1" name="" type="hidden" value="">
+                                <input class="billing_address_2" name="" type="hidden" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn" id="btn-search" onclick="searchLocation()" data-dismiss="modal">Tìm Kiếm</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
         <div style="min-height: auto;">
             <div class="container">
                 <nav class="navbar">
@@ -64,20 +148,93 @@
                         <a class="nav-link" href="../">Khám Phá</a>
                         <a class="btn btn-business" href="../business.html">Đối tác</a>
                         <a class="btn btn-login" href="../login.html">Sign in / Login</a>
+
                     </div>
-                    <div class="dropdown dropleft topnavre">
-                        <a class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="bi bi-list"></i>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Trang Chủ</a>
-                            <a class="dropdown-item" href="#">Danh Mục</a>
-                            <a class="dropdown-item" href="#">Khám Phá</a>
-                            <a class="dropdown-item" href="../business.html">Đối tác</a>
-                            <a class="dropdown-item" href="../login.html">Sign in / Login</a>
-                            <input class="input-search" type="text" name="search" placeholder="Bạn cần tìm gì ?" />
+                    <label for="nav-check" class="nav-mobile-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" class="bi bi-list" viewBox="0 0 15 15">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                          </svg>                      
+                    </label>
+                    <input type="checkbox" name="" id="nav-check">
+                    <label for="nav-check" class="nav-overlay"></label>
+                    <div class="nav-mobile">
+                        <label for="nav-check" class="nav-close"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                            <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                          </svg>
+                        </label>
+                        <span class="avatar"> <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 18 18">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+                          Profile  ứ ừ ư 
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+                            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+                          </svg>
+                          </span>
+                        <input id="mbsearch" type="text" class="form-control" placeholder="Bạn đang tìm kiếm gì ?" data-toggle="modal" data-target="#popup-howto">
+                        <div class="modal fade" id="popup-howto">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <input id="model-input-howto" type="text" class="popup-howto form-control" placeholder="Bạn tìm dịch vụ gì?">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <div class="service">
+                                            <h5 class="modal-title">Dịch vụ phổ biến</h5>
+                                            <br>
+                                            <!--Lấy dữ liệu từ SQL nên hiệu chỉnh sau-->
+                                            <div class="group-service">
+                                                <label> 
+                                                  <input type="checkbox"  name="service" class="service"  style="display: none;">
+                                                  <span class="btn btn-service" for="">Cắt Tóc</span>
+                                              </label>
+                                                <label> 
+                                                  <input type="checkbox" name="service" class="service" style="display: none;">
+                                                  <span class="btn btn-service">Làm Nail</span>
+                                              </label>
+                                                <label> 
+                                                  <input type="checkbox" name="service" class="service" style="display: none;">
+                                                  <span class="btn btn-service">Duỗi Tóc</span>
+                                              </label>
+                                                <label> 
+                                                  <input type="checkbox" name="service" class="service" style="display: none;">
+                                                  <span class="btn btn-service">Uốn Tóc</span>
+                                              </label>
+                                                <!--có thể thêm-->
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn" id="btn-search" onclick="searchHowto()" data-dismiss="modal">Tìm Kiếm</button>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
+                        <div class="nav-list px-2">
+                            <a class="nav-mblink nav-link" href="#">Hair Salon</a>
+                            <a class="nav-mblink nav-link" href="#">Babershop</a>
+                            <a class="nav-mblink nav-link" href="#">Nail Salon</a>
+                            <a class="nav-mblink nav-link" href="#">Beauty Salon</a>
+                            <a class="nav-mblink nav-link" href="#">Massage</a>
+                            <a class="nav-mblink nav-link" href="#">Makeup Arist</a>
+                            <a class="nav-mblink nav-link" href="#">Day Spa</a>
+                        </div>
+                        <div class="logout px-2">
+                            <a class="nav-mblink nav-link " href="#">Đối tác</a>
+                            <a class="nav-mblink nav-link " href="#">Đăng xuất</a>
+                        </div>
+
                     </div>
+
+
                 </nav>
             </div>
         </div>
@@ -87,92 +244,10 @@
 
             <div id="form-search" class="input-group">
                 <input id="howto-input" type="text" class=" form-control " placeholder=" Bạn muốn tìm kiếm gì?" data-toggle="modal" data-target="#popup-howto">
-                <!-- The Service -->
-                <div class="modal fade" id="popup-howto">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <input id="model-input-howto" type="text" class="popup-howto form-control" placeholder="Bạn tìm dịch vụ gì?">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
 
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                <div class="service">
-                                    <h5 class="modal-title">Dịch vụ phổ biến</h5>
-                                    <br>
-                                    <!--Lấy dữ liệu từ SQL nên hiệu chỉnh sau-->
-                                    <div class="group-service">
-                                        <label> 
-                                        <input type="checkbox"  name="service" class="service"  style="display: none;">
-                                        <span class="btn btn-service" for="">Cắt Tóc</span>
-                                    </label>
-                                        <label> 
-                                        <input type="checkbox" name="service" class="service" style="display: none;">
-                                        <span class="btn btn-service">Làm Nail</span>
-                                    </label>
-                                        <label> 
-                                        <input type="checkbox" name="service" class="service" style="display: none;">
-                                        <span class="btn btn-service">Duỗi Tóc</span>
-                                    </label>
-                                        <label> 
-                                        <input type="checkbox" name="service" class="service" style="display: none;">
-                                        <span class="btn btn-service">Uốn Tóc</span>
-                                    </label>
-                                        <!--có thể thêm-->
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn" id="btn-search" onclick="searchHowto()" data-dismiss="modal">Tìm Kiếm</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
 
                 <input id="location-input" type="text" class="form-control " placeholder="Địa điểm " data-toggle="modal" data-target="#popup-location">
-                <!-- The Location -->
-                <div class="modal fade" id="popup-location">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <input id="model-input-howto" type="text" class="popup-howto form-control" placeholder="Địa điểm ?">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
 
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                <div class="service">
-                                    <h5 class="modal-title">Vị trí</h5>
-
-                                    <!--Lấy dữ liệu từ SQL nên hiệu chỉnh sau-->
-                                    <div class="row justify-content-center">
-                                        <select name="calc_shipping_provinces" required="" class="col-sm-4 btn" id="locations-choose">
-                                    <option value="">Tỉnh / Thành phố</option>
-                                  </select>
-                                        <select name="calc_shipping_district" required="" class="col-sm-4 btn" id="locations-choose">
-                                    <option value="">Quận / Huyện</option>
-                                  </select>
-                                        <input class="billing_address_1" name="" type="hidden" value="">
-                                        <input class="billing_address_2" name="" type="hidden" value="">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn" id="btn-search" onclick="searchLocation()" data-dismiss="modal">Tìm Kiếm</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -213,20 +288,13 @@
                 <div class="nav justify-content-end btn-topnavhide">
                     <a class="btn btn-business" href="../business.html">Đối tác</a>
                     <a class="btn btn-login" href="../login.html">Sign in / Login</a>
+                    <label for="nav-check" class="nav-mobile-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" class="bi bi-list" viewBox="0 0 15 15">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                          </svg>                      
+                    </label>
                 </div>
-                <div class="dropdown dropleft topnavre">
-                    <a class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="bi bi-list"></i>
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Trang Chủ</a>
-                        <a class="dropdown-item" href="#">Danh Mục</a>
-                        <a class="dropdown-item" href="#">Khám Phá</a>
-                        <a class="dropdown-item" href="../business.html">Đối tác</a>
-                        <a class="dropdown-item" href="../login.html">Sign in / Login</a>
-                        <input class="input-search" type="text" name="search" placeholder="Bạn cần tìm gì ?" />
-                    </div>
-                </div>
+
             </div>
         </div>
     </header>

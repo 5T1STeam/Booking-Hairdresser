@@ -6,7 +6,6 @@ header {
     color: #ffffff !important;
     width: 100%;
     height: 50%;
-    margin-bottom: 34%;
 }
 
 .btn-login {
@@ -340,7 +339,7 @@ footer .container .noi-dung.about p {
     }
 }
 
-@media screen and (max-width:670px) {
+@media screen and (max-width:800px) {
     .section-form {
         display: none;
     }
@@ -350,19 +349,7 @@ footer .container .noi-dung.about p {
     .topnav {
         display: none;
     }
-    .topnavre {
-        display: block;
-    }
-    .btn-topnavhide {
-        display: none;
-    }
     #form-search-2 {
-        display: none;
-    }
-}
-
-@media screen and (min-width: 670px) {
-    .topnavre {
         display: none;
     }
 }
@@ -371,19 +358,6 @@ footer .container .noi-dung.about p {
     .video-container {
         height: 10%;
     }
-}
-
-.dropdown-menu {
-    background: rgb(56, 56, 56, 0.5);
-    border: none;
-}
-
-.dropdown-item {
-    color: #fff;
-}
-
-.dropdown-item:hover {
-    background: #FF421A;
 }
 
 .input-search {
@@ -409,5 +383,17 @@ footer .container .noi-dung.about p {
     }
     .btn-location {
         margin-left: 20px;
+    }
+}
+
+@media screen and (max-width:1024) {
+    header {
+        margin-bottom: 30%;
+    }
+}
+
+@media screen and (max-width:1920px) {
+    header {
+        margin-bottom: 34%;
     }
 }
