@@ -22,8 +22,8 @@ header {
 
 .btn-business {
     border-radius: 50px;
-    border-color: #FF421A;
-    color: #FF421A;
+    border: 2px solid #FF421A;
+    color: #fff;
 }
 
 .btn-business:hover {
@@ -397,4 +397,17 @@ footer .container .noi-dung.about p {
 
 .input-search:active {
     border: none;
+}
+
+.categoriz {
+    margin-right: 43px;
+}
+
+@media screen and (max-width: 700px) {
+    .zxcz {
+        text-align: center;
+    }
+    .btn-location {
+        margin-left: 20px;
+    }
 }

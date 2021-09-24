@@ -117,3 +117,9 @@ h1 {
 .btn-outline-secondary:hover {
     background-color: #ff421a;
 }
+
+@media screen and (max-width: 700px) {
+    .btn-outline {
+        margin-bottom: 30px;
+    }
+}
