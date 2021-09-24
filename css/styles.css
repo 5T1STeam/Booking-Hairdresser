@@ -21,8 +21,8 @@ header {
 
 .btn-business {
     border-radius: 50px;
-    border-color: #FF421A;
-    color: #FF421A;
+    border: 2px solid #FF421A;
+    color: #fff;
 }
 
 .btn-business:hover {
@@ -42,12 +42,30 @@ header {
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
     margin: 0;
+    box-shadow: none;
+}
+
+#howto-input:hover {
+    border-color: #FF421A;
+}
+
+#howto-input:focus {
+    border-color: #FF421A;
 }
 
 #location-input {
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     margin: 0;
+    box-shadow: none;
+}
+
+#location-input:hover {
+    border-color: #FF421A;
+}
+
+#location-input:focus {
+    border-color: #FF421A;
 }
 
 .nav-link {
@@ -56,14 +74,12 @@ header {
 
 .nav-link:hover {
     color: #FF421A;
-    border-bottom: 2px solid #FF421A;
+    box-shadow: 0px 2px 0px 0px #FF420C;
 }
 
 .bottom-section {
     position: absolute;
     bottom: 30%;
-    left: 10%;
-    right: 10%;
 }
 
 .video-container {
@@ -292,7 +308,7 @@ footer .container .noi-dung.about p {
     text-decoration: none;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     footer {
         padding: 40px;
     }
@@ -308,5 +324,73 @@ footer .container .noi-dung.about p {
     .links,
     .contact {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 870px) {
+    .bottom-section {
+        display: none;
+    }
+    .video-container {
+        height: 50%;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .section-form {
+        display: none;
+    }
+    .video-container {
+        height: 20%;
+    }
+    .topnav {
+        display: none;
+    }
+    #form-search-2 {
+        display: none;
+    }
+}
+
+@media screen and (max-width:375px) {
+    .video-container {
+        height: 10%;
+    }
+}
+
+.input-search {
+    background: rgba(247, 247, 247, 0.5);
+    border: none;
+    border-radius: 20px;
+    height: 35px;
+    margin: 0 20px;
+    text-align: center;
+}
+
+.input-search:active {
+    border: none;
+}
+
+.categoriz {
+    margin-right: 43px;
+}
+
+@media screen and (max-width: 700px) {
+    .zxcz {
+        text-align: center;
+    }
+    .btn-location {
+        margin-left: 20px;
+    }
+}
+
+@media screen and (max-width:1024) {
+    header {
+        margin-bottom: 30%;
+    }
+}
+
+@media screen and (max-width:1920px) {
+    header {
+        margin-bottom: 34%;
     }
 }
