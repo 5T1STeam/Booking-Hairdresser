@@ -182,7 +182,7 @@ h1 {
 }
 
 .rating {
-    background-color: black;
+    background-color: rgba(17, 17, 17, 0.705);
     border: none;
     position: absolute;
     top: 0;
@@ -751,4 +751,16 @@ a:link {
 
 .location {
     font-size: 12px;
+}
+
+.linkShoptoDetail {
+    color: black;
+}
+
+.linkShoptoDetail:hover {
+    color: black;
+}
+
+.SZ:hover {
+    color: #FF421A;
 }
