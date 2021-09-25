@@ -6,7 +6,6 @@ body {
     background-color: #FF421A;
     color: #fff;
     border-radius: 50px;
-    margin: 0 10px;
     font-size: 14px;
     font-weight: bold;
 }
@@ -23,7 +22,7 @@ body {
     background-color: #FF421A;
     color: #fff;
     border-radius: 50px;
-    margin: 0 10px;
+    margin-left: 10px;
     font-size: 14px;
     font-weight: bold;
 }

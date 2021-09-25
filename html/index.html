@@ -140,13 +140,13 @@
         <div style="min-height: auto;">
             <div class="container">
                 <nav class="navbar">
-                    <img class="navbar-brand" src="../source/icon/logo.png" style="width:60px; float:left;">
+                    <a href="../html/index.html"><img class="navbar-brand" src="../source/icon/logo.png" style="width:60px; float:left;"></a>
 
                     <div class="nav justify-content-end topnav">
                         <a class="nav-link" href="../html/index.html">Trang Chủ</a>
                         <a class="nav-link" href="../html/listservice.html">Danh Mục</a>
                         <a class="nav-link" href="#">Khám Phá</a>
-                        <a class="btn btn-business" href="#">Đối tác</a>
+                        <a class="btn btn-business" onclick="clickBtndoitac()">Đối tác</a>
                         <a class="btn btn-login" href="../html/login.html">Sign in / Login</a>
 
                     </div>
@@ -220,16 +220,16 @@
                             </div>
                         </div>
                         <div class="nav-list px-2">
-                            <a class="nav-mblink nav-link" href="#">Hair Salon</a>
-                            <a class="nav-mblink nav-link" href="#">Babershop</a>
-                            <a class="nav-mblink nav-link" href="#">Nail Salon</a>
-                            <a class="nav-mblink nav-link" href="#">Beauty Salon</a>
-                            <a class="nav-mblink nav-link" href="#">Massage</a>
-                            <a class="nav-mblink nav-link" href="#">Makeup Arist</a>
-                            <a class="nav-mblink nav-link" href="#">Day Spa</a>
+                            <a class="nav-mblink nav-link" href="../html/listservice.html">Hair Salon</a>
+                            <a class="nav-mblink nav-link" href="../html/listservice.html">Babershop</a>
+                            <a class="nav-mblink nav-link" href="../html/listservice.html">Nail Salon</a>
+                            <a class="nav-mblink nav-link" href="../html/listservice.html">Beauty Salon</a>
+                            <a class="nav-mblink nav-link" href="../html/listservice.html">Massage</a>
+                            <a class="nav-mblink nav-link" href="../html/listservice.html">Makeup Arist</a>
+                            <a class="nav-mblink nav-link" href="../html/listservice.html">Day Spa</a>
                         </div>
                         <div class="logout px-2">
-                            <a class="nav-mblink nav-link " href="#">Đối tác</a>
+                            <a class="nav-mblink nav-link " onclick="clickBtndoitac()">Đối tác</a>
                             <a class="nav-mblink nav-link " href="#">Đăng xuất</a>
                         </div>
 
@@ -254,13 +254,13 @@
 
         <div class="bottom-section container-fluid">
             <nav class="nav justify-content-lg-center">
-                <a class="nav-link categoriz" href="#">Hair Salon</a>
-                <a class="nav-link categoriz" href="#">Babershop</a>
-                <a class="nav-link categoriz" href="#">Nail Salon</a>
-                <a class="nav-link categoriz" href="#">Beauty Salon</a>
-                <a class="nav-link categoriz" href="#">Massage</a>
-                <a class="nav-link categoriz" href="#">Makeup Arist</a>
-                <a class="nav-link categoriz" href="#">Day Spa</a>
+                <a class="nav-link categoriz" href="../html/listservice.html">Hair Salon</a>
+                <a class="nav-link categoriz" href="../html/listservice.html">Babershop</a>
+                <a class="nav-link categoriz" href="../html/listservice.html">Nail Salon</a>
+                <a class="nav-link categoriz" href="../html/listservice.html">Beauty Salon</a>
+                <a class="nav-link categoriz" href="../html/listservice.html">Massage</a>
+                <a class="nav-link categoriz" href="../html/listservice.html">Makeup Arist</a>
+                <a class="nav-link categoriz" href="../html/listservice.html">Day Spa</a>
                 <div class="dropdown">
                     <a class="dropdown-toggle nav-link" id="ddMenu" data-toggle="dropdown">
                         More
@@ -280,14 +280,15 @@
         </div>
         <div id="navhide" class="navbar fixed-top" style="background: #111;" hidden>
             <div class="container">
-                <img class="navbar-brand" src="../source/icon/logo.png" style="width:60px; float:left;"></img>
+                <a href="../html/index.html"> <img class="navbar-brand" src="../source/icon/logo.png" style="width:60px; float:left;"></img>
+                </a>
                 <div id="form-search-2" class="input-group form-inline justify-content-center">
                     <input id="howto-2" type="text" class="form-control" placeholder="Bạn muốn tìm kiếm gì?" data-toggle="modal" data-target="#popup-howto" style="background-color: #fff;">
 
                     <input id="location-2" type="text" class="form-control" placeholder="Địa điểm" data-toggle="modal" data-target="#popup-location" style="background-color: #fff;">
                 </div>
                 <div class="nav justify-content-end btn-topnavhide">
-                    <a class="btn btn-business" href="#">Đối tác</a>
+                    <a class="btn btn-business" onclick="clickBtndoitac()">Đối tác</a>
                     <a class="btn btn-login" href="../html/login.html">Sign in / Login</a>
                     <label for="nav-check" class="nav-mobile-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" class="bi bi-list" viewBox="0 0 15 15">
@@ -304,150 +305,166 @@
             <h1 class="h1Re">Đề xuất cho bạn</h1>
             <div class="owl-carousel owl-theme" id="carousel1">
                 <div class="ml-2 mr-2">
-                    <div class="card">
-                        <img src="../source/img/8.jpg" alt="" class="card-img-top">
-                        <div class="card-body text-left">
-                            <h5 class="card-title text-left">TuanBarber</h5>
-                            <h5 class="text-left ratezx ">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <div class="Getreview d-inline">(293)</div>
-                            </h5>
-                            <div class="location">
-                                34 Lũy Bán Bích,Tân Phú,TP HCM
+                    <a class="linkShoptoDetail" href="../html/detailShop.html">
+                        <div class="card">
+                            <img src="../source/img/8.jpg" alt="" class="card-img-top">
+                            <div class="card-body text-left">
+                                <h5 class="card-title text-left"> TuanBarber</h5>
+                                <h5 class="text-left ratezx ">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <div class="Getreview d-inline">(293)</div>
+                                </h5>
+                                <div class="location">
+                                    34 Lũy Bán Bích,Tân Phú,TP HCM
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="ml-2 mr-2 ">
-                    <div class="card">
-                        <img src="../source/img/8.jpg" alt="" class="card-img-top">
-                        <div class="card-body text-left">
-                            <h5 class="card-title text-left">TuanBarber</h5>
-                            <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <div class="Getreview d-inline">(223)</div>
-                            </h5>
-                            <div class="location">
-                                34 Lũy Bán Bích,Tân Phú,TP HCM
+                    <a class="linkShoptoDetail" href="../html/detailShop.html">
+                        <div class="card">
+                            <img src="../source/img/8.jpg" alt="" class="card-img-top">
+                            <div class="card-body text-left">
+                                <h5 class="card-title text-left">TuanBarber</h5>
+                                <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <div class="Getreview d-inline">(223)</div>
+                                </h5>
+                                <div class="location">
+                                    34 Lũy Bán Bích,Tân Phú,TP HCM
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="ml-2 mr-2 ">
-                    <div class="card">
-                        <img src="../source/img/8.jpg" alt="" class="card-img-top">
-                        <div class="card-body text-left">
-                            <h5 class="card-title text-left">TuanBarber</h5>
-                            <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <div class="Getreview d-inline">(150)</div>
-                            </h5>
-                            <div class="location">
-                                34 Lũy Bán Bích,Tân Phú,TP HCM
+                    <a class="linkShoptoDetail" href="../html/detailShop.html">
+                        <div class="card">
+                            <img src="../source/img/8.jpg" alt="" class="card-img-top">
+                            <div class="card-body text-left">
+                                <h5 class="card-title text-left">TuanBarber</h5>
+                                <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <div class="Getreview d-inline">(150)</div>
+                                </h5>
+                                <div class="location">
+                                    34 Lũy Bán Bích,Tân Phú,TP HCM
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="ml-2 mr-2 ">
-                    <div class="card">
-                        <img src="../source/img/8.jpg" alt="" class="card-img-top">
-                        <div class="card-body text-left">
-                            <h5 class="card-title text-left">TuanBarber</h5>
-                            <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <div class="Getreview d-inline">(120)</div>
-                            </h5>
-                            <div class="location">
-                                34 Lũy Bán Bích,Tân Phú,TP HCM
+                    <a class="linkShoptoDetail" href="../html/detailShop.html">
+                        <div class="card">
+                            <img src="../source/img/8.jpg" alt="" class="card-img-top">
+                            <div class="card-body text-left">
+                                <h5 class="card-title text-left">TuanBarber</h5>
+                                <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <div class="Getreview d-inline">(120)</div>
+                                </h5>
+                                <div class="location">
+                                    34 Lũy Bán Bích,Tân Phú,TP HCM
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="ml-2 mr-2 ">
-                    <div class="card">
-                        <img src="../source/img/8.jpg" alt="" class="card-img-top">
-                        <div class="card-body text-left">
-                            <h5 class="card-title text-left">TuanBarber</h5>
-                            <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <div class="Getreview d-inline">(100)</div>
-                            </h5>
-                            <div class="location">
-                                34 Lũy Bán Bích,Tân Phú,TP HCM
+                    <a class="linkShoptoDetail" href="../html/detailShop.html">
+                        <div class="card">
+                            <img src="../source/img/8.jpg" alt="" class="card-img-top">
+                            <div class="card-body text-left">
+                                <h5 class="card-title text-left">TuanBarber</h5>
+                                <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <div class="Getreview d-inline">(100)</div>
+                                </h5>
+                                <div class="location">
+                                    34 Lũy Bán Bích,Tân Phú,TP HCM
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="ml-2 mr-2 ">
-                    <div class="card">
-                        <img src="../source/img/8.jpg" alt="" class="card-img-top">
-                        <div class="card-body text-left">
-                            <h5 class="card-title text-left">TuanBarber</h5>
-                            <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <div class="Getreview d-inline">(80)</div>
-                            </h5>
-                            <div class="location">
-                                34 Lũy Bán Bích,Tân Phú,TP HCM
-                            </div>
+                    <a class="linkShoptoDetail" href="../html/detailShop.html">
+                        <div class="card">
+                            <img src="../source/img/8.jpg" alt="" class="card-img-top">
+                            <div class="card-body text-left">
+                                <h5 class="card-title text-left">TuanBarber</h5>
+                                <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <div class="Getreview d-inline">(80)</div>
+                                </h5>
+                                <div class="location">
+                                    34 Lũy Bán Bích,Tân Phú,TP HCM
+                                </div>
 
 
-                        </div>
-                    </div>
-                </div>
-                <div class="ml-2 mr-2 ">
-                    <div class="card">
-                        <img src="../source/img/8.jpg" alt="" class="card-img-top">
-                        <div class="card-body text-left">
-                            <h5 class="card-title text-left">TuanBarber</h5>
-                            <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star"></span>
-                                <div class="Getreview d-inline">(70)</div>
-                            </h5>
-                            <div class="location">
-                                34 Lũy Bán Bích,Tân Phú,TP HCM
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="ml-2 mr-2 ">
-                    <div class="card">
-                        <img src="../source/img/8.jpg" alt="" class="card-img-top">
-                        <div class="card-body text-left">
-                            <h5 class="card-title text-left ">TuanBarber</h5>
-                            <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star"></span>
-                                <div class="Getreview d-inline">(50)</div>
-                            </h5>
-                            <div class="location">
-                                34 Lũy Bán Bích,Tân Phú,TP HCM
+                    <a class="linkShoptoDetail" href="../html/detailShop.html">
+                        <div class="card">
+                            <img src="../source/img/8.jpg" alt="" class="card-img-top">
+                            <div class="card-body text-left">
+                                <h5 class="card-title text-left">TuanBarber</h5>
+                                <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star"></span>
+                                    <div class="Getreview d-inline">(70)</div>
+                                </h5>
+                                <div class="location">
+                                    34 Lũy Bán Bích,Tân Phú,TP HCM
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
+                </div>
+                <div class="ml-2 mr-2 ">
+                    <a class="linkShoptoDetail" href="../html/detailShop.html">
+                        <div class="card">
+                            <img src="../source/img/8.jpg" alt="" class="card-img-top">
+                            <div class="card-body text-left">
+                                <h5 class="card-title text-left ">TuanBarber</h5>
+                                <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star"></span>
+                                    <div class="Getreview d-inline">(50)</div>
+                                </h5>
+                                <div class="location">
+                                    34 Lũy Bán Bích,Tân Phú,TP HCM
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
 
             </div>
@@ -456,150 +473,166 @@
             <h1 class="h1Re">Gần tôi</h1>
             <div class="owl-carousel owl-theme" id="carousel2">
                 <div class="ml-2 mr-2">
-                    <div class="card">
-                        <img src="../source/img/8.jpg" alt="" class="card-img-top">
-                        <div class="card-body text-left">
-                            <h5 class="card-title text-left">TuanBarber</h5>
-                            <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <div class="Getreview d-inline">(293)</div>
-                            </h5>
-                            <div class="location">
-                                34 Lũy Bán Bích,Tân Phú,TP HCM
+                    <a class="linkShoptoDetail" href="../html/detailShop.html">
+                        <div class="card">
+                            <img src="../source/img/8.jpg" alt="" class="card-img-top">
+                            <div class="card-body text-left">
+                                <h5 class="card-title text-left">TuanBarber</h5>
+                                <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <div class="Getreview d-inline">(293)</div>
+                                </h5>
+                                <div class="location">
+                                    34 Lũy Bán Bích,Tân Phú,TP HCM
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="ml-2 mr-2 ">
-                    <div class="card">
-                        <img src="../source/img/8.jpg" alt="" class="card-img-top">
-                        <div class="card-body text-left">
-                            <h5 class="card-title text-left">TuanBarber</h5>
-                            <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <div class="Getreview d-inline">(293)</div>
-                            </h5>
-                            <div class="location">
-                                34 Lũy Bán Bích,Tân Phú,TP HCM
+                    <a class="linkShoptoDetail" href="../html/detailShop.html">
+                        <div class="card">
+                            <img src="../source/img/8.jpg" alt="" class="card-img-top">
+                            <div class="card-body text-left">
+                                <h5 class="card-title text-left">TuanBarber</h5>
+                                <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <div class="Getreview d-inline">(293)</div>
+                                </h5>
+                                <div class="location">
+                                    34 Lũy Bán Bích,Tân Phú,TP HCM
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="ml-2 mr-2 ">
-                    <div class="card">
-                        <img src="../source/img/8.jpg" alt="" class="card-img-top">
-                        <div class="card-body text-left">
-                            <h5 class="card-title text-left">TuanBarber</h5>
-                            <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <div class="Getreview d-inline">(293)</div>
-                            </h5>
-                            <div class="location">
-                                34 Lũy Bán Bích,Tân Phú,TP HCM
+                    <a class="linkShoptoDetail" href="../html/detailShop.html">
+                        <div class="card">
+                            <img src="../source/img/8.jpg" alt="" class="card-img-top">
+                            <div class="card-body text-left">
+                                <h5 class="card-title text-left">TuanBarber</h5>
+                                <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <div class="Getreview d-inline">(293)</div>
+                                </h5>
+                                <div class="location">
+                                    34 Lũy Bán Bích,Tân Phú,TP HCM
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="ml-2 mr-2 ">
-                    <div class="card">
-                        <img src="../source/img/8.jpg" alt="" class="card-img-top">
-                        <div class="card-body text-left">
-                            <h5 class="card-title text-left">TuanBarber</h5>
-                            <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <div class="Getreview d-inline">(293)</div>
-                            </h5>
-                            <div class="location">
-                                34 Lũy Bán Bích,Tân Phú,TP HCM
+                    <a class="linkShoptoDetail" href="../html/detailShop.html">
+                        <div class="card">
+                            <img src="../source/img/8.jpg" alt="" class="card-img-top">
+                            <div class="card-body text-left">
+                                <h5 class="card-title text-left">TuanBarber</h5>
+                                <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <div class="Getreview d-inline">(293)</div>
+                                </h5>
+                                <div class="location">
+                                    34 Lũy Bán Bích,Tân Phú,TP HCM
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="ml-2 mr-2 ">
-                    <div class="card">
-                        <img src="../source/img/8.jpg" alt="" class="card-img-top">
-                        <div class="card-body text-left">
-                            <h5 class="card-title text-left">TuanBarber</h5>
-                            <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <div class="Getreview d-inline">(293)</div>
-                            </h5>
-                            <div class="location">
-                                34 Lũy Bán Bích,Tân Phú,TP HCM
+                    <a class="linkShoptoDetail" href="../html/detailShop.html">
+                        <div class="card">
+                            <img src="../source/img/8.jpg" alt="" class="card-img-top">
+                            <div class="card-body text-left">
+                                <h5 class="card-title text-left">TuanBarber</h5>
+                                <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <div class="Getreview d-inline">(293)</div>
+                                </h5>
+                                <div class="location">
+                                    34 Lũy Bán Bích,Tân Phú,TP HCM
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="ml-2 mr-2 ">
-                    <div class="card">
-                        <img src="../source/img/8.jpg" alt="" class="card-img-top">
-                        <div class="card-body text-left">
-                            <h5 class="card-title text-left">TuanBarber</h5>
-                            <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <div class="Getreview d-inline">(293)</div>
-                            </h5>
-                            <div class="location">
-                                34 Lũy Bán Bích,Tân Phú,TP HCM
-                            </div>
+                    <a class="linkShoptoDetail" href="../html/detailShop.html">
+                        <div class="card">
+                            <img src="../source/img/8.jpg" alt="" class="card-img-top">
+                            <div class="card-body text-left">
+                                <h5 class="card-title text-left">TuanBarber</h5>
+                                <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <div class="Getreview d-inline">(293)</div>
+                                </h5>
+                                <div class="location">
+                                    34 Lũy Bán Bích,Tân Phú,TP HCM
+                                </div>
 
 
-                        </div>
-                    </div>
-                </div>
-                <div class="ml-2 mr-2 ">
-                    <div class="card">
-                        <img src="../source/img/8.jpg" alt="" class="card-img-top">
-                        <div class="card-body text-left">
-                            <h5 class="card-title text-left">TuanBarber</h5>
-                            <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star"></span>
-                                <div class="Getreview d-inline">(293)</div>
-                            </h5>
-                            <div class="location">
-                                34 Lũy Bán Bích,Tân Phú,TP HCM
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="ml-2 mr-2 ">
-                    <div class="card">
-                        <img src="../source/img/8.jpg" alt="" class="card-img-top">
-                        <div class="card-body text-left">
-                            <h5 class="card-title text-left ">TuanBarber</h5>
-                            <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                <span style="font-size:20px;cursor:pointer;" class="fa fa-star"></span>
-                                <div class="Getreview d-inline">(293)</div>
-                            </h5>
-                            <div class="location">
-                                34 Lũy Bán Bích,Tân Phú,TP HCM
+                    <a class="linkShoptoDetail" href="../html/detailShop.html">
+                        <div class="card">
+                            <img src="../source/img/8.jpg" alt="" class="card-img-top">
+                            <div class="card-body text-left">
+                                <h5 class="card-title text-left">TuanBarber</h5>
+                                <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star"></span>
+                                    <div class="Getreview d-inline">(293)</div>
+                                </h5>
+                                <div class="location">
+                                    34 Lũy Bán Bích,Tân Phú,TP HCM
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
+                </div>
+                <div class="ml-2 mr-2 ">
+                    <a class="linkShoptoDetail" href="../html/detailShop.html">
+                        <div class="card">
+                            <img src="../source/img/8.jpg" alt="" class="card-img-top">
+                            <div class="card-body text-left">
+                                <h5 class="card-title text-left ">TuanBarber</h5>
+                                <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
+                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star"></span>
+                                    <div class="Getreview d-inline">(293)</div>
+                                </h5>
+                                <div class="location">
+                                    34 Lũy Bán Bích,Tân Phú,TP HCM
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
 
             </div>
@@ -624,7 +657,7 @@
                 </div>
             </div>
         </div>
-        <div class="wrapper">
+        <div class="wrapper" id="TurnonLocation">
             <div class="col-md-12">
                 <div class="shadow p-3 mb-5 bg-white">
                     <div class="row justify-content-center">
@@ -639,7 +672,7 @@
                                     <a class="btn btn-full ">Tìm kiếm gần tôi</a>
                                 </div>
                                 <div class="col-md-2  col-3">
-                                    <a class="btn btn-outline ">Không phải bây giờ</a>
+                                    <a class="btn btn-outline " id="notNows" onclick="collapseoff">Không phải bây giờ</a>
                                 </div>
                             </div>
                         </div>
@@ -816,6 +849,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="../js/nav.js"></script>
+    <script src="../js/Detail2.script.js"></script>
     <!--Nav starts-->
     <script src="../js/popup-index.js"></script>
     <!--Popup-->

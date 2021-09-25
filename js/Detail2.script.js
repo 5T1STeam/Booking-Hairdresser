@@ -95,3 +95,8 @@ const doitacid = document.getElementById('doitac');
 function clickBtndoitac() {
     doitacid.innerText = alert("Tinh năng đang phát triển");
 }
+const turnOnlocation = document.getElementById('TurnonLocation');
+
+function collapseoff() {
+    turnOnlocation.style.display = "none"
+}

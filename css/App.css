@@ -752,3 +752,11 @@ a:link {
 .location {
     font-size: 12px;
 }
+
+.linkShoptoDetail {
+    color: black;
+}
+
+.linkShoptoDetail:hover {
+    color: #FF421A;
+}
