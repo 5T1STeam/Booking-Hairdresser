@@ -72,6 +72,11 @@ header {
     color: white;
 }
 
+.nav-link:hover {
+    color: #FF421A;
+    box-shadow: 0px 2px 0px 0px #FF420C;
+}
+
 .bottom-section {
     position: absolute;
     bottom: 30%;
