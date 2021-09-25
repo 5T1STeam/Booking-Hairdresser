@@ -758,5 +758,9 @@ a:link {
 }
 
 .linkShoptoDetail:hover {
+    color: black;
+}
+
+.SZ:hover {
     color: #FF421A;
 }
