@@ -21,6 +21,12 @@
 
 .nameShopList {
     font-size: 30px;
+    color: #ff421a;
+}
+
+.nameShopList:hover{
+    color: #ff421a;
+    opacity: 0.7;
 }
 
 .hr1 {
@@ -44,6 +50,10 @@
 
 .btn-outline-secondary:hover {
     background-color: #ff421a;
+}
+
+.item-list:hover{
+opacity: 0.7;
 }
 
 .ratingList {

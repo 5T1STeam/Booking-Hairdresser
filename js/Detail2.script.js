@@ -100,3 +100,8 @@ const turnOnlocation = document.getElementById('TurnonLocation');
 function collapseoff() {
     turnOnlocation.style.display = "none"
 }
+
+ 
+document.getElementById("notNows").onclick = function () {
+    document.getElementById("TurnonLocation").style.display = 'none';
+};
