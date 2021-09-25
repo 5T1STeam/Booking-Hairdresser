@@ -46,6 +46,41 @@
     background-color: #ff421a;
 }
 
+.ratingList {
+    background-color: rgba(17, 17, 17, 0.705);
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 23px;
+    pointer-events: none;
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    border-radius: 0 6px;
+    line-height: 24px;
+    width: 124px;
+    height: 60px;
+}
+
+.ratingPointList {
+    color: white;
+    font-size: 30px;
+    line-height: 34px;
+    display: block;
+}
+
+.reviewCountList {
+    color: white;
+    font-size: 14px;
+    line-height: 16px;
+    word-wrap: break-word;
+    white-space: nowrap;
+    width: 100%;
+    text-align: center;
+    display: block;
+}
+
 @media screen and (max-width: 700px) {
     .btn-outline {
         margin-bottom: 30px;
