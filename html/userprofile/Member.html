@@ -108,7 +108,9 @@
         </div>
         <div class="container px-0">
             <nav class=" row navbar px-3">
-                <div class=" col-lg-1 col-sm-1 navbar-brand logo" href="./homepage.html"><a  href="./homepage.html" ><img src="../../source/img/logo.png" style="width: 60px;"></a> </div>
+                <div class=" col-lg-1 col-sm-1 navbar-brand logo" href="./homepage.html">
+                    <a href="./homepage.html"><img src="../../source/img/logo.png" style="width: 60px;"></a>
+                </div>
 
                 <div class="nav nav-pc">
                     <div id="form-search-1" class="input-group form-inline col-lg-5 col-sm-7">
@@ -136,13 +138,13 @@
                                Profile
                             </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="../userprofile//infor.html">Trang cá nhân </a>
-                            <a class="dropdown-item" href="../userprofile//schedule.html">Lịch book</a>
-                            <a class="dropdown-item" href="../userprofile//notification.html">Thông báo</a>
-                            <a class="dropdown-item" href="../userprofile//login.html">Đăng xuất</a>
+                            <a class="dropdown-item" href="./infor.html">Trang cá nhân </a>
+                            <a class="dropdown-item" href="./favorite.html">Lịch book</a>
+                            <a class="dropdown-item" href="./notification.html">Thông báo</a>
+                            <a class="dropdown-item" href="../login.html">Đăng xuất</a>
                         </div>
                     </div>
-                    <a class="btn btn-business" href="../../business.html">Đối tác</a>
+                    <a class="btn btn-business" onclick="clickBtndoitac()">Đối tác</a>
                 </div>
                 <label for="nav-check" class="nav-mobile-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" class="bi bi-list" viewBox="0 0 15 15">
@@ -213,40 +215,36 @@
                         </div>
                     </div>
                     <div class="nav-list px-2">
-                        <a class="nav-mblink nav-link" href="#">Hair Salon</a>
-                        <a class="nav-mblink nav-link" href="#">Babershop</a>
-                        <a class="nav-mblink nav-link" href="#">Nail Salon</a>
-                        <a class="nav-mblink nav-link" href="#">Beauty Salon</a>
-                        <a class="nav-mblink nav-link" href="#">Massage</a>
-                        <a class="nav-mblink nav-link" href="#">Makeup Arist</a>
-                        <a class="nav-mblink nav-link" href="#">Day Spa</a>
+                        <a class="nav-mblink nav-link" href="../listservice.html">Hair Salon</a>
+                        <a class="nav-mblink nav-link" href="../listservice.html">Babershop</a>
+                        <a class="nav-mblink nav-link" href="../listservice.html">Nail Salon</a>
+                        <a class="nav-mblink nav-link" href="../listservice.html">Beauty Salon</a>
+                        <a class="nav-mblink nav-link" href="../listservice.html">Massage</a>
+                        <a class="nav-mblink nav-link" href="../listservice.html">Makeup Arist</a>
+                        <a class="nav-mblink nav-link" href="../listservice.html">Day Spa</a>
                     </div>
                     <div class="logout px-2">
-                        <a class="nav-mblink nav-link " href="../../business.html">Đối tác</a>
-                        <a class="nav-mblink nav-link " href="../userprofile//login.html">Đăng xuất</a>
+                        <a class="nav-mblink nav-link " onclick="clickBtndoitac()">Đối tác</a>
+                        <a class="nav-mblink nav-link " href="../login.html">Đăng xuất</a>
                     </div>
 
                 </div>
-
-
-
-
             </nav>
             <div class=" bottom-section px-3 ">
                 <nav class="nav row justify-content-between ">
-                    <a class="nav-link" href="#">Hair Salon</a>
-                    <a class="nav-link" href="#">Babershop</a>
-                    <a class="nav-link" href="#">Nail Salon</a>
-                    <a class="nav-link" href="#">Beauty Salon</a>
-                    <a class="nav-link" href="#">Massage</a>
-                    <a class="nav-link" href="#">Makeup Arist</a>
-                    <a class="nav-link" href="#">Day Spa</a>
+                    <a class="nav-link" href="../listservice.html">Hair Salon</a>
+                    <a class="nav-link" href="../listservice.html">Babershop</a>
+                    <a class="nav-link" href="../listservice.html">Nail Salon</a>
+                    <a class="nav-link" href="../listservice.html">Beauty Salon</a>
+                    <a class="nav-link" href="../listservice.html">Massage</a>
+                    <a class="nav-link" href="../listservice.html">Makeup Arist</a>
+                    <a class="nav-link" href="../listservice.html">Day Spa</a>
                     <div class="dropdown">
                         <a class="dropdown-toggle nav-link" id="ddMenu" data-toggle="dropdown">
                                 More
                             </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Dưỡng Da</a>
+                            <a class="dropdown-item" href="../listservice.html">Dưỡng Da</a>
                             <!--Vân vân-->
                         </div>
                     </div>
@@ -257,7 +255,9 @@
         </div>
         <div id="navhide" class="navbar fixed-top" style="background: #111; z-index: 2;" hidden>
             <div class=" container px-1">
-                <div class=" col-lg-1 col-sm-1 navbar-brand logo" href="./homepage.html"><a  href="./homepage.html" ><img src="../../source/img/logo.png" style="width: 60px;"></a> </div>
+                <div class=" col-lg-1 col-sm-1 navbar-brand logo" href="./homepage.html">
+                    <a href="./homepage.html"><img src="../../source/img/logo.png" style="width: 60px;"></a>
+                </div>
                 <div class="nav nav-pc">
                     <div id="form-search-1" class="input-group form-inline col-lg-5 col-sm-7">
                         <input id="howto-2" type="text" class=" form-control " placeholder=" Bạn muốn tìm kiếm gì?" data-toggle="modal" data-target="#popup-howto">
@@ -365,13 +365,13 @@
                            Profile
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Trang cá nhân </a>
-                            <a class="dropdown-item" href="#">Lịch book</a>
-                            <a class="dropdown-item" href="#">Thông báo</a>
-                            <a class="dropdown-item" href="#">Đăng xuất</a>
+                            <a class="dropdown-item" href="./infor.html">Trang cá nhân </a>
+                            <a class="dropdown-item" href="./favorite.html">Lịch book</a>
+                            <a class="dropdown-item" href="./notification.html">Thông báo</a>
+                            <a class="dropdown-item" href="../login.html">Đăng xuất</a>
                         </div>
                     </div>
-                    <a class="btn btn-business" href="../../business.html">Đối tác</a>
+                    <a class="btn btn-business" onclick="clickBtndoitac()">Đối tác</a>
                 </div>
                 <label for="nav-check" class="nav-mobile-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" class="bi bi-list" viewBox="0 0 15 15">
@@ -438,11 +438,14 @@
                   </svg> Chính sách bảo mật</span></div>
                 </a>
                 <a class="sss" href="../userprofile/TermOfService.html">
-                    <div class=" row list-profile "><span class="list"><img class="icon-infor" src="../../source/icon/dkdv.png" alt=""> Điều khoản dịch vụ</span> </div> </a>
-                <a class="sss" href="../userprofile/login.html">  <div class=" row list-profile "><span class="list"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 18 18">
+                    <div class=" row list-profile "><span class="list"><img class="icon-infor" src="../../source/icon/dkdv.png" alt=""> Điều khoản dịch vụ</span> </div>
+                </a>
+                <a class="sss" href="../login.html">
+                    <div class=" row list-profile "><span class="list"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 18 18">
                     <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
                     <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
-                  </svg> Đăng xuất</span></div></a>
+                  </svg> Đăng xuất</span></div>
+                </a>
 
 
 
@@ -630,7 +633,7 @@
     <script src="../../js/popup.js"></script>
     <script src="../../js/nav-sevice-page.js">
     </script>
-
+    <script src="../../js/Detail2.script.js"></script>
 
 </body>
 

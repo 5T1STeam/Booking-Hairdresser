@@ -28,8 +28,8 @@ header {
 }
 
 .btn-business:hover {
-    background-color: #ffffff !important;
-    color: #FF421A !important;
+    background-color: #FF421A !important;
+    color: #fff!important;
 }
 
 .avatar {

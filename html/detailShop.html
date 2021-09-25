@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DetailShop</title>
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/owl.carousel.min.css">
@@ -22,7 +21,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../css/style-sevice-page.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <script src="https://cdn.jsdelivr.net/gh/vietblogdao/js/districts.min.js"></script>
     <style>
         .owl-prev {
             left: 20px;
@@ -138,7 +137,7 @@
         </div>
         <div class="container px-0">
             <nav class=" row navbar px-3">
-                <a class="navbar-brand col-lg-1 col-md-1 logo " href="../homepage.html"><img src="../source/img/logo.png" style="width: 60px;"></a>
+                <a class="navbar-brand col-lg-1 col-md-1 logo " href="../html/index.html"><img src="../source/img/logo.png" style="width: 60px;"></a>
 
                 <div class="nav nav-pc">
                     <div id="form-search-1" class="input-group form-inline col-lg-5 col-sm-7">
@@ -166,13 +165,13 @@
                                Profile
                             </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Trang cá nhân </a>
-                            <a class="dropdown-item" href="#">Lịch book</a>
-                            <a class="dropdown-item" href="#">Thông báo</a>
-                            <a class="dropdown-item" href="#">Đăng xuất</a>
+                            <a class="dropdown-item" href="../html/userprofile/infor.html">Trang cá nhân </a>
+                            <a class="dropdown-item" href="../html/userprofile/schedule.html">Lịch book</a>
+                            <a class="dropdown-item" href="../html/userprofile/notification.html">Thông báo</a>
+                            <a class="dropdown-item" href="../html/login.html">Đăng xuất</a>
                         </div>
                     </div>
-                    <a class="btn btn-business" href="../business.html">Đối tác</a>
+                    <a class="btn btn-business" onclick="clickBtndoitac()">Đối tác</a>
                 </div>
                 <label for="nav-check" class="nav-mobile-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" class="bi bi-list" viewBox="0 0 15 15">
@@ -243,16 +242,16 @@
                         </div>
                     </div>
                     <div class="nav-list px-2">
-                        <a class="nav-mblink nav-link" href="#">Hair Salon</a>
-                        <a class="nav-mblink nav-link" href="#">Babershop</a>
-                        <a class="nav-mblink nav-link" href="#">Nail Salon</a>
-                        <a class="nav-mblink nav-link" href="#">Beauty Salon</a>
-                        <a class="nav-mblink nav-link" href="#">Massage</a>
-                        <a class="nav-mblink nav-link" href="#">Makeup Arist</a>
-                        <a class="nav-mblink nav-link" href="#">Day Spa</a>
+                        <a class="nav-mblink nav-link" href="../html/listservice.html">Hair Salon</a>
+                        <a class="nav-mblink nav-link" href="../html/listservice.html">Babershop</a>
+                        <a class="nav-mblink nav-link" href="../html/listservice.html">Nail Salon</a>
+                        <a class="nav-mblink nav-link" href="../html/listservice.html">Beauty Salon</a>
+                        <a class="nav-mblink nav-link" href="../html/listservice.html">Massage</a>
+                        <a class="nav-mblink nav-link" href="../html/listservice.html">Makeup Arist</a>
+                        <a class="nav-mblink nav-link" href="../html/listservice.html">Day Spa</a>
                     </div>
                     <div class="logout px-2">
-                        <a class="nav-mblink nav-link " href="#">Đối tác</a>
+                        <a class="nav-mblink nav-link " onclick="clickBtndoitac()" id="doitac" href="#">Đối tác</a>
                         <a class="nav-mblink nav-link " href="#">Đăng xuất</a>
                     </div>
 
@@ -264,21 +263,19 @@
             </nav>
             <div class=" bottom-section px-3 ">
                 <nav class="nav row justify-content-between ">
-                    <a class="nav-link" href="#">Hair Salon</a>
-                    <a class="nav-link" href="#">Babershop</a>
-                    <a class="nav-link" href="#">Nail Salon</a>
-                    <a class="nav-link" href="#">Beauty Salon</a>
-                    <a class="nav-link" href="#">Massage</a>
-                    <a class="nav-link" href="#">Makeup Arist</a>
-                    <a class="nav-link" href="#">Day Spa</a>
+                    <a class="nav-link" href="../html/listservice.html">Hair Salon</a>
+                    <a class="nav-link" href="../html/listservice.html">Babershop</a>
+                    <a class="nav-link" href="../html/listservice.html">Nail Salon</a>
+                    <a class="nav-link" href="../html/listservice.html">Beauty Salon</a>
+                    <a class="nav-link" href="../html/listservice.html">Massage</a>
+                    <a class="nav-link" href="../html/listservice.html">Makeup Arist</a>
+                    <a class="nav-link" href="../html/listservice.html">Day Spa</a>
                     <div class="dropdown">
                         <a class="dropdown-toggle nav-link" id="ddMenu" data-toggle="dropdown">
                                 More
                             </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Dưỡng Da</a>
-                            <a class="dropdown-item" href="#">Dưỡng Da</a>
-                            <a class="dropdown-item" href="#">Dưỡng Da</a>
+                            <a class="dropdown-item" href="./listservice.html">Dưỡng Da</a>
                             <!--Vân vân-->
                         </div>
                     </div>
@@ -289,7 +286,7 @@
         </div>
         <div id="navhide" class="navbar fixed-top" style="background: #111; z-index: 2;" hidden>
             <div class=" container px-1">
-                <a class=" col-lg-1 col-sm-1 navbar-brand logo" href="./homepage.html"><img src="../source/img/logo.png" style="width: 60px;"></a>
+                <a class=" col-lg-1 col-sm-1 navbar-brand logo" href="../html/index.html"><img src="../source/img/logo.png" style="width: 60px;"></a>
                 <div class="nav nav-pc">
                     <div id="form-search-1" class="input-group form-inline col-lg-5 col-sm-7">
                         <input id="howto-2" type="text" class=" form-control " placeholder=" Bạn muốn tìm kiếm gì?" data-toggle="modal" data-target="#popup-howto">
@@ -403,7 +400,7 @@
                             <a class="dropdown-item" href="#">Đăng xuất</a>
                         </div>
                     </div>
-                    <a class="btn btn-business" href="../business.html">Đối tác</a>
+                    <a class="btn btn-business" onclick="clickBtndoitac()">Đối tác</a>
                 </div>
                 <label for="nav-check" class="nav-mobile-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" class="bi bi-list" viewBox="0 0 15 15">
@@ -488,7 +485,7 @@
                                         <p style="margin-top:-15px; font-size: 12px; font-weight: lighter">30 phút</p>
                                     </div>
                                     <div class="col-2" style="text-align:right;">
-                                        <button type="button" class="btn" id="btn-search" onclick="booking()" data-dismiss="modal">Booking</button>
+                                        <button type="button" class="btn" id="btn-search" data-toggle="modal" data-target="#popup-book">Book</button>
                                     </div>
                                 </div>
                                 <hr>
@@ -501,7 +498,7 @@
                                         <p style="margin-top:-15px; font-size: 12px; font-weight: lighter">40 phút</p>
                                     </div>
                                     <div class="col-2" style="text-align:right;">
-                                        <button type="button" class="btn" id="btn-search" onclick="booking()" data-dismiss="modal">Booking</button>
+                                        <button type="button" class="btn" id="btn-search" data-toggle="modal" data-target="#popup-book">Book</button>
                                     </div>
                                 </div>
                                 <hr>
@@ -514,7 +511,7 @@
                                         <p style="margin-top:-15px; font-size: 12px; font-weight: lighter">30 phút</p>
                                     </div>
                                     <div class="col-2" style="text-align:right;">
-                                        <button type="button" class="btn" id="btn-search" onclick="booking()" data-dismiss="modal">Booking</button>
+                                        <button type="button" class="btn" id="btn-search" data-toggle="modal" data-target="#popup-book">Book</button>
                                     </div>
                                 </div>
                                 <hr>
@@ -527,12 +524,84 @@
                                         <p style="margin-top:-15px; font-size: 12px; font-weight: lighter">60 phút</p>
                                     </div>
                                     <div class="col-2" style="text-align:right;">
-                                        <button type="button" class="btn" id="btn-search" onclick="booking()" data-dismiss="modal">Booking</button>
+                                        <button type="button" class="btn" id="btn-search" data-toggle="modal" data-target="#popup-book">Book</button>
                                     </div>
                                 </div>
                                 <hr>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="popup-book">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header" style="background: #222222; color: #ffffff;">
+                        <h4 class="modal-title">Đặt lịch</h4>
+                        <button type="button" class="close" data-dismiss="modal" style="color:#fff;">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="group-day" style="text-align: center;">
+                            <label>
+                    <input type="radio" name="radioday" class="radioday" style="display:none;">
+                    <span class="btn btn-day">Thứ Hai</span>
+                </label>
+                            <label>
+                    <input type="radio" name="radioday" class="radioday" style="display:none;">
+                    <span class="btn btn-day">Thứ Ba</span>
+                </label>
+                            <label>
+                    <input type="radio" name="radioday" class="radioday" style="display:none;">
+                    <span class="btn btn-day">Thứ Tư</span>
+                </label>
+                            <label>
+                    <input type="radio" name="radioday" class="radioday" style="display:none;">
+                    <span class="btn btn-day">Thứ Năm</span>
+                </label>
+                            <label>
+                    <input type="radio" name="radioday" class="radioday" style="display:none;">
+                    <span class="btn btn-day">Thứ Sáu</span>
+                </label>
+                            <label>
+                    <input type="radio" name="radioday" class="radioday" style="display:none;">
+                    <span class="btn btn-day">Thứ Bảy</span>
+                </label>
+                            <label>
+                    <input type="radio" name="radioday" class="radioday" style="display:none;">
+                    <span class="btn btn-day">Chủ Nhật</span>
+                </label>
+                        </div>
+                        <hr>
+                        <p id="full-day">Ngày - Tháng - Năm</p>
+                        <hr>
+                        <div class="row" style="text-align: center;">
+                            <div class="col-4">Sáng</div>
+                            <div class="col-4">Trưa</div>
+                            <div class="col-4">Chiều</div>
+                        </div>
+                        <hr>
+                        <div class="group-time row" style="text-align: center;">
+                            <div id="morning" class="col-4">
+                                <!--tự hiện-->
+                            </div>
+                            <div id="afternoon" class="col-4">
+                                <!--tự hiện-->
+                            </div>
+                            <div id="evening" class="col-4">
+                                <!--tự hiện-->
+                            </div>
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button id="btn-book" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -622,7 +691,14 @@
                                         <span class="so">1h</span>
                                     </div>
                                     <div class="bookBtn">
-                                        <button class="Btn">Book</button>
+                                        <!-- Popup Book -->
+                                        <div title="popup-book">
+                                            <!-- Button to Open the Modal -->
+                                            <button class=" Btn" data-toggle="modal" data-target="#popup-book">Book</button>
+
+                                            <!-- The Modal -->
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -640,7 +716,7 @@
                                         <span class="so">1h-15p</span>
                                     </div>
                                     <div class="bookBtn">
-                                        <button class="Btn">Book</button>
+                                        <button class="Btn" data-toggle="modal" data-target="#popup-book">Book</button>
                                     </div>
                                 </div>
                             </div>
@@ -658,7 +734,7 @@
                                         <span class="so">1h</span>
                                     </div>
                                     <div class="bookBtn">
-                                        <button class="Btn">Book</button>
+                                        <button class="Btn" data-toggle="modal" data-target="#popup-book">Book</button>
                                     </div>
                                 </div>
                             </div>
@@ -681,7 +757,7 @@
                                         <span class="so">1h</span>
                                     </div>
                                     <div class="bookBtn">
-                                        <button class="Btn">Book</button>
+                                        <button class="Btn" data-toggle="modal" data-target="#popup-book">Book</button>
                                     </div>
                                 </div>
                             </div>
@@ -699,7 +775,7 @@
                                         <span class="so">1h-15p</span>
                                     </div>
                                     <div class="bookBtn">
-                                        <button class="Btn">Book</button>
+                                        <button class="Btn" data-toggle="modal" data-target="#popup-book">Book</button>
                                     </div>
                                 </div>
                             </div>
@@ -717,7 +793,7 @@
                                         <span class="so">1h</span>
                                     </div>
                                     <div class="bookBtn">
-                                        <button class="Btn">Book</button>
+                                        <button class="Btn" data-toggle="modal" data-target="#popup-book">Book</button>
                                     </div>
                                 </div>
                             </div>
@@ -735,7 +811,7 @@
                                         <span class="so">1h</span>
                                     </div>
                                     <div class="bookBtn">
-                                        <button class="Btn">Book</button>
+                                        <button class="Btn" data-toggle="modal" data-target="#popup-book">Book</button>
                                     </div>
                                 </div>
                             </div>
@@ -753,7 +829,7 @@
                                         <span class="so">1h-5p</span>
                                     </div>
                                     <div class="bookBtn">
-                                        <button class="Btn">Book</button>
+                                        <button class="Btn" data-toggle="modal" data-target="#popup-book">Book</button>
                                     </div>
                                 </div>
                             </div>
@@ -949,7 +1025,7 @@
                                 </div>
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4 text-right">
-                                    <button type="button" class="btn-in-rate"> Report <span class="material-icons text-center ml-2">flag</span></button>
+                                    <button type="button" class="btn-in-rate" data-toggle="modal" data-target="#popup-report"> Report <span class="material-icons text-center ml-2">flag</span></button>
 
                                 </div>
 
@@ -987,84 +1063,7 @@
                                 </div>
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4 text-right">
-                                    <button type="button" class="btn-in-rate"> Report <span class="material-icons text-center ml-2">flag</span></button>
-
-                                </div>
-
-                            </div>
-                            <div class=" row">
-                                <div class="col-md">
-                                    <hr>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ----------- -->
-                        <div class="card-rating">
-                            <div class="row">
-                                <div class="col-md-6 mb-1 stars">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="col-md-6 text-md-right">
-                                    <span class="location">TP. Hồ Chí Minh,</span>
-                                    <span class="date-rating"> 06/09/2021</span>
-                                </div>
-                            </div>
-                            <h6 class="service-name mb-1">Fullbody Massage</h6>
-                            <h6 class="client-name mb-2">Lâm Tuấn</h6>
-                            <p class="comment">Xinh đẹp tuyệt vời !</p>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_up</span></button>
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_down</span></button>
-                                </div>
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4 text-right">
-                                    <button type="button" class="btn-in-rate"> Report <span class="material-icons text-center ml-2">flag</span></button>
-
-                                </div>
-
-                            </div>
-                            <div class=" row">
-                                <div class="col-md">
-                                    <hr>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ------- -->
-                        <!-- ------- -->
-                        <div class="card-rating">
-                            <div class="row">
-                                <div class="col-md-6 mb-1 stars">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="col-md-6 text-md-right">
-                                    <span class="location">TP. Hồ Chí Minh,</span>
-                                    <span class="date-rating"> 06/09/2021</span>
-                                </div>
-                            </div>
-                            <h6 class="service-name mb-1">Fullbody Massage</h6>
-                            <h6 class="client-name mb-2">Lâm Tuấn</h6>
-                            <p class="comment">Xinh đẹp tuyệt vời !</p>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_up</span></button>
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_down</span></button>
-                                </div>
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4 text-right">
-                                    <button type="button" class="btn-in-rate"> Report <span class="material-icons text-center ml-2">flag</span></button>
+                                    <button type="button" class="btn-in-rate" data-toggle="modal" data-target="#popup-report"> Report <span class="material-icons text-center ml-2">flag</span></button>
 
                                 </div>
 
@@ -1076,6 +1075,44 @@
                             </div>
                         </div>
                         <!-- ----------- -->
+                        <div class="card-rating">
+                            <div class="row">
+                                <div class="col-md-6 mb-1 stars">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <span class="fa fa-star"></span>
+                                </div>
+                                <div class="col-md-6 text-md-right">
+                                    <span class="location">TP. Hồ Chí Minh,</span>
+                                    <span class="date-rating"> 06/09/2021</span>
+                                </div>
+                            </div>
+                            <h6 class="service-name mb-1">Fullbody Massage</h6>
+                            <h6 class="client-name mb-2">Lâm Tuấn</h6>
+                            <p class="comment">Xinh đẹp tuyệt vời !</p>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_up</span></button>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_down</span></button>
+                                </div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4 text-right">
+                                    <button type="button" class="btn-in-rate" data-toggle="modal" data-target="#popup-report"> Report <span class="material-icons text-center ml-2">flag</span></button>
+
+                                </div>
+
+                            </div>
+                            <div class=" row">
+                                <div class="col-md">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ------- -->
                         <!-- ------- -->
                         <div class="card-rating">
                             <div class="row">
@@ -1103,7 +1140,7 @@
                                 </div>
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4 text-right">
-                                    <button type="button" class="btn-in-rate"> Report <span class="material-icons text-center ml-2">flag</span></button>
+                                    <button type="button" class="btn-in-rate" data-toggle="modal" data-target="#popup-report"> Report <span class="material-icons text-center ml-2">flag</span></button>
 
                                 </div>
 
@@ -1142,7 +1179,7 @@
                                 </div>
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4 text-right">
-                                    <button type="button" class="btn-in-rate"> Report <span class="material-icons text-center ml-2">flag</span></button>
+                                    <button type="button" class="btn-in-rate" data-toggle="modal" data-target="#popup-report"> Report <span class="material-icons text-center ml-2">flag</span></button>
 
                                 </div>
 
@@ -1181,7 +1218,7 @@
                                 </div>
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4 text-right">
-                                    <button type="button" class="btn-in-rate"> Report <span class="material-icons text-center ml-2">flag</span></button>
+                                    <button type="button" class="btn-in-rate" data-toggle="modal" data-target="#popup-report"> Report <span class="material-icons text-center ml-2">flag</span></button>
 
                                 </div>
 
@@ -1220,7 +1257,7 @@
                                 </div>
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4 text-right">
-                                    <button type="button" class="btn-in-rate"> Report <span class="material-icons text-center ml-2">flag</span></button>
+                                    <button type="button" class="btn-in-rate" data-toggle="modal" data-target="#popup-report"> Report <span class="material-icons text-center ml-2">flag</span></button>
 
                                 </div>
 
@@ -1259,7 +1296,46 @@
                                 </div>
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4 text-right">
-                                    <button type="button" class="btn-in-rate"> Report <span class="material-icons text-center ml-2">flag</span></button>
+                                    <button type="button" class="btn-in-rate" data-toggle="modal" data-target="#popup-report"> Report <span class="material-icons text-center ml-2">flag</span></button>
+
+                                </div>
+
+                            </div>
+                            <div class=" row">
+                                <div class="col-md">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ----------- -->
+                        <!-- ------- -->
+                        <div class="card-rating">
+                            <div class="row">
+                                <div class="col-md-6 mb-1 stars">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <span class="fa fa-star"></span>
+                                </div>
+                                <div class="col-md-6 text-md-right">
+                                    <span class="location">TP. Hồ Chí Minh,</span>
+                                    <span class="date-rating"> 06/09/2021</span>
+                                </div>
+                            </div>
+                            <h6 class="service-name mb-1">Fullbody Massage</h6>
+                            <h6 class="client-name mb-2">Lâm Tuấn</h6>
+                            <p class="comment">Xinh đẹp tuyệt vời !</p>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_up</span></button>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_down</span></button>
+                                </div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4 text-right">
+                                    <button type="button" class="btn-in-rate" data-toggle="modal" data-target="#popup-report"> Report <span class="material-icons text-center ml-2">flag</span></button>
 
                                 </div>
 
@@ -1480,6 +1556,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script src="../js/owl.carousel.min.js"></script>
     <script src="../js/nav.js"></script>
+    <script src="../js/popup.js"></script>
     <script>
         $('.owl-carousel').owlCarousel({
             items: 1,
