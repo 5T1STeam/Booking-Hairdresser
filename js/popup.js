@@ -169,31 +169,55 @@ function createButttonTime(time) {
 
 
 $('.btn-day').click(function(e) {
-    if ($(this).text() == "Thứ Hai") {
-        document.getElementById("full-day").innerHTML = day[1];
-        createTime(days[1]);
-    } else
-    if ($(this).text() == "Thứ Ba") {
-        document.getElementById("full-day").innerHTML = day[2];
-        createTime(days[2]);
-    } else
-    if ($(this).text() == "Thứ Tư") {
-        document.getElementById("full-day").innerHTML = day[3];
-        createTime(days[3]);
-    } else
-    if ($(this).text() == "Thứ Năm") {
-        document.getElementById("full-day").innerHTML = day[4];
-        createTime(days[4]);
-    } else
-    if ($(this).text() == "Thứ Sáu") {
-        document.getElementById("full-day").innerHTML = day[5];
-        createTime(days[5]);
-    } else
-    if ($(this).text() == "Thứ Bảy") {
-        document.getElementById("full-day").innerHTML = day[6];
-        createTime(days[6]);
+        if ($(this).text() == "Thứ Hai") {
+            document.getElementById("full-day").innerHTML = day[1];
+            createTime(days[1]);
+        } else
+        if ($(this).text() == "Thứ Ba") {
+            document.getElementById("full-day").innerHTML = day[2];
+            createTime(days[2]);
+        } else
+        if ($(this).text() == "Thứ Tư") {
+            document.getElementById("full-day").innerHTML = day[3];
+            createTime(days[3]);
+        } else
+        if ($(this).text() == "Thứ Năm") {
+            document.getElementById("full-day").innerHTML = day[4];
+            createTime(days[4]);
+        } else
+        if ($(this).text() == "Thứ Sáu") {
+            document.getElementById("full-day").innerHTML = day[5];
+            createTime(days[5]);
+        } else
+        if ($(this).text() == "Thứ Bảy") {
+            document.getElementById("full-day").innerHTML = day[6];
+            createTime(days[6]);
+        } else {
+            document.getElementById("full-day").innerHTML = day[0];
+            createTime(days[0]);
+        }
+    })
+    //rate content
+function calcRate(r) {
+    const f = ~~r, //tương tự math.floor(r)
+        id = 'star' + f + (r % f ? 'half' : '')
+    id && (document.getelementbyid(id).checked = !0)
+} // đưa ra từ sql
+$("input[name='rating']").click(function() {
+    if (this.value.length == 1) {
+        document.getElementById("markrate").value = this.value;
     } else {
-        document.getElementById("full-day").innerHTML = day[0];
-        createTime(days[0]);
+        let rate = this.value.slice(0, 1) + '.5';
+        document.getElementById("markrate").value = rate;
     }
 })
+
+// preview img content
+$(document).ready(function() {
+    $('#imagecontent').change(function() {
+        $("#previewcontent").html('');
+        for (var i = 0; i < $(this)[0].files.length; i++) {
+            $("#previewcontent").append('<img src="' + window.URL.createObjectURL(this.files[i]) + '" width="100px" height="100px" style="margin:5px; border-radius:10px;"/>');
+        }
+    });
+});
