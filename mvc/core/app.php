@@ -2,8 +2,9 @@
 class app{
 
     protected $controller="home";
-    protected $action="show";
+    protected $action="SayHi";
     protected $params=[];
+
     function __construct(){
  
         $arr = $this->UrlProcess();

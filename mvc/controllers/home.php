@@ -1,18 +1,13 @@
 <?php
-
-// http://localhost/live/Home/Show/1/2
-
 class home extends controller{
+    function SayHi(){
+        $teo = $this->model("sinhvienModel");
+        echo $teo->GetSV();
+     }
+    function Show(){
+        $teo = $this->model("sinhvienModel");
+        $this->view("homepage",["page"=>"new","ADV"=>$teo->GetAllAdress()]);
 
-    function Show(){        
-        // Call Models
-        $shop = $this->model("addressPathModel");
- 
-        // Call Views
-        $this->view("home", [
-            "Page"=>"list",
-            "List"=>$shop->GetAllAddressPath()
-        ]);
     }
 }
 ?>
