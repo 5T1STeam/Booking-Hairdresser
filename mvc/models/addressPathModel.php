@@ -10,6 +10,6 @@ class addressPathModel extends db{
         $qr = "SELECT * FROM tbl_addresspath";
         return mysqli_query($this->con, $qr);
     }
-
+    
 }
 ?>

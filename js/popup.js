@@ -32,72 +32,19 @@ function sort() {
 
 
 // location
-if (address_2 = localStorage.getItem('address_2_saved')) {
-    $('select[name="calc_shipping_district"] option').each(function() {
-        if ($(this).text() == address_2) {
-            $(this).attr('selected', '')
-        }
+$(document).ready(function() {
+    $('#province').change(function() {
+        provinceId = $('#province').val();
+        $.post('../../Booking-Hairdresser/mvc/controllers/popup.php', { province: provinceId }, function(data) {
+            $('#district').html(data);
+            alert("Data :" + provinceId);
+        }, 'text');
     })
-    $('input.billing_address_2').attr('value', address_2)
-}
-if (district = localStorage.getItem('district')) {
-    $('select[name="calc_shipping_district"]').html(district)
-    $('select[name="calc_shipping_district"]').on('change', function() {
-        var target = $(this).children('option:selected')
-        target.attr('selected', '')
-        $('select[name="calc_shipping_district"] option').not(target).removeAttr('selected')
-        address_2 = target.text()
-        $('input.billing_address_2').attr('value', address_2)
-        district = $('select[name="calc_shipping_district"]').html()
-        localStorage.setItem('district', district)
-        localStorage.setItem('address_2_saved', address_2)
-    })
-}
-$('select[name="calc_shipping_provinces"]').each(function() {
-    var $this = $(this),
-        stc = ''
-    c.forEach(function(i, e) {
-        e += +1
-        stc += '<option value=' + e + '>' + i + '</option>'
-        $this.html('<option value="">Tỉnh / Thành phố</option>' + stc)
-        if (address_1 = localStorage.getItem('address_1_saved')) {
-            $('select[name="calc_shipping_provinces"] option').each(function() {
-                if ($(this).text() == address_1) {
-                    $(this).attr('selected', '')
-                }
-            })
-            $('input.billing_address_1').attr('value', address_1)
-        }
-        $this.on('change', function(i) {
-            i = $this.children('option:selected').index() - 1
-            var str = '',
-                r = $this.val()
-            if (r != '') {
-                arr[i].forEach(function(el) {
-                    str += '<option value="' + el + '">' + el + '</option>'
-                    $('select[name="calc_shipping_district"]').html('<option value="">Quận / Huyện</option>' + str)
-                })
-                var address_1 = $this.children('option:selected').text()
-                var district = $('select[name="calc_shipping_district"]').html()
-                localStorage.setItem('address_1_saved', address_1)
-                localStorage.setItem('district', district)
-                $('select[name="calc_shipping_district"]').on('change', function() {
-                    var target = $(this).children('option:selected')
-                    target.attr('selected', '')
-                    $('select[name="calc_shipping_district"] option').not(target).removeAttr('selected')
-                    var address_2 = target.text()
-                    $('input.billing_address_2').attr('value', address_2)
-                    district = $('select[name="calc_shipping_district"]').html()
-                    localStorage.setItem('district', district)
-                    localStorage.setItem('address_2_saved', address_2)
-                })
-            } else {
-                $('select[name="calc_shipping_district"]').html('<option value="">Quận / Huyện</option>')
-                district = $('select[name="calc_shipping_district"]').html()
-                localStorage.setItem('district', district)
-                localStorage.removeItem('address_1_saved', address_1)
-            }
-        })
+    $('#district').change(function() {
+        provinceId = $('#district').val();
+        $.post("../mvc/controller/popup.php", { district: districtId }, function(data) {
+            $('#wards').html(data);
+        }, 'text');
     })
 })
 
@@ -196,4 +143,35 @@ $('.btn-day').click(function(e) {
         document.getElementById("full-day").innerHTML = day[0];
         createTime(days[0]);
     }
+})
+
+//rate content
+function calcRate(r) {
+    const f = ~~r, //tương tự math.floor(r)
+        id = 'star' + f + (r % f ? 'half' : '')
+    id && (document.getelementbyid(id).checked = !0)
+} // đưa ra từ sql
+$("input[name='rating']").click(function() {
+    if (this.value.length == 1) {
+        document.getElementById("markrate").value = this.value;
+    } else {
+        let rate = this.value.slice(0, 1) + '.5';
+        document.getElementById("markrate").value = rate;
+    }
+})
+
+// preview img content
+$(document).ready(function() {
+    $('#imagecontent').change(function() {
+        $("#previewcontent").html('');
+        for (var i = 0; i < $(this)[0].files.length; i++) {
+            $("#previewcontent").append('<img src="' + window.URL.createObjectURL(this.files[i]) + '" width="100px" height="100px" style="margin:5px; border-radius:10px;"/>');
+        }
+    });
+});
+
+
+//Report
+$("input[name='radio-report']").click(function() {
+    document.getElementById('report-value').value = this.value;
 })

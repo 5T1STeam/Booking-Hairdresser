@@ -81,14 +81,14 @@ input.service:checked+span.btn-service {
     box-shadow: none !important;
 }
 
-#locations-choose {
+.locations-choose {
     padding: auto;
     margin: 0 10px;
     border-radius: 25px;
-    border: 1px solid rgb(130, 130, 130);
+    border: 1px solid rgb(130, 130, 130) !important;
 }
 
-#locations-choose:focus {
+.locations-choose:focus {
     border: 2px solid #ff8d76 !important;
     box-shadow: none !important;
 }
