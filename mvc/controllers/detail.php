@@ -7,7 +7,7 @@ class detail extends controller{
      }
     function Show(){
         $teo = $this->model("userModel");
-        $this->view("detailShop",["GAU"=>$teo->GetAllUsers()]);
+        $this->view("login",["GAU"=>$teo->GetAllUsers()]);
 
     }
 }
