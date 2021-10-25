@@ -6,7 +6,7 @@ body {
 body.my-login-page {
     background-color: #f7f9fb;
     font-size: 14px;
-    background-image: url(../source/img/bgs.png);
+    background-image: url(../../public/img/bgs.png);
     background-size: cover;
     background-position: bottom;
 }
