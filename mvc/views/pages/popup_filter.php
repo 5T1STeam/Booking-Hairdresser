@@ -14,22 +14,14 @@
                 <h5 class="modal-title">DỊCH VỤ</h5>
             </div>
             <div class="group-service modal-body">
-                <label>
-                    <input type="checkbox" name="service" class="service" style="display: none;">
-                    <span class="btn btn-service" for="">Cắt Tóc</span>
-                </label>
-                <label>
-                    <input type="checkbox" name="service" class="service" style="display: none;">
-                    <span class="btn btn-service">Làm Nail</span>
-                </label>
-                <label>
-                    <input type="checkbox" name="service" class="service" style="display: none;">
-                    <span class="btn btn-service">Duỗi Tóc</span>
-                </label>
-                <label>
-                    <input type="checkbox" name="service" class="service" style="display: none;">
-                    <span class="btn btn-service">Uốn Tóc</span>
-                </label>
+                <?php
+                while ($row = mysqli_fetch_array($service)) {
+                    echo "<label style='padding-top:8px;'>
+                                        <input type='checkbox' name='service' class='service' value=" . $row['Id'] . " style='display: none;'>
+                                        <span class='btn btn-service'>" . $row['Name'] . "</span>
+                                        </label>";
+                }
+                ?>
                 <!--có thể thêm-->
                 <hr />
             </div>
@@ -37,16 +29,18 @@
             <div class="container">
                 <h5 class="modal-title">VỊ TRÍ</h5>
                 <div class="row justify-content-center">
-                    <select name="calc_provinces" required="" class="col-sm-3 btn" id="locations-choose">
+                    <select name="calc_provinces" class="col-sm-3 btn" id="province_f">
                         <option value="">Tỉnh / Thành phố</option>
                         <?php
-
+                        while ($row = mysqli_fetch_array($province)) {
+                            echo "<option value='" . $row['Id'] . "'>" . $row['Name'] . "</option>";
+                        }
                         ?>
                     </select>
-                    <select name="calc_district" required="" class="col-sm-3 btn" id="locations-choose">
+                    <select name="calc_district" class="col-sm-3 btn" id="district_f">
                         <option value="">Quận / Huyện</option>
                     </select>
-                    <select name="calc_ward" required="" class="col-sm-3 btn" id="locations-choose">
+                    <select name="calc_ward" class="col-sm-3 btn" id="wards_f">
                         <option value="">Phường / Xã</option>
                     </select>
                 </div>
@@ -55,7 +49,7 @@
 
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn" id="btn-search" onclick="<?php include 'search.php'?>" data-dismiss="modal">Tìm Kiếm</button>
+                <button type="button" class="btn" id="btn-search" onclick="searchFilters()" data-dismiss="modal">Tìm Kiếm</button>
             </div>
 
         </div>

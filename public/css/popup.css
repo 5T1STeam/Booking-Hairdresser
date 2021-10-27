@@ -81,7 +81,42 @@ input.service:checked+span.btn-service {
     box-shadow: none !important;
 }
 
-#locations-choose {
+#province {
+    padding: auto;
+    margin: 0 10px;
+    border-radius: 25px;
+    border: 1px solid rgb(130, 130, 130);
+}
+
+#district {
+    padding: auto;
+    margin: 0 10px;
+    border-radius: 25px;
+    border: 1px solid rgb(130, 130, 130);
+}
+
+#wards {
+    padding: auto;
+    margin: 0 10px;
+    border-radius: 25px;
+    border: 1px solid rgb(130, 130, 130);
+}
+
+#province_f {
+    padding: auto;
+    margin: 0 10px;
+    border-radius: 25px;
+    border: 1px solid rgb(130, 130, 130);
+}
+
+#district_f {
+    padding: auto;
+    margin: 0 10px;
+    border-radius: 25px;
+    border: 1px solid rgb(130, 130, 130);
+}
+
+#wards_f {
     padding: auto;
     margin: 0 10px;
     border-radius: 25px;

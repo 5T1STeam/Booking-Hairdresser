@@ -1,7 +1,7 @@
 <div class="container px-0">
     <nav class=" row navbar px-3">
         <div class=" col-lg-1 col-sm-1 navbar-brand logo">
-            <a href="../../controller/"><img src="../../Booking-Hairdresser/public/img/logo.png" style="width: 60px;"></a>
+            <a href="../homepage"><img src="../public/img/logo.png" style="width: 60px;"></a>
         </div>
 
         <div class="nav nav-pc">
@@ -14,7 +14,7 @@
 
             </div>
             <div class="dropdown">
-                <a class="dropdown-toggle nav-link" id="ddMenu" data-toggle="dropdown"><span><img style="width: 25;height: 25px;" src="../../Booking-Hairdresser/public/img/emojione_flag-for-vietnam.png" alt=""></span>
+                <a class="dropdown-toggle nav-link" id="ddMenu" data-toggle="dropdown"><span><img style="width: 25;height: 25px;" src="../public/img/emojione_flag-for-vietnam.png" alt=""></span>
                     Việt Nam
                 </a>
                 <div class="dropdown-menu">

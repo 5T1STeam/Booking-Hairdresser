@@ -1,6 +1,7 @@
 // Search by Filters
 const service = [];
 
+
 function searchFilters() {
     if (service.length > 0) {
         document.getElementById("btn-popup-filter").innerHTML = "Filter by : " + service.join(', ');
@@ -16,11 +17,12 @@ $(document).ready(function() {
             var remove = service.splice(position, 1);
         } else {
             service.push($(this).text());
-        }
+        };
     });
     $(".btn-sort").click(function() {
         $('input.sortby').attr('value', $(this).text());
-    })
+    });
+
 })
 
 // Sort
@@ -31,22 +33,8 @@ function sort() {
 
 
 
-// location
-$(document).ready(function() {
-    $('#province').change(function() {
-        provinceId = $('#province').val();
-        $.post('../../Booking-Hairdresser/mvc/controllers/popup.php', { province: provinceId }, function(data) {
-            $('#district').html(data);
-            alert("Data :" + provinceId);
-        }, 'text');
-    })
-    $('#district').change(function() {
-        provinceId = $('#district').val();
-        $.post("../mvc/controller/popup.php", { district: districtId }, function(data) {
-            $('#wards').html(data);
-        }, 'text');
-    })
-})
+
+
 
 //Booking
 
@@ -143,7 +131,7 @@ $('.btn-day').click(function(e) {
         document.getElementById("full-day").innerHTML = day[0];
         createTime(days[0]);
     }
-})
+});
 
 //rate content
 function calcRate(r) {
@@ -158,7 +146,7 @@ $("input[name='rating']").click(function() {
         let rate = this.value.slice(0, 1) + '.5';
         document.getElementById("markrate").value = rate;
     }
-})
+});
 
 // preview img content
 $(document).ready(function() {
@@ -174,4 +162,13 @@ $(document).ready(function() {
 //Report
 $("input[name='radio-report']").click(function() {
     document.getElementById('report-value').value = this.value;
-})
+});
+
+
+// let position = serviceID.indexOf($(this).val());
+// if (position !== -1) {
+//     var remove = service.splice(position, 1);
+// } else {
+//     service.push($(this).val());
+// };
+// document.getElementById("service_choosed").value = serviceID.join(" ");

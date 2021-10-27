@@ -14,13 +14,13 @@
                 <div class="modal-body">
                     <div class="listservice">
                         <h5 class="modal-title">Dịch vụ phổ biến</h5>
-                        <br/>
+                       
                         <!--Lấy dữ liệu từ SQL nên hiệu chỉnh sau-->
                         <div class="group-service">
                             <?php
                                 while ($row = mysqli_fetch_array($service)){
                                     echo "<label style='padding-top:8px;'>
-                                        <input type='checkbox' name='service' class='service' value=".$row['Id']." style='display: none;'>
+                                        <input type='checkbox' name='serviceid' class='service' value=".$row['Id']." style='display: none;'>
                                         <span class='btn btn-service'>".$row['Name']."</span>
                                         </label>";
                                 }
@@ -35,15 +35,15 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <form method="post"></form>
-                    <button type="button" class="btn" id="btn-search" href="" data-dismiss="modal">Tìm Kiếm</button>
+                    <form method="post">
+                        <input type="text" name="service_choose"  value=""/>
+                        <a type="submit" class="btn" id="btn-search" href="searchByService">Tìm Kiếm</a>
+                    </form>
                 </div>
 
             </div>
         </div>
     </div>
-
-    
     <!-- The Location -->
     <div class="modal fade" id="popup-location">
         <div class="modal-dialog modal-lg">
@@ -53,7 +53,6 @@
                     <input id="model-input-howto" type="text" class="popup-howto form-control" placeholder="Địa điểm ?">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div class="location">
@@ -80,11 +79,14 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn" id="btn-search" onclick="" data-dismiss="modal">Tìm Kiếm</button>
-                    <!--php listshop-->
+                    <form method="post">              
+                        <input type="hidden" name="province" value=""/>
+                        <input type="hidden" name="district" value=""/>
+                        <input type="hidden" name="wards" value=""/>
+                        <a type="submit" class="btn" id="btn-search" href="searchByLocation" >Tìm Kiếm</a>                                   
+                    </form>
                 </div>
 
             </div>
