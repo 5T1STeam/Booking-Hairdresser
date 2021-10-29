@@ -1,3 +1,9 @@
+
+
+
+
+
+
 <!-- Popup Book -->
 <div class="modal fade" id="popup-book">
     <div class="modal-dialog modal-lg">
@@ -61,12 +67,20 @@
                         <!--tự hiện-->
                     </div>
                 </div>
-
+                <hr/>
                 <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-cancel" data-dismiss="modal">Hủy</button>
-                </div>
+                <div class="model-body row justify-content-between container" style="margin-top:-10px; text-align: center;">
+                    <div class="col-6" >
+                        <p>name</p>
+                        <p>service - price</p>
+                    </div>
+                    <div class="col-3" >
+                        <form method="post">
 
+                            <a type="submit" class="btn btn-cancel" href="#">Đặt Lịch</a>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

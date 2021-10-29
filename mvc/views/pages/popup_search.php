@@ -18,17 +18,13 @@
                         <!--Lấy dữ liệu từ SQL nên hiệu chỉnh sau-->
                         <div class="group-service">
                             <?php
-                                while ($row = mysqli_fetch_array($service)){
+                                foreach($service as $id=>$name) {
                                     echo "<label style='padding-top:8px;'>
-                                        <input type='checkbox' name='serviceid' class='service' value=".$row['Id']." style='display: none;'>
-                                        <span class='btn btn-service'>".$row['Name']."</span>
-                                        </label>";
+                                                        <input type='checkbox' name='service' class='service' value=" . $id . " style='display: none;'>
+                                                        <span class='btn btn-service'>" . $name . "</span>
+                                                        </label>";
                                 }
                             ?>
-                            <!-- <label>
-                                <input type="checkbox" name="service" class="service" value="" style="display: none;">
-                                <span class="btn btn-service" for="">cắt tóc</span>
-                            </label> -->
                         </div>
                     </div>
                 </div>
@@ -63,8 +59,8 @@
                             <select name="calc_provinces" class="locations-choose col-sm-3 btn " id="province">
                                 <option value="">Tỉnh / Thành phố</option>
                                 <?php
-                                    while($row = mysqli_fetch_array($province)){
-                                        echo "<option value='".$row['Id']."'>".$row['Name']."</option>";
+                                    foreach ($province as $id=>$name){
+                                        echo "<option value='".$id."'>".$name."</option>";
                                     }
                                 ?>
                             </select>
@@ -81,11 +77,11 @@
                 </div>
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <form method="post">              
-                        <input type="hidden" name="province" value=""/>
-                        <input type="hidden" name="district" value=""/>
-                        <input type="hidden" name="wards" value=""/>
-                        <a type="submit" class="btn" id="btn-search" href="searchByLocation" >Tìm Kiếm</a>                                   
+                    <form method="POST" action="searchlocation">              
+                        <input type="text" name="province" value=""/>
+                        <input type="text" name="district" value=""/>
+                        <input type="text" name="wards" value=""/>
+                        <button type="submit" class="btn" id="btn-search" onlick="" >Tìm Kiếm</button>                                   
                     </form>
                 </div>
 

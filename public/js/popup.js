@@ -156,7 +156,7 @@ $(document).ready(function() {
             $("#previewcontent").append('<img src="' + window.URL.createObjectURL(this.files[i]) + '" width="100px" height="100px" style="margin:5px; border-radius:10px;"/>');
         }
     });
-});
+})
 
 
 //Report
@@ -164,11 +164,6 @@ $("input[name='radio-report']").click(function() {
     document.getElementById('report-value').value = this.value;
 });
 
-
-// let position = serviceID.indexOf($(this).val());
-// if (position !== -1) {
-//     var remove = service.splice(position, 1);
-// } else {
-//     service.push($(this).val());
-// };
-// document.getElementById("service_choosed").value = serviceID.join(" ");
+$("input[name='serviceid']").click(function() {
+    alert("Please select a service")
+})

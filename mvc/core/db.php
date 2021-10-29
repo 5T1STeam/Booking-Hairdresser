@@ -14,6 +14,11 @@ class db{
         mysqli_query($this->con, "SET NAMES 'utf8'");
     }
 
+    function freeSystem($conn,$data){
+        mysqli_free_result($data);
+        mysqli_close($conn);
+    }
+
 }
 
 ?>

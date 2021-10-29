@@ -15,10 +15,10 @@
             </div>
             <div class="group-service modal-body">
                 <?php
-                while ($row = mysqli_fetch_array($service)) {
+                foreach($service as $id=>$name) {
                     echo "<label style='padding-top:8px;'>
-                                        <input type='checkbox' name='service' class='service' value=" . $row['Id'] . " style='display: none;'>
-                                        <span class='btn btn-service'>" . $row['Name'] . "</span>
+                                        <input type='checkbox' name='service' class='service' value=" . $id . " style='display: none;'>
+                                        <span class='btn btn-service'>" . $name . "</span>
                                         </label>";
                 }
                 ?>
@@ -32,8 +32,8 @@
                     <select name="calc_provinces" class="col-sm-3 btn" id="province_f">
                         <option value="">Tỉnh / Thành phố</option>
                         <?php
-                        while ($row = mysqli_fetch_array($province)) {
-                            echo "<option value='" . $row['Id'] . "'>" . $row['Name'] . "</option>";
+                        foreach ($province as $id=>$name){
+                            echo "<option value='".$id."'>".$name."</option>";
                         }
                         ?>
                     </select>
@@ -49,7 +49,13 @@
 
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn" id="btn-search" onclick="searchFilters()" data-dismiss="modal">Tìm Kiếm</button>
+                <form method="post">
+                        
+                    <input type="hidden" name="province-f" value=""/>
+                    <input type="hidden" name="district-f" value=""/>
+                    <input type="hidden" name="wards-f" value=""/>
+                    <a type="button" class="btn" id="btn-search" onclick="searchFilters()" data-dismiss="modal">Tìm Kiếm</a>
+                </form>
             </div>
 
         </div>

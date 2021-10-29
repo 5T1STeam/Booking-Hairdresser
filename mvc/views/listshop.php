@@ -67,60 +67,13 @@
         ?>
         <button id="btn-popup-filter" type="button" class="btn" data-toggle="modal" data-target="#popup-filters">Filters</button>
         <div class="listservice">
-            <div class="row mb-3">
-                <div class="col-md-4 col-12">
-                    <a class="linkShoptoDetail" href="/detailshop">
-                        <div class="item-list">
-                            <img src="../source/img/8.jpg" alt="" class="img-fluid px-2">
-                            <div class="ratingList">
-                                <div class="ratingPointList">4.9</div>
-                                <div class="reviewCountList">209 đánh giá</div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-8 col-12 infoListz">
-                    <a class="nameShopList" href="../detailshop/1">Hair Salon</a>
-                    <div class="locationList">34 Lũy Bán bích, Tân phú, Tp hcm</div>
-                    <div class="hr"></div>
-                    <div>
-                        <div class="row mt-2">
-                            <div class="col-md-8 col-5">
-                                <div>Nhuộm tóc</div>
-                            </div>
-                            <div class="col-md-2 col-4 float-right">35.000đ</div>
-                            <div class="col-md-2 col-3 float-right">
-                                <!-- Popup Book -->
-                                <div title="popup-book">
-                                    <!-- Button to Open the Modal -->
-                                    <button class=" btn-book" data-toggle="modal" data-target="#popup-book">Book</button>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hr"></div>
-                        <div class="row mt-2">
-                            <div class="col-md-8 col-5">
-                                <div>Nhuộm tóc</div>
-                            </div>
-                            <div class="col-md-2 col-4 float-right">35.000đ</div>
-                            <div class="col-md-2 col-3 float-right"><button class=" btn-book" data-toggle="modal" data-target="#popup-book">Book</button></div>
-                        </div>
-                        <div class="hr"></div>
-                        <div class="row mt-2">
-                            <div class="col-md-8 col-5">
-                                <div>Nhuộm tóc</div>
-                            </div>
-                            <div class="col-md-2 col-4 float-right">35.000đ</div>
-                            <div class="col-md-2 col-3 float-right"><button class=" btn-book">Book</button></div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
+        <?php
+            foreach($data["ALL"] as $shop){
+                $shop->showShop();
+            }
+        ?>
         </div>
-
+        <?php include_once './mvc/views/pages/popup_booking.php'; ?>
 
     </div>
     <?php include './mvc/views/pages/footer.php'; ?>
@@ -141,7 +94,6 @@
     <script src="../../../Booking-Hairdresser/public/js/popup.js"></script>
     <script>
         $('#carousel1').owlCarousel({
-
             items: 4,
             dots: false,
             loop: true,
@@ -150,18 +102,13 @@
             responsive: {
                 0: {
                     items: 1
-
                 },
                 600: {
                     items: 4
                 }
-
             }
-
-
         });
         $('#carousel2').owlCarousel({
-
             items: 4,
             dots: false,
             loop: true,
@@ -170,18 +117,13 @@
             responsive: {
                 0: {
                     items: 1
-
                 },
                 600: {
                     items: 4
                 }
-
             }
-
-
         });
         $('#carousel3').owlCarousel({
-
             items: 5,
             dots: false,
             loop: true,
@@ -191,14 +133,11 @@
                 0: {
                     items: 3,
                     autoHeight: true,
-
                 },
                 600: {
                     items: 7
                 }
-
             }
-
         });
         $(document).ready(function() {
             $('#province').change(function(event) {
@@ -232,6 +171,7 @@
         $(document).ready(function() {
             $('#province_f').change(function(event) {
                 provinceid = $('#province_f').val();
+                $('input[name="province-f"]').val(provinceid);
                 $.post('../mvc/controllers/loadlocation.php', {
                         province: provinceid
                     })
@@ -239,15 +179,22 @@
                         $('#district_f').html(data);
                     });
                 $('#wards_f').html("<option value=''>Phường / Xã</option>");
+                $('input[name="district-f"]').val(null);
+                $('input[name="wards-f"]').val(null);
             })
             $('#district_f').change(function() {
                 districtId = $('#district_f').val();
+                $('input[name="district-f"]').val(districtId);
                 $.post('../mvc/controllers/loadlocation.php', {
                         district: districtId
                     })
                     .done(function(data) {
                         $('#wards_f').html(data);
                     });
+                    $('input[name="wards-f"]').val(null);
+            })
+            $('#wards_f').change(function() {
+                $('input[name="wards-f"]').val($('#wards_f').val());
             })
         });
         
