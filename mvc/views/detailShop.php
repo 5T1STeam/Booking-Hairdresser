@@ -423,7 +423,6 @@
                     <div class="menuInfo">
                         <div class="NameMenu">
                             <?php
-                            print_r($data['GW']);
                             echo "
                             <h1 class='h1Menu'>".$data['GN']['Name']."</h1>
                         </div>
@@ -989,7 +988,6 @@
                                             <a href="#" class="prev text-right"> <i class="fa fa-angle-left" aria-hidden="true"></i></a>
                                         </li>
                                         <?php
-                                        print_r($data['GQ']);   
                                         $numberPage=5;
                                         $pageCount=ceil($data['GQ']['QuantityRating']/$numberPage);
                                         for($i=1;$i<=$pageCount;$i++){

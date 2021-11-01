@@ -83,7 +83,7 @@ class detailShopModel extends db{
         $qr = "SELECT * FROM tbl_feedbacks WHERE ShopId=".$id."";
         $retreat= mysqli_query($this->con,$qr);
         $result=array();
-        while($rows= mysqli_fetch_array($retreat)){
+        while($rows= mysqli_fetch_array($retreat,1)){
             array_push($result,$rows);
         }
         return $result;
@@ -132,7 +132,12 @@ class detailShopModel extends db{
     }
     public function GetLikeDisLike($id){
         $qr = "SELECT * FROM tbl_likefeedback WHERE FeedbackId=$id";
-        return mysqli_query($this->con,$qr); 
+        $querry= mysqli_query($this->con,$qr);
+        $result =array();
+        while($row=mysqli_fetch_array($querry)){
+            array_push($result,$row);
+        }
+        return $result;
     }
     
    
