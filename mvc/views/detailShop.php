@@ -422,9 +422,13 @@
                     </div>
                     <div class="menuInfo">
                         <div class="NameMenu">
-                            <h1 class="h1Menu">Tuan Barber</h1>
+                            <?php
+                            print_r($data['GW']);
+                            echo "
+                            <h1 class='h1Menu'>".$data['GN']['Name']."</h1>
                         </div>
-                        <span class="addressMenu">Số 16, Thôn 8a, Xã eakly, Krông Pắc, Đaklak</span>
+                        <span class='addressMenu'>".$data['GN']['FullAdress'].",".$data['GN']['Ward'].",".$data['GN']['District'].",".$data['GN']['Province']."</span>"
+                        ?>
                     </div>
                 </div>
             </div>
@@ -460,74 +464,58 @@
                             <!--Lấy dữ liệu từ SQL nên hiệu chỉnh sau-->
                             <div class="group-inforshop row container justify-content-between">
                                 <div class="col-8" style="font-weight: lighter;">
-                                    <h4>Tuấn Babershop</h4>
-                                    <p>43 Lũy Bán Bích, p. Tân Thới Hòa, Tân Phú, TP.HCM</p>
+                                <?php
+                                echo"
+                                    <h4>".$data['GN']['Name']."</h4>
+                                    <p>".$data['GN']['FullAdress'].",".$data['GN']['Ward'].",".$data['GN']['District'].",".$data['GN']['Province']."</p>
                                 </div>
-                                <div class="col-2" style="text-align:center;">
-                                    <div class="row justify-content-center" name="star">
-                                        <i class="bi bi-star-fill" style="color: #ff421a;"></i>
-                                        <i class="bi bi-star-fill" style="color: #ff421a;"></i>
-                                        <i class="bi bi-star-fill" style="color: #ff421a;"></i>
-                                        <i class="bi bi-star-fill" style="color: #ff421a;"></i>
-                                        <i class="bi bi-star-half" style="color: #ff421a;"></i>
+                                <div class='col-2' style='text-align:center;'>
+                                    <div class='row justify-content-center' name='star'>
+                                        <i class='bi bi-star-fill' style='color: #ff421a;'></i>
+                                        <i class='bi bi-star-fill' style='color: #ff421a;'></i>
+                                        <i class='bi bi-star-fill' style='color: #ff421a;'></i>
+                                        <i class='bi bi-star-fill' style='color: #ff421a;'></i>
+                                        <i class='bi bi-star-half' style='color: #ff421a;'></i>
                                     </div>
-                                    <p style="font-size: 12px; font-weight: italic;">120 đánh giá</p>
-                                </div>
+                                    <p style='font-size: 12px; font-weight: italic;'>".$data['GF']['QuantityRating']."&nbsp lượt đánh giá</p>
+                                </div>";
+                                ?>
                             </div>
                             <hr>
                             <div class="group-service">
-                                <div class="row justify-content-between container">
-                                    <div class="col-6">
-                                        <h5 name="service-name">Cắt tóc</h5>
+                                <?php                              
+                                $listService=[]; 
+                                while($cols = mysqli_fetch_array($data["GP"])){
+                                    array_push($listService,$cols);
+                                }
+                                while($rows=mysqli_fetch_array($data["GO"])){
+                                    echo "
+                                    <div class='row justify-content-between container'>
+                                    <div class='col-6'>";
+                                    foreach($listService as $keys){
+                                        if($rows["ServiceId"]==$keys["Id"]){
+                                            echo "<h5 name='service-name'>". $keys["Name"]."</h5>";
+                                        }
+                                    }
+                                    echo "   </div>
+                                    <div class='col-4' style='text-align:right;'>
+                                        <p>". number_format( $rows['Price'])."đ</p>
+                                        <p style='margin-top:-15px; font-size: 12px; font-weight: lighter'>". $rows['Time']." phút</p>
                                     </div>
-                                    <div class="col-4" style="text-align:right;">
-                                        <p>100.000 VNĐ</p>
-                                        <p style="margin-top:-15px; font-size: 12px; font-weight: lighter">30 phút</p>
+                                    <div class='col-2' style='text-align:right;'>
+                                        <button type='button' class='btn' id='btn-search' data-toggle='modal' data-target='#popup-book'>Book</button>
                                     </div>
-                                    <div class="col-2" style="text-align:right;">
-                                        <button type="button" class="btn" id="btn-search" data-toggle="modal" data-target="#popup-book">Book</button>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row justify-content-between container">
-                                    <div class="col-6">
-                                        <h5 name="service-name">Cắt tóc - Cạo râu</h5>
-                                    </div>
-                                    <div class="col-4" style="text-align:right;">
-                                        <p>130.000 VNĐ</p>
-                                        <p style="margin-top:-15px; font-size: 12px; font-weight: lighter">40 phút</p>
-                                    </div>
-                                    <div class="col-2" style="text-align:right;">
-                                        <button type="button" class="btn" id="btn-search" data-toggle="modal" data-target="#popup-book">Book</button>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row justify-content-between container">
-                                    <div class="col-6">
-                                        <h5 name="service-name">Massage</h5>
-                                    </div>
-                                    <div class="col-4" style="text-align:right;">
-                                        <p>80.000 VNĐ</p>
-                                        <p style="margin-top:-15px; font-size: 12px; font-weight: lighter">30 phút</p>
-                                    </div>
-                                    <div class="col-2" style="text-align:right;">
-                                        <button type="button" class="btn" id="btn-search" data-toggle="modal" data-target="#popup-book">Book</button>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row justify-content-between container">
-                                    <div class="col-6">
-                                        <h5 name="service-name">Nhuộm tóc</h5>
-                                    </div>
-                                    <div class="col-4" style="text-align:right;">
-                                        <p>300.000 VNĐ</p>
-                                        <p style="margin-top:-15px; font-size: 12px; font-weight: lighter">60 phút</p>
-                                    </div>
-                                    <div class="col-2" style="text-align:right;">
-                                        <button type="button" class="btn" id="btn-search" data-toggle="modal" data-target="#popup-book">Book</button>
-                                    </div>
-                                </div>
-                                <hr>
+                                    <hr>
+                                </div>";
+
+                                }
+
+                                ?>
+                                
+                                        
+                                 
+                                
+                                
                             </div>
                         </div>
                     </div>
@@ -612,11 +600,12 @@
 
                     <div class="owl-carousel owl-theme">
                         <?php
+                        
                              while($rows=mysqli_fetch_array($data["GAU"])){
                                echo " <div class='item'><img src=".$rows['Image'] . " alt=''>
                                <div class='rating'>
-                                   <div class='ratingPoint'>4.9</div>
-                                   <div class='reviewCount'>209 đánh giá</div>
+                                   <div class='ratingPoint'>".$data['GF']['AverageRating']."</div>
+                                   <div class='reviewCount'>".$data['GF']['QuantityRating']." đánh giá</div>
                                </div>
                            </div>
                            ";
@@ -626,10 +615,13 @@
                     </div> 
               
                     <div class="shopInfo mb-1">
-                        <h1 class="h1Detail">Tuan Baber Shop <button class=" float-right"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        <?php
+                        
+                            echo "<h1 class='h1Detail'>" .$data['GN']['Name'] . "   <button class=' float-right'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='red' class='bi bi-heart-fill' viewBox='0 0 16 16'>
+                            <path fill-rule='evenodd' d='M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z'/>
                           </svg></button></h1>
-                        <div class="address">42 Lũy Bán Bích, Tân Thới Hòa, Tân Phú, Tp. Hồ Chí Minh</div>
+                        <div class='address'>".$data['GN']['FullAdress'].",".$data['GN']['Ward'].",".$data['GN']['District'].",".$data['GN']['Province']."</div>";
+                        ?>                   
                     </div>
                     <div class="service">
                         <div class="serviceName">
@@ -660,220 +652,148 @@
                       </svg></button></h2>
                     </div>
                     <div class="collapse" id="collapseExample">
-                        <div class="listService">
-                            <div class="SN">
-                                <h3>Cắt tóc</h3>
+                        <?php 
+                            $list=[]; 
+                            while($col = mysqli_fetch_array($data["GM"])){
+                                array_push($list,$col);
+                            };
 
-                            </div>
-                            <div class="price">
-                                <div class="priceDetail">
-                                    <div>
-                                        <div class="s">60.000đ</div>
-                                        <span class="so">1h</span>
+                             while($rows=mysqli_fetch_array($data["GS"])){
+                                 
+                                 echo "
+                                 <div class='listService'>
+                                    <div class='SN'>";
+                                    foreach($list as $key){
+                                        if($rows["ServiceId"]==$key["Id"]){
+                                            echo "<h3>". $key["Name"]."</h3>";
+                                        }
+                                     };
+                                     echo"
                                     </div>
-                                    <div class="bookBtn">
-                                        <!-- Popup Book -->
-                                        <div title="popup-book">
-                                            <!-- Button to Open the Modal -->
-                                            <button class=" Btn" data-toggle="modal" data-target="#popup-book">Book</button>
-
-                                            <!-- The Modal -->
-
+                                    <div class='price'>
+                                        <div class='priceDetail'>
+                                            <div>
+                                                <div class='s'>". number_format( $rows['Price'])."đ</div>
+                                                <span class='so'>". $rows['Time']. " phút</span>
+                                             </div>
+                                            <div class='bookBtn'>
+                                             <!-- Popup Book -->
+                                                 <div title='popup-book'>
+                                                 <!-- Button to Open the Modal -->
+                                                 <button class=' Btn' data-toggle='modal' data-target='#popup-book'>Book</button>
+     
+                                                 <!-- The Modal -->
+     
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="listService">
-                            <div class="SN">
-                                <h3>Cắt tóc-Cạo râu</h3>
-
-                            </div>
-                            <div class="price">
-                                <div class="priceDetail">
-                                    <div>
-                                        <div class="s">70.000đ</div>
-                                        <span class="so">1h-15p</span>
-                                    </div>
-                                    <div class="bookBtn">
-                                        <button class="Btn" data-toggle="modal" data-target="#popup-book">Book</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="listService">
-                            <div class="SN">
-                                <h3>Massage</h3>
-
-                            </div>
-                            <div class="price">
-                                <div class="priceDetail">
-                                    <div>
-                                        <div class="s">150.000đ</div>
-                                        <span class="so">1h</span>
-                                    </div>
-                                    <div class="bookBtn">
-                                        <button class="Btn" data-toggle="modal" data-target="#popup-book">Book</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
+                             <hr>";
+                             
+                             }
+                        ?>
                     </div>
                     <h2 class="h2AS">Tất cả dịch vụ <button class=" float-right bs" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
                       </svg></button></h2>
                     <div class="allService  collapse multi-collapse" id="multiCollapseExample2">
-                        <div class="listService">
-                            <div class="SN">
-                                <h3>Cắt tóc</h3>
-
-                            </div>
-                            <div class="price">
-                                <div class="priceDetail">
-                                    <div>
-                                        <div class="s">60.000đ</div>
-                                        <span class="so">1h</span>
+                    <?php
+                             while($rows=mysqli_fetch_array($data["GS"])){
+                                 
+                                 echo "
+                                 <div class='listService'>
+                                    <div class='SN'>
+                                     <h3> " . $rows['ServiceId']. "</h3>
+     
                                     </div>
-                                    <div class="bookBtn">
-                                        <button class="Btn" data-toggle="modal" data-target="#popup-book">Book</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="listService">
-                            <div class="SN">
-                                <h3>Cắt tóc-Cạo râu</h3>
-
-                            </div>
-                            <div class="price">
-                                <div class="priceDetail">
-                                    <div>
-                                        <div class="s">70.000đ</div>
-                                        <span class="so">1h-15p</span>
-                                    </div>
-                                    <div class="bookBtn">
-                                        <button class="Btn" data-toggle="modal" data-target="#popup-book">Book</button>
+                                    <div class='price'>
+                                        <div class='priceDetail'>
+                                            <div>
+                                                <div class='s'>". $rows['Price']."</div>
+                                                <span class='so'>". $rows['Time']. "</span>
+                                             </div>
+                                            <div class='bookBtn'>
+                                             <!-- Popup Book -->
+                                                 <div title='popup-book'>
+                                                 <!-- Button to Open the Modal -->
+                                                 <button class=' Btn' data-toggle='modal' data-target='#popup-book'>Book</button>
+     
+                                                 <!-- The Modal -->
+     
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="listService">
-                            <div class="SN">
-                                <h3>Massage</h3>
-
-                            </div>
-                            <div class="price">
-                                <div class="priceDetail">
-                                    <div>
-                                        <div class="s">150.000đ</div>
-                                        <span class="so">1h</span>
-                                    </div>
-                                    <div class="bookBtn">
-                                        <button class="Btn" data-toggle="modal" data-target="#popup-book">Book</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="listService">
-                            <div class="SN">
-                                <h3>Nhuộm tóc</h3>
-
-                            </div>
-                            <div class="price">
-                                <div class="priceDetail">
-                                    <div>
-                                        <div class="s">200.000đ</div>
-                                        <span class="so">1h</span>
-                                    </div>
-                                    <div class="bookBtn">
-                                        <button class="Btn" data-toggle="modal" data-target="#popup-book">Book</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="listService">
-                            <div class="SN">
-                                <h3>Uốn tóc</h3>
-
-                            </div>
-                            <div class="price">
-                                <div class="priceDetail">
-                                    <div>
-                                        <div class="s">70.000đ</div>
-                                        <span class="so">1h-5p</span>
-                                    </div>
-                                    <div class="bookBtn">
-                                        <button class="Btn" data-toggle="modal" data-target="#popup-book">Book</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                             <hr>";
+                             
+                             }
+                        ?>
+                        
                     </div>
 
                     <div class="rulesz">
                         <h2>Quy định an toàn tại cửa hàng</h2>
                         <div class="row">
-                            <div class="col-md-5 col-xs-5 xsss">
-                                <p class="Rulesz"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-shield-fill-plus" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm-.5 5a.5.5 0 0 1 1 0v1.5H10a.5.5 0 0 1 0 1H8.5V9a.5.5 0 0 1-1 0V7.5H6a.5.5 0 0 1 0-1h1.5V5z"/>
-                                  </svg>Nhân viên phải đeo khẩu trang</p>
-                                <p class="Rulesz"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-shield-fill-plus" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm-.5 5a.5.5 0 0 1 1 0v1.5H10a.5.5 0 0 1 0 1H8.5V9a.5.5 0 0 1-1 0V7.5H6a.5.5 0 0 1 0-1h1.5V5z"/>
-                                  </svg>Nhân viên phải đeo khẩu trang</p>
-                                <p class="Rulesz"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-shield-fill-plus" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm-.5 5a.5.5 0 0 1 1 0v1.5H10a.5.5 0 0 1 0 1H8.5V9a.5.5 0 0 1-1 0V7.5H6a.5.5 0 0 1 0-1h1.5V5z"/>
-                                  </svg>Nhân viên phải đeo khẩu trang</p>
+                        <?php
+                                    $arrs=array();
+                                    while($rows=mysqli_fetch_array($data["GR"])){
+                                        array_push($arrs,$rows);
+                                        echo " <div class='col-md-5 col-xs-5 xsss'>
+                               
+                                        <p class='Rulesz'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='red' class='bi bi-shield-fill-plus' viewBox='0 0 16 16'>
+                                        <path fill-rule='evenodd' d='M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm-.5 5a.5.5 0 0 1 1 0v1.5H10a.5.5 0 0 1 0 1H8.5V9a.5.5 0 0 1-1 0V7.5H6a.5.5 0 0 1 0-1h1.5V5z'/>
+                                      </svg>" . $rows['Rule']."</p>
+                                      </div>";
+                                    }
+                                ?>
 
-                            </div>
-                            <div class="col-md-5 col-xs-5">
-                                <p class="Rulesz"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-shield-fill-plus" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm-.5 5a.5.5 0 0 1 1 0v1.5H10a.5.5 0 0 1 0 1H8.5V9a.5.5 0 0 1-1 0V7.5H6a.5.5 0 0 1 0-1h1.5V5z"/>
-                                  </svg>Nhân viên phải đeo khẩu trang</p>
-                                <p class="Rulesz"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-shield-fill-plus" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm-.5 5a.5.5 0 0 1 1 0v1.5H10a.5.5 0 0 1 0 1H8.5V9a.5.5 0 0 1-1 0V7.5H6a.5.5 0 0 1 0-1h1.5V5z"/>
-                                  </svg>Nhân viên phải đeo khẩu trang</p>
-                                <p class="Rulesz"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-shield-fill-plus" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm-.5 5a.5.5 0 0 1 1 0v1.5H10a.5.5 0 0 1 0 1H8.5V9a.5.5 0 0 1-1 0V7.5H6a.5.5 0 0 1 0-1h1.5V5z"/>
-                                  </svg>Nhân viên phải đeo khẩu trang</p>
-                            </div>
                         </div>
-                        <button class="viewAll ">Xem tất cả<span >(20)</span></button>
+                        <?php
+                        if(count($arrs)>=10){
+                            echo " <button class='viewAll '>Xem tất cả<span >(".count($arrs) . ")</span></button>";
+                        }
+                        
+                        ?>
+                     
                     </div>
                     <!-- --------------------- -->
                     <div class="gallery mt-5">
                         <h1 class="heading1 mb-3">Thư viện ảnh</h1>
                         <div class="lightbox">
                             <div class="row">
-                                <div class="col-md-6 pl-0 pr-0 mb-2">
-                                    <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-image="../source/img/inspiration_154206175231.jpeg" data-target="#image-gallery">
-                                        <img class="w-100 rounded" src="../source/img/inspiration_154206175231.jpeg" alt="Another alt text">
-                                    </a>
-                                </div>
-                                <div class="col-md-3 text-right pl-1 pr-2 mb-2">
-                                    <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-image="../source/img/inspiration_2.jpeg" data-target="#image-gallery">
-                                        <img class="w-100 mb-3 rounded" src="../source/img/inspiration_2.jpeg" alt="Another alt text">
-                                    </a>
-                                    <br>
-                                    <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-image="../source/img/inspiration_3.jpeg" data-target="#image-gallery">
-                                        <img class="w-100 mt-2  rounded" src="../source/img/inspiration_3.jpeg" alt="Another alt text">
-                                    </a>
-                                </div>
-                                <div class="col-md-3 text-right pl-2 pr-1 mb-2">
-                                    <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-image="../source/img/inspiration_4.jpeg" data-target="#image-gallery">
-                                        <img class="w-100 mb-3 rounded" src="../source/img/inspiration_4.jpeg" alt="Another alt text">
-                                    </a>
-                                    <br>
-                                    <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-image="../source/img/inspiration_5.jpeg" data-target="#image-gallery">
-                                        <img class="w-100 mt-2 rounded" src="../source/img/inspiration_5.jpeg" alt="Another alt text">
-                                    </a>
-                                </div>
+                                <?php    
+                             
+                                $arr= array();
+                                
+                                $j=0;
+                                for($i=0;$i<=count($arr);$i++){
+                                    if($j==5){
+                                        break;
+                                    }
+                                    $rows= mysqli_fetch_array($data["GI"]);
+                                    array_push($arr,$rows['Image']);
+                                    if($arr[$i]!=null){
+                                        
+                                        $j++;
+                                        echo "
+                                        <div class='col-md-4 '>
+                                            <a class='thumbnail' href='#' data-image-id='' data-toggle='modal' data-title='' data-image=".$rows['Image']." data-target='#image-gallery'>
+                                                <img class='imgFeedback rounded mt-4' src=".$rows['Image']." width='100%' height='180'  alt='Another alt text'>
+                                            </a>
+                                        </div>
+                                        ";
+
+                                    }
+                                    
+                                    else{
+                                        echo "<h4 class='pl-3'>Chưa có hình ảnh đánh giá nào </h4>"; 
+                                        $arr=0;
+                                        break;
+                                    }
+                                }
+                                ?>
 
                                 <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-md">
@@ -901,11 +821,18 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md">
-                                <button type="button" class="btn-showall mt-3 w-100">Xem tất cả</button>
+                        <?php
+                        if($arr!=0){
+                            echo "
+                            <div class='row'>
+                            <div class='col-md'>
+                                <button type='button' class='btn-showall mt-3 w-100'>Xem tất cả</button>
                             </div>
-                        </div>
+                        </div>";
+                        }
+                       
+                        ?>
+                        
                     </div>
                     <!-- ----------------------- -->
                     <div class="rating-header mt-5">
@@ -921,57 +848,76 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="content text-center ">
-                                                <div class="ratings"><span class="product-rating">4.9</span><span>/5</span>
-                                                    <div class="stars"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                                                    <div class="rating-text"> <span>46 lượt đánh giá</span> </div>
-                                                </div>
+                                                <?php 
+                                               
+                                                echo "<div class='ratings'><span class='product-rating'>".$data['GF']['AverageRating']."</span><span>/5</span>
+                                                <div class='stars'> <i class='fa fa-star'></i> <i class='fa fa-star'></i> <i class='fa fa-star'></i> <i class='fa fa-star'></i> <i class='fa fa-star'></i></div>
+                                                <div class='rating-text'> <span>".$data['GF']['QuantityRating']." đánh giá</span> </div>
+                                            </div>";
+                                                ?>
+                                                
                                             </div>
                                         </div>
                                         <div class="col-md-6 text-center">
                                             <div class="row text-center">
-                                                <div class="col five-star align-items-center d-flex">5
-                                                    <span class="stars"><i class="fa fa-star mr-2" style="font-size: 10px;"></i></span>
-                                                    <span class="progress ">
-                                                        <i class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95"
-                                                            aria-valuemin="0" aria-valuemax="100"></i>
-                                                    </span> 44
-                                                </div>
+                                                <?php
+                                                echo "
+                                                <div class='col five-star align-items-center d-flex'>5
+                                                    <span class='stars'><i class='fa fa-star mr-2' style='font-size: 10px;'></i></span>
+                                                    <span class='progress '>
+                                                        <i class='progress-bar' role='progressbar' style='width: ".($data['GF']['FiveStarRating']/$data['GF']['QuantityRating'])*100 . "%' aria-valuenow=".($data['GF']['FiveStarRating']/$data['GF']['QuantityRating'])*100 ."
+                                                            aria-valuemin='0' aria-valuemax='100'></i>
+                                                    </span> ".$data['GF']['FiveStarRating']."
+                                                </div>";
+                                                ?>
                                             </div>
                                             <div class="row">
-                                                <div class="col five-star align-items-center d-flex">4
-                                                    <span class="stars"><i class="fa fa-star mr-2" style="font-size: 10px;"></i></span>
-                                                    <span class="progress">
-                                                        <i class="progress-bar" role="progressbar" style="width: 1%" aria-valuenow="1"
-                                                            aria-valuemin="0" aria-valuemax="100"></i>
-                                                    </span> 1
-                                                </div>
+                                                <?php
+                                                echo "
+                                                <div class='col five-star align-items-center d-flex'>4
+                                                    <span class='stars'><i class='fa fa-star mr-2' style='font-size: 10px;'></i></span>
+                                                    <span class='progress'>
+                                                        <i class='progress-bar' role='progressbar' style='width: ".($data['GF']['FourStarRating']/$data['GF']['QuantityRating'])*100 . "%' aria-valuenow=".($data['GF']['FourStarRating']/$data['GF']['QuantityRating'])*100 ."
+                                                            aria-valuemin='0' aria-valuemax='100'></i>
+                                                    </span> ".$data['GF']['FourStarRating']."
+                                                </div>";
+                                                ?>
                                             </div>
                                             <div class="row">
-                                                <div class="col five-star align-items-center d-flex">3
-                                                    <span class="stars"><i class="fa fa-star mr-2" style="font-size: 10px;"></i></span>
-                                                    <span class="progress">
-                                                        <i class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
-                                                            aria-valuemin="0" aria-valuemax="100"></i>
-                                                    </span> 0
-                                                </div>
+                                                <?php
+                                                echo "
+                                                <div class='col five-star align-items-center d-flex'>3
+                                                    <span class='stars'><i class='fa fa-star mr-2' style='font-size: 10px;'></i></span>
+                                                    <span class='progress'>
+                                                        <i class='progress-bar' role='progressbar' style='width: ".($data['GF']['ThreeStarRating']/$data['GF']['QuantityRating'])*100 . "%' aria-valuenow=".($data['GF']['ThreeStarRating']/$data['GF']['QuantityRating'])*100 . "
+                                                            aria-valuemin='0' aria-valuemax='100'></i>
+                                                    </span> ".$data['GF']['ThreeStarRating']."
+                                                </div>";
+                                                ?>
                                             </div>
                                             <div class="row">
-                                                <div class="col five-star align-items-center d-flex">2
-                                                    <span class="stars"><i class="fa fa-star mr-2" style="font-size: 10px;"></i></span>
-                                                    <span class="progress">
-                                                        <i class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
-                                                            aria-valuemin="0" aria-valuemax="100"></i>
-                                                    </span> 0
-                                                </div>
+                                                <?php
+                                                echo "
+                                                <div class='col five-star align-items-center d-flex'>2
+                                                    <span class='stars'><i class='fa fa-star mr-2' style='font-size: 10px;'></i></span>
+                                                    <span class='progress'>
+                                                        <i class='progress-bar' role='progressbar' style='width: ".($data['GF']['TwoStarRating']/$data['GF']['QuantityRating'])*100 . "%' aria-valuenow=".($data['GF']['TwoStarRating']/$data['GF']['QuantityRating'])*100 . "
+                                                            aria-valuemin='0' aria-valuemax='100'></i>
+                                                    </span> ".$data['GF']['TwoStarRating']."
+                                                </div>";
+                                                ?>
                                             </div>
                                             <div class="row">
-                                                <div class="col five-star align-items-center d-flex">1
-                                                    <span class="stars"><i class="fa fa-star mr-2" style="font-size: 10px;"></i></span>
-                                                    <span class="progress">
-                                                        <i class="progress-bar" role="progressbar" style="width: 1%" aria-valuenow="1"
-                                                            aria-valuemin="0" aria-valuemax="100"></i>
-                                                    </span> 1
-                                                </div>
+                                                <?php
+                                                echo "
+                                                <div class='col five-star align-items-center d-flex'>1
+                                                    <span class='stars'><i class='fa fa-star mr-2' style='font-size: 10px;'></i></span>
+                                                    <span class='progress'>
+                                                        <i class='progress-bar' role='progressbar' style='width: ".($data['GF']['OneStarRating']/$data['GF']['QuantityRating'])*100 . "%' aria-valuenow=".($data['GF']['OneStarRating']/$data['GF']['QuantityRating'])*100 . "
+                                                            aria-valuemin='0' aria-valuemax='100'></i>
+                                                    </span> ".$data['GF']['OneStarRating']."
+                                                </div>";
+                                                ?>
                                             </div>
                                         </div>
                                     </div>
@@ -980,354 +926,59 @@
                         </div>
                     </div>
                     <div class="rating-body">
-                        <div class="card-rating">
-                            <div class="row">
-                                <div class="col-md-6 mb-1 stars">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <span class="fa fa-star"></span>
+                        <?php
+                        
+                        foreach($data['GQ'] as $items){
+
+                       
+                            echo "<div class='card-rating'>
+                            <div class='row'>
+                                <div class='col-md-6 mb-1 stars'>";
+                                for($i = 1; $i <=5;$i++)
+                                {
+                                    if($i<=$items['Rating']){
+                                        echo "<i class='fa fa-star'></i>";
+                                    }
+                                    else{
+                                        echo "<span class='fa fa-star'></span>";
+                                    }
+                                }
+                                echo "   
                                 </div>
-                                <div class="col-md-6 text-md-right">
-                                    <span class="location">TP. Hồ Chí Minh,</span>
-                                    <span class="date-rating"> 06/09/2021</span>
+                                <div class='col-md-6 text-md-right'>
+                                    <span class='location'>".$items['Province'] . ",</span>
+                                    <span class='date-rating'>".$items['CreateDate']."</span>
                                 </div>
                             </div>
-                            <h6 class="service-name mb-1">Fullbody Massage</h6>
-                            <h6 class="client-name mb-2">Lâm Tuấn</h6>
-                            <p class="comment">Xinh đẹp tuyệt vời !</p>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_up</span></button>
+                            
+                               <h6 class='service-name mb-1'>".$items['ServiceName'] ."</h6>
+                            <h6 class='client-name mb-2'>".$items['UserName'] ."</h6>
+                            <p class='comment'>".$items['Content'] . "</p>
+                            <img class='pb-3' src='".$items['Image'] . "' width='auto' height='200'>
+                            <div class='row'>
+                                <div class='col-md-2'>
+                                    <button type='button' class='btn-in-rate'> ".$items['Like']."<span class='material-icons text-center ml-2'>thumb_up</span></button>
                                 </div>
-                                <div class="col-md-2">
-                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_down</span></button>
+                                <div class='col-md-2'>
+                                    <button type='button' class='btn-in-rate'> ".$items['DLike']."<span class='material-icons text-center ml-2'>thumb_down</span></button>
                                 </div>
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4 text-right">
-                                    <button type="button" class="btn-in-rate" data-toggle="modal" data-target="#popup-report"> Report <span class="material-icons text-center ml-2">flag</span></button>
+                                <div class='col-md-4'></div>
+                                <div class='col-md-4 text-right'>
+                                    <button type='button' class='btn-in-rate' data-toggle='modal' data-target='#popup-report'> Report <span class='material-icons text-center ml-2'>flag</span></button>
 
                                 </div>
 
                             </div>
-                            <div class=" row">
-                                <div class="col-md">
+                            <div class=' row'>
+                                <div class='col-md'>
                                     <hr>
                                 </div>
                             </div>
-                        </div>
-                        <!-- ------- -->
-                        <div class="card-rating">
-                            <div class="row">
-                                <div class="col-md-6 mb-1 stars">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="col-md-6 text-md-right">
-                                    <span class="location">TP. Hồ Chí Minh,</span>
-                                    <span class="date-rating"> 06/09/2021</span>
-                                </div>
-                            </div>
-                            <h6 class="service-name mb-1">Fullbody Massage</h6>
-                            <h6 class="client-name mb-2">Lâm Tuấn</h6>
-                            <p class="comment">Xinh đẹp tuyệt vời !</p>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_up</span></button>
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_down</span></button>
-                                </div>
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4 text-right">
-                                    <button type="button" class="btn-in-rate" data-toggle="modal" data-target="#popup-report"> Report <span class="material-icons text-center ml-2">flag</span></button>
+                        </div>"; 
+                    }
+                    
+                        ?>
 
-                                </div>
-
-                            </div>
-                            <div class=" row">
-                                <div class="col-md">
-                                    <hr>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ----------- -->
-                        <div class="card-rating">
-                            <div class="row">
-                                <div class="col-md-6 mb-1 stars">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="col-md-6 text-md-right">
-                                    <span class="location">TP. Hồ Chí Minh,</span>
-                                    <span class="date-rating"> 06/09/2021</span>
-                                </div>
-                            </div>
-                            <h6 class="service-name mb-1">Fullbody Massage</h6>
-                            <h6 class="client-name mb-2">Lâm Tuấn</h6>
-                            <p class="comment">Xinh đẹp tuyệt vời !</p>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_up</span></button>
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_down</span></button>
-                                </div>
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4 text-right">
-                                    <button type="button" class="btn-in-rate" data-toggle="modal" data-target="#popup-report"> Report <span class="material-icons text-center ml-2">flag</span></button>
-
-                                </div>
-
-                            </div>
-                            <div class=" row">
-                                <div class="col-md">
-                                    <hr>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ------- -->
-                        <!-- ------- -->
-                        <div class="card-rating">
-                            <div class="row">
-                                <div class="col-md-6 mb-1 stars">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="col-md-6 text-md-right">
-                                    <span class="location">TP. Hồ Chí Minh,</span>
-                                    <span class="date-rating"> 06/09/2021</span>
-                                </div>
-                            </div>
-                            <h6 class="service-name mb-1">Fullbody Massage</h6>
-                            <h6 class="client-name mb-2">Lâm Tuấn</h6>
-                            <p class="comment">Xinh đẹp tuyệt vời !</p>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_up</span></button>
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_down</span></button>
-                                </div>
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4 text-right">
-                                    <button type="button" class="btn-in-rate" data-toggle="modal" data-target="#popup-report"> Report <span class="material-icons text-center ml-2">flag</span></button>
-
-                                </div>
-
-                            </div>
-                            <div class=" row">
-                                <div class="col-md">
-                                    <hr>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ----------- -->
-                        <!-- ------- -->
-                        <div class="card-rating">
-                            <div class="row">
-                                <div class="col-md-6 mb-1 stars">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="col-md-6 text-md-right">
-                                    <span class="location">TP. Hồ Chí Minh,</span>
-                                    <span class="date-rating"> 06/09/2021</span>
-                                </div>
-                            </div>
-                            <h6 class="service-name mb-1">Fullbody Massage</h6>
-                            <h6 class="client-name mb-2">Lâm Tuấn</h6>
-                            <p class="comment">Xinh đẹp tuyệt vời !</p>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_up</span></button>
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_down</span></button>
-                                </div>
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4 text-right">
-                                    <button type="button" class="btn-in-rate" data-toggle="modal" data-target="#popup-report"> Report <span class="material-icons text-center ml-2">flag</span></button>
-
-                                </div>
-
-                            </div>
-                            <div class=" row">
-                                <div class="col-md">
-                                    <hr>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ----------- -->
-                        <!-- ------- -->
-                        <div class="card-rating">
-                            <div class="row">
-                                <div class="col-md-6 mb-1 stars">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="col-md-6 text-md-right">
-                                    <span class="location">TP. Hồ Chí Minh,</span>
-                                    <span class="date-rating"> 06/09/2021</span>
-                                </div>
-                            </div>
-                            <h6 class="service-name mb-1">Fullbody Massage</h6>
-                            <h6 class="client-name mb-2">Lâm Tuấn</h6>
-                            <p class="comment">Xinh đẹp tuyệt vời !</p>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_up</span></button>
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_down</span></button>
-                                </div>
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4 text-right">
-                                    <button type="button" class="btn-in-rate" data-toggle="modal" data-target="#popup-report"> Report <span class="material-icons text-center ml-2">flag</span></button>
-
-                                </div>
-
-                            </div>
-                            <div class=" row">
-                                <div class="col-md">
-                                    <hr>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ----------- -->
-                        <!-- ------- -->
-                        <div class="card-rating">
-                            <div class="row">
-                                <div class="col-md-6 mb-1 stars">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="col-md-6 text-md-right">
-                                    <span class="location">TP. Hồ Chí Minh,</span>
-                                    <span class="date-rating"> 06/09/2021</span>
-                                </div>
-                            </div>
-                            <h6 class="service-name mb-1">Fullbody Massage</h6>
-                            <h6 class="client-name mb-2">Lâm Tuấn</h6>
-                            <p class="comment">Xinh đẹp tuyệt vời !</p>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_up</span></button>
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_down</span></button>
-                                </div>
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4 text-right">
-                                    <button type="button" class="btn-in-rate" data-toggle="modal" data-target="#popup-report"> Report <span class="material-icons text-center ml-2">flag</span></button>
-
-                                </div>
-
-                            </div>
-                            <div class=" row">
-                                <div class="col-md">
-                                    <hr>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ----------- -->
-                        <!-- ------- -->
-                        <div class="card-rating">
-                            <div class="row">
-                                <div class="col-md-6 mb-1 stars">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="col-md-6 text-md-right">
-                                    <span class="location">TP. Hồ Chí Minh,</span>
-                                    <span class="date-rating"> 06/09/2021</span>
-                                </div>
-                            </div>
-                            <h6 class="service-name mb-1">Fullbody Massage</h6>
-                            <h6 class="client-name mb-2">Lâm Tuấn</h6>
-                            <p class="comment">Xinh đẹp tuyệt vời !</p>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_up</span></button>
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_down</span></button>
-                                </div>
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4 text-right">
-                                    <button type="button" class="btn-in-rate" data-toggle="modal" data-target="#popup-report"> Report <span class="material-icons text-center ml-2">flag</span></button>
-
-                                </div>
-
-                            </div>
-                            <div class=" row">
-                                <div class="col-md">
-                                    <hr>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ----------- -->
-                        <!-- ------- -->
-                        <div class="card-rating">
-                            <div class="row">
-                                <div class="col-md-6 mb-1 stars">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="col-md-6 text-md-right">
-                                    <span class="location">TP. Hồ Chí Minh,</span>
-                                    <span class="date-rating"> 06/09/2021</span>
-                                </div>
-                            </div>
-                            <h6 class="service-name mb-1">Fullbody Massage</h6>
-                            <h6 class="client-name mb-2">Lâm Tuấn</h6>
-                            <p class="comment">Xinh đẹp tuyệt vời !</p>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_up</span></button>
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="button" class="btn-in-rate"> 0<span class="material-icons text-center ml-2">thumb_down</span></button>
-                                </div>
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4 text-right">
-                                    <button type="button" class="btn-in-rate" data-toggle="modal" data-target="#popup-report"> Report <span class="material-icons text-center ml-2">flag</span></button>
-
-                                </div>
-
-                            </div>
-                            <div class=" row">
-                                <div class="col-md">
-                                    <hr>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ----------- -->
                     </div>
                     <div class="rating-footer">
                         <div class="row">
@@ -1337,13 +988,25 @@
                                         <li>
                                             <a href="#" class="prev text-right"> <i class="fa fa-angle-left" aria-hidden="true"></i></a>
                                         </li>
-                                        <li><a href="#">1</a> </li>
-                                        <li class="hidden-xs"><a href="#">2</a> </li>
-                                        <li class="hidden-xs"><a href="#">3</a> </li>
-                                        <li class="hidden-xs"><a href="#">4</a> </li>
-                                        <li class="hidden-xs"><a href="#">5</a> </li>
-                                        <li class="visible-xs"><a href="#">...</a> </li>
-                                        <li><a href="#" class="next text-center"><i class="fa fa-angle-right" aria-hidden="true"></i></a> </li>
+                                        <?php
+                                        print_r($data['GQ']);   
+                                        $numberPage=5;
+                                        $pageCount=ceil($data['GQ']['QuantityRating']/$numberPage);
+                                        for($i=1;$i<=$pageCount;$i++){
+                                            echo "<li><a href=".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]."?trang>1</a> </li>";
+                                        }
+                                        echo "
+
+                                        <h3>".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]."<h3/>
+                                        
+                                        <li class='hidden-xs'><a href='#'>2</a> </li>
+                                        <li class='hidden-xs'><a href='#'>3</a> </li>
+                                        <li class='hidden-xs'><a href='#'>4</a> </li>
+                                        <li class='hidden-xs'><a href='#'>5</a> </li>
+                                        <li class='visible-xs'><a href='#'>...</a> </li>
+                                        <li><a href='#' class='next text-center'><i class='fa fa-angle-right' aria-hidden='true'></i></a> </li>
+                                        "
+                                        ?>
                                     </ul>
                                 </div>
                             </div>
@@ -1361,7 +1024,11 @@
                         </div> -->
                     </div>
                     <h1 class="Intro">Giới thiệu</h1>
-                    <p>Tôi là Tuấn, và tôi là một nghệ sĩ thực thụ trong ng hề baber, người thích thể hiện bản thân với một chiếc kéo và m ột lưỡi dao cạo. Bất cứ khi nào tôi cầm những thứ đó lên, tôi sẽ tạo ra một kiệt tác ....</p>
+                   <?php
+                    echo "<p>".$data['GN']['Introduction']."</p>";
+                    
+                    ?>
+                    
                     <a href="#" class="Mores">Xem thêm <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewbox="2 2 16 16">
                         <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
                       </svg></a>
@@ -1369,38 +1036,58 @@
                     <hr>
 
                     <div class="mb-3 d-flex flex-row justify-content-start align-items-start">
-                        <img src="../source/img/Ellipse 3-1.png" alt="" class="imgs">
-                        <img src="../source/img/Ellipse 3-1.png" alt="" class="imgs">
-                        <img src="../source/img/Ellipse 3-1.png" alt="" class="imgs">
+                        <?php
+                        $threeImgOnly=0;
+                        while($row = mysqli_fetch_array($data['GT'])){
+                            $threeImgOnly++;
+                            if($threeImgOnly<=3){
+                                echo "
+                                <img src=".$row['Avatar']." alt='' class='imgs rounded-circle' >
+                               
+                                ";
+                            }
+                            
+                        }
+                        ?>
+                    
                     </div>
                     <h1 class="Intro">Liên hệ và lịch làm việc</h1>
                     <hr>
-                    <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-telephone-inbound-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM15.854.146a.5.5 0 0 1 0 .708L11.707 5H14.5a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793L15.146.146a.5.5 0 0 1 .708 0z"/>
-                      </svg> (+84) 346 - 066 - 476 <button class=" float-right call">Call</button></div>
+                    <?php
+                    echo "
+                    <div><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='red' class='bi bi-telephone-inbound-fill' viewBox='0 0 16 16'>
+                        <path fill-rule='evenodd' d='M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM15.854.146a.5.5 0 0 1 0 .708L11.707 5H14.5a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793L15.146.146a.5.5 0 0 1 .708 0z'/>
+                   
+                    
+                    </svg>".$data['GN']['PhoneNumber']." <button class=' float-right call'>Call</button></div>
+                    ";
+                    ?>
+                    
                     <hr>
 
                     <div class="timeWork">
                         <div class="day">
-                            <h3>Chủ Nhật</h3>
-                            <h3>Thứ 2</h3>
-                            <h3>Thứ 3</h3>
-                            <h3>Thứ 4</h3>
-                            <h3>Thứ 5</h3>
-                            <h3>Thứ 6</h3>
-                            <h3>Thứ 7</h3>
+                            <?php 
+                            foreach ($data['GC'] as $itemz){
+                                echo "<h3>".$itemz['Name']."</h3>";
+                            }
+                            
+                            ?>
+                            
+                            
 
                         </div>
                         <div class="time lh-1">
-                            <span>9:00AM <small>-</small>06:00PM</span><br>
-                            <span>9:00AM <small>-</small>06:00PM</span><br>
-                            <span>9:00AM <small>-</small>06:00PM</span><br>
-                            <span>9:00AM <small>-</small>06:00PM</span><br>
-                            <span>9:00AM <small>-</small>06:00PM</span><br>
-                            <span>9:00AM <small>-</small>06:00PM</span><br>
-                            <span>9:00AM <small>-</small>06:00PM</span><br>
+                            <?php
+                             foreach ($data['GC'] as $itemz){
+                                echo "<span>".$itemz['Start']." <small>-</small>".$itemz['End']."</span><br>";
+                            }
+                            ?>
+                            
+                          
                         </div>
                     </div>
+                    
                     <div class="report mt-3 mb-1">
                         <a href="#" data-toggle="modal" data-target="#popup-report">Báo Xấu <span class="float-right" style="margin-right: 20px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
