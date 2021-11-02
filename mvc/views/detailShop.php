@@ -418,7 +418,11 @@
                 <div class="infoShops">
 
                     <div class="avata">
-                        <img src="../../../Booking-Hairdresser/public/img/Ellipse 3-1.png" alt="">
+                        <?php
+                        echo "
+                        <img class='rounded-circle' src=".$data['GN']['Avatar']." alt=''>";
+
+                        ?>
                     </div>
                     <div class="menuInfo">
                         <div class="NameMenu">
@@ -642,15 +646,13 @@
 
 
                     </div>
-
                     <hr>
-
                     <div class="Popular">
-                        <h2>Dịch vụ phổ biến <button class=" float-right bs" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <h2>Tất cả dịch vụ <button class=" float-right bs" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
                       </svg></button></h2>
                     </div>
-                    <div class="collapse" id="collapseExample">
+                    <div class="collapse show" id="collapseExample">
                         <?php 
                             $list=[]; 
                             while($col = mysqli_fetch_array($data["GM"])){
@@ -693,45 +695,6 @@
                              }
                         ?>
                     </div>
-                    <h2 class="h2AS">Tất cả dịch vụ <button class=" float-right bs" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                      </svg></button></h2>
-                    <div class="allService  collapse multi-collapse" id="multiCollapseExample2">
-                    <?php
-                             while($rows=mysqli_fetch_array($data["GS"])){
-                                 
-                                 echo "
-                                 <div class='listService'>
-                                    <div class='SN'>
-                                     <h3> " . $rows['ServiceId']. "</h3>
-     
-                                    </div>
-                                    <div class='price'>
-                                        <div class='priceDetail'>
-                                            <div>
-                                                <div class='s'>". $rows['Price']."</div>
-                                                <span class='so'>". $rows['Time']. "</span>
-                                             </div>
-                                            <div class='bookBtn'>
-                                             <!-- Popup Book -->
-                                                 <div title='popup-book'>
-                                                 <!-- Button to Open the Modal -->
-                                                 <button class=' Btn' data-toggle='modal' data-target='#popup-book'>Book</button>
-     
-                                                 <!-- The Modal -->
-     
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                             <hr>";
-                             
-                             }
-                        ?>
-                        
-                    </div>
-
                     <div class="rulesz">
                         <h2>Quy định an toàn tại cửa hàng</h2>
                         <div class="row">
@@ -977,7 +940,6 @@
                     }
                     
                         ?>
-
                     </div>
                     <div class="rating-footer">
                         <div class="row">
@@ -1036,8 +998,9 @@
                             $threeImgOnly++;
                             if($threeImgOnly<=3){
                                 echo "
-                                <img src=".$row['Avatar']." alt='' class='imgs rounded-circle' >
-                               
+                                <div class='col-md-3'>
+                                <img src=".$row['Avatar']." alt='' class='img-fluid rounded-circle' >
+                               </div>
                                 ";
                             }
                             
