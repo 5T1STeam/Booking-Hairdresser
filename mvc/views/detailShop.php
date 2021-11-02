@@ -988,14 +988,10 @@
                                             <a href="#" class="prev text-right"> <i class="fa fa-angle-left" aria-hidden="true"></i></a>
                                         </li>
                                         <?php
-                                        $numberPage=5;
-                                        $pageCount=ceil($data['GQ']['QuantityRating']/$numberPage);
-                                        for($i=1;$i<=$pageCount;$i++){
-                                            echo "<li><a href=".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]."?trang>1</a> </li>";
-                                        }
+                                       
                                         echo "
 
-                                        <h3>".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]."<h3/>
+                                        <h3><h3/>
                                         
                                         <li class='hidden-xs'><a href='#'>2</a> </li>
                                         <li class='hidden-xs'><a href='#'>3</a> </li>
