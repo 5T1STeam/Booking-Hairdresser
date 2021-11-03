@@ -8,5 +8,7 @@ class userModel extends db{
     public function Tuan(){
         return "tuan an cut";
     }
+
+    
 }
 ?>

@@ -1,13 +1,12 @@
+<link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/userprofileStyle/style-infor-page.css">
 <div class="container">
     <div class="  head-infor-account">
         <h3> Thông tin tài khoản </h3>
     </div>
+    <?php echo' 
     <div class=" block-infor ">
         <div class="row justify-content-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 18 18">
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-            </svg>
+            <img src="'.$data['GN']['Avatar'].'" style="border-radius: 500px;" width="120" height="120" >
         </div>
         <div class="row text-center edit">
             <span class="col"> <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 18 18">
@@ -15,12 +14,13 @@
                 </svg> Chỉnh sửa ảnh đại diện</span>
         </div>
         <hr>
+       
         <div class="row row-infor">
             <div class="col-3">
                 <label class="lable">Họ tên: </label>
             </div>
             <div class="col-6 ">
-                <input type="text" class="form-control forrm" value="Profile ứ ừ ư">
+                <input type="text" class="form-control forrm" value="'.$data['GN']['Name'].'">
             </div>
         </div>
         <div class="row row-infor">
@@ -28,7 +28,7 @@
                 <label class="lable">Số điện thoại: </label>
             </div>
             <div class="col-6">
-                <input type="text" class="form-control forrm" value="012345678910">
+                <input type="text" class="form-control forrm" value="'.$data['GN']['PhoneNumber'].'">
             </div>
         </div>
         <div class="row row-infor">
@@ -36,7 +36,7 @@
                 <label class="lable">Email: </label>
             </div>
             <div class="col-6">
-                <input type="text" class="form-control forrm" value="Toanchuabomlop@gmail.com">
+                <input type="text" class="form-control forrm" value="'.$data['GN']['Email'].'">
             </div>
         </div>
         <div class="row row-infor ">
@@ -44,7 +44,7 @@
                 <label class="lable">Địa chỉ: </label>
             </div>
             <div class="col-6">
-                <input type="text" class="form-control forrm" value="42 Lũy Bán Bích, Tân Phú, HCM">
+                <input type="text" class="form-control forrm" value="'.$data['GN']['FullAdress'].", ".$data['GN']['Ward'].", ".$data['GN']['District'].", ".$data['GN']['Province'].'">
             </div>
         </div>
         <div class="row">
@@ -69,7 +69,7 @@
                 <label class="lable">Ngày sinh: </label>
             </div>
             <div class="col-6">
-                <input type="date" class="form-control forrm">
+                <input type="date" class="form-control forrm" value="'.$data['GN']['Birthday'].'">
             </div>
         </div>
         <div class="row row-infor">
@@ -110,7 +110,8 @@
         </div>
         <div class="row justify-content-center">
             <button class="btn-update col-6 ">Cập nhật</button>
-        </div>
+        </div>'
+        ?>
         <hr>
         <div class="row row-infor ">
             <div class="col">

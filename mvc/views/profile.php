@@ -23,30 +23,31 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href=".../../../Booking-Hairdresser/css/popup.css">
   <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/userprofileStyle/style-profile-page.css">
-  <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/userprofileStyle/style-favorite-page.css">
-  <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/userprofileStyle/style-infor-page.css">
-  <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/userprofileStyle/style-favorite-page.css">
+  
+ 
+  
 </head>
 <div class="row profile-page">
   <div class=" col-lg-4 col-xl-3  col-md-12 ">
-    <div class="row avatar-profile"><span class="avt"> <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 18 18">
-          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-          <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-        </svg>
-        Profile </span>
+  <?php echo'
+    <div class="row avatar-profile"><span class="avt"> <div>
+            <img src="'.$data['GN']['Avatar'].'" style="border-radius: 500px;" width="80" height="80" >
+            '.$data['GN']['Name'].'  </div>
+        </span>
     </div>
-    <a class="sss" href="./pages/thongtintaikhoan.php">
+    
+    <a class="sss" href="../../../Booking-Hairdresser/profile/thongtintaikhoan/'.$data['GN']['Id'].'">
       <div class=" row list-profile infor-account"><span class="list"> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 18 18">
             <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z" />
           </svg> Thông tin tài khoản</span>
       </div>
     </a>
-    <a class="sss" href="../userprofile/notification.html">
-      <div class=" row list-profile  "><span class="list"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="30" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 18 18">
+    <a class="sss" href="../../../Booking-Hairdresser/profile/thongbaocuatoi/'.$data['GN']['Id'].'">
+      <div class=" row list-profile notification  "><span class="list"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="30" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 18 18">
             <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
           </svg>Thông báo của tôi<div class="icon-noti text-center tex">4</div></span></div>
     </a>
-    <a class="sss" href="./pages/cuahangyeuthich.php">
+    <a class="sss" href="../../../Booking-Hairdresser/profile/cuahangyeuthich/'.$data['GN']['Id'].'">
       <div class=" row list-profile fvr-shop "><span class="list"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="30" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 18 18">
             <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
           </svg> Cửa hàng yêu thích</span> </div>
@@ -77,13 +78,13 @@
             <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z" />
           </svg> Hội Viên </span> </div>
     </a>
-    <a class="sss" href="../userprofile/polici.html">
-      <div class=" row list-profile "><span class="list"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-shield-lock-fill" viewBox="0 0 18 18 ">
+    <a class="sss" href="../../../Booking-Hairdresser/profile/chinhsachbaomat/'.$data['GN']['Id'].'">
+      <div class=" row list-profile policies"><span class="list"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-shield-lock-fill" viewBox="0 0 18 18 ">
             <path fill-rule="evenodd" d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm0 5a1.5 1.5 0 0 1 .5 2.915l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99A1.5 1.5 0 0 1 8 5z" />
           </svg> Chính sách bảo mật</span></div>
     </a>
-    <a class="sss" href="../userprofile/TermOfService.html">
-      <div class=" row list-profile "><span class="list"><img class="icon-infor" src="../../../Booking-Hairdresser/public/icon/dkdv.png" alt=""> Điều khoản dịch vụ</span> </div>
+    <a class="sss" href="../../../Booking-Hairdresser/profile/dieukhoandichvu/'.$data['GN']['Id'].'">
+      <div class=" row list-profile term"><span class="list"><img class="icon-infor" src="../../../Booking-Hairdresser/public/icon/dkdv.png" alt=""> Điều khoản dịch vụ</span> </div>
     </a>
     <a class="sss" href="../login.html">
       <div class=" row list-profile "><span class="list"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 18 18">
@@ -91,7 +92,7 @@
             <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z" />
           </svg> Đăng xuất</span></div>
     </a>
-
+    ' ?>
 
 
 

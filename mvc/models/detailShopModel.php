@@ -135,7 +135,41 @@ class detailShopModel extends db{
         return mysqli_query($this->con,$qr); 
     }
    
-    
+    public function GET($id){
+        $qr = "SELECT * FROM tbl_favoriteshop WHERE UserId=$id";
+        $quer = mysqli_query($this->con,$qr);
+        $item= mysqli_fetch_array($quer);
+        $a= $item["ShopId"];
+        $qa= "SELECT * FROM  tbl_user where Id=$a";
+        $QE= mysqli_query($this->con,$qa);
+        $it=mysqli_fetch_array($QE);
+            $a= $it["AddressPath"];
+            $qa= "SELECT * FROM  tbl_addresspath where Id=$a";
+            $querry1= mysqli_query($this->con,$qa);
+            $row1=mysqli_fetch_array($querry1);
+            $it['Ward']= $row1['Name'];
+            $a= $row1['ParentPathId'];
+            $qs= "SELECT * FROM  tbl_addresspath where Id=$a";
+            $querry2=mysqli_query($this->con,$qs);
+            $row2=mysqli_fetch_array($querry2);
+            $it['District'] =$row2['Name'];
+            $a =$row2['ParentPathId'];
+            $qc= "SELECT * FROM  tbl_addresspath where Id=$a";
+            $querry3=mysqli_query($this->con,$qc);
+            $row3=mysqli_fetch_array($querry3);
+            $it['Province']= $row3['Name'];
+   
+    return $it;
+          
+    }
+    public function GE($id){
+        $qr = "SELECT * FROM  tbl_favoriteshop WHERE UserId=$id";
+        return mysqli_query($this->con,$qr);
+    }
+    public function Getuser(){
+        $qr = "SELECT * FROM tbl_user ";
+        return mysqli_query($this->con,$qr);
+    }
 
 }
 ?>
