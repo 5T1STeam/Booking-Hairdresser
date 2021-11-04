@@ -134,41 +134,68 @@ class detailShopModel extends db{
         $qr = "SELECT * FROM tbl_likefeedback WHERE FeedbackId=$id";
         return mysqli_query($this->con,$qr); 
     }
-   
-    public function GET($id){
-        $qr = "SELECT * FROM tbl_favoriteshop WHERE UserId=$id";
-        $quer = mysqli_query($this->con,$qr);
-        $item= mysqli_fetch_array($quer);
-        $a= $item["ShopId"];
-        $qa= "SELECT * FROM  tbl_user where Id=$a";
-        $QE= mysqli_query($this->con,$qa);
-        $it=mysqli_fetch_array($QE);
-            $a= $it["AddressPath"];
-            $qa= "SELECT * FROM  tbl_addresspath where Id=$a";
-            $querry1= mysqli_query($this->con,$qa);
-            $row1=mysqli_fetch_array($querry1);
-            $it['Ward']= $row1['Name'];
-            $a= $row1['ParentPathId'];
-            $qs= "SELECT * FROM  tbl_addresspath where Id=$a";
-            $querry2=mysqli_query($this->con,$qs);
-            $row2=mysqli_fetch_array($querry2);
-            $it['District'] =$row2['Name'];
-            $a =$row2['ParentPathId'];
-            $qc= "SELECT * FROM  tbl_addresspath where Id=$a";
-            $querry3=mysqli_query($this->con,$qc);
-            $row3=mysqli_fetch_array($querry3);
-            $it['Province']= $row3['Name'];
-   
-    return $it;
-          
+    public function delete($id){
+        $qr = "DELETE * FROM tbl_favoriteshop WHERE Id=$id";
+        return mysqli_query($this->con,$qr);
     }
-    public function GE($id){
+   
+    public function danhgia($id){
+        $qr = "SELECT * FROM tbl_feedbacks WHERE UserId=$id";
+        $quer = mysqli_query($this->con,$qr); 
+        $result=[];
+        while($row=mysqli_fetch_array($quer)){
+            $a= $row["ShopId"];
+            $qa= "SELECT * FROM  tbl_user where Id=$a";
+            $QE= mysqli_query($this->con,$qa);
+            $row1=mysqli_fetch_array($QE);
+            $it['ShopName']= $row1['Name'];
+            $qq= "SELECT * FROM  tbl_shopservices where ShopId=$a";
+            $QS= mysqli_query($this->con,$qq);
+            $rows=mysqli_fetch_array($QS);
+            $it['Price']= $rows['Price'];
+
+            $b= $row["ServiceId"];
+            $qb= "SELECT * FROM  tbl_services where Id=$b";
+            $QW= mysqli_query($this->con,$qb);
+            $row2=mysqli_fetch_array($QW);
+            $it['ServiceName']= $row2['Name'];
+            array_push($result,$it);
+            
+        }
+        return $result;
+    }
+
+
+    public function NEW($id){
         $qr = "SELECT * FROM  tbl_favoriteshop WHERE UserId=$id";
-        return mysqli_query($this->con,$qr);
-    }
-    public function Getuser(){
-        $qr = "SELECT * FROM tbl_user ";
-        return mysqli_query($this->con,$qr);
+        $quer = mysqli_query($this->con,$qr);
+        $result=[];
+        while($row=mysqli_fetch_array($quer)){
+           
+            $a= $row["ShopId"];
+            $qa= "SELECT * FROM  tbl_user where Id=$a";
+            $QE= mysqli_query($this->con,$qa);
+            $it=mysqli_fetch_array($QE);
+                $a= $it["AddressPath"];
+                $qa= "SELECT * FROM  tbl_addresspath where Id=$a";
+                $querry1= mysqli_query($this->con,$qa);
+                $row1=mysqli_fetch_array($querry1);
+                $it['Ward']= $row1['Name'];
+                $a= $row1['ParentPathId'];
+                $qs= "SELECT * FROM  tbl_addresspath where Id=$a";
+                $querry2=mysqli_query($this->con,$qs);
+                $row2=mysqli_fetch_array($querry2);
+                $it['District'] =$row2['Name'];
+                $a =$row2['ParentPathId'];
+                $qc= "SELECT * FROM  tbl_addresspath where Id=$a";
+                $querry3=mysqli_query($this->con,$qc);
+                $row3=mysqli_fetch_array($querry3);
+                $it['Province']= $row3['Name'];
+                array_push($result,$it);
+
+        }
+        return $result;
+
     }
 
 }
