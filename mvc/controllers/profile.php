@@ -10,16 +10,22 @@ class profile extends controller{
 
      }
      function cuahangyeuthich($id){
+        $fvrshop=$this->user->New($id);
         $this->view("profile",["page"=>"cuahangyeuthich","GN"=>$this->user->GetNameUser($id),
-                                                         "GE"=> $this->user->GE($id),
-                                                         "GU"=> $this->user->Getuser(),
-                                                         "Gf"=> $this->user->GET($id)]);
+                                                       
+                                                         "Gf"=>  $fvrshop]);
+
 
      }
      function thongbaocuatoi($id){
         $this->view("profile",["page"=>"thongbaocuatoi","GN"=>$this->user->GetNameUser($id)]);
 
      }
+     function danhgiacuatoi($id){
+      $this->view("profile",["page"=>"danhgiacuatoi","GN"=>$this->user->GetNameUser($id),
+                                                      "GG"=>$this->user->danhgia($id)]);
+
+   }
      function chinhsachbaomat($id){
       $this->view("profile",["page"=>"chinhsachbaomat","GN"=>$this->user->GetNameUser($id)]);
 
@@ -28,6 +34,7 @@ class profile extends controller{
       $this->view("profile",["page"=>"dieukhoandichvu","GN"=>$this->user->GetNameUser($id)]);
 
    }
+   
    
 
        
