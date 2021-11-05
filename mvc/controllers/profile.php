@@ -3,6 +3,8 @@ class profile extends controller{
    function __construct()
    {
       $this->user = $this->model("detailShopModel");
+      
+
    }
     function thongtintaikhoan($id){
 
@@ -33,6 +35,14 @@ class profile extends controller{
    function dieukhoandichvu($id){
       $this->view("profile",["page"=>"dieukhoandichvu","GN"=>$this->user->GetNameUser($id)]);
 
+   }
+   function lichhen($id){
+      $teo = $this->model("detailShopModel");
+      
+      $this->view("profile",["page"=>"lichhen","GN"=>$this->user->GetNameUser($id),
+                                                "GB"=>$this->user->getBooking($id),
+                                             "GS"=>$teo->GetService(),
+                                          "GP" =>$this->user->getBookingPrice($id)]);
    }
    
    
