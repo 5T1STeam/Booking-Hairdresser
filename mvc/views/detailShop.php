@@ -630,19 +630,7 @@
                         <div class="serviceName">
                             <h2>Dịch Vụ</h2>
                         </div>
-                        <div class="searchService">
-                            <form action="https://www.youtube.com">
-                                <div class="input-group ">
-                                    <div class="input-group-prepend">
-                                        <button class="input-group-text" id="basic-addon1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                                  </svg></button>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Tìm kiếm dịch vụ" aria-label="Tìm kiếm dịch vụ" aria-describedby="basic-addon1">
-
-                                </div>
-                            </form>
-                        </div>
+                        
 
 
                     </div>
@@ -950,16 +938,19 @@
                                             <a href="#" class="prev text-right"> <i class="fa fa-angle-left" aria-hidden="true"></i></a>
                                         </li>
                                         <?php
+                                       $getUrlPage=$_GET["url"];
+                                       echo $getUrlPage;
                                        
+                                       $trang =ceil(($data['GF']['QuantityRating'])/5);
                                         echo "
 
-                                        <h3><h3/>
+                                        <li ><a href='.($getUrlPage.'>1</a> </li>
                                         
-                                        <li class='hidden-xs'><a href='#'>2</a> </li>
-                                        <li class='hidden-xs'><a href='#'>3</a> </li>
-                                        <li class='hidden-xs'><a href='#'>4</a> </li>
-                                        <li class='hidden-xs'><a href='#'>5</a> </li>
-                                        <li class='visible-xs'><a href='#'>...</a> </li>
+                                        <li><a href='#'>2</a> </li>
+                                        <li ><a href='#'>3</a> </li>
+                                        <li ><a href='#'>4</a> </li>
+                                        <li ><a href='#'>5</a> </li>
+                                        <li ><a href='#'>...</a> </li>
                                         <li><a href='#' class='next text-center'><i class='fa fa-angle-right' aria-hidden='true'></i></a> </li>
                                         "
                                         ?>
