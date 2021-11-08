@@ -35,20 +35,20 @@ class profile extends controller{
       $this->view("profile",["page"=>"dieukhoandichvu","GN"=>$this->user->GetNameUser($id)]);
 
    }
-<<<<<<< HEAD
+
+  
    function magiamgia($id){
       $this->view("profile",["page"=>"magiamgia","GN"=>$this->user->GetNameUser($id)]);
 
-=======
-   function lichhen($id){
-      $teo = $this->model("detailShopModel");
-      
-      $this->view("profile",["page"=>"lichhen","GN"=>$this->user->GetNameUser($id),
-                                                "GB"=>$this->user->getBooking($id),
-                                             "GS"=>$teo->GetService(),
-                                         ]);
->>>>>>> 982afc331857df58ac293f9c84906307195c5cb2
    }
+   // function lichhen($id){
+   //    $teo = $this->model("detailShopModel");
+      
+   //    $this->view("profile",["page"=>"lichhen","GN"=>$this->user->GetNameUser($id),
+   //                                              "GB"=>$this->user->getBooking($id),
+   //                                           "GS"=>$teo->GetService(),
+   //                                       ]);
+   // }
    
    
 

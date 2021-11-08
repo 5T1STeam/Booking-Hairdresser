@@ -36,11 +36,11 @@
                                     </div>
                                 </div>
                             </div> -->
-                    <div class="allVoucher">
-                        <span class="alls">Tất cả</span>
-                        <div class="row">
-                            <div class="col-md-5">
-                            <div class="col-md-4 col-sm-12 mt-3 ">
+                            <div class="content">
+            <div class="memberPro">
+                <h2 class="memberProH2 text-center mt-4 mb-4">MÃ GIẢM GIÁ</h2>
+                <div class="row">
+                    <div class="col-md-4 col-sm-12 mt-3 ">
                         <div class="row proColSilver">
                             <div class="col-3 ">
                                 <img class="img-pro img-fluid" src="img/2.png" alt="">
@@ -51,83 +51,52 @@
                             <div class="col-8">
                                 <h3>Tuấn barber</h3>
                                 <p>Giảm tối đa 10k cho tổng dịch vụ</p>
-                                <p class="proPercent">HSD:20/10/2021</p>
+                                <p class="proPercent">Silver</p>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-12 mt-3 ">
-                        <div class="row proColSilver">
-                            <div class="col-3 ">
-                                <img class="img-pro img-fluid" src="img/2.png" alt="">
-                                <div class="vl"></div>
-                                <p class="mt-2 proPercent">Giảm 10%</p>
 
-                            </div>
-                            <div class="col-8">
-                                <h3>Tuấn barber</h3>
-                                <p>Giảm tối đa 10k cho tổng dịch vụ</p>
-                                <p class="proPercent">HSD:20/10/2021</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-12 mt-3 ">
-                        <div class="row proColSilver">
-                            <div class="col-3 ">
-                                <img class="img-pro img-fluid" src="img/2.png" alt="">
-                                <div class="vl"></div>
-                                <p class="mt-2 proPercent">Giảm 10%</p>
 
-                            </div>
-                            <div class="col-8">
-                                <h3>Tuấn barber</h3>
-                                <p>Giảm tối đa 10k cho tổng dịch vụ</p>
-                                <p class="proPercent">HSD:20/10/2021</p>
-                            </div>
-                        </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="voucherCode d-flex mb-3 mt-3">
-                                    <div class="row">
-                                        <div class="col-5 mt-1 ml-1 d-inline">
-                                            <img src="../../source/img/Ellipse 3-3.png" alt="">
-                                            <h5 class="nameShopsss">Tuấn Barber</h5>
-                                        </div>
-                                        <div class="col-6 detailzz">
-                                            <div class="detailVoucher">
-                                                <span>Giảm 10k cho tổng giá trị dịch vụ</span>
-                                                <span>HSD:20/10/2021</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="voucherCode d-flex mb-3 mt-3">
-                                    <div class="row">
-                                        <div class="col-5 mt-1 ml-1 d-inline">
-                                            <img src="../../source/img/Ellipse 3-3.png" alt="">
-                                            <h5 class="nameShopsss">Tuấn Barber</h5>
-                                        </div>
-                                        <div class="col-6 detailzz">
-                                            <div class="detailVoucher">
-                                                <span>Giảm 10k cho tổng giá trị dịch vụ</span>
-                                                <span>HSD:20/10/2021</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="voucherCode d-flex mb-3 mt-3">
-                                    <div class="row">
-                                        <div class="col-5 mt-1 ml-1 d-inline">
-                                            <img src="../../source/img/Ellipse 3-3.png" alt="">
-                                            <h5 class="nameShopsss">Tuấn Barber</h5>
-                                        </div>
-                                        <div class="col-6 detailzz">
-                                            <div class="detailVoucher">
-                                                <span>Giảm 10k cho tổng giá trị dịch vụ</span>
-                                                <span>HSD:20/10/2021</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
+                    <div class="col-md-4 col-sm-12 mt-3">
+                        <div class="row proColGold">
+                            <div class="col-3 ">
+                                <img class="img-pro img-fluid" src="img/2.png" alt="">
+                                <div class="vl"></div>
+                                <p class="mt-2 proPercent">Giảm 10%</p>
+
+                            </div>
+                            <div class="col-8">
+                                <h3>Tuấn barber</h3>
+                                <p>Giảm tối đa 10k cho tổng dịch vụ</p>
+                                <p class="proPercent">Gold</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-4 col-sm-12 mt-3">
+                        <div class="row proColDiamond">
+                            <div class="col-3 ">
+                                <img class="img-pro img-fluid" src="img/2.png" alt="">
+                                <div class="vl"></div>
+                                <p class="mt-2 proPercent">Giảm 10%</p>
+
+                            </div>
+                            <div class="col-8">
+                                <h3>Tuấn barber</h3>
+                                <p>Giảm tối đa 10k cho tổng dịch vụ</p>
+                                <p class="proPercent">Diamond</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+            
+
+
+        </div>
 
                 </div>
