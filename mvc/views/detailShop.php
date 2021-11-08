@@ -607,8 +607,8 @@
                              while($rows=mysqli_fetch_array($data["GAU"])){
                                echo " <div class='item'><img src=".$rows['Image'] . " alt=''>
                                <div class='rating'>
-                                   <div class='ratingPoint'>".$data['GF']['AverageRating']."</div>
-                                   <div class='reviewCount'>".$data['GF']['QuantityRating']." đánh giá</div>
+                                   <div class='ratingPoint'>".$data['GN']['RatingNum']."</div>
+                                   <div class='reviewCount'>".$data['GN']['QuantityRating']." đánh giá</div>
                                </div>
                            </div>
                            ";
@@ -800,9 +800,9 @@
                                             <div class="content text-center ">
                                                 <?php 
                                                
-                                                echo "<div class='ratings'><span class='product-rating'>".$data['GF']['AverageRating']."</span><span>/5</span>
+                                                echo "<div class='ratings'><span class='product-rating'>".$data['GN']['RatingNum']."</span><span>/5</span>
                                                 <div class='stars'> <i class='fa fa-star'></i> <i class='fa fa-star'></i> <i class='fa fa-star'></i> <i class='fa fa-star'></i> <i class='fa fa-star'></i></div>
-                                                <div class='rating-text'> <span>".$data['GF']['QuantityRating']." đánh giá</span> </div>
+                                                <div class='rating-text'> <span>".$data['GN']['QuantityRating']." đánh giá</span> </div>
                                             </div>";
                                                 ?>
                                                 
