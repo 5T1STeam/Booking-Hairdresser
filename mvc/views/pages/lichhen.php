@@ -4,7 +4,7 @@
                     <h3 class="mt-4 pt-3 ml-3">Lịch hẹn</h3>
                     <div class="appointment-schedule ">
                         <?php
-                        print_r($rowz = mysqli_fetch_array($data['GP']));
+                        
                         $list=[];
                         while($col=mysqli_fetch_array($data['GS'])){
                             array_push($list,$col);

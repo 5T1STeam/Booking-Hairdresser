@@ -42,7 +42,7 @@ class profile extends controller{
       $this->view("profile",["page"=>"lichhen","GN"=>$this->user->GetNameUser($id),
                                                 "GB"=>$this->user->getBooking($id),
                                              "GS"=>$teo->GetService(),
-                                          "GP" =>$this->user->getBookingPrice($id)]);
+                                         ]);
    }
    
    
