@@ -204,19 +204,60 @@ class detailShopModel extends db{
 
     }
     public function getBooking($id){
-        $qr = "SELECT * FROM tbl_booking INNER JOIN tbl_bookingservice ON tbl_booking.Id = tbl_bookingservice.BookingId 
-                                        INNER JOIN tbl_user ON tbl_booking.Userid = tbl_user.id
-                                        WHERE UserId=$id ";
-        return mysqli_query($this->con,$qr);
+        $qr = "SELECT * FROM tbl_booking WHERE UserId=$id AND (Isrequest = 1 OR IsAccept =1)";
+        $querry= mysqli_query($this->con,$qr);
+        $result=[];
+        while($row=mysqli_fetch_array($querry,1)){
+            $bookingId=$row['Id'];
+            $qr2= "SELECT * FROM tbl_bookingservice WHERE BookingId=$bookingId";
+            $querry2=mysqli_query($this->con,$qr2);
+            $row['Bookingservice'] =array();
+            while($row2=mysqli_fetch_array($querry2,1)){
+                $shopServiceId= $row2['ShopserviceId'];
+                $qr3="SELECT * FROM tbl_shopservices WHERE Id=$shopServiceId";
+                $querry3=mysqli_query($this->con,$qr3);
+                
+                while($row3=mysqli_fetch_array($querry3)){
+                    $row2['Price'] = $row3['Price'];
+                    $row2['Time'] = $row3['Time'];
+                    $serviceId= $row3['ServiceId'];
+                    $qr4= "SELECT `Name` FROM tbl_services WHERE Id=$serviceId";
+                    $querry4=mysqli_query($this->con,$qr4);
+                    $row4=mysqli_fetch_array($querry4);
+                    $row2['Name'] = $row4['Name'];
+                    array_push($row['Bookingservice'],$row2);
+                }
+            }
+            array_push($result,$row);
+        }
+        return $result;
+        
     }
+    public function convert_name($str) {
+		$str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);
+		$str = preg_replace("/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/", 'e', $str);
+		$str = preg_replace("/(ì|í|ị|ỉ|ĩ)/", 'i', $str);
+		$str = preg_replace("/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/", 'o', $str);
+		$str = preg_replace("/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/", 'u', $str);
+		$str = preg_replace("/(ỳ|ý|ỵ|ỷ|ỹ)/", 'y', $str);
+		$str = preg_replace("/(đ)/", 'd', $str);
+		$str = preg_replace("/(À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ)/", 'A', $str);
+		$str = preg_replace("/(È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ)/", 'E', $str);
+		$str = preg_replace("/(Ì|Í|Ị|Ỉ|Ĩ)/", 'I', $str);
+		$str = preg_replace("/(Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ)/", 'O', $str);
+		$str = preg_replace("/(Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ)/", 'U', $str);
+		$str = preg_replace("/(Ỳ|Ý|Ỵ|Ỷ|Ỹ)/", 'Y', $str);
+		$str = preg_replace("/(Đ)/", 'D', $str);
+		// $str = preg_replace("/(\“|\”|\‘|\’|\,|\!|\&|\;|\@|\#|\%|\~|\`|\=|\_|\'|\]|\[|\}|\{|\)|\(|\+|\^)/", '-', $str);
+		
+		return $str;
+	}
     
-    public function getBookingPrice($id){
-        $qr = "SELECT * FROM tbl_bookingservice INNER JOIN tbl_shopservices ON tbl_bookingservice.ShopserviceId =tbl_shopservices.id
-                                        ";
-        return mysqli_query($this->con,$qr);
-    }
+    
 
 
 
 }
+
+
 ?>
