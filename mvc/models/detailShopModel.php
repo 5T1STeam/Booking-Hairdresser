@@ -135,8 +135,14 @@ class detailShopModel extends db{
         return mysqli_query($this->con,$qr); 
     }
     public function delete($id){
-        $qr = "DELETE * FROM tbl_favoriteshop WHERE Id=$id";
-        return mysqli_query($this->con,$qr);
+        $qr = "SELECT * FROM tbl_favoriteshop WHERE UserId=$id";
+        $quer =mysqli_query($this->con,$qr);
+        while($row=mysqli_fetch_array($quer)){
+            $a= $row["ShopId"];
+            $qa= "DELETE * FROM  tbl_favoriteshop where ShopId=$a";
+            $QE= mysqli_query($this->con,$qa);
+        }
+        return $QE;
     }
    
     public function danhgia($id){

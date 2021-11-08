@@ -20,11 +20,11 @@
                    <p>' .$item['FullAdress'].",".$item['Ward'].",".$item['District']. '</p>
                    <p class="ita">' . $item["Introduction"] . '</p>
                 </div>  
-                <div class="col-lg-2 col-md-2 "><span class="unlike"> Bỏ thích</span></div>
+                <div class="col-lg-2 col-md-2 "><a class="unlike btn"href="../Booking-Hairdresser/mvc/models    /deleteFS.php?ShopId=' . $item["Id"] . '"> Bỏ thích </a></div>
                 </div>              
                 <hr>';
                 
-            
+
         }
         ?>
     </div>

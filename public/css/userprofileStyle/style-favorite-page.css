@@ -24,17 +24,18 @@
     font-weight: bolder;
 }
 .unlike{
-    color: #FF421A;
-    border-radius: 20px;
-    border: #FF421A 1px solid;
-    padding:5px;
+    color: #FF421A !important;
+    border-radius: 20px !important;
+    border: #FF421A 2px solid !important;
+    padding:8px !important;
+    font-weight: 600 !important;
 
     
 }
 .unlike:hover{
-    background-color: #FF421A;
-    color: #fff;
-    cursor: pointer;
+    background-color: #FF421A !important;
+    color: #fff !important;
+    cursor: pointer !important;
 }
 @media(max-width: 991px){
     .list-fvr{

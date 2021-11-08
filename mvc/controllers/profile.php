@@ -11,8 +11,7 @@ class profile extends controller{
      }
      function cuahangyeuthich($id){
         $fvrshop=$this->user->New($id);
-        $this->view("profile",["page"=>"cuahangyeuthich","GN"=>$this->user->GetNameUser($id),
-                                                       
+        $this->view("profile",["page"=>"cuahangyeuthich","GN"=>$this->user->GetNameUser($id),                                                           
                                                          "Gf"=>  $fvrshop]);
 
 
@@ -32,6 +31,10 @@ class profile extends controller{
    }
    function dieukhoandichvu($id){
       $this->view("profile",["page"=>"dieukhoandichvu","GN"=>$this->user->GetNameUser($id)]);
+
+   }
+   function magiamgia($id){
+      $this->view("profile",["page"=>"magiamgia","GN"=>$this->user->GetNameUser($id)]);
 
    }
    

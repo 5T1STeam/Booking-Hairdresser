@@ -34,3 +34,18 @@
 .detailzz {
     margin-top: 25px;
 }
+.passbtn {
+    width: 80px;
+    height: 40px;
+    background-color: #818181;
+    color: #fff;
+    float: right;
+    border-radius: 10px;
+}
+.chitietbox {
+    background-color: #d3d3d3;
+    color: #000000;
+    padding: 5px;
+    border: 1px solid;
+    border-radius: 5px;
+}
