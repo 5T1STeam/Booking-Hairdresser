@@ -205,14 +205,14 @@ class detailShopModel extends db{
     }
     public function getBooking($id){
         $qr = "SELECT * FROM tbl_booking INNER JOIN tbl_bookingservice ON tbl_booking.Id = tbl_bookingservice.BookingId 
-                                        INNER JOIN tbl_user ON tbl_booking.id = tbl_user.id
-                                        ";
+                                        INNER JOIN tbl_user ON tbl_booking.Userid = tbl_user.id
+                                        WHERE UserId=$id ";
         return mysqli_query($this->con,$qr);
     }
     
     public function getBookingPrice($id){
-        $qr = "SELECT * FROM tbl_booking INNER JOIN tbl_shopservices ON tbl_booking.ShopId =tbl_shopservices.Shopid
-                                        INNER JOIN tbl_shop";
+        $qr = "SELECT * FROM tbl_bookingservice INNER JOIN tbl_shopservices ON tbl_bookingservice.ShopserviceId =tbl_shopservices.id
+                                        ";
         return mysqli_query($this->con,$qr);
     }
 

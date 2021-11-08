@@ -41,14 +41,14 @@ class profile extends controller{
       $this->view("profile",["page"=>"magiamgia","GN"=>$this->user->GetNameUser($id)]);
 
    }
-   // function lichhen($id){
-   //    $teo = $this->model("detailShopModel");
+   function lichhen($id){
+      $teo = $this->model("detailShopModel");
       
-   //    $this->view("profile",["page"=>"lichhen","GN"=>$this->user->GetNameUser($id),
-   //                                              "GB"=>$this->user->getBooking($id),
-   //                                           "GS"=>$teo->GetService(),
-   //                                       ]);
-   // }
+      $this->view("profile",["page"=>"lichhen","GN"=>$this->user->GetNameUser($id),
+                                                "GB"=>$this->user->getBooking($id),
+                                             "GS"=>$teo->GetService(),
+                                         ]);
+   }
    
    
 

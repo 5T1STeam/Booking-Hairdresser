@@ -4,7 +4,10 @@
                     <h3 class="mt-4 pt-3 ml-3">Lịch hẹn</h3>
                     <div class="appointment-schedule ">
                         <?php
+                        echo "<pre>";
+                        print_r(mysqli_fetch_array($data['GB']));
                         
+                        echo "<pre/>";
                         $list=[];
                         while($col=mysqli_fetch_array($data['GS'])){
                             array_push($list,$col);
@@ -17,7 +20,7 @@
                             $month = date_format( $datetime, 'F'); 
                             $year = date_format( $datetime, 'Y'); 
                             $time = date_format( $datetime, 'g:i a'); 
-                            echo " <h4 class='pt-4  pl-5'>$time - $day, $date, $month, năm $year.</h4>
+                            echo " <h4 class='pt-4  pl-5'>".$row['StartTime'].", $date, $month, năm $year.</h4>
                             <div class='row'>
                             <div class='col-11 pl-5' style='height: 300px;'>
                                 <iframe class='w-100 h-100  pr-2 pt-3' src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d250875.47715672414!2d106.59748635152886!3d10.739930049995595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f225c70667f%3A0x80a1b67feed6e90d!2zTGnDqm0gQmFyYmVyIFNob3AgUXXhuq1uIDM!5e0!3m2!1svi!2s!4v1631669555373!5m2!1svi!2s'
@@ -34,13 +37,7 @@
                         <div class='appointment-schedule__name-services'>
                         <div class='row pl-5'>
                             <div class='col-6 pl-5' style='font-size: 15px;'>";
-                            foreach($list as $key){
-                                $s=0;
-                                if($row['ServiceId']==$key['Id']){
-                                    echo "<div class='row'>".$key['Name']."</div>";
-                                    
-                                }
-                            }
+                           
                             echo"
                        
                                     
