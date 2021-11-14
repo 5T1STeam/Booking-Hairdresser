@@ -2,9 +2,10 @@
  require_once './mvc/core/db.php';
     class shopInList {
         //Module Main
-        public function getByLocation($location){
+        public function getByLocation($loca){
             $conn = new db();
             $don = new shopInList();
+            $location = $don->getAllWards($loca);
             if(is_array($location)){
                 $qr = "SELECT * FROM tbl_user WHERE AddressPath = ".$location[0]."";
                 for($i=1;$i<count($location);$i++){
@@ -16,11 +17,11 @@
                     $shop = new oneShop();
                     $shop->setId($row['Id']);
                     $shop->setName($row['Name']);
-                    $shop->setLocation($row['FullAdress'].', '.$don->getFullAddress($_POST['wards']).'');
+                    $shop->setLocation($row['FullAdress'].', '.$don->getFullAddress($row['AddressPath']));
                     $shop->setImage($don->getBanner($row['Id']));
                     $shop->setService($don->getService($row['Id']));
-                    $shop->setRate("5");
-                    $shop->setComment("299");
+                    $shop->setRate($row['RatingNum']);
+                    $shop->setComment($don->getNumComments($row['Id']).' comments');
                     array_push($allshop,$shop);
                 }
             }else{
@@ -34,10 +35,59 @@
                     $shop->setLocation($row['FullAdress'].', '.$don->getFullAddress($_POST['wards']).'');
                     $shop->setImage($don->getBanner($row['Id']));
                     $shop->setService($don->getService($row['Id']));
-                    $shop->setRate("5");
-                    $shop->setComment("299");
+                    $shop->setRate($row['RatingNum']);
+                    $shop->setComment($don->getNumComments($row['Id']).' comments');
                     array_push($allshop,$shop);
                 }
+            }
+            $conn->freeSystem($conn->con, $data);
+            return $allshop;
+        }
+        public function getByService($chos){
+            $conn = new db();
+            $don = new shopInList();
+            $serviceId = explode(',',$chos,-1);
+            $idshop = $don->getIdShopbyServices($serviceId);
+            $qr ="SELECT * FROM tbl_user WHERE Id=".$idshop[0];
+            if(count($idshop)>1){ for($i=1;$i<count($idshop);$i++){
+                $qr .=" OR Id=".$idshop[$i];
+            }}
+            $data = mysqli_query($conn->con, $qr);
+            $allshop=[];
+            while($row = mysqli_fetch_assoc($data)){
+                $shop = new oneShop();
+                $shop->setId($row['Id']);
+                $shop->setName($row['Name']);
+                $shop->setLocation($row['FullAdress'].', '.$don->getFullAddress($row['AddressPath']));
+                $shop->setImage($don->getBanner($row['Id']));
+                $shop->setService($don->getService($row['Id']));
+                $shop->setRate($row['RatingNum']);
+                $shop->setComment($don->getNumComments($row['Id']).' comments');
+                array_push($allshop,$shop);
+            }
+            $conn->freeSystem($conn->con, $data);
+            return $allshop;
+        }
+        public function getByCategory($id){
+            $conn = new db();
+            $don = new shopInList();
+            $idshop = $don->getIdShopbyCategory($id);
+            $qr ="SELECT * FROM tbl_user WHERE Id=".$idshop[0];
+            if(count($idshop)>1){ for($i=1;$i<count($idshop);$i++){
+                $qr .=" OR Id=".$idshop[$i];
+            }}
+            $data = mysqli_query($conn->con, $qr);
+            $allshop=[];
+            while($row = mysqli_fetch_assoc($data)){
+                $shop = new oneShop();
+                $shop->setId($row['Id']);
+                $shop->setName($row['Name']);
+                $shop->setLocation($row['FullAdress'].', '.$don->getFullAddress($row['AddressPath']));
+                $shop->setImage($don->getBanner($row['Id']));
+                $shop->setService($don->getService($row['Id']));
+                $shop->setRate($row['RatingNum']);
+                $shop->setComment($don->getNumComments($row['Id']).' comments');
+                array_push($allshop,$shop);
             }
             $conn->freeSystem($conn->con, $data);
             return $allshop;
@@ -49,13 +99,13 @@
             $qr = "SELECT * FROM tbl_addresspath WHERE Id=".$wards;
             $data = mysqli_query($conn->con, $qr);
             while ($row = mysqli_fetch_assoc($data)){
-                $address.=$row['Name'];
+                $address.=$row['Name'].', ';
                 $temp = $row['ParentPathId'];
             }
             $qr = "SELECT * FROM tbl_addresspath WHERE Id=".$temp;
             $data = mysqli_query($conn->con, $qr);
             while ($row = mysqli_fetch_assoc($data)){
-                $address.=$row['Name'];
+                $address.=$row['Name'].', ';
                 $temp = $row['ParentPathId'];
             }
             $qr = "SELECT * FROM tbl_addresspath WHERE Id=".$temp;
@@ -103,9 +153,83 @@
             $conn->freeSystem($conn->con, $data);
             return $name;
         }
-        public function getRate($id){
+        public function getNumComments($id){
+            $conn = new db();
+            $qr = "SELECT COUNT(`ShopId`) FROM tbl_feedbacks WHERE ShopId =".$id;
+            $data = mysqli_query($conn->con, $qr);
+            $row = mysqli_fetch_assoc($data); $num = implode("", $row);
+            $conn->freeSystem($conn->con, $data);
+            return $num;
+        }
+        public function getAllWards($location){
+            $conn = new db();
+            $qr = "SELECT * FROM tbl_addresspath WHERE Id=".$location;
+            $data = mysqli_query($conn->con, $qr);
+            $depth =0;
+            while ($row = mysqli_fetch_assoc($data)){$depth = $row['Depth'];};
+            if($depth == 2){
+                $qr = "SELECT * FROM tbl_addresspath WHERE ParentPathId=".$location;
+                $data = mysqli_query($conn->con,$qr);
+                $district = [];
+                while ($row = mysqli_fetch_assoc($data)){
+                    array_push($district,$row['Id']);
+                }
+                $conn->freeSystem($conn->con, $data);
+                return $district;
+            }if($depth == 1){
+                $qr = "SELECT * FROM tbl_addresspath WHERE ParentPathId=".$location;
+                $data = mysqli_query($conn->con, $qr);
+                $temp =[];
+                while ($row = mysqli_fetch_assoc($data)){
+                    array_push($temp,$row['Id']);
+                }
+                $qr = "SELECT * FROM tbl_addresspath WHERE ParentPathId = ".$temp[0];
+                for($i=1;$i<count($temp);$i++){
+                    $qr .= " or ParentPathId = ".$temp[$i]."";
+                }
+                $data = mysqli_query($conn->con, $qr);
+                $province=[];
+                while ($row = mysqli_fetch_assoc($data)){
+                    array_push($province,$row['Id']);
+                }
+                $conn->freeSystem($conn->con, $data);
+                return $province;
+            }if($depth==3){ 
+                $conn->freeSystem($conn->con,$data);
+                return $location;
+            }
+        }
+        public function getIdShopbyServices($id){
+            $conn = new db();
+            $qr = "SELECT * FROM tbl_shopservices WHERE ServiceId=".$id[0];
+            if(count($id)>1){ for($i=1;$i<count($id);$i++){
+                $qr .= ' OR ServiceId='.$id[$i];
+            }}
+            $data= mysqli_query($conn->con, $qr);
+            $idshop=[];
+            while ($row = mysqli_fetch_assoc($data)){
+                array_push($idshop,$row['ShopId']);
+            }
+            $conn->freeSystem($conn->con, $data);
+            
+            return $idshop;
+        }
+        public function getIdShopbyCategory($id){
+            $conn =new db();
+            $qr= "SELECT * FROM `tbl_shopcategory` WHERE `CategoryId` =".$id;
+            $data= mysqli_query($conn->con, $qr);
+            $idshop=[];
+            while ($row = mysqli_fetch_assoc($data)){
+                array_push($idshop,$row['ShopId']);
+            }
+            $conn->freeSystem($conn->con, $data);
+            
+            return $idshop;
+        }
+        public function fixHref(){
             
         }
+        
 
 }
 

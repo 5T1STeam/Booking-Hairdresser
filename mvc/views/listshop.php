@@ -16,12 +16,13 @@
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/owl.carousel.min.css">
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/App.css">
+    <link rel="stylesheet" href="./public/css/popup.css">
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/popup.css">
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/listshopT.css">
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/style-sevice-page.css">
 
     <!--Popup-->
-    
+    <script src="../../Booking-Hairdresser/public/js/popup2.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
@@ -57,26 +58,80 @@
         <?php
         require_once './mvc/controllers/popup.php';
         $popup = new Popup();
+        $libar = new Library();
+        $libar->Nav();
         $popup->popupSearch();
-        include_once './mvc/views/pages/nav_normal.php';
         ?>
     </header>
     <div class="container">
         <?php
         $popup->popupFilter();
         ?>
+        <hr />
         <button id="btn-popup-filter" type="button" class="btn" data-toggle="modal" data-target="#popup-filters">Filters</button>
+        <hr />
         <div class="listservice">
+            <button id="btn-popup-rate" type="button" class="btn" data-toggle="modal" data-target="#kqBook">rete</button>
+            <?php include './mvc/views/pages/popup_rate.php'; ?>
+            <?php
+            if ($data['ALL'] != null) {
+                $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+                $limit = 5;
+                $total_page = ceil(count($data['ALL']) / $limit);
+                // Giới hạn current_page trong khoảng 1 đến total_page
+                if ($current_page > $total_page) {
+                    $current_page = $total_page;
+                } else if ($current_page < 1) {
+                    $current_page = 1;
+                }
+                // Tìm Start
+                $start = ($current_page - 1) * $limit;
+                for ($i = $start; $i < ($start + $limit); $i++) {
+                    $shop = $data['ALL'][$i];
+                    $shop->showShop();
+                    foreach ($shop->getService() as $service) {
+                        $shop->showService($service['id'], $service['name'], $service['price']);
+                        $popup->popupBooking($shop->getId(), $shop->getName(), $service['id'], $service['name'], $service['price'], $service['time']);
+                    }
+                    echo "</div></div></div>";
+                }
+            ?>
+        </div>
+        <div id="kq">
+            
+        </div>
+        <div class="pagination">
         <?php
-            foreach($data["ALL"] as $shop){
-                $shop->showShop();
+                // PHẦN HIỂN THỊ PHÂN TRANG
+                // BƯỚC 7: HIỂN THỊ PHÂN TRANG
+                $url = $_SERVER['REQUEST_URI'];
+                echo $url;
+                // nếu current_page > 1 và total_page > 1 mới hiển thị nút prev
+                if ($current_page > 1 && $total_page > 1) {
+                    echo '<a href="' . $url . '&page=' . ($current_page - 1) . '">Prev</a> | ';
+                }
+
+                // Lặp khoảng giữa
+                for ($i = 1; $i <= $total_page; $i++) {
+                    // Nếu là trang hiện tại thì hiển thị thẻ span
+                    // ngược lại hiển thị thẻ a
+                    if ($i == $current_page) {
+                        echo '<span>' . $i . '</span> | ';
+                    } else {
+                        echo '<a href="' . $url . '&page=' . $i . '">' . $i . '</a> | ';
+                    }
+                }
+
+                // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
+                if ($current_page < $total_page && $total_page > 1) {
+                    echo '<a href="' . $url . '&page=' . ($current_page + 1) . '">Next</a> | ';
+                }
             }
         ?>
         </div>
-        <?php include_once './mvc/views/pages/popup_booking.php'; ?>
 
     </div>
-    <?php include './mvc/views/pages/footer.php'; ?>
+    <?php $libar->footer();  ?>
 
 
 
@@ -85,13 +140,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script src="../../../Booking-Hairdresser/public/js/owl.carousel.min.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
-    
+    <script src="../../Booking-Hairdresser/public/js/popup.js"></script>
     <script src="../../../Booking-Hairdresser/public/js/nav.js"></script>
     <script src="../../../Booking-Hairdresser/public/js/Detail2.script.js"></script>
     <!--Nav starts-->
 
     <!--Popup-->
-    <script src="../../../Booking-Hairdresser/public/js/popup.js"></script>
+
+    <!-- <script src="../../../Booking-Hairdresser/public/js/popup.js"></script> -->
     <script>
         $('#carousel1').owlCarousel({
             items: 4,
@@ -139,68 +195,6 @@
                 }
             }
         });
-        $(document).ready(function() {
-            $('#province').change(function(event) {
-                provinceid = $('#province').val();
-                $('input[name="province"]').val(provinceid);
-                $.post('../mvc/controllers/loadlocation.php', {
-                        province: provinceid
-                    })
-                    .done(function(data) {
-                        $('#district').html(data);
-                    });
-                $('#wards').html("<option value=''>Phường / Xã</option>");
-                $('input[name="district"]').val(null);
-                $('input[name="wards"]').val(null);
-            })
-            $('#district').change(function() {
-                districtId = $('#district').val();
-                $('input[name="district"]').val(districtId);
-                $.post('../mvc/controllers/loadlocation.php', {
-                        district: districtId
-                    })
-                    .done(function(data) {
-                        $('#wards').html(data);
-                    });
-                $('input[name="wards"]').val(null);
-            })
-            $('#wards').change(function() {
-                $('input[name="wards"]').val($('#wards').val());
-            })
-        });
-        $(document).ready(function() {
-            $('#province_f').change(function(event) {
-                provinceid = $('#province_f').val();
-                $('input[name="province-f"]').val(provinceid);
-                $.post('../mvc/controllers/loadlocation.php', {
-                        province: provinceid
-                    })
-                    .done(function(data) {
-                        $('#district_f').html(data);
-                    });
-                $('#wards_f').html("<option value=''>Phường / Xã</option>");
-                $('input[name="district-f"]').val(null);
-                $('input[name="wards-f"]').val(null);
-            })
-            $('#district_f').change(function() {
-                districtId = $('#district_f').val();
-                $('input[name="district-f"]').val(districtId);
-                $.post('../mvc/controllers/loadlocation.php', {
-                        district: districtId
-                    })
-                    .done(function(data) {
-                        $('#wards_f').html(data);
-                    });
-                    $('input[name="wards-f"]').val(null);
-            })
-            $('#wards_f').change(function() {
-                $('input[name="wards-f"]').val($('#wards_f').val());
-            })
-        });
-        
-        
-        
-        
     </script>
 </body>
 

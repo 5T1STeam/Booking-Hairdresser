@@ -28,4 +28,25 @@
             $conn->freeSystem($conn->con,$data);
             return $services;
         }
+
+        public function GetCategory(){ 
+            $conn = new db();
+            $qr = "SELECT * FROM tbl_categories";
+            $data = mysqli_query($conn->con, $qr);
+            $id=[]; $name=[];
+            while ($row = mysqli_fetch_array($data)){
+                array_push($id,$row['Id']);
+                array_push($name,$row['Name']);
+            }
+            $category = array_combine($id,$name);
+            $conn->freeSystem($conn->con,$data);
+            return $category;
+
+        }
+        
+
+
+
+
+
     }

@@ -15,8 +15,13 @@ class db{
     }
 
     function freeSystem($conn,$data){
-        mysqli_free_result($data);
-        mysqli_close($conn);
+        if($data==false||$data==true){
+            mysqli_close($conn);
+        }else{
+            mysqli_free_result($data);
+            mysqli_close($conn);
+        }
+        
     }
 
 }

@@ -1,6 +1,4 @@
 <?php 
-//Chú thích bạn dùng: các biến nhận biết đặt trong rate(...) và nhập thêm vào form:62 các giá trị trong rate(...) và action="link file php"
-function rate(){
 echo"    <!-- Popup Reports -->
     <div class='modal fade' id='popup-report' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
         <div class='modal-dialog modal-sm' role='document'>
@@ -59,9 +57,14 @@ echo"    <!-- Popup Reports -->
 
                 </div>
                 <div class='modal-footer justify-content-center'>
-                    <form method='post' action='#'>
-                        
-                        <input type='hidden' id='report-value' />
+                    <form method='post' action='report.php'>
+                        <input type='hidden' name='userid' value='".$userid."'/>
+                        <input type='hidden' name='isreportshop' value='".$isreportshop."'/>
+                        <input type='hidden' name='shopid' value='".$shopid."'/>
+                        <input type='hidden' name='isreportfeedback' value='".$isreportfeedback."'/>
+                        <input type='hidden' name='feedback' value='".$feedback."'/>
+                        <input type='hidden' name='createdate' value='".$createdate."'/>
+                        <input type='hidden' id='report-value' name='reasonid'/>
                         <button type='button' class='btn btn-cancel' data-dismiss='modal'>Hủy</button>
                         <button type='submit' class='btn' id='btn-report'>Báo Cáo</button>
                     </form>
@@ -71,4 +74,4 @@ echo"    <!-- Popup Reports -->
     </div>";
 
 
-}
+

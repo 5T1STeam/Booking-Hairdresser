@@ -1,4 +1,5 @@
 <?php
+
 class oneShop {
     private $id;
     private $name;
@@ -24,61 +25,40 @@ class oneShop {
     public function setService($service) { $this->service = $service;}
     public function setImage($image) { $this->image = $image;}
 
-    // public function __construct($id,$name,$location,$rate,$comment,$service,$price,$image){
-    //     $this->id = $id; $this->name = $name; $this->location = $location; $this->rate = $rate; $this->comment = $comment;$this->service = $service; $this->price = $price; $this->image = $image;
-    // }
-
+    
     public function showShop(){
         if($this->service!=null){
-        echo "
-            <div class='row mb-3'>
-                <div class='col-md-4 col-12'>
-                    <a class='linkShoptoDetail' href='/detailshop/".$this->id."'>
-                        <div class='item-list'>
-                            <img src='".$this->image."' alt='' class='img-fluid px-2'>
-                            <div class='ratingList'>
-                                <div class='ratingPointList'>".$this->rate."</div>
-                                <div class='reviewCountList'>".$this->comment."</div>
-                            </div>
+            echo "  <div class='row mb-3'>
+                        <div class='col-md-4 col-12'>
+                            <a class='linkShoptoDetail' href='../detailshop/".$this->id."'>
+                                <div class='item-list'>
+                                    <img src='".$this->image."' alt='' class='img-fluid px-2'>
+                                    <div class='ratingList'>
+                                        <div class='ratingPointList'>".$this->rate."</div>
+                                        <div class='reviewCountList'>".$this->comment."</div>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <div class='col-md-8 col-12 infoListz'>
-                    <a class='nameShopList' href='../detailshop/".$this->id."'>Hair Salon</a>
-                    <div class='locationList'>".$this->location."</div>
-                    <div class='hr'></div>
-                    <div>
-                        <div class='row mt-2'>
-                            <div class='col-md-8 col-5'>
-                                <div>".($this->service[0]['name'])."</div>
-                            </div>
-                            <div class='col-md-2 col-4 float-right'>".($this->service[0]['price'])."</div>
-                            <div class='col-md-2 col-3 float-right'>
-                                <button class=' btn-book' data-toggle='modal' data-target='#popup-book'>Book</button>
-                            </div>
-                        </div>
-                        <div class='hr'></div>
-                        <div class='row mt-2'>
-                            <div class='col-md-8 col-5'>
-                                <div>".($this->service[1]['name'])."</div>
-                            </div>
-                            <div class='col-md-2 col-4 float-right'>".($this->service[1]['price'])."</div>
-                            <div class='col-md-2 col-3 float-right'><button class=' btn-book' data-toggle='modal' data-target='#popup-book'>Book</button></div>
-                        </div>
-                        <div class='hr'></div>
-                        <div class='row mt-2'>
-                            <div class='col-md-8 col-5'>
-                                <div>".($this->service[2]['name'])."</div>
-                            </div>
-                            <div class='col-md-2 col-4 float-right'>".($this->service[2]['price'])."</div>
-                            <div class='col-md-2 col-3 float-right'><button class=' btn-book'>Book</button></div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-            ";
+                        <div class='col-md-8 col-12 infoListz'>
+                            <a class='nameShopList' href='../detailshop/".$this->id."'>".$this->name."</a>
+                            <div class='locationList'>".$this->location."</div>
+                            <div class='hr'></div>
+                        <div>";
+                            
         }
+    }
+
+    public function showService($serviceid,$servicename,$price){
+                echo            "<div class='row mt-2'>
+                                    <div class='col-md-8 col-5'>
+                                        <div>".$servicename."</div>
+                                    </div>
+                                    <div class='col-md-2 col-4 float-right'>".number_format($price,0,'.','.') ." VNĐ</div>
+                                    <div class='col-md-2 col-3 float-right'>
+                                        <button type='submit' class=' btn-book' data-toggle='modal' data-target='#book-".$this->id."-".$serviceid."' >Book</button>
+                                    </div>
+                                </div>
+                                <div class='hr'></div>";
     }
 }

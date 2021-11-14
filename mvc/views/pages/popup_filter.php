@@ -17,7 +17,7 @@
                 <?php
                 foreach($service as $id=>$name) {
                     echo "<label style='padding-top:8px;'>
-                                        <input type='checkbox' name='service' class='service' value=" . $id . " style='display: none;'>
+                                        <input type='checkbox' name='service_f' class='service' value=" . $id . " style='display: none;'>
                                         <span class='btn btn-service'>" . $name . "</span>
                                         </label>";
                 }
@@ -49,12 +49,12 @@
 
             <!-- Modal footer -->
             <div class="modal-footer">
-                <form method="post">
-                        
+                <form method="get">  
+                    <input type="text" id="serviceChoose-f" name="serviceChoose-f" value=""/>
                     <input type="hidden" name="province-f" value=""/>
                     <input type="hidden" name="district-f" value=""/>
                     <input type="hidden" name="wards-f" value=""/>
-                    <a type="button" class="btn" id="btn-search" onclick="searchFilters()" data-dismiss="modal">Tìm Kiếm</a>
+                    <button type="submit" class="btn" id="btn-search" onclick="searchFilters()">Tìm Kiếm</a>
                 </form>
             </div>
 

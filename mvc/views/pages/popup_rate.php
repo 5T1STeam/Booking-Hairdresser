@@ -56,7 +56,7 @@
                     <input id="imagecontent" style="margin-top: 10px;" type="file" name="img-rate" multiple />
                     <hr style="clear: both;" />
                     <div id="previewcontent"></div>
-                    <br style="clear:both;" />
+                    <br style="clear: both;" />
                     <div class=" modal-footer justify-content-center " style="margin-bottom:-20px;">
                         <button type="button " class="btn btn-cancel " data-dismiss="modal ">Hủy</button>
                         <button type="submit " class="btn " id="btn-rate">Đánh giá</button>
@@ -65,5 +65,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> 
 </div>

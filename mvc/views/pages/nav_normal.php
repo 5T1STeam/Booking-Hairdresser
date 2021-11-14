@@ -1,17 +1,12 @@
 <div class="container px-0">
     <nav class=" row navbar px-3">
         <div class=" col-lg-1 col-sm-1 navbar-brand logo">
-            <a href="../homepage"><img src="../public/img/logo.png" style="width: 60px;"></a>
+            <a href="../homepage"><img src="https://lh3.googleusercontent.com/nAq6IwLusfKijSp3h0EZddbHwX0cgA-e7H-81JBd5lvS6JmumBmf2ELgWDez3QbWqrGVap8DNuLu2G_NwnIkuyYxPw6FM6kCuP4n3p0_JAfEacDWebb0E_7EYtyziFV-I_JwVTjtFIDTGj2c-YPcffmWGTAuNEQK7UPuZ99ITKw3QfF-99wvRIkp65FPPM-7bLGoBRjsDSI4r2Qoljc2AhG578Qxb9489TXhJ5Kl8PUidgf2W-viwVHrevKYkUDXDcKcK8GfIgo0g24CFKEmuuHINh_1bb7oSYjxBFV7To1H3qpeRKgJt3Y2-rgQ3lMRFZUq5ay3vDWNUsOuyoDpht0nU-_zSXrQ4eiD4htRbhQHj6LQNG2HKzNAFWjq-_rLKMxYPqjqBeQSMDyZOqbg1DWBoZvsMMsa4zxeZHgsIZYLPes2zaG2PInDbLoiqdo1-q99duB1TJGmif4m5Aa9GB36mTp8o0THX3Slq-QFDKMQKOqdL0M_WtqQme-vNlMrUIzDp-md_h6fYaDNHytGVqwZ2hyoHJVeEgOLBvVkwuYUA3yCk_giZcDf7ByVcgFuA6jbU9aYekvhkWuGFpobqUBDoJDCoQ5Z_5LRpDiE3PJK1oEYOSqTRkTdxLYcn2ya2jelVjnU1yNKA22LuSoTzVkG8T_Js4z9Ob1pmsXYlnF2k7_6Chlfiz4ITyXuCzPzmlp1yniyql_9oKt0yzDa7R20=w1290-h832-no?authuser=0" style="width: 60px;"></a>
         </div>
-
         <div class="nav nav-pc">
             <div id="form-search-1" class="input-group form-inline col-lg-5 col-sm-7">
                 <input id="howto-2" type="text" class=" form-control " placeholder=" Bạn muốn tìm kiếm gì?" data-toggle="modal" data-target="#popup-howto">
-
-
                 <input id="location-2" type="text" class="form-control " placeholder="Địa điểm " data-toggle="modal" data-target="#popup-location">
-
-
             </div>
             <div class="dropdown">
                 <a class="dropdown-toggle nav-link" id="ddMenu" data-toggle="dropdown"><span><img style="width: 25;height: 25px;" src="../public/img/emojione_flag-for-vietnam.png" alt=""></span>
@@ -30,10 +25,10 @@
                     Profile
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="./userprofile/infor.html">Trang cá nhân </a>
-                    <a class="dropdown-item" href="./userprofile/schedule.html">Lịch book</a>
-                    <a class="dropdown-item" href="./userprofile/notification.html">Thông báo</a>
-                    <a class="dropdown-item" href="./login.html">Đăng xuất</a>
+                    <a class="dropdown-item" href="./userprofile/infor">Trang cá nhân </a>
+                    <a class="dropdown-item" href="./userprofile/schedule">Lịch book</a>
+                    <a class="dropdown-item" href="./userprofile/notification">Thông báo</a>
+                    <a class="dropdown-item" href="./login">Đăng xuất</a>
                 </div>
             </div>
             <a class="btn btn-business" onclick="clickBtndoitac()">Đối tác</a>
@@ -61,43 +56,42 @@
             </span>
             <input id="mbsearch" type="text" class="form-control" placeholder="Bạn đang tìm kiếm gì ?" data-toggle="modal" data-target="#popup-howto">
             <div class="nav-list px-2">
-                <a class="nav-mblink nav-link" href="../html/listservice.html">Hair Salon</a>
-                <a class="nav-mblink nav-link" href="../html/listservice.html">Babershop</a>
-                <a class="nav-mblink nav-link" href="../html/listservice.html">Nail Salon</a>
-                <a class="nav-mblink nav-link" href="../html/listservice.html">Beauty Salon</a>
-                <a class="nav-mblink nav-link" href="../html/listservice.html">Massage</a>
-                <a class="nav-mblink nav-link" href="../html/listservice.html">Makeup Arist</a>
-                <a class="nav-mblink nav-link" href="../html/listservice.html">Day Spa</a>
+                <?php
+                    foreach ($category as $id=>$name)
+                    {
+                       echo "<a class='nav-mblink nav-link' href='../listshop/category&dm=".$id."'>".$name."</a>";
+                    }
+                ?>
+            
             </div>
             <div class="logout px-2">
                 <a class="nav-mblink nav-link " onclick="clickBtndoitac()">Đối tác</a>
-                <a class="nav-mblink nav-link " href="../html/login.html">Đăng xuất</a>
+                <a class="nav-mblink nav-link " href="../html/login">Đăng xuất</a>
             </div>
 
         </div>
-
-
-
-
     </nav>
     <div class=" bottom-section px-3 ">
         <nav class="nav row justify-content-between ">
-            <a class="nav-link" href="../html/listservice.html">Hair Salon</a>
-            <a class="nav-link" href="../html/listservice.html">Babershop</a>
-            <a class="nav-link" href="../html/listservice.html">Nail Salon</a>
-            <a class="nav-link" href="../html/listservice.html">Beauty Salon</a>
-            <a class="nav-link" href="../html/listservice.html">Massage</a>
-            <a class="nav-link" href="../html/listservice.html">Makeup Arist</a>
-            <a class="nav-link" href="../html/listservice.html">Day Spa</a>
-            <div class="dropdown">
-                <a class="dropdown-toggle nav-link" id="ddMenu" data-toggle="dropdown">
-                    More
-                </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="./listservice.html">Dưỡng Da</a>
-                    <!--Vân vân-->
-                </div>
-            </div>
+            <?php
+                foreach ($category as $id =>$name){
+                    if($id < 8){
+                        echo " <a class='nav-link' href='../listshop/category&dm=".$id."'>".$name."</a>";
+                    }if($id >= 8){
+                        if($id ==8){
+                            echo "<div class='dropdown'>
+                                    <a class='dropdown-toggle nav-link' id='ddMenu' data-toggle='dropdown'>
+                                    More
+                                    </a>
+                                    <div class='dropdown-menu'>
+                                    <a class='dropdown-item' href='../listshop/category&dm=".$id."'>".$name."</a>";
+                        }else{
+                            echo "<a class='dropdown-item' href='../listshop/category&dm=".$id."'>".$name."</a>";
+                        }if($id==count($category)+1){ echo "</div>";}
+                    }
+                }
+            ?>
+            
         </nav>
 
     </div>
@@ -105,7 +99,7 @@
 <div id="navhide" class="navbar fixed-top" style="background: #111; z-index: 2;" hidden>
     <div class=" container px-1">
         <div class=" col-lg-1 col-sm-1 navbar-brand logo">
-            <a href="./index.html"><img src="../../Booking-Hairdresser/public/img/logo.png" style="width: 60px;"></a>
+            <a href="../../homepage"><img src="https://lh3.googleusercontent.com/nAq6IwLusfKijSp3h0EZddbHwX0cgA-e7H-81JBd5lvS6JmumBmf2ELgWDez3QbWqrGVap8DNuLu2G_NwnIkuyYxPw6FM6kCuP4n3p0_JAfEacDWebb0E_7EYtyziFV-I_JwVTjtFIDTGj2c-YPcffmWGTAuNEQK7UPuZ99ITKw3QfF-99wvRIkp65FPPM-7bLGoBRjsDSI4r2Qoljc2AhG578Qxb9489TXhJ5Kl8PUidgf2W-viwVHrevKYkUDXDcKcK8GfIgo0g24CFKEmuuHINh_1bb7oSYjxBFV7To1H3qpeRKgJt3Y2-rgQ3lMRFZUq5ay3vDWNUsOuyoDpht0nU-_zSXrQ4eiD4htRbhQHj6LQNG2HKzNAFWjq-_rLKMxYPqjqBeQSMDyZOqbg1DWBoZvsMMsa4zxeZHgsIZYLPes2zaG2PInDbLoiqdo1-q99duB1TJGmif4m5Aa9GB36mTp8o0THX3Slq-QFDKMQKOqdL0M_WtqQme-vNlMrUIzDp-md_h6fYaDNHytGVqwZ2hyoHJVeEgOLBvVkwuYUA3yCk_giZcDf7ByVcgFuA6jbU9aYekvhkWuGFpobqUBDoJDCoQ5Z_5LRpDiE3PJK1oEYOSqTRkTdxLYcn2ya2jelVjnU1yNKA22LuSoTzVkG8T_Js4z9Ob1pmsXYlnF2k7_6Chlfiz4ITyXuCzPzmlp1yniyql_9oKt0yzDa7R20=w1290-h832-no?authuser=0" style="width: 60px;"></a>
         </div>
         <div class="nav nav-pc">
             <div id="form-search-1" class="input-group form-inline col-lg-5 col-sm-7">

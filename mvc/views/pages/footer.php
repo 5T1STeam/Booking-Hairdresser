@@ -51,3 +51,4 @@
         </div>
 
     </footer>
+    <script src="../../Booking-Hairdresser/public/js/popup.js"></script>
