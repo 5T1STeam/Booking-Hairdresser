@@ -87,7 +87,8 @@ class Book
                     </div>  
                 </div>
             </div>";
-            }elseif($kq ==2){   
+            }elseif($kq ==2){
+                $conn->freeSystem($conn->con, $data);   
                 //thành công
                 echo "<div id='kqBook' class='modal fade'>
                 <div class='modal-dialog modal-dialog-centered'>
@@ -97,6 +98,7 @@ class Book
                 </div>
             </div>";
             }elseif($kq==3){
+                $conn->freeSystem($conn->con, $data);
                 //thành công
                 echo "<div id='kqBook' class='modal fade'>
                 <div class='modal-dialog modal-dialog-centered'>
