@@ -66,7 +66,7 @@ class Book
                 }
             }
             
-            //test
+            
             if($kq==1){ 
                 $conn->freeSystem($conn->con, $data);
                 //Không thành công
