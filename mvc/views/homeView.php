@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,23 +27,23 @@
         .owl-prev {
             left: -30px;
         }
-        
+
         .owl-next {
             right: -30px;
         }
-        
+
         .owl-prev,
         .owl-next {
             position: absolute;
             top: 30%;
         }
-        
+
         .owl-prev span,
         .owl-next span {
             font-size: 60px;
             color: #787878;
         }
-        
+
         .owl-theme .owl-nav [class*="owl-"]:hover {
             background-color: transparent;
         }
@@ -70,22 +69,22 @@
                             <br>
                             <!--Lấy dữ liệu từ SQL nên hiệu chỉnh sau-->
                             <div class="group-service">
-                                <label> 
-                                <input type="checkbox"  name="service" class="service"  style="display: none;">
-                                <span class="btn btn-service" for="">Cắt Tóc</span>
-                            </label>
-                                <label> 
-                                <input type="checkbox" name="service" class="service" style="display: none;">
-                                <span class="btn btn-service">Làm Nail</span>
-                            </label>
-                                <label> 
-                                <input type="checkbox" name="service" class="service" style="display: none;">
-                                <span class="btn btn-service">Duỗi Tóc</span>
-                            </label>
-                                <label> 
-                                <input type="checkbox" name="service" class="service" style="display: none;">
-                                <span class="btn btn-service">Uốn Tóc</span>
-                            </label>
+                                <label>
+                                    <input type="checkbox" name="service" class="service" style="display: none;">
+                                    <span class="btn btn-service" for="">Cắt Tóc</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="service" class="service" style="display: none;">
+                                    <span class="btn btn-service">Làm Nail</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="service" class="service" style="display: none;">
+                                    <span class="btn btn-service">Duỗi Tóc</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="service" class="service" style="display: none;">
+                                    <span class="btn btn-service">Uốn Tóc</span>
+                                </label>
                                 <!--có thể thêm-->
 
                             </div>
@@ -118,11 +117,11 @@
                             <!--Lấy dữ liệu từ SQL nên hiệu chỉnh sau-->
                             <div class="row justify-content-center">
                                 <select name="calc_shipping_provinces" required="" class="col-sm-4 btn" id="locations-choose">
-                            <option value="">Tỉnh / Thành phố</option>
-                          </select>
+                                    <option value="">Tỉnh / Thành phố</option>
+                                </select>
                                 <select name="calc_shipping_district" required="" class="col-sm-4 btn" id="locations-choose">
-                            <option value="">Quận / Huyện</option>
-                          </select>
+                                    <option value="">Quận / Huyện</option>
+                                </select>
                                 <input class="billing_address_1" name="" type="hidden" value="">
                                 <input class="billing_address_2" name="" type="hidden" value="">
                             </div>
@@ -140,7 +139,7 @@
         <div style="min-height: auto;">
             <div class="container">
                 <nav class="navbar">
-                    <a href="../../../Booking-Hairdresser/"><img class="navbar-brand" src="../source/icon/logo.png" style="width:60px; float:left;"></a>
+                    <a href="Booking-Hairdresser/"><img class="navbar-brand" src="../../../Booking-Hairdresser/public/icon/logo.png" style="width:60px; float:left;"></a>
 
                     <div class="nav justify-content-end topnav">
                         <a class="nav-link" href="../../../Booking-Hairdresser/">Trang Chủ</a>
@@ -152,26 +151,26 @@
                     </div>
                     <label for="nav-check" class="nav-mobile-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" class="bi bi-list" viewBox="0 0 15 15">
-                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                          </svg>                      
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                        </svg>
                     </label>
                     <input type="checkbox" name="" id="nav-check">
                     <label for="nav-check" class="nav-overlay"></label>
                     <div class="nav-mobile">
                         <label for="nav-check" class="nav-close"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                            <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
-                          </svg>
+                                <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z" />
+                            </svg>
                         </label>
                         <span class="avatar"> <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 18 18">
-                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                          </svg>
-                          Profile 
-                          
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
-                            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
-                          </svg>
-                          </span>
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                            </svg>
+                            Profile
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+                                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
+                            </svg>
+                        </span>
                         <input id="mbsearch" type="text" class="form-control" placeholder="Bạn đang tìm kiếm gì ?" data-toggle="modal" data-target="#popup-howto">
                         <div class="modal fade" id="popup-howto">
                             <div class="modal-dialog modal-lg">
@@ -189,22 +188,22 @@
                                             <br>
                                             <!--Lấy dữ liệu từ SQL nên hiệu chỉnh sau-->
                                             <div class="group-service">
-                                                <label> 
-                                                  <input type="checkbox"  name="service" class="service"  style="display: none;">
-                                                  <span class="btn btn-service" for="">Cắt Tóc</span>
-                                              </label>
-                                                <label> 
-                                                  <input type="checkbox" name="service" class="service" style="display: none;">
-                                                  <span class="btn btn-service">Làm Nail</span>
-                                              </label>
-                                                <label> 
-                                                  <input type="checkbox" name="service" class="service" style="display: none;">
-                                                  <span class="btn btn-service">Duỗi Tóc</span>
-                                              </label>
-                                                <label> 
-                                                  <input type="checkbox" name="service" class="service" style="display: none;">
-                                                  <span class="btn btn-service">Uốn Tóc</span>
-                                              </label>
+                                                <label>
+                                                    <input type="checkbox" name="service" class="service" style="display: none;">
+                                                    <span class="btn btn-service" for="">Cắt Tóc</span>
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" name="service" class="service" style="display: none;">
+                                                    <span class="btn btn-service">Làm Nail</span>
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" name="service" class="service" style="display: none;">
+                                                    <span class="btn btn-service">Duỗi Tóc</span>
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" name="service" class="service" style="display: none;">
+                                                    <span class="btn btn-service">Uốn Tóc</span>
+                                                </label>
                                                 <!--có thể thêm-->
 
                                             </div>
@@ -275,7 +274,7 @@
 
         <div class="video-container">
             <video autoplay="true" loop="true" mute id="video-bg">
-            <source src="../source/video/banner.webm" type="video/webm" >
+                <source src="../../../Booking-Hairdresser/public/video/banner.webm" type="video/webm">
             </video>
         </div>
         <div id="navhide" class="navbar fixed-top" style="background: #111; z-index: 2;" hidden>
@@ -292,8 +291,8 @@
                     <a class="btn btn-login" href="../html/login.html">Sign in / Login</a>
                     <label for="nav-check" class="nav-mobile-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" class="bi bi-list" viewBox="0 0 15 15">
-                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                          </svg>                      
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                        </svg>
                     </label>
                 </div>
 
@@ -304,26 +303,40 @@
         <div class="recommend">
             <h1 class="h1Re">Đề xuất cho bạn</h1>
             <div class="owl-carousel owl-theme" id="carousel1">
-                <div class="ml-2 mr-2">
-                    <a class="linkShoptoDetail" href="../html/detailShop.html">
+                <?php
+                foreach ($data['Suggest'] as $item) {
+                    echo '
+                <div class=ml-2 mr-2>
+                    <a class=linkShoptoDetail href=BookingHairdresser/detail/' . $item['Id'] . '>
                         <div class="card">
-                            <img src="../source/img/8.jpg" alt="" class="card-img-top">
+                            <img src=' . $item['Avatar'] . ' alt="" class="card-img-top">
                             <div class="card-body text-left">
-                                <h5 class="card-title text-left SZ"> TuanBarber</h5>
-                                <h5 class="text-left ratezx ">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
-                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                    <div class="Getreview d-inline">(293)</div>
+                                <h5 class="card-title text-left SZ"> ' . $item['Name'] . '</h5>
+                                <h5 class="text-left ratezx ">Rate: <span style="font-size:20px;cursor:pointer;"';
+
+                    for ($i = 1; $i <= 5; $i++) {
+                        if ($item['RatingNum'] > $i - 0.5) {
+                            echo '<span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>';
+                        } else {
+                            if ($item['RatingNum'] > $i - 1) {
+                                echo '<span style="font-size:20px;cursor:pointer;" class="fa fa-star-half-full checked ml-2"></span>';
+                            } else {
+                                echo '<span style="font-size:20px;cursor:pointer;" class="fa fa-star-o checked ml-2"></span>';
+                            }
+                        }
+                    }
+                    echo '
+                                    <div class="Getreview d-inline">(' . $item['QuantityRating'] . ')</div>
                                 </h5>
                                 <div class="location">
-                                    34 Lũy Bán Bích,Tân Phú,TP HCM
+                                ' . $item['FullAdress'] . ', ' . $item['AddressPath3'] . ', ' . $item['AddressPath2'] . ', ' . $item['AddressPath1'] . '
                                 </div>
                             </div>
                         </div>
                     </a>
-                </div>
+                </div>';
+                }
+                ?>
             </div>
         </div>
         <div class="nearme">
@@ -332,7 +345,7 @@
                 <div class="ml-2 mr-2">
                     <a class="linkShoptoDetail" href="../html/detailShop.html">
                         <div class="card">
-                            <img src="../source/img/8.jpg" alt="" class="card-img-top">
+                            <img src="../../../Booking-Hairdresser/public/img/8.jpg" alt="" class="card-img-top">
                             <div class="card-body text-left">
                                 <h5 class="card-title text-left SZ">TuanBarber</h5>
                                 <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
@@ -349,7 +362,7 @@
                         </div>
                     </a>
                 </div>
-                
+
 
             </div>
         </div>
@@ -359,14 +372,40 @@
                 <p class="col-md-6 text-end watchmore">Xem thêm >>> </p>
             </div>
             <div class="row text-center">
-                <div class="col-md-4">
-                    <p class="promotionText eff">GIẢM 100% KHI BOOK LỊCH TẠI BOOK STYLIST</p>
-                    <img class="promotionimg mx-auto d-block eff" src="../source/img/Rectangle 3.png" alt="promotion">
-                </div>
+                <?php
+                foreach($data['Promotion'] as $item){
+                    echo' <div class="col-md-4">
+                    <p class="promotionText eff"> '.$item['Content'].'</p>
+                    <img class="promotionimg mx-auto d-block eff" src="'.$item['Image'].'" alt="promotion">
+                    </img>
+                </div>';
+                }
+                ?>
             </div>
         </div>
+        <!-- <script>
+             var x = document.getElementById("demo");
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else {
+                    x.innerHTML = "Geolocation không được hỗ trợ bởi trình duyệt này.";
+                }
+            }
+
+            function showPosition(position) {
+                var lat = position.coords.latitude;
+                var long = position.coords.longitude;
+                <?php
+                $lat = 'document.write(lat)';
+                $long = 'document.write(long)';
+                echo $lat;
+                echo $long;
+                ?>
+            }
+        </script> -->
         <div class="wrapper" id="TurnonLocation">
-            <div class="col-md-12">
+            <div class="col-md-12 pt-5">
                 <div class="shadow p-3 mb-5 bg-white">
                     <div class="row justify-content-center">
                         <div class="col-md-8 mt-3 zxcz">
@@ -385,112 +424,56 @@
                             </div>
                         </div>
                         <div class="col-md-2 text-center">
-                            <img src="../source/icon/Group 43.png" width="70%">
+                            <img src="../../../Booking-Hairdresser/public/icon/Group 43.png" width="70%">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
         <div class="wrapper">
             <div class="inspiredbg text-center">
                 <br>
-                <h1 style="color: #ff421a;">Khám phá các chủ đề làm đẹp với BookStylist</h1>
+                <h1 style="color: #ff421a;">Chủ đề làm đẹp</h1>
                 <p class="sub" style="color: black;">
-                   Hàng ngàn nội dung hấp dẫn và bổ ích
+                    Bí quyết làm đẹp vạn người mê
                 </p>
-            </div>
-            <div class="carouselinspired">
                 <div class="owl-carousel owl-theme" id="carousel3">
-                    <div class="mr-2 mb-2 ml-2">
+                    <?php
+                    foreach($data['Topic'] as $topic){
+                        echo 
+                        '<div class="mr-2 mb-2 ml-2">
                         <div class="card infoTopic">
-                            <img src="../source/img/Ellipse 3.png" alt="" class="card-img-top imgTopic">
+                            <img src="'.$topic['Icon'].'" alt="" class="imgTopic">
                             <div class="card-body text-left">
-                                <h5 class="card-title text-center">Hair</h5>
+                                <h5 class="card-title text-center">'.$topic['Name'].'</h5>
                             </div>
                         </div>
-                    </div>
-                    <div class="mr-2 mb-2 ml-2 infoTopic">
-                        <div class="card">
-                            <img src="../source/img/Ellipse 3-1.png" alt="" class="card-img-top imgTopic">
-                            <div class="card-body text-left">
-                                <h5 class="card-title text-center">Baber</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mr-2 mb-2 ml-2">
-                        <div class="card infoTopic">
-                            <img src="../source/img/Ellipse 3-2.png" alt="" class="card-img-top imgTopic">
-                            <div class="card-body text-left">
-                                <h5 class="card-title text-center">Nail</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-2 mr-2 ml-2">
-                        <div class="card infoTopic">
-                            <img src="../source/img/Ellipse 3-3.png" alt="" class="card-img-top imgTopic">
-                            <div class="card-body text-left">
-                                <h5 class="card-title text-center">Skin</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-2 mr-2 ml-2">
-                        <div class="card infoTopic">
-                            <img src="../source/img/Ellipse 3-4.png" alt="" class="card-img-top imgTopic">
-                            <div class="card-body text-left">
-                                <h5 class="card-title text-center">Hair</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-2 mr-2 ml-2 ">
-                        <div class="card infoTopic">
-                            <img src="../source/img/Ellipse 3-5.png" alt="" class="card-img-top imgTopic">
-                            <div class="card-body text-left">
-                                <h5 class="card-title text-center">Makeup</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-2 mr-2 ml-2">
-                        <div class="card infoTopic">
-                            <img src="../source/img/Ellipse 3.png" alt="" class="card-img-top imgTopic">
-                            <div class="card-body text-left">
-                                <h5 class="card-title text-center">Hair</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-2 mr-2 ml-2 ">
-                        <div class="card infoTopic">
-                            <img src="../source/img/Ellipse 3-1.png" alt="" class="card-img-top imgTopic">
-                            <div class="card-body text-left">
-                                <h5 class="card-title text-center ">Baber</h5>
-                            </div>
-                        </div>
-                    </div>
+                    </div>';}
+                    ?>
+                   
                 </div>
             </div>
         </div>
-        <div class="wrapper" style="position: relative; top: -100px;">
+        <div class="wrapper" style="position: relative;">
             <h1 style="margin-bottom: 20px;">Dịch vụ phổ biến</h1>
-            <div class="row text-center">
-                <div class="col-md categoriR">
-                    <a class="btn btn-outline-secondary btn-lg">Cắt tóc &rarr;</a>
-                </div>
-                <div class="col-md categoriR">
-                    <a class="btn btn-outline-secondary btn-lg">Nhuộm tóc &rarr;</a>
-                </div>
-                <div class="col-md categoriR">
-                    <a class="btn btn-outline-secondary btn-lg">Uốn tóc &rarr;</a>
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col-md ">
-                    <a class="btn btn-outline-secondary btn-lg">Cạo râu &rarr;</a>
-                </div>
-                <div class="col-md">
-                    <a class="btn btn-outline-secondary btn-lg">Dưỡng da &rarr;</a>
-                </div>
-                <div class="col-md">
-                    <a class="btn btn-outline-secondary btn-lg">Massage &rarr;</a>
-                </div>
+            <?php
+            $i = 0;
+            foreach($data['Service'] as $service){
+                $i++;
+                if($i == 1){
+                    echo ' <div class="row text-center">';
+                }
+                if($i == 4){
+                    echo ' </div>
+                    <div class="row text-center">';
+                }
+                echo ' <div class="col-md categoriR">
+                <a class="btn btn-outline-secondary btn-lg">'.$service['Name'].' &rarr;</a>
+            </div>';
+            }
+            ?>
             </div>
 
         </div>
@@ -537,7 +520,8 @@
                         <span><i class="fa fa-phone"></i></span>
                         <p><a href="#">+84 123 456 789</a>
                             <br />
-                            <a href="#">+84 987 654 321</a></p>
+                            <a href="#">+84 987 654 321</a>
+                        </p>
                     </li>
                     <li>
                         <span><i class="fa fa-envelope"></i></span>
@@ -553,13 +537,13 @@
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../../../Booking-Hairdresser/public/js/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="../js/nav.js"></script>
-    <script src="../js/Detail2.script.js"></script>
+    <script src="../../../Booking-Hairdresser/public/js/nav.js"></script>
+    <script src="../../../Booking-Hairdresser/public/js/Detail2.script.js"></script>
     <!--Nav starts-->
-    <script src="../js/popup-index.js"></script>
+    <script src="../../../Booking-Hairdresser/public/js/popup-index.js"></script>
     <!--Popup-->
 
     <script>
@@ -617,7 +601,7 @@
 
                 },
                 600: {
-                    items: 7
+                    items: 6
                 }
 
             }
@@ -626,5 +610,4 @@
     </script>
 
 </body>
-
 </html>

@@ -19,8 +19,10 @@ h1 {
 
 .promotionimg {
     opacity: 0.8;
-    max-width: 100%;
-    position: relative !important;
+    background-color: Black;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
     top: -20%;
     cursor: pointer;
     border-radius: 10px;
@@ -34,9 +36,11 @@ h1 {
 
 .promotionText {
     color: #ffffff;
-    font-weight: bold;
-    position: relative !important;
-    top: 40%;
+    background-color: #0000004b;
+    border-radius: 5px;
+    position: absolute;
+    font-weight: normal;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
@@ -45,6 +49,8 @@ h1 {
 
 .promotionText:hover {
     color: #ff421a;
+    background-color: #00000000;
+    border-radius: 10px;
 }
 
 .btn-full {
@@ -76,33 +82,28 @@ h1 {
 }
 
 .inspiredbg {
-    background-color: rgb(235, 231, 231);
-    border-radius: 10px;
-    margin: 0px 10%;
-    height: 450px;
+    height: 100%;
+    background: linear-gradient(180deg, #ffc0cb00 10%, #ffacac 80%, #ff676700 10%);
 }
 
 .imgTopic {
-    width: 50% !important;
+    width: 100%;
+    height: 165px;
+    position: relative;
+    object-fit: cover;
+    border-radius: 100%;
     align-self: center;
-    margin: 10px 0px;
+    padding: 10px;
 }
 
-.carouselinspired {
-    position: relative;
-    top: -300px;
-}
+
 
 .infoTopic {
-    width: 90%;
+    width: auto;
     border-radius: 15px !important;
     box-shadow: 3px 3px #9c9c9c;
     cursor: pointer;
     align-self: center;
-}
-
-.infoTopic:hover {
-    width: 100%;
 }
 
 .btn-outline-secondary {
@@ -121,4 +122,10 @@ h1 {
     .btn-outline {
         margin-bottom: 30px;
     }
+}
+
+.card-img-top{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
 }
