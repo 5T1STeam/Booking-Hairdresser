@@ -21,7 +21,6 @@ class Book
         }
     }
 
-
     public function SetBooking($idshop, $idservice, $iduser, $timebooked)
     {
         $conn = new db();
@@ -31,20 +30,21 @@ class Book
             echo "<div id='kqBook' class='modal fade'>
             <div class='modal-dialog modal-dialog-centered'>
                 <div style='background:#FFD700; border-radius: 30px; padding: 50px; '>
-                    <h2 style='text-align: center; color: #fff'> Lịch của bạn đã bị trùng với của hàng khác, vui lòng kiểm tra lại</h2>
+                    <h2 style='text-align: center; color: #fff'> Lịch của bạn đã bị trùng với cửa hàng khác, vui lòng kiểm tra lại</h2>
                 </div>  
             </div>
         </div>";
         } else {
-            $qr = "SELECT * FROM tbl_booking WHERE ShopId =" . $idshop . " AND UserId =" . $iduser . " AND DateTime = '" . $time[0] . "' AND IsCanceled =0 AND IsCompleted =0";
+            $qr = "SELECT * FROM tbl_booking WHERE `ShopId` =" . $idshop . " AND `UserId` =" . $iduser . " AND `DateTime` = '" . $time[0] . "' AND IsCanceled =0 AND IsCompleted =0";
             $data = mysqli_query($conn->con, $qr);
             $kq=1;
-            while($temp = mysqli_fetch_assoc($data)){
-                if ($temp == null) {
+            $temp = mysqli_fetch_array($data);
+            
+                if ($temp == NULL) {
                     //tạo mới
                     $qr = "INSERT INTO `tbl_booking` VALUES (NULL,".$iduser.",".$idshop.",'".$time[0]."','".$time[1]."',1,0,0,0,NULL,0)";
                     $add = mysqli_query($conn->con, $qr);
-                    $qr0 = "SELECT * FROM tbl_booking WHERE ShopId =" . $idshop . " AND UserId =" . $iduser . " AND DateTime = '" . $time[0]."'";
+                    $qr0 = "SELECT * FROM tbl_booking WHERE `ShopId` =" . $idshop . " AND `UserId` =" . $iduser . " AND `DateTime` = '" . $time[0]."'";
                         $temp1 = mysqli_query($conn->con, $qr0);
                         while($temp = mysqli_fetch_assoc($temp1)){
                             $qr1 = "INSERT INTO tbl_bookingservice VALUES (NULL," . $temp['Id'] . "," . $idservice . ",0)";
@@ -56,19 +56,20 @@ class Book
                         }
                 } else {
                         //thêm dịch vụ
-                        if ($pop->checkServiceBooked($temp['Id'], $idservice)) {
+                        if ($pop->checkServiceBooked((int)$temp['Id'], $idservice)) {
                             $kq = 0;
                         } else {
-                            $kq = $pop->addSeviceBook($temp['Id'], $idservice);
+                            $kq = $pop->addSeviceBook((int)$temp['Id'], $idservice);
                             $kq  =3;
                         }
                     
                 }
-            }
+            
             
             
             if($kq==1){ 
                 $conn->freeSystem($conn->con, $data);
+                // echo implode("\n",mysqli_fetch_array($data));
                 //Không thành công
                 echo "<div id='kqBook' class='modal fade'>
                 <div class='modal-dialog modal-dialog-centered'>
@@ -146,9 +147,9 @@ class Book
     public function checkServiceBooked($idbook, $idservice)
     {
         $conn = new db();
-        $qr = "SELECT * FROM 'tbl_bookingservice' WHERE BookingId =" . $idbook . " AND ServiceId=" . $idservice;
+        $qr =  "SELECT * FROM `tbl_bookingservice` WHERE `BookingId` =".$idbook." AND `ShopserviceId`=".$idservice.";";
         $data = mysqli_query($conn->con, $qr);
-        if ($data == false) {
+        if (mysqli_fetch_array($data) == null) {
             $conn->freeSystem($conn->con, $data);
             return false;
         } else {

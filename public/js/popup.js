@@ -1,16 +1,16 @@
 // Search by Filters
-const service = [];
-
-
-function searchFilters() {
-    if (service.length > 0) {
-        document.getElementById("btn-popup-filter").innerHTML = "Filter by : " + service.join(', ');
-    } else {
-        document.getElementById("btn-popup-filter").innerHTML = "Filters";
-    };
-}
 
 $(document).ready(function() {
+    const service = [];
+
+    function searchFilters() {
+        if (service.length > 0) {
+            document.getElementById("btn-popup-filter").innerHTML = "Filter by : " + service.join(', ');
+        } else {
+            document.getElementById("btn-popup-filter").innerHTML = "Filters";
+        };
+    }
+
     $(".btn-service").click(function() {
         let position = service.indexOf($(this).text());
         if (position !== -1) {

@@ -139,17 +139,22 @@
 
             })
             $('.booKing').on('submit', function(e) {
-                e.preventDefault();
+                    e.preventDefault();
+                    str = $(this).serialize();
 
-                str = $(this).serialize();
-
-                $.post('../mvc/controllers/booking.php',
-                        $(this).serialize()
-                    )
-                    .done(function(data) {
-                        $('#kq').html(data)
-                    })
-            })
-
+                    $.post('../mvc/controllers/booking.php',
+                            $(this).serialize()
+                        )
+                        .done(function(data) {
+                            $('#kq').html(data)
+                        });
+                    $('.modal').modal('hide');
+                    setTimeout(function() {
+                        $('.modal').modal('hide');
+                        $('#overlay1').show();
+                    }, 2000)
+                    $('#overlay1').hide();
+                })
+                // $('btn-booking').on('click', function)
 
         });
