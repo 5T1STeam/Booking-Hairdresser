@@ -59,7 +59,7 @@ class Book
                         if ($pop->checkServiceBooked((int)$temp['Id'], $idservice)) {
                             $kq = 0;
                         } else {
-                            $kq = $pop->addSeviceBook((int)$temp['Id'], $idservice);
+                            $kq = $pop->addSeviceBook((int)$temp['Id'], $idservice, (int)$temp['ShopId'], (int)$temp['TotalBill']);
                             $kq  =3;
                         }
                     
@@ -157,17 +157,15 @@ class Book
             return true;
         }
     }
-    public function addSeviceBook($idbook, $idservice)
+    public function addSeviceBook($idbook, $idservice, $idshop, $bill)
     {
+        $pop = new book();
         $conn = new db();
         $qr = "INSERT INTO tbl_bookingservice VALUES (NULL," . $idbook . "," . $idservice . ",'non')";
         $data = mysqli_query($conn->con, $qr);
-        if ($data == false) {
-            $conn->freeSystem($conn->con, $data);
-            return false;
-        } else {
-            $conn->freeSystem($conn->con, $data);
-            return true;
-        }
+        $qr = "UPDATE `tbl_booking` SET `TotalBill`=".$pop->getPrice($idshop, $idservice)+$bill." WHERE `Id`=".$idbook.";";
+        $data = mysqli_query($conn->con, $qr);
+        $conn->freeSystem($conn->con, $data);
+    
     }
 }

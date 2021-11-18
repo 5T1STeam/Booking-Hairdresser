@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/owl.carousel.min.css">
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/App.css">
-    <link rel="stylesheet" href="./public/css/popup.css">
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/popup.css">
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/listshopT.css">
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/style-sevice-page.css">
@@ -26,31 +25,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-    <style>
-        .owl-prev {
-            left: -30px;
-        }
-
-        .owl-next {
-            right: -30px;
-        }
-
-        .owl-prev,
-        .owl-next {
-            position: absolute;
-            top: 30%;
-        }
-
-        .owl-prev span,
-        .owl-next span {
-            font-size: 60px;
-            color: #787878;
-        }
-
-        .owl-theme .owl-nav [class*="owl-"]:hover {
-            background-color: transparent;
-        }
-    </style>
 </head>
 
 <body>
@@ -71,7 +45,6 @@
         <button id="btn-popup-filter" type="button" class="btn" data-toggle="modal" data-target="#popup-filters">Filters</button>
         <hr />
         <div class="listservice">
-            <button id="btn-popup-rate" type="button" class="btn" data-toggle="modal" data-target="#kqBook">rete</button>
             <?php include './mvc/views/pages/popup_rate.php'; ?>
             <?php
             if ($data['ALL'] != null) {
@@ -99,7 +72,8 @@
         </div>
         <div id="kq">
         </div>
-        <div id="overlay1">   
+        <div class="overlay">
+            <div class="loader"></div>
         </div>
         <div class="pagination">
         <?php
@@ -149,54 +123,7 @@
     <!--Popup-->
 
     <!-- <script src="../../../Booking-Hairdresser/public/js/popup.js"></script> -->
-    <script>
-        $('#carousel1').owlCarousel({
-            items: 4,
-            dots: false,
-            loop: true,
-            nav: true,
-            margin: 10,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 4
-                }
-            }
-        });
-        $('#carousel2').owlCarousel({
-            items: 4,
-            dots: false,
-            loop: true,
-            margin: 10,
-            nav: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 4
-                }
-            }
-        });
-        $('#carousel3').owlCarousel({
-            items: 5,
-            dots: false,
-            loop: true,
-            nav: true,
-            autoHeight: true,
-            responsive: {
-                0: {
-                    items: 3,
-                    autoHeight: true,
-                },
-                600: {
-                    items: 7
-                }
-            }
-        });
-    </script>
+
 </body>
 
 </html>
