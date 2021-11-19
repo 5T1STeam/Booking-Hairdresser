@@ -1,9 +1,9 @@
 <?php
-class login extends controller{
+class register extends controller{
     function SayHi(){
         $teo = $this->model("userModel");
-        $teo->login();
-        $this->view("login",[]);
+        $teo->register();
+        $this->view("register",[]);
      }
      
 

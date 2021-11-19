@@ -22,7 +22,11 @@
                     <div class="card fat cardInfo">
                         <div class="card-body">
                             <h4 class="card-title">Đăng nhập</h4>
-                            <form method="POST" class="my-login-validation" novalidate="">
+                            <php
+                       
+                          
+                            ?>
+                            <form method="POST" class="my-login-validation" novalidate="" action="">
                                 <div class="form-group">
                                     <label for="email">E-Mail</label>
                                     <input id="email" type="email" class="form-control inputclass" name="email" value="" required autofocus placeholder="Nhập E-mail">
@@ -51,7 +55,7 @@
                                 </div>
 
                                 <div class="form-group m-0">
-                                    <button type="submit" class="btn btnlogin btn-block">
+                                    <button type="submit" class="btn btnlogin btn-block" name="submit">
 										Đăng nhập
 									</button>
                                     <div class="row mt-3">
