@@ -59,7 +59,7 @@
                 <?php
                     foreach ($category as $id=>$name)
                     {
-                       echo "<a class='nav-mblink nav-link' href='../listshop/category&dm=".$id."'>".$name."</a>";
+                       echo "<a class='nav-mblink nav-link' href='../listshop/category&dm=".$id."&page=1'>".$name."</a>";
                     }
                 ?>
             
@@ -76,7 +76,7 @@
             <?php
                 foreach ($category as $id =>$name){
                     if($id < 8){
-                        echo " <a class='nav-link' href='../listshop/category&dm=".$id."'>".$name."</a>";
+                        echo " <a class='nav-link' href='../listshop/category&dm=".$id."&page=1'>".$name."</a>";
                     }if($id >= 8){
                         if($id ==8){
                             echo "<div class='dropdown'>
@@ -84,9 +84,9 @@
                                     More
                                     </a>
                                     <div class='dropdown-menu'>
-                                    <a class='dropdown-item' href='../listshop/category&dm=".$id."'>".$name."</a>";
+                                    <a class='dropdown-item' href='../listshop/category&dm=".$id."&page=1'>".$name."</a>";
                         }else{
-                            echo "<a class='dropdown-item' href='../listshop/category&dm=".$id."'>".$name."</a>";
+                            echo "<a class='dropdown-item' href='../listshop/category&dm=".$id."&page=1'>".$name."</a>";
                         }if($id==count($category)+1){ echo "</div>";}
                     }
                 }

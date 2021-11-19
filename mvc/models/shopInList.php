@@ -155,9 +155,9 @@
         }
         public function getNumComments($id){
             $conn = new db();
-            $qr = "SELECT COUNT(`ShopId`) FROM tbl_feedbacks WHERE ShopId =".$id;
+            $qr = "SELECT * FROM tbl_user WHERE Id =".$id;
             $data = mysqli_query($conn->con, $qr);
-            $row = mysqli_fetch_assoc($data); $num = implode("", $row);
+            while($row = mysqli_fetch_assoc($data)){ $num = $row['QuantityRating'];}
             $conn->freeSystem($conn->con, $data);
             return $num;
         }
@@ -225,11 +225,7 @@
             $conn->freeSystem($conn->con, $data);
             
             return $idshop;
-        }
-        public function fixHref(){
-            
-        }
-        
+        }   
 
 }
 

@@ -248,7 +248,7 @@ input.radiotime:disabled+span.btn-time:hover {
 .btn-cancel {
     border-radius: 50px !important;
     border: 1px solid #FF421A!important;
-    width: 80px !important;
+    color: #FF421A !important;
 }
 
 

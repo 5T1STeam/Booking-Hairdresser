@@ -16,6 +16,13 @@ class Book
         }
         if ($kq) {
             //thành công
+            echo "<div id='kqBook' class='modal fade'>
+                <div class='modal-dialog modal-dialog-centered'>
+                    <div style='background:#ff421a; border-radius: 30px; padding: 50px; '>
+                        <h2 style='text-align: center; color: #fff'> Cảm ơn bạn đã sử dụng dịch vụ của Cửa hàng</h2>
+                    </div>  
+                </div>
+            </div>";
         } else {
             //không thành công
         }
@@ -35,7 +42,7 @@ class Book
             </div>
         </div>";
         } else {
-            $qr = "SELECT * FROM tbl_booking WHERE `ShopId` =" . $idshop . " AND `UserId` =" . $iduser . " AND `DateTime` = '" . $time[0] . "' AND IsCanceled =0 AND IsCompleted =0";
+            $qr = "SELECT * FROM tbl_booking WHERE `ShopId` =" . $idshop . " AND `UserId` =" . $iduser . " AND `DateTime` = '" . $time[0] . "' AND `StartTime`='".$time[1]."'  AND IsCanceled =0 AND IsCompleted =0";
             $data = mysqli_query($conn->con, $qr);
             $kq=1;
             $temp = mysqli_fetch_array($data);

@@ -45,22 +45,9 @@
         <button id="btn-popup-filter" type="button" class="btn" data-toggle="modal" data-target="#popup-filters">Filters</button>
         <hr />
         <div class="listservice">
-            <?php include './mvc/views/pages/popup_rate.php'; ?>
+            
             <?php
-            if ($data['ALL'] != null) {
-                $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-                $limit = 5;
-                $total_page = ceil(count($data['ALL']) / $limit);
-                // Giới hạn current_page trong khoảng 1 đến total_page
-                if ($current_page > $total_page) {
-                    $current_page = $total_page;
-                } else if ($current_page < 1) {
-                    $current_page = 1;
-                }
-                // Tìm Start
-                $start = ($current_page - 1) * $limit;
-                for ($i = $start; $i < ($start + $limit); $i++) {
-                    $shop = $data['ALL'][$i];
+                foreach ($data['ALL']as $shop) {
                     $shop->showShop();
                     foreach ($shop->getService() as $service) {
                         $shop->showService($service['id'], $service['name'], $service['price']);
@@ -77,31 +64,35 @@
         </div>
         <div class="pagination">
         <?php
+            if(isset($_GET['page'])){
                 // PHẦN HIỂN THỊ PHÂN TRANG
-                // BƯỚC 7: HIỂN THỊ PHÂN TRANG
                 $url = $_SERVER['REQUEST_URI'];
-                echo $url;
-                // nếu current_page > 1 và total_page > 1 mới hiển thị nút prev
-                if ($current_page > 1 && $total_page > 1) {
-                    echo '<a href="' . $url . '&page=' . ($current_page - 1) . '">Prev</a> | ';
+                $arr = explode("/", $url);
+                $urlpost = $arr[count($arr)-1];
+                $urlpost=substr($urlpost,0, strpos($urlpost,'&page'));
+
+
+                if ($_GET['page'] > 1 && $data['page'] > 1) {
+                    echo '<a href="' . $urlpost . '&page=' . ($_GET['page'] - 1) . '">Prev</a> | ';
                 }
 
                 // Lặp khoảng giữa
-                for ($i = 1; $i <= $total_page; $i++) {
+                for ($i = 1; $i <= $data['page']; $i++) {
                     // Nếu là trang hiện tại thì hiển thị thẻ span
                     // ngược lại hiển thị thẻ a
-                    if ($i == $current_page) {
+                    if ($i == $_GET['page']) {
                         echo '<span>' . $i . '</span> | ';
                     } else {
-                        echo '<a href="' . $url . '&page=' . $i . '">' . $i . '</a> | ';
+                        echo '<a href="' . $urlpost . '&page=' . $i . '">' . $i . '</a> | ';
                     }
                 }
-
                 // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
-                if ($current_page < $total_page && $total_page > 1) {
-                    echo '<a href="' . $url . '&page=' . ($current_page + 1) . '">Next</a> | ';
+                if ($_GET['page'] < $data['page'] && $data['page'] > 1) {
+                    echo '<a href="' . $urlpost . '&page=' . ($_GET['page'] + 1) . '">Next</a> | ';
                 }
-            }
+            }    
+                
+            
         ?>
         </div>
 
