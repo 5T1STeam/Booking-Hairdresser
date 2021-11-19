@@ -38,7 +38,13 @@ class profile extends controller{
 
   
    function magiamgia($id){
-      $this->view("profile",["page"=>"magiamgia","GN"=>$this->user->GetNameUser($id)]);
+      $this->view("profile",["page"=>"magiamgia","GN"=>$this->user->GetNameUser($id),
+                                                ]);
+
+   }
+   function hoivien($id){
+      $this->view("profile",["page"=>"hoivien","GN"=>$this->user->GetNameUser($id),
+                                                "MM"=>$this->user->mem($id)]);
 
    }
    function lichhen($id){
