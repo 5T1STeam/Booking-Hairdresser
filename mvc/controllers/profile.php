@@ -49,10 +49,23 @@ class profile extends controller{
    }
    function lichhen($id){
       $teo = $this->model("detailShopModel");
-      
+      $lichhen =$teo->getBooking($id);
+      $arr=array();
+      foreach($lichhen as $item){
+         $shop =$teo->GetNameUser($item['ShopId']);
+         $item['ShopName']=$shop['Name'] ;
+         
+         $item['Adress']=$shop['FullAdress'] . " , " .$shop['Ward'] . " , " .$shop['District']." , " .$shop['Province']  ;
+         $item['Adress']=$teo->convert_name( $item['Adress']);
+         $item['Adress']=  str_replace(" ","%20",$item['Adress']); 
+         array_push($arr,$item);
+      }
+
       $this->view("profile",["page"=>"lichhen","GN"=>$this->user->GetNameUser($id),
-                                                "GB"=>$this->user->getBooking($id),
-                                             "GS"=>$teo->GetService(),
+                                                "GB"=>$arr,
+                                                
+
+                                                                                 
                                          ]);
    }
    
