@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +15,7 @@
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/App.css">
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/styles.css">
     <link rel="stylesheet" type="text/css" href="../../../Booking-Hairdresser/public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../../public/css/style.css">
     <!-- Main -->
 
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/popup.css">
@@ -21,8 +23,7 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <!-- location -->
-    <script src="https://cdn.jsdelivr.net/gh/vietblogdao/js/districts.min.js"></script>
+
     <style>
         .owl-prev {
             left: -30px;
@@ -300,10 +301,12 @@
         </div>
     </header>
     <div class="container">
+
         <div class="recommend">
             <h1 class="h1Re">Đề xuất cho bạn</h1>
             <div class="owl-carousel owl-theme" id="carousel1">
                 <?php
+
                 foreach ($data['Suggest'] as $item) {
                     echo '
                 <div class=ml-2 mr-2>
@@ -342,138 +345,135 @@
         <div class="nearme">
             <h1 class="h1Re">Gần tôi</h1>
             <div class="owl-carousel owl-theme" id="carousel2">
-                <div class="ml-2 mr-2">
-                    <a class="linkShoptoDetail" href="../html/detailShop.html">
+                <?php
+                $i = 0;
+                foreach ($data['Nearby'] as $item) {
+                    $i++;
+                    if ($i > 20) {
+                        break;
+                    }
+                    echo '
+                <div class=ml-2 mr-2>
+                    <a class=linkShoptoDetail href=BookingHairdresser/detail/' . $item['Id'] . '>
                         <div class="card">
-                            <img src="../../../Booking-Hairdresser/public/img/8.jpg" alt="" class="card-img-top">
+                            <img src=' . $item['Avatar'] . ' alt="" class="card-img-top">
                             <div class="card-body text-left">
-                                <h5 class="card-title text-left SZ">TuanBarber</h5>
-                                <h5 class="text-left ratezx">Rate: <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>
-                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked "></span>
-                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                    <span style="font-size:20px;cursor:pointer;" class="fa fa-star checked"></span>
-                                    <div class="Getreview d-inline">(293)</div>
+                                <h5 class="card-title text-left SZ"> ' . $item['Name'] . '</h5>
+                                <h5 class="text-left ratezx ">Rate: <span style="font-size:20px;cursor:pointer;"';
+
+                    for ($i = 1; $i <= 5; $i++) {
+                        if ($item['RatingNum'] > $i - 0.5) {
+                            echo '<span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>';
+                        } else {
+                            if ($item['RatingNum'] > $i - 1) {
+                                echo '<span style="font-size:20px;cursor:pointer;" class="fa fa-star-half-full checked ml-2"></span>';
+                            } else {
+                                echo '<span style="font-size:20px;cursor:pointer;" class="fa fa-star-o checked ml-2"></span>';
+                            }
+                        }
+                    }
+                    echo '
+                                    <div class="Getreview d-inline">(' . $item['QuantityRating'] . ')</div>
                                 </h5>
                                 <div class="location">
-                                    34 Lũy Bán Bích,Tân Phú,TP HCM
+                                ' . round($item['Distance'], 1) . ' Km, ' . $item['FullAdress'] . ', ' . $item['AddressPath3'] . ', ' . $item['AddressPath2'] . ', ' . $item['AddressPath1'] . '
                                 </div>
                             </div>
                         </div>
                     </a>
-                </div>
-
-
-            </div>
-        </div>
-        <div class=" wrapper">
-            <div class="row">
-                <h1 class="col-md-6">Ưu đãi nổi bật</h1>
-                <p class="col-md-6 text-end watchmore">Xem thêm >>> </p>
-            </div>
-            <div class="row text-center">
-                <?php
-                foreach($data['Promotion'] as $item){
-                    echo' <div class="col-md-4">
-                    <p class="promotionText eff"> '.$item['Content'].'</p>
-                    <img class="promotionimg mx-auto d-block eff" src="'.$item['Image'].'" alt="promotion">
-                    </img>
                 </div>';
                 }
                 ?>
             </div>
-        </div>
-        <!-- <script>
-             var x = document.getElementById("demo");
-            function getLocation() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(showPosition);
-                } else {
-                    x.innerHTML = "Geolocation không được hỗ trợ bởi trình duyệt này.";
-                }
-            }
+            <div class=" wrapper">
+                <div class="row">
+                    <h1 class="col-md-6">Ưu đãi nổi bật</h1>
+                    <p class="col-md-6 text-end watchmore">Xem thêm >>> </p>
+                </div>
+                <div class="row text-center">
+                    <?php
+                    foreach ($data['Promotion'] as $item) {
+                        echo ' <div class="col-md-4">
+                    <p class="promotionText eff"> ' . $item['Content'] . '</p>
+                    <img class="promotionimg mx-auto d-block eff" src="' . $item['Image'] . '" alt="promotion">
+                    </img>
+                </div>';
+                    }
+                    ?>
+                </div>
+            </div>
 
-            function showPosition(position) {
-                var lat = position.coords.latitude;
-                var long = position.coords.longitude;
-                <?php
-                $lat = 'document.write(lat)';
-                $long = 'document.write(long)';
-                echo $lat;
-                echo $long;
-                ?>
-            }
-        </script> -->
-        <div class="wrapper" id="TurnonLocation">
-            <div class="col-md-12 pt-5">
-                <div class="shadow p-3 mb-5 bg-white">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8 mt-3 zxcz">
-                            <h1 style="color: black !important;">Bật vị trí của bạn </h1>
-                            <p class="sub" style="color: black ;">
-                                Bật vị trí để có thể nhận được những đề xuất tốt nhất
-                            </p>
-                            <br>
-                            <div class="row btn-location">
-                                <div class="col-md-3 mb-2 col-12">
-                                    <a class="btn btn-full ">Tìm kiếm gần tôi</a>
-                                </div>
-                                <div class="col-md-2  col-12">
-                                    <a class="btn btn-outline " id="notNows">Không phải bây giờ</a>
+            <div class="wrapper" id="TurnonLocation">
+                <div class="col-md-12 pt-5">
+                    <div class="shadow p-3 mb-5 bg-white">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8 mt-3 zxcz">
+                                <h1 style="color: black !important;">Bật vị trí của bạn </h1>
+                                <p class="sub" style="color: black ;">
+                                    Bật vị trí để có thể nhận được những đề xuất tốt nhất
+                                </p>
+                                <br>
+                                <div class="row btn-location">
+                                    <div class="col-md-3 mb-2 col-12">
+                                        <a class="btn btn-full" id="GetLocation" onclick="request_location">Tìm kiếm gần tôi</a>
+                                    </div>
+                                    <div class="col-md-2  col-12">
+                                        <a class="btn btn-outline " id="notNows">Không phải bây giờ</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-2 text-center">
-                            <img src="../../../Booking-Hairdresser/public/icon/Group 43.png" width="70%">
+                            <div class="col-md-2 text-center">
+                                <img src="../../../Booking-Hairdresser/public/icon/Group 43.png" width="70%">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
-        <div class="wrapper">
-            <div class="inspiredbg text-center">
-                <br>
-                <h1 style="color: #ff421a;">Chủ đề làm đẹp</h1>
-                <p class="sub" style="color: black;">
-                    Bí quyết làm đẹp vạn người mê
-                </p>
-                <div class="owl-carousel owl-theme" id="carousel3">
-                    <?php
-                    foreach($data['Topic'] as $topic){
-                        echo 
-                        '<div class="mr-2 mb-2 ml-2">
+            <div class="wrapper">
+                <div class="inspiredbg text-center">
+                    <br>
+                    <h1 style="color: #ff421a;">Chủ đề làm đẹp</h1>
+                    <p class="sub" style="color: black;">
+                        Bí quyết làm đẹp vạn người mê
+                    </p>
+                    <div class="owl-carousel owl-theme" id="carousel3">
+                        <?php
+                        foreach ($data['Topic'] as $topic) {
+                            echo
+                            '<div class="mr-2 mb-2 ml-2">
                         <div class="card infoTopic">
-                            <img src="'.$topic['Icon'].'" alt="" class="imgTopic">
+                            <img src="' . $topic['Icon'] . '" alt="" class="imgTopic">
                             <div class="card-body text-left">
-                                <h5 class="card-title text-center">'.$topic['Name'].'</h5>
+                                <h5 class="card-title text-center">' . $topic['Name'] . '</h5>
                             </div>
                         </div>
-                    </div>';}
-                    ?>
-                   
+                    </div>';
+                        }
+                        ?>
+
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="wrapper" style="position: relative;">
-            <h1 style="margin-bottom: 20px;">Dịch vụ phổ biến</h1>
-            <?php
-            $i = 0;
-            foreach($data['Service'] as $service){
-                $i++;
-                if($i == 1){
-                    echo ' <div class="row text-center">';
-                }
-                if($i == 4){
-                    echo ' </div>
+            <div class="wrapper" style="position: relative;">
+                <h1 style="margin-bottom: 20px;">Dịch vụ phổ biến</h1>
+                <?php
+                $i = 0;
+                foreach ($data['Service'] as $service) {
+                    $i++;
+                    if ($i == 1) {
+                        echo ' <div class="row text-center">';
+                    }
+                    if ($i == 4) {
+                        echo ' </div>
                     <div class="row text-center">';
-                }
-                echo ' <div class="col-md categoriR">
-                <a class="btn btn-outline-secondary btn-lg">'.$service['Name'].' &rarr;</a>
+                    }
+                    echo ' <div class="col-md categoriR">
+                <a class="btn btn-outline-secondary btn-lg">' . $service['Name'] . ' &rarr;</a>
             </div>';
-            }
-            ?>
+                }
+                ?>
             </div>
 
         </div>
@@ -534,8 +534,8 @@
         </div>
     </footer>
 
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script src="../../../Booking-Hairdresser/public/js/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -608,6 +608,26 @@
 
         });
     </script>
+    <script>
+        // Requesting location from user
+        function request_location() {
+            // Will repeat the process in two minutes
+            setTimeout(request_location, 1000 * 60 * 2);
+
+            // Get location info from browser and pass it to updating function
+            navigator.geolocation.getCurrentPosition(update_location);
+        }
+
+        // Sending location to server via POST request
+        function update_location(position) {
+            $.post("./mvc/controllers/getlocation.php", {
+                    latitude: position.coords.latitude,
+                    longtitude: position.coords.longitude
+                });
+                
+        }
+    </script>
 
 </body>
+
 </html>
