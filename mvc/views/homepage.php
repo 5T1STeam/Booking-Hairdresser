@@ -13,9 +13,10 @@
 <body>
     <div class="header"></div>
     <div class="content">
-        <?php
-        require_once "./mvc/views/pages/".$data["page"].".php"
-        ?>
+        <form action="" method="POST"> 
+            <button type="submit" name="submit" > log out </button>
+        </form>
+       
     </div>
     <div class="footer"></div>
 </body>
