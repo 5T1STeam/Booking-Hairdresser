@@ -8,6 +8,11 @@
     margin-left: 55px;
     margin-top: 10px !important;
 }
+.nameuser{
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: large;
+}
 .list-profile{   
     border-right: #111 solid 1px;
     border-bottom: #111 solid 1px;

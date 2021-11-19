@@ -7,7 +7,8 @@
 .memberHeader {
     margin: 40px 0;
 }
-.hoivien{
+
+.hoivien {
     background-color: #ff401aa1;
 }
 
@@ -74,7 +75,7 @@
 .chitietbox {
     background-color: #d3d3d3;
     color: #000000;
-    padding: 5px;
+    padding: 10px;
     border: 1px solid;
     border-radius: 5px;
 }
@@ -82,7 +83,7 @@
 .passbtn {
     width: 80px;
     height: 40px;
-    background-color: #ff421a;
+    background-color: #818181;
     color: #fff;
     float: right;
     border-radius: 10px;
