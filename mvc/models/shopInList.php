@@ -20,8 +20,8 @@
                     $shop->setLocation($row['FullAdress'].', '.$don->getFullAddress($row['AddressPath']));
                     $shop->setImage($don->getBanner($row['Id']));
                     $shop->setService($don->getService($row['Id']));
-                    $shop->setRate($row['RatingNum']);
-                    $shop->setComment($don->getNumComments($row['Id']).' comments');
+                    $shop->setRate($row['RatingNum']=null? 0: $row['RatingNum']);
+                    $shop->setComment($row['QuantityRating']=null? 0: $row['QuantityRating'].' comments');
                     array_push($allshop,$shop);
                 }
             }else{
@@ -32,11 +32,11 @@
                     $shop = new oneShop();
                     $shop->setId($row['Id']);
                     $shop->setName($row['Name']);
-                    $shop->setLocation($row['FullAdress'].', '.$don->getFullAddress($_POST['wards']).'');
+                    $shop->setLocation($row['FullAdress'].', '.$don->getFullAddress($row['AddressPath']).'');
                     $shop->setImage($don->getBanner($row['Id']));
                     $shop->setService($don->getService($row['Id']));
-                    $shop->setRate($row['RatingNum']);
-                    $shop->setComment($don->getNumComments($row['Id']).' comments');
+                    $shop->setRate($row['RatingNum']=null? 0: $row['RatingNum']);
+                    $shop->setComment($row['QuantityRating']=null? 0: $row['QuantityRating'].' comments');
                     array_push($allshop,$shop);
                 }
             }
@@ -61,8 +61,8 @@
                 $shop->setLocation($row['FullAdress'].', '.$don->getFullAddress($row['AddressPath']));
                 $shop->setImage($don->getBanner($row['Id']));
                 $shop->setService($don->getService($row['Id']));
-                $shop->setRate($row['RatingNum']);
-                $shop->setComment($don->getNumComments($row['Id']).' comments');
+                $shop->setRate($row['RatingNum']=null? 0: $row['RatingNum']);
+                $shop->setComment($row['QuantityRating']=null? 0: $row['QuantityRating'].' comments');
                 array_push($allshop,$shop);
             }
             $conn->freeSystem($conn->con, $data);
@@ -85,8 +85,8 @@
                 $shop->setLocation($row['FullAdress'].', '.$don->getFullAddress($row['AddressPath']));
                 $shop->setImage($don->getBanner($row['Id']));
                 $shop->setService($don->getService($row['Id']));
-                $shop->setRate($row['RatingNum']);
-                $shop->setComment($don->getNumComments($row['Id']).' comments');
+                $shop->setRate($row['RatingNum']=null? 0: $row['RatingNum']);
+                $shop->setComment($row['QuantityRating']=null? 0: $row['QuantityRating'].' comments');
                 array_push($allshop,$shop);
             }
             $conn->freeSystem($conn->con, $data);

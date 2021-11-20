@@ -96,3 +96,12 @@
         margin-bottom: 30px;
     }
 }
+
+.pageactive {
+    color: #fff !important;
+    background-color: #FF421A !important;
+}
+
+.pagenon {
+    color: #FF421A;
+}

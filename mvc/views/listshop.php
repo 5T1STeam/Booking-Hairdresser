@@ -45,16 +45,16 @@
         <button id="btn-popup-filter" type="button" class="btn" data-toggle="modal" data-target="#popup-filters">Filters</button>
         <hr />
         <div class="listservice">
-            
+
             <?php
-                foreach ($data['ALL']as $shop) {
-                    $shop->showShop();
-                    foreach ($shop->getService() as $service) {
-                        $shop->showService($service['id'], $service['name'], $service['price']);
-                        $popup->popupBooking($shop->getId(), $shop->getName(), $service['id'], $service['name'], $service['price'], $service['time']);
-                    }
-                    echo "</div></div></div>";
+            foreach ($data['ALL'] as $shop) {
+                $shop->showShop();
+                foreach ($shop->getService() as $service) {
+                    $shop->showService($service['id'], $service['name'], $service['price']);
+                    $popup->popupBooking($shop->getId(), $shop->getName(), $service['id'], $service['name'], $service['price'], $service['time']);
                 }
+                echo "</div></div></div>";
+            }
             ?>
         </div>
         <div id="kq">
@@ -62,38 +62,61 @@
         <div class="overlay">
             <div class="loader"></div>
         </div>
-        <div class="pagination">
-        <?php
-            if(isset($_GET['page'])){
-                // PHẦN HIỂN THỊ PHÂN TRANG
-                $url = $_SERVER['REQUEST_URI'];
-                $arr = explode("/", $url);
-                $urlpost = $arr[count($arr)-1];
-                $urlpost=substr($urlpost,0, strpos($urlpost,'&page'));
+        <!-- <div class="row">
+            <div class="col-md text-center">
+                <div class="pagination_rounded">
+                    <ul>
+                        <li>
+                            <a href="#" class="prev text-right"> <i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                        </li>
+                        <li><a href="#">1</a> </li>
+                        <li class="hidden-xs"><a href="#">2</a> </li>
+                        <li class="hidden-xs"><a href="#">3</a> </li>
+                        <li class="hidden-xs"><a href="#">4</a> </li>
+                        <li class="hidden-xs"><a href="#">5</a> </li>
+                        <li class="visible-xs"><a href="#">...</a> </li>
+                        <li><a href="#" class="next text-center"><i class="fa fa-angle-right" aria-hidden="true"></i></a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div> -->
+        <div class="pagination row">
+            <div class="col-md text-center">
+                <div class="pagination_rounded">
+                    <ul>
+                    <?php
+                    if (isset($_GET['page'])) {
+                        // PHẦN HIỂN THỊ PHÂN TRANG
+                        $url = $_SERVER['REQUEST_URI'];
+                        $arr = explode("/", $url);
+                        $urlpost = $arr[count($arr) - 1];
+                        $urlpost = substr($urlpost, 0, strpos($urlpost, '&page'));
 
+                        if ($_GET['page'] > 1 && $data['page'] > 1) {
+                            echo '<li><a href="' . $urlpost . '&page=' . ($_GET['page'] - 1) . '" class="prev text-right"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>';
+                        }
 
-                if ($_GET['page'] > 1 && $data['page'] > 1) {
-                    echo '<a href="' . $urlpost . '&page=' . ($_GET['page'] - 1) . '">Prev</a> | ';
-                }
-
-                // Lặp khoảng giữa
-                for ($i = 1; $i <= $data['page']; $i++) {
-                    // Nếu là trang hiện tại thì hiển thị thẻ span
-                    // ngược lại hiển thị thẻ a
-                    if ($i == $_GET['page']) {
-                        echo '<span>' . $i . '</span> | ';
-                    } else {
-                        echo '<a href="' . $urlpost . '&page=' . $i . '">' . $i . '</a> | ';
+                        // Lặp khoảng giữa
+                        for ($i = 1; $i <= $data['page']; $i++) {
+                            // Nếu là trang hiện tại thì hiển thị thẻ span
+                            // ngược lại hiển thị thẻ a
+                            if ($i == $_GET['page']) {
+                                echo '<li class="active"><a href="">' . $i . '</a></li>';
+                            } else {
+                                echo '<li class=""><a href="' . $urlpost . '&page=' . $i . '">' . $i . '</a></li>';
+                            }
+                        }
+                        // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
+                        if ($_GET['page'] < $data['page'] && $data['page'] > 1) {
+                            echo '<li><a href="' . $urlpost . '&page=' . ($_GET['page'] + 1) . '"class="next text-center"><i class="fa fa-angle-right" aria-hidden="true"></i></a> </li> ';
+                        }
                     }
-                }
-                // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
-                if ($_GET['page'] < $data['page'] && $data['page'] > 1) {
-                    echo '<a href="' . $urlpost . '&page=' . ($_GET['page'] + 1) . '">Next</a> | ';
-                }
-            }    
-                
-            
-        ?>
+
+
+                    ?>
+                    </ul>
+                </div>
+            </div>
         </div>
 
     </div>
