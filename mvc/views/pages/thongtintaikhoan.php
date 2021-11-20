@@ -3,11 +3,6 @@
     <div class="  head-infor-account">
         <h3> Thông tin tài khoản </h3>
     </div>
-    <?php if (!empty($msg)) : ?>
-        <div class="alert <?php echo $css_class ?>">
-            <?php echo $msg ?>
-        </div>
-    <?php endif ?>
     <?php
     echo ' 
     <div class=" block-infor ">
@@ -86,7 +81,8 @@
                 <label class="lable">Mật khẩu: </label>
             </div>
             <div class="col-6 ">
-                <input class=" form-control formmk" type="text" value="**********" disabled readonly>
+           
+                <input id="password" type="password" class="form-control inputclass formmk" name="password" required data-eye value="' . $data['GN']['PasswordHash'] . '" disabled readonly>
             </div>
             <div class="change-password " data-toggle="collapse" data-target="#password">Thay đổi</div>
         </div>

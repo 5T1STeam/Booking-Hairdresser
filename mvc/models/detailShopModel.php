@@ -154,7 +154,16 @@ class detailShopModel extends db{
             $QW= mysqli_query($this->con,$qb);
             $row2=mysqli_fetch_array($QW);
             $it['ServiceName']= $row2['Name'];
+
+            $t= $row["CreateDate"];
+            $it['CreateDate']=$t;
+             
+
+            $c= $row["Rating"];
+            $it['Rating']=$c;
             array_push($result,$it);
+
+        
             
         }
         return $result;
