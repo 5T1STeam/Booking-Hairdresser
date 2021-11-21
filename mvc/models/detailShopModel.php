@@ -168,14 +168,28 @@ class detailShopModel extends db{
         }
         return $result;
     }
-    public function magiam($id){
-        $qr = "SELECT * FROM tbl_user WHERE Id=$id";
-        $quer = mysqli_query($this->con,$qr); 
-        $result=[];
-        while($row=mysqli_fetch_array($quer)){
-            
-        }
+    public function magiamall(){
+        $qr = "SELECT * FROM tbl_promotion WHERE PromotionRecipientId = 1";
+        return mysqli_query($this->con,$qr);
     } 
+    public function magiamrankdong(){
+        $qr = "SELECT * FROM tbl_promotion WHERE PromotionRecipientId = 5";
+        return mysqli_query($this->con,$qr);
+    } 
+    public function magiamrankbac(){
+        $qr = "SELECT * FROM tbl_promotion WHERE PromotionRecipientId = 4";
+        return mysqli_query($this->con,$qr);
+    } 
+    public function magiamrankvang(){
+        $qr = "SELECT * FROM tbl_promotion WHERE PromotionRecipientId = 3";
+        return mysqli_query($this->con,$qr);
+    } 
+    public function magiamrankkc(){
+        $qr = "SELECT * FROM tbl_promotion WHERE PromotionRecipientId = 2";
+        return mysqli_query($this->con,$qr);
+    } 
+
+    
 
     public function mem($id){
         $qr = "SELECT * FROM  tbl_shopmember WHERE UserId=$id";

@@ -39,7 +39,11 @@ class profile extends controller{
   
    function magiamgia($id){
       $this->view("profile",["page"=>"magiamgia","GN"=>$this->user->GetNameUser($id),
-                                                ]);
+                                                "DO"=>$this->user->magiamrankdong(),
+                                                "BA"=>$this->user->magiamrankbac(),
+                                                "VA"=>$this->user->magiamrankvang(),
+                                                "KC"=>$this->user->magiamrankkc(),
+                                                "ALL"=>$this->user->magiamall()]);
 
    }
    function hoivien($id){

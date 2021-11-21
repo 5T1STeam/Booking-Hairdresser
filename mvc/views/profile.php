@@ -71,7 +71,7 @@
           </svg> Lịch sử booking</span></div>
     </a>
     <a class="sss" href="../../../Booking-Hairdresser/profile/magiamgia/'.$data['GN']['Id'].'">
-      <div class=" row list-profile "><span class="list"><img class="icon-infor" src="../../../Booking-Hairdresser/public/icon/magiamgia.png" alt=""> Mã giảm giá</div>
+      <div class=" row list-profile voucher"><span class="list"><img class="icon-infor" src="../../../Booking-Hairdresser/public/icon/magiamgia.png" alt=""> Mã giảm giá</div>
     </a>
     <a class="sss" href="../../../Booking-Hairdresser/profile/hoivien/'.$data['GN']['Id'].'">
       <div class=" row list-profile hoivien"><span class="list"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-square" viewBox="0 0 18 18">

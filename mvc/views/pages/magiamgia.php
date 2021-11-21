@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/userprofileStyle/VoucherStyle.css">
+<link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/userprofileStyle/voucherStyle.css">
 <div class="container vouchers">
     <h3 class="voucherHeader"> Mã giảm giá</h3>
 
@@ -93,91 +93,140 @@
         <div class="memberPro">
             <?php
             if ($data['GN']['RankId'] == 4) {
+
                 echo '
-            <h5 class="memberProH2 text-center mt-4 mb-4">Ưu đãi hạng Kim C</h5>
-            <div class="row">
-                <div class="col-md-4 col-sm-12 mt-3">
-                    <div class="row  proColDiamond">
-                        <div class="col-3 ">
-                            <img class="img-pro img-fluid" src="img/2.png" alt="">
-                            <div class="vl"></div>
-                            <p class="mt-2 proPercent">Giảm 10%</p>
+                <h5 class="memberProH2 text-center mt-4 mb-4">Ưu đãi hạng Kim Cương</h5>
+                <div class="row">';
+                while ($row = mysqli_fetch_array($data['KC'])) {
+                    echo '
+                        <div class="col-md-4 col-sm-12 mt-3">
+                            <div class="row  proColDiamond">
+                                <div class="col-3 ">
+                                    <img class="img-pro img-fluid" src="' . $row['Image'] . '" alt="">
+                                    <div class="vl"></div>
+                                    <p class="mt-2 proPercent">' . $row['ValuePromotion'] . '</p>
 
-                        </div>
-                        <div class="col-8">
-                            <h5>Tuấn barber</h5>
-                            <p>Giảm tối đa 10k cho tổng dịch vụ</p>
-                            <p class="proPercent">Silver</p>
-                        </div>
-                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <h5>' . $row['Code'] . '</h5>
+                                    <p>' . $row['Content'] . '</p>
+                                    <p class="proPercent">Kim Cương</p>
+                                </div>
+                            </div>
+                            </div>
+                            ';
+                }
+            }
+            if ($data['GN']['RankId'] == 3) {
 
+                echo '
+                <h5 class="memberProH2 text-center mt-4 mb-4">Ưu đãi hạng Vàng</h5>
+                <div class="row">';
+                while ($row = mysqli_fetch_array($data['VA'])) {
+                    echo '
+                        <div class="col-md-4 col-sm-12 mt-3">
+                            <div class="row  proColGold">
+                                <div class="col-3 ">
+                                    <img class="img-pro img-fluid" src="' . $row['Image'] . '" alt="">
+                                    <div class="vl"></div>
+                                    <p class="mt-2 proPercent">Giảm ' . $row['ValuePromotion'] . '</p>
 
-                </div>
-            </div>
-                    
-                    ';
+                                </div>
+                                <div class="col-8">
+                                    <h5>' . $row['Code'] . '</h5>
+                                    <p>' . $row['Content'] . '</p>
+                                    <p class="proPercent">HSD:' . $row['DateEnd'] . '</p>
+                                </div>
+                            </div>
+                            </div>
+                            ';
+                }
+            }
+            if ($data['GN']['RankId'] == 2) {
+
+                echo '
+                <h5 class="memberProH2 text-center mt-4 mb-4">Ưu đãi hạng Bạc</h5>
+                <div class="row">';
+                while ($row = mysqli_fetch_array($data['BA'])) {
+                    echo '
+                        <div class="col-md-4 col-sm-12 mt-3">
+                            <div class="row  proColSilver">
+                                <div class="col-3 ">
+                                    <img class="img-pro img-fluid" src="' . $row['Image'] . '" alt="">
+                                    <div class="vl"></div>
+                                    <p class="mt-2 proPercent">Giảm ' . $row['ValuePromotion'] . '</p>
+
+                                </div>
+                                <div class="col-8">
+                                    <h5>' . $row['Code'] . '</h5>
+                                    <p>' . $row['Content'] . '</p>
+                                    <p class="proPercent">HSD:' . $row['DateEnd'] . '</p>
+                                </div>
+                            </div>
+                            </div>
+                            ';
+                }
+            }
+            if ($data['GN']['RankId'] == 1) {
+
+                echo '
+                <h5 class="memberProH2 text-center mt-4 mb-4">Ưu đãi hạng Đồng</h5>
+                <div class="row">';
+                while ($row = mysqli_fetch_array($data['DO'])) {
+                    echo '
+                        <div class="col-md-4 col-sm-12 mt-3">
+                            <div class="row  proColBro">
+                                <div class="col-3 ">
+                                    <img class="img-pro img-fluid" src="' . $row['Image'] . '" alt="">
+                                    <div class="vl"></div>
+                                    <p class="mt-2 proPercent">Giảm ' . $row['ValuePromotion'] . '</p>
+
+                                </div>
+                                <div class="col-8">
+                                    <h5>' . $row['Code'] . '</h5>
+                                    <p>' . $row['Content'] . '</p>
+                                    <p class="proPercent">HSD:' . $row['DateEnd'] . '</p>
+                                </div>
+                            </div>
+                            </div>
+                            ';
+                }
             }
             ?>
-
-            <h5 class="memberProH2 text-center mt-4 mb-4 align-items-center">Ưu đãi của bạn</h5>
-            <div class="row">
-                <div class="col-md-4 col-sm-12 mt-3 ">
-                    <div class="row proCol">
-                        <div class="col-3 ">
-                            <img class="img-pro img-fluid" src="img/2.png" alt="">
-                            <div class="vl"></div>
-                            <p class="mt-2 proPercent">Giảm 10%</p>
-
-                        </div>
-                        <div class="col-8">
-                            <h5>Tuấn barber</h5>
-                            <p>Giảm tối đa 10k cho tổng dịch vụ</p>
-                            <p class="proPercent">HSD:</p>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="col-md-4 col-sm-12 mt-3">
-                    <div class="row proCol">
-                        <div class="col-3 ">
-                            <img class="img-pro img-fluid" src="img/2.png" alt="">
-                            <div class="vl"></div>
-                            <p class="mt-2 proPercent">Giảm 10%</p>
-
-                        </div>
-                        <div class="col-8">
-                            <h5>Tuấn barber</h5>
-                            <p>Giảm tối đa 10k cho tổng dịch vụ</p>
-                            <p class="proPercent">HSD:</p>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="col-md-4 col-sm-12 mt-3">
-                    <div class="row proCol">
-                        <div class="col-3 ">
-                            <img class="img-pro img-fluid" src="img/2.png" alt="">
-                            <div class="vl"></div>
-                            <p class="mt-2 proPercent">Giảm 10%</p>
-
-                        </div>
-                        <div class="col-8">
-                            <h5>Tuấn barber</h5>
-                            <p>Giảm tối đa 10k cho tổng dịch vụ</p>
-                            <p class="proPercent">HSD:</p>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-
         </div>
 
 
+        <h5 class="memberProH2 text-center mt-4 mb-4 align-items-center">Ưu đãi của bạn</h5>
+        <div class="row">
+            <?php
+            while ($row = mysqli_fetch_array($data['ALL'])) {
+                echo '
+                      <div class="col-md-4 col-sm-12 mt-3 ">
+                      <div class="row proCol">
+                          <div class="col-3 ">
+                              <img class="img-pro img-fluid" src="' . $row['Image'] . '" alt="">
+                              <div class="vl"></div>
+                              <p class="mt-2 proPercent">Giảm ' . $row['ValuePromotion'] . '</p>
+  
+                          </div>
+                          <div class="col-8">
+                              <h5>' . $row['Code'] . '</h5>
+                              <p>' . $row['Content'] . '</p>
+                              <p class="proPercent">HSD:' . $row['DateEnd'] . '</p>
+                          </div>
+                      </div>
+  
+  
+                  </div>
+                      ';
+            }
+            ?>
+        </div>
 
     </div>
+
+
+
+</div>
 
 </div>

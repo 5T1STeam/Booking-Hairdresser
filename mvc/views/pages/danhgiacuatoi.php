@@ -9,22 +9,22 @@
                             <tr>
                                 <td class="col-2 hds">Tên cửa hàng</td>
                             
-                                <td class="col-2 hds text-center">Dịch vụ</td>
-                                <td class="col-2 hds text-center">Giá</td>
-                                <td class="col-2 hds text-center">Thời gian</td>
-                                <td class="col-2 hds text-center"> Đánh giá</td>
+                                <td class="col-2 hds ">Dịch vụ</td>
+                                <td class="col-2 hds ">Giá</td>
+                                <td class="col-2 hds ">Thời gian</td>
+                                <td class="col-2 hds "> Đánh giá</td>
                             </tr>
                             <?php
                             foreach($data['GG'] as $item ){
                                 echo '
                                 <tr>
                                 <td class="col-2 table-col__one"><a href="">' . $item["ShopName"] . '</a></td>
-                                <td class="col-2 text-center">' . $item["ServiceName"] . '</td>
-                                <td class="col-2 text-center"> ' .number_format( $item["Price"]) . 'đ</td>
+                                <td class="col-2 ">' . $item["ServiceName"] . '</td>
+                                <td class="col-2 "> ' .number_format( $item["Price"]) . 'đ</td>
                                 
-                                <td class="col-2 text-center">' . $item["CreateDate"] . '</td>
+                                <td class="col-2 ">' . $item["CreateDate"] . '</td>
                   
-                                <td class="col-2 table-col__six text-center">';
+                                <td class="col-2 table-col__six ">';
 
                                 for($f=1;$f<$item["Rating"]+1;$f++){
                                     echo'<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/userprofileStyle/Termofservice.css">
+<link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/userprofileStyle/termofservice.css">
 <div class="container">
                     <div class="  head-infor-account">
                         <h3>Điều khoản dịch vụ </h3>
