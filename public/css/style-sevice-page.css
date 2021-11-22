@@ -80,30 +80,40 @@ header {
 
 /*hidden*/
 
-#howto-2 {
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
-    margin: 0;
-    background: white;
+.howto-input {
+    border-top-left-radius: 50px !important;
+    border-bottom-left-radius: 50px !important;
+    margin: 0 !important;
+    box-shadow: none !important;
 }
 
-#location-2 {
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
-    margin: 0;
-    background: white;
+.howto-input:hover {
+    border-color: #FF421A !important;
 }
 
-#form-search-1 {
-    position: absolute;
-    width: 130% !important;
-    left: 18% !important;
+.howto-input:focus {
+    border-color: #FF421A !important;
 }
 
-#form-search-2 {
-    position: absolute;
-    width: 40%;
-    left: 20%;
+.location-input {
+    border-top-right-radius: 50px !important;
+    border-bottom-right-radius: 50px !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+}
+
+.location-input:hover {
+    border-color: #FF421A !important;
+}
+
+.location-input:focus {
+    border-color: #FF421A !important;
+}
+
+.form-search {
+    position: absolute !important;
+    width: 40% !important;
+    left: 20% !important;
 }
 
 

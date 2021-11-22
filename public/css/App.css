@@ -712,10 +712,6 @@ body {
     border: 1px solid #ff421a;
 }
 
-a:link {
-    text-decoration: none
-}
-
 .pagination_rounded .prev {
     border-radius: 35px;
     line-height: 25px
@@ -723,7 +719,7 @@ a:link {
 
 .pagination_rounded ul li a {
     float: left;
-    color: #000000;
+    color: #FF421A;
     border-radius: 50%;
     line-height: 25px;
     height: 30px;
@@ -731,6 +727,13 @@ a:link {
     text-align: center;
     margin-bottom: 40px;
     border: 1px solid #e0e0e0
+}
+
+.pagination_rounded .active a {
+    text-decoration: none;
+    background: #ff421a;
+    color: #fff;
+    border: 1px solid #ff421a;
 }
 
 .pagination_rounded .prev i {

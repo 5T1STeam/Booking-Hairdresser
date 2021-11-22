@@ -24,7 +24,7 @@
     color: #ff421a;
 }
 
-.nameShopList:hover{
+.nameShopList:hover {
     color: #ff421a;
     opacity: 0.7;
 }
@@ -52,8 +52,8 @@
     background-color: #ff421a;
 }
 
-.item-list:hover{
-opacity: 0.7;
+.item-list:hover {
+    opacity: 0.7;
 }
 
 .ratingList {
@@ -95,4 +95,13 @@ opacity: 0.7;
     .btn-outline {
         margin-bottom: 30px;
     }
+}
+
+.pageactive {
+    color: #fff !important;
+    background-color: #FF421A !important;
+}
+
+.pagenon {
+    color: #FF421A;
 }
