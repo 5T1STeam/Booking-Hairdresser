@@ -31,7 +31,7 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <form method="POST" action="searchservice&page=1">
+                    <form method="POST" action="/Booking-Hairdresser/listshop/searchservice&page=1">
                         <input type="hidden" id="serviceChoose" name="serviceChoose"  value=""/>
                         <button type="submit" class="btn" id="btn-search" >Tìm Kiếm</button>
                     </form>
@@ -77,7 +77,7 @@
                 </div>
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <form method="POST" action="searchlocation&page=1">              
+                    <form method="POST" action="/Booking-Hairdresser/listshop/searchlocation&page=1">              
                         <input type="hidden" name="province" value=""/>
                         <input type="hidden" name="district" value=""/>
                         <input type="hidden" name="wards" value=""/>

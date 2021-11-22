@@ -19,12 +19,37 @@
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/popup.css">
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/listshopT.css">
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/style-sevice-page.css">
+    <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/style.css">
 
     <!--Popup-->
     <script src="../../Booking-Hairdresser/public/js/popup2.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .owl-prev {
+            left: -30px;
+        }
 
+        .owl-next {
+            right: -30px;
+        }
+
+        .owl-prev,
+        .owl-next {
+            position: absolute;
+            top: 30%;
+        }
+
+        .owl-prev span,
+        .owl-next span {
+            font-size: 60px;
+            color: #787878;
+        }
+
+        .owl-theme .owl-nav [class*="owl-"]:hover {
+            background-color: transparent;
+        }
+    </style>
 </head>
 
 <body>
@@ -38,6 +63,46 @@
         ?>
     </header>
     <div class="container">
+        <div class="recommend">
+            <br/>
+            <h1 class="h1Re">Đề xuất cho bạn</h1>
+            <div class="owl-carousel owl-theme" id="carousel1">
+                <?php
+                foreach ($data['Suggest'] as $item) {
+                    echo '
+                <div class=ml-2 mr-2>
+                    <a class=linkShoptoDetail href=BookingHairdresser/detail/' . $item['Id'] . '>
+                        <div class="card">
+                            <img src=' . $item['Avatar'] . ' alt="" class="card-img-top">
+                            <div class="card-body text-left">
+                                <h5 class="card-title text-left SZ"> ' . $item['Name'] . '</h5>
+                                <h5 class="text-left ratezx ">Rate: <span style="font-size:20px;cursor:pointer;"';
+
+                    for ($i = 1; $i <= 5; $i++) {
+                        if ($item['RatingNum'] > $i - 0.5) {
+                            echo '<span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>';
+                        } else {
+                            if ($item['RatingNum'] > $i - 1) {
+                                echo '<span style="font-size:20px;cursor:pointer;" class="fa fa-star-half-full checked ml-2"></span>';
+                            } else {
+                                echo '<span style="font-size:20px;cursor:pointer;" class="fa fa-star-o checked ml-2"></span>';
+                            }
+                        }
+                    }
+                    echo '
+                            <div class="Getreview d-inline">(' . $item['QuantityRating'] . ')</div>
+                                </h5>
+                                <div class="location">
+                                ' . $item['FullAdress'] . ', ' . $item['AddressPath3'] . ', ' . $item['AddressPath2'] . ', ' . $item['AddressPath1'] . '
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>';
+                }
+                ?>
+            </div>
+        </div>
         <?php
         $popup->popupFilter();
         ?>
@@ -62,58 +127,86 @@
         <div class="overlay">
             <div class="loader"></div>
         </div>
-        <!-- <div class="row">
-            <div class="col-md text-center">
-                <div class="pagination_rounded">
-                    <ul>
-                        <li>
-                            <a href="#" class="prev text-right"> <i class="fa fa-angle-left" aria-hidden="true"></i></a>
-                        </li>
-                        <li><a href="#">1</a> </li>
-                        <li class="hidden-xs"><a href="#">2</a> </li>
-                        <li class="hidden-xs"><a href="#">3</a> </li>
-                        <li class="hidden-xs"><a href="#">4</a> </li>
-                        <li class="hidden-xs"><a href="#">5</a> </li>
-                        <li class="visible-xs"><a href="#">...</a> </li>
-                        <li><a href="#" class="next text-center"><i class="fa fa-angle-right" aria-hidden="true"></i></a> </li>
-                    </ul>
-                </div>
-            </div>
-        </div> -->
+
         <div class="pagination row">
             <div class="col-md text-center">
                 <div class="pagination_rounded">
                     <ul>
-                    <?php
-                    if (isset($_GET['page'])) {
-                        // PHẦN HIỂN THỊ PHÂN TRANG
-                        $url = $_SERVER['REQUEST_URI'];
-                        $arr = explode("/", $url);
-                        $urlpost = $arr[count($arr) - 1];
-                        $urlpost = substr($urlpost, 0, strpos($urlpost, '&page'));
+                        <?php
+                        if (isset($_GET['page'])) {
+                            // PHẦN HIỂN THỊ PHÂN TRANG
+                            $url = $_SERVER['REQUEST_URI'];
+                            $arr = explode("/", $url);
+                            $urlpost = $arr[count($arr) - 1];
+                            $urlpost = substr($urlpost, 0, strpos($urlpost, '&page'));
 
-                        if ($_GET['page'] > 1 && $data['page'] > 1) {
-                            echo '<li><a href="' . $urlpost . '&page=' . ($_GET['page'] - 1) . '" class="prev text-right"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>';
-                        }
+                            if ($_GET['page'] > 5 && $data['page'] > 1) {
+                                echo '<li><a href="' . $urlpost . '&page=' . 1 . '" class="prev text-right"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>';
+                            }
+                            if ($_GET['page'] > 1 && $data['page'] > 1) {
+                                echo '<li><a href="' . $urlpost . '&page=' . ($_GET['page'] - 1) . '" class="prev text-right"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>';
+                            }
 
-                        // Lặp khoảng giữa
-                        for ($i = 1; $i <= $data['page']; $i++) {
-                            // Nếu là trang hiện tại thì hiển thị thẻ span
-                            // ngược lại hiển thị thẻ a
-                            if ($i == $_GET['page']) {
-                                echo '<li class="active"><a href="">' . $i . '</a></li>';
-                            } else {
-                                echo '<li class=""><a href="' . $urlpost . '&page=' . $i . '">' . $i . '</a></li>';
+                            if($data['page'] <=5){
+                                    // Lặp khoảng giữa
+                                for ($i = 1; $i <= $data['page']; $i++) {
+                                    // Nếu là trang hiện tại thì hiển thị thẻ span
+                                    // ngược lại hiển thị thẻ a
+                                    if ($i == $_GET['page']) {
+                                        echo '<li class="active"><a href="">' . $i . '</a></li>';
+                                    } else {
+                                        echo '<li class=""><a href="' . $urlpost . '&page=' . $i . '">' . $i . '</a></li>';
+                                    }
+                                }
+                            }elseif($data['page'] - $_GET['page'] < 3){
+                                    // Lặp khoảng giữa
+                                for ($i = $data['page']-4; $i <= $data['page']; $i++) {
+                                    // Nếu là trang hiện tại thì hiển thị thẻ span
+                                    // ngược lại hiển thị thẻ a
+                                    if ($i == $_GET['page']) {
+                                        echo '<li class="active"><a href="">' . $i . '</a></li>';
+                                    } else {
+                                        echo '<li class=""><a href="' . $urlpost . '&page=' . $i . '">' . $i . '</a></li>';
+                                    }
+                                }
+                            }else{
+                                if($_GET["page"]<=3){
+                                        // Lặp khoảng giữa
+                                for ($i = 1; $i <= 5; $i++) {
+                                    // Nếu là trang hiện tại thì hiển thị thẻ span
+                                    // ngược lại hiển thị thẻ a
+                                    if ($i == $_GET['page']) {
+                                        echo '<li class="active"><a href="">' . $i . '</a></li>';
+                                    } else {
+                                        echo '<li class=""><a href="' . $urlpost . '&page=' . $i . '">' . $i . '</a></li>';
+                                    }
+                                }
+                                }else{
+                                        // Lặp khoảng giữa
+                                    for ($i = $_GET["page"]-2; $i <= $_GET["page"]+2; $i++) {
+                                        // Nếu là trang hiện tại thì hiển thị thẻ span
+                                        // ngược lại hiển thị thẻ a
+                                        if ($i == $_GET['page']) {
+                                            echo '<li class="active"><a href="">' . $i . '</a></li>';
+                                        } else {
+                                            echo '<li class=""><a href="' . $urlpost . '&page=' . $i . '">' . $i . '</a></li>';
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            
+                            if ($_GET['page'] < $data['page'] && $data['page'] > 1) {
+                                echo '<li><a href="' . $urlpost . '&page=' . ($_GET['page'] + 1) . '"class="next text-center"><i class="fa fa-angle-right" aria-hidden="true"></i></a> </li> ';
+                            }
+
+                            if ($_GET['page'] < $data['page']-2 && $data['page'] > 1) {
+                                echo '<li><a href="' . $urlpost . '&page=' . $data['page'] . '"class="next text-center"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a> </li> ';
                             }
                         }
-                        // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
-                        if ($_GET['page'] < $data['page'] && $data['page'] > 1) {
-                            echo '<li><a href="' . $urlpost . '&page=' . ($_GET['page'] + 1) . '"class="next text-center"><i class="fa fa-angle-right" aria-hidden="true"></i></a> </li> ';
-                        }
-                    }
 
 
-                    ?>
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -128,14 +221,72 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script src="../../../Booking-Hairdresser/public/js/owl.carousel.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
     <script src="../../Booking-Hairdresser/public/js/popup.js"></script>
     <script src="../../../Booking-Hairdresser/public/js/nav-sevice-page.js"></script>
-    <!--Nav starts-->
 
-    <!--Popup-->
+    <!--Carousel-->
+    <script>
+        $('#carousel1').owlCarousel({
 
-    <!-- <script src="../../../Booking-Hairdresser/public/js/popup.js"></script> -->
+            items: 4,
+            dots: false,
+            loop: true,
+            nav: true,
+            margin: 10,
+            responsive: {
+                0: {
+                    items: 1
+
+                },
+                600: {
+                    items: 4
+                }
+
+            }
+
+
+        });
+        $('#carousel2').owlCarousel({
+
+            items: 4,
+            dots: false,
+            loop: true,
+            margin: 10,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1
+
+                },
+                600: {
+                    items: 4
+                }
+
+            }
+
+
+        });
+        $('#carousel3').owlCarousel({
+
+            items: 5,
+            dots: false,
+            loop: true,
+            nav: true,
+            autoHeight: true,
+            responsive: {
+                0: {
+                    items: 3,
+                    autoHeight: true,
+
+                },
+                600: {
+                    items: 6
+                }
+
+            }
+
+        });
+    </script>
 
 </body>
 

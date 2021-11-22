@@ -20,9 +20,9 @@
 
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/popup.css">
     <!--Popup-->
-    <script src="../../../Booking-Hairdresser/public/js/popup2.js"></script>
+    <script src="../../Booking-Hairdresser/public/js/popup2.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>    
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -56,11 +56,13 @@
 
 <body>
     <header id="header">
-    <?php
+        <?php
         require_once './mvc/controllers/popup.php';
         $popup = new Popup();
         $popup->popupSearch();
-    ?>
+        $libar = new Library();
+        $category = $libar->Categories();
+        ?>
         <div style="min-height: auto;">
             <div class="container">
                 <nav class="navbar">
@@ -97,60 +99,13 @@
                             </svg>
                         </span>
                         <input id="mbsearch" type="text" class="form-control" placeholder="Bạn đang tìm kiếm gì ?" data-toggle="modal" data-target="#popup-howto">
-                        <div class="modal fade" id="popup-howto">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <!-- Modal Header -->
-                                    <div class="modal-header">
-                                        <input id="model-input-howto" type="text" class="popup-howto form-control" placeholder="Bạn tìm dịch vụ gì?">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
 
-                                    <!-- Modal body -->
-                                    <div class="modal-body">
-                                        <div class="service">
-                                            <h5 class="modal-title">Dịch vụ phổ biến</h5>
-                                            <br>
-                                            <!--Lấy dữ liệu từ SQL nên hiệu chỉnh sau-->
-                                            <div class="group-service">
-                                                <label>
-                                                    <input type="checkbox" name="service" class="service" style="display: none;">
-                                                    <span class="btn btn-service" for="">Cắt Tóc</span>
-                                                </label>
-                                                <label>
-                                                    <input type="checkbox" name="service" class="service" style="display: none;">
-                                                    <span class="btn btn-service">Làm Nail</span>
-                                                </label>
-                                                <label>
-                                                    <input type="checkbox" name="service" class="service" style="display: none;">
-                                                    <span class="btn btn-service">Duỗi Tóc</span>
-                                                </label>
-                                                <label>
-                                                    <input type="checkbox" name="service" class="service" style="display: none;">
-                                                    <span class="btn btn-service">Uốn Tóc</span>
-                                                </label>
-                                                <!--có thể thêm-->
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Modal footer -->
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn" id="btn-search" onclick="searchHowto()" data-dismiss="modal">Tìm Kiếm</button>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
                         <div class="nav-list px-2 ">
-                            <a class="nav-mblink " href="../html/listservice.html">Babershop</a>
-                            <a class="nav-mblink " href="../html/listservice.html">Nail Salon</a>
-                            <a class="nav-mblink " href="../html/listservice.html">Beauty Salon</a>
-                            <a class="nav-mblink " href="../html/listservice.html">Hair Salon</a>
-                            <a class="nav-mblink " href="../html/listservice.html">Massage</a>
-                            <a class="nav-mblink " href="../html/listservice.html">Makeup Arist</a>
-                            <a class="nav-mblink " href="../html/listservice.html">Day Spa</a>
+                            <?php
+                            foreach ($category as $id => $name) {
+                                echo "<a class='nav-mblink nav-link' href='/booking-hairdresser/listshop/category&dm=" . $id . "&page=1'>" . $name . "</a>";
+                            }
+                            ?>
                         </div>
                         <div class="logout px-2">
                             <a class="nav-mblink nav-link " onclick="clickBtndoitac()">Đối tác</a>
@@ -178,22 +133,28 @@
 
         <div class="bottom-section container-fluid">
             <nav class="nav justify-content-lg-center">
-                <a class="nav-link categoriz" href="../html/listservice.html">Hair Salon</a>
-                <a class="nav-link categoriz" href="../html/listservice.html">Babershop</a>
-                <a class="nav-link categoriz" href="../html/listservice.html">Nail Salon</a>
-                <a class="nav-link categoriz" href="../html/listservice.html">Beauty Salon</a>
-                <a class="nav-link categoriz" href="../html/listservice.html">Massage</a>
-                <a class="nav-link categoriz" href="../html/listservice.html">Makeup Arist</a>
-                <a class="nav-link categoriz" href="../html/listservice.html">Day Spa</a>
-                <div class="dropdown">
-                    <a class="dropdown-toggle nav-link" id="ddMenu" data-toggle="dropdown">
-                        More
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="./listservice.html">Dưỡng Da</a>
-                        <!--Vân vân-->
-                    </div>
-                </div>
+                <?php
+                foreach ($category as $id => $name) {
+                    if ($id < 8) {
+                        echo " <a class='nav-link categoriz' href='/booking-hairdresser/listshop/category&dm=" . $id . "&page=1'>" . $name . "</a>";
+                    }
+                    if ($id >= 8) {
+                        if ($id == 8) {
+                            echo "<div class='dropdown'>
+                                    <a class='dropdown-toggle nav-link categoriz' id='ddMenu' data-toggle='dropdown'>
+                                    More
+                                    </a>
+                                    <div class='dropdown-menu'>
+                                    <a class='dropdown-item' href='/booking-hairdresser/listshop/category&dm=" . $id . "&page=1'>" . $name . "</a>";
+                        } else {
+                            echo "<a class='dropdown-item' href='/booking-hairdresser/listshop/category&dm=" . $id . "&page=1'>" . $name . "</a>";
+                        }
+                        if ($id == count($category) + 1) {
+                            echo "</div>";
+                        }
+                    }
+                }
+                ?>
             </nav>
         </div>
 
@@ -399,64 +360,12 @@
                 }
                 ?>
             </div>
-
         </div>
+    </div>
 
     </div>
-    <footer>
-        <div class="container">
-            <!--Bắt Đầu Nội Dung Giới Thiệu-->
-            <div class="noi-dung about">
-                <h2>Về Chúng Tôi</h2>
-                <p>Lorem ipsumdolor sit...</p>
-                <ul class="social-icon">
-                    <li><a href=""><i class="fa fa-facebook"></i></a>
-                    </li>
-                    <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                    <li><a href=""><i class="fa fa-instagram"></i></a></li>
-                    <li><a href=""><i class="fa fa-youtube"></i></a></li>
-                </ul>
-            </div>
-            <!--Kết Thúc Nội Dung Giới Thiệu-->
-            <!--Bắt Đầu Nội Dung Đường Dẫn-->
-            <div class="noi-dung links">
-                <h2>Đường Dẫn</h2>
-                <ul>
-                    <li><a href="#">Trang Chủ</a></li>
-                    <li><a href="#">Về Chúng Tôi</a></li>
-                    <li><a href="#">Thông Tin Liên Lạc</a></li>
-                    <li><a href="#">Dịch Vụ</a></li>
-                    <li><a href="#">Điều Kiện Chính Sách</a></li>
-                </ul>
-            </div>
-            <!--Kết Thúc Nội Dung Đường Dẫn-->
-            <!--Bắt Đâu Nội Dung Liên Hệ-->
-            <div class="noi-dung contact">
-                <h2>Thông Tin Liên Hệ</h2>
-                <ul class="info">
-                    <li>
-                        <span><i class="fa fa-map-marker"></i></span>
-                        <span>Đường Số 1<br />
-                            Quận 1, Thành Phố Hồ Chí Minh<br />
-                            Việt Nam</span>
-                    </li>
-                    <li>
-                        <span><i class="fa fa-phone"></i></span>
-                        <p><a href="#">+84 123 456 789</a>
-                            <br />
-                            <a href="#">+84 987 654 321</a>
-                        </p>
-                    </li>
-                    <li>
-                        <span><i class="fa fa-envelope"></i></span>
-                        <p><a href="#">diachiemail@gmail.com</a></p>
-                    </li>
+    <?php $libar->footer();  ?>
 
-                </ul>
-            </div>
-            <!--Kết Thúc Nội Dung Liên Hệ-->
-        </div>
-    </footer>
 
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
@@ -465,7 +374,7 @@
     <script src="../../../Booking-Hairdresser/public/js/nav.js"></script>
     <script src="../../../Booking-Hairdresser/public/js/Detail2.script.js"></script>
     <!--Nav starts-->
-    <script src="../../../Booking-Hairdresser/public/js/popup.js"></script>
+    <script src="../../Booking-Hairdresser/public/js/popup2.js"></script>
     <!--Popup-->
 
     <script>
@@ -543,10 +452,10 @@
         // Sending location to server via POST request
         function update_location(position) {
             $.post("./mvc/controllers/getlocation.php", {
-                    latitude: position.coords.latitude,
-                    longtitude: position.coords.longitude
-                });
-                
+                latitude: position.coords.latitude,
+                longtitude: position.coords.longitude
+            });
+
         }
     </script>
 
