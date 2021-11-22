@@ -3,7 +3,17 @@
     padding: 0;
     margin: 0;
 }
-
+.head-infor-account{
+    margin: 35px 0px ;
+    margin-top: 40px;
+}
 .policies {
     background-color: #ff401aa1;
 }
+.mail{
+    color: #FF421A;
+}
+.uli{
+    margin-left: 40px;
+}
+

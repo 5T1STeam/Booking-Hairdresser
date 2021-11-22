@@ -8,6 +8,21 @@
     background-color: #ff401aa1;
 }
 
-.policiesHeader {
-    margin: 40px 0;
+.head-infor-account{
+    margin: 35px 0px ;
+    margin-top: 40px;
+}.hd2{
+    margin-left: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(24, 18, 18);
+}
+.hd3{
+    margin-left: 60px;
+}
+.uli{
+    margin-left: 40px;
+}
+.bm{
+    color: #FF421A  
 }

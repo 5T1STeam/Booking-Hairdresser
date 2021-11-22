@@ -19,6 +19,7 @@ class detail extends controller{
                 
                 $innerArray['UserName']= $user['Name'];
                 $innerArray['Province']= $user['Province'];
+<<<<<<< HEAD
             $like= $teo -> GetLikeDisLike($innerArray['Id']);
             $innerArray['Like']=0;
             $innerArray['DLike']=0;
@@ -31,6 +32,18 @@ class detail extends controller{
                 }
             }
             array_push($feedbackarr,$innerArray);
+=======
+                
+                
+            
+            $like=mysqli_fetch_array($teo->GetLikeDisLike($innerArray['UserId']),1);
+            $innerArray['Like']= $like['IsLike'];
+            $innerArray['DLike']= $like['IsDisLike'];
+                array_push($feedbackarr,$innerArray);
+
+
+            
+>>>>>>> origin/profilephp
         }   
         $arrz=$teo->GetCalendar($id);
         $results=[];
@@ -40,7 +53,20 @@ class detail extends controller{
             $item['End']=$items['EndTime'];
             array_push($results,$item);
         }
+<<<<<<< HEAD
         
+=======
+
+        
+        
+        
+       
+        
+
+
+       
+       
+>>>>>>> origin/profilephp
         $this->view("detailShop",["GAU"=>$teo->GetImgShop($id),
                                     "GN"=>$teo->GetNameUser($id),
                                     "GS"=>$teo->GetServiceShop($id),
@@ -54,7 +80,11 @@ class detail extends controller{
                                     "GT"=>$teo->GetStaff($id),
                                     "GC"=>$results,
                                     "GP"=>$teo->GetService(),
+<<<<<<< HEAD
                                     "GO"=>$teo->GetServiceShop($id),
+=======
+                                    "GO"=>$teo->GetServiceShop($id)
+>>>>>>> origin/profilephp
 
                                     ]
                                         );
