@@ -1,0 +1,161 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+p,
+h3 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+:root {
+    --text-color: #ff421a;
+    --gold-color: #f4fd8a;
+    --diamond-color: #88dadf;
+    --silver-color: #dee2e6;
+}
+
+.mainPro {
+    position: relative;
+}
+
+.infoh2 {
+    color: var(--text-color);
+    font-size: 30px;
+}
+
+.img-main {
+    width: 100%;
+    height: 404px;
+    object-fit: cover;
+    opacity: 0.5;
+    /* object-position: 50% 50%; */
+}
+
+.infoPro {
+    background-color: #e5e5e5a1;
+    width: 100%;
+    height: 60%;
+    position: absolute;
+    padding: 20px;
+    top: 15%;
+    bottom: 50%;
+}
+
+.circlelogo {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+}
+
+.vl {
+    border-left: 2px solid #6c757d;
+    height: 100%;
+    position: absolute;
+    left: 93%;
+    margin-left: -3px;
+    top: 0;
+}
+
+.logo {
+    width: 60px;
+    height: 40px;
+    margin-top: 30px;
+}
+
+.memberProH2 {
+    color: var(--text-color);
+}
+
+.textPro {
+    color: var(--text-color);
+    font-size: 30px;
+}
+
+.detailPro {
+    font-size: 20px;
+}
+
+.btn-book {
+    background-color: var(--text-color);
+    padding-left: 30px;
+    padding-right: 30px;
+    color: #fff;
+}
+
+.content {
+    margin-left: 30px;
+    line-height: 1.6;
+}
+
+.content p {
+    font-size: 20px;
+}
+
+.proPercent {
+    font-weight: bold;
+}
+
+.proColSilver {
+    background-color: var(--silver-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.proColGold {
+    background-color: var(--gold-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.proColDiamond {
+    background-color: var(--diamond-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.proDs {
+    padding: 30px;
+}
+
+@media only screen and (max-width: 500px) {
+    .infoPro {
+        background-color: #e5e5e5a1;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        padding: 20px;
+        top: 0;
+        bottom: 0;
+    }
+    .detailPro {
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    .textPro {
+        font-size: 20px;
+    }
+    .infoh2 {
+        font-size: 25px;
+    }
+    .circlelogo {
+        width: 70px;
+        height: 70px;
+        background-color: #fff;
+    }
+    .logo {
+        width: 40px;
+        height: 30px;
+        margin-top: 20px;
+    }
+}

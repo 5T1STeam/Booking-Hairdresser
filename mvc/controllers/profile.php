@@ -73,6 +73,20 @@ class profile extends controller{
                                          ]);
    }
    
+   function lichsu($id){
+      $teo = $this->model("detailShopModel");
+      $lichhen =$teo->getBookingHistory($id);
+      $arr=array();
+      foreach($lichhen as $item){
+         $shop =$teo->GetNameUser($item['ShopId']);
+         $item['ShopName']=$shop['Name'] ;
+         $item['ShopImg']=$shop['Avatar'] ;
+         $item['Adress']=$shop['FullAdress'] . " , " .$shop['Ward'] . " , " .$shop['District']." , " .$shop['Province']  ;
+         array_push($arr,$item);
+      }
+      $this->view("profile",["page"=>"lichsu","GN"=>$this->user->GetNameUser($id),"booked"=>$arr]);
+   }
+
    
 
        

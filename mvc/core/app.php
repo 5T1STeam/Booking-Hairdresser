@@ -2,7 +2,7 @@
 class app{
 
     protected $controller="home";
-    protected $action="SayHi";
+    protected $action="Show";
     protected $params=[];
 
     function __construct(){

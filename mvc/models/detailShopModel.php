@@ -298,6 +298,37 @@ class detailShopModel extends db{
         return $result;
         
     }
+
+    public function getBookingHistory($id){
+        $qr = "SELECT * FROM tbl_booking WHERE UserId=$id AND (IsCanceled = 1 OR IsCompleted =1)";
+        $querry= mysqli_query($this->con,$qr);
+        $result=[];
+        while($row=mysqli_fetch_array($querry,1)){
+            $bookingId=$row['Id'];
+            $qr2= "SELECT * FROM tbl_bookingservice WHERE BookingId=$bookingId";
+            $querry2=mysqli_query($this->con,$qr2);
+            $row['Bookingservice'] =array();
+            while($row2=mysqli_fetch_array($querry2,1)){
+                $shopServiceId= $row2['ShopserviceId'];
+                $qr3="SELECT * FROM tbl_shopservices WHERE Id=$shopServiceId";
+                $querry3=mysqli_query($this->con,$qr3);
+                
+                while($row3=mysqli_fetch_array($querry3)){
+                    $row2['Price'] = $row3['Price'];
+                    $row2['Time'] = $row3['Time'];
+                    $serviceId= $row3['ServiceId'];
+                    $qr4= "SELECT `Name` FROM tbl_services WHERE Id=$serviceId";
+                    $querry4=mysqli_query($this->con,$qr4);
+                    $row4=mysqli_fetch_array($querry4);
+                    $row2['Name'] = $row4['Name'];
+                    array_push($row['Bookingservice'],$row2);
+                }
+            }
+            array_push($result,$row);
+        }
+        return $result;
+        
+    }
     public function convert_name($str) {
 		$str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);
 		$str = preg_replace("/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/", 'e', $str);
