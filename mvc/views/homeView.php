@@ -60,6 +60,7 @@
         require_once './mvc/controllers/popup.php';
         $popup = new Popup();
         $popup->popupSearch();
+        $libar = new Library();
     ?>
         <div style="min-height: auto;">
             <div class="container">
@@ -67,11 +68,11 @@
                     <a href="Booking-Hairdresser/"><img class="navbar-brand" src="../../../Booking-Hairdresser/public/icon/logo.png" style="width:60px; float:left;"></a>
 
                     <div class="nav justify-content-end topnav">
-                        <a class="nav-link" href="http://localhost/Booking-Hairdresser/home">Trang Chủ</a>
-                        <a class="nav-link" href="http://localhost/Booking-Hairdresser/listshop">Danh Mục</a>
+                        <a class="nav-link" href="<?php echo BASE_URL ?>/home">Trang Chủ</a>
+                        <a class="nav-link" href="<?php echo BASE_URL ?>/listshop">Danh Mục</a>
                         <a class="nav-link" href="#">Khám Phá</a>
                         <a class="btn btn-business" onclick="clickBtndoitac()">Đối tác</a>
-                        <a class="btn btn-login" href="http://localhost/Booking-Hairdresser/login">Sign in / Login</a>
+                        <a class="btn btn-login" href="<?php echo BASE_URL ?>login">Sign in / Login</a>
 
                     </div>
                     <label for="nav-check" class="nav-mobile-btn">
@@ -353,8 +354,6 @@
                     </div>
                 </div>
             </div>
-
-
             <div class="wrapper">
                 <div class="inspiredbg text-center">
                     <br>
@@ -403,60 +402,7 @@
         </div>
 
     </div>
-    <footer>
-        <div class="container">
-            <!--Bắt Đầu Nội Dung Giới Thiệu-->
-            <div class="noi-dung about">
-                <h2>Về Chúng Tôi</h2>
-                <p>Lorem ipsumdolor sit...</p>
-                <ul class="social-icon">
-                    <li><a href=""><i class="fa fa-facebook"></i></a>
-                    </li>
-                    <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                    <li><a href=""><i class="fa fa-instagram"></i></a></li>
-                    <li><a href=""><i class="fa fa-youtube"></i></a></li>
-                </ul>
-            </div>
-            <!--Kết Thúc Nội Dung Giới Thiệu-->
-            <!--Bắt Đầu Nội Dung Đường Dẫn-->
-            <div class="noi-dung links">
-                <h2>Đường Dẫn</h2>
-                <ul>
-                    <li><a href="#">Trang Chủ</a></li>
-                    <li><a href="#">Về Chúng Tôi</a></li>
-                    <li><a href="#">Thông Tin Liên Lạc</a></li>
-                    <li><a href="#">Dịch Vụ</a></li>
-                    <li><a href="#">Điều Kiện Chính Sách</a></li>
-                </ul>
-            </div>
-            <!--Kết Thúc Nội Dung Đường Dẫn-->
-            <!--Bắt Đâu Nội Dung Liên Hệ-->
-            <div class="noi-dung contact">
-                <h2>Thông Tin Liên Hệ</h2>
-                <ul class="info">
-                    <li>
-                        <span><i class="fa fa-map-marker"></i></span>
-                        <span>Đường Số 1<br />
-                            Quận 1, Thành Phố Hồ Chí Minh<br />
-                            Việt Nam</span>
-                    </li>
-                    <li>
-                        <span><i class="fa fa-phone"></i></span>
-                        <p><a href="#">+84 123 456 789</a>
-                            <br />
-                            <a href="#">+84 987 654 321</a>
-                        </p>
-                    </li>
-                    <li>
-                        <span><i class="fa fa-envelope"></i></span>
-                        <p><a href="#">diachiemail@gmail.com</a></p>
-                    </li>
-
-                </ul>
-            </div>
-            <!--Kết Thúc Nội Dung Liên Hệ-->
-        </div>
-    </footer>
+    <?php $libar->footer();  ?>
 
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
