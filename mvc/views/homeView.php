@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang chủ</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/owl.carousel.min.css">
@@ -20,7 +20,7 @@
 
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/popup.css">
     <!--Popup-->
-
+    <script src="../../../Booking-Hairdresser/public/js/popup2.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>    
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -67,11 +67,11 @@
                     <a href="Booking-Hairdresser/"><img class="navbar-brand" src="../../../Booking-Hairdresser/public/icon/logo.png" style="width:60px; float:left;"></a>
 
                     <div class="nav justify-content-end topnav">
-                        <a class="nav-link" href="../../../Booking-Hairdresser/">Trang Chủ</a>
-                        <a class="nav-link" href="../html/listservice.html">Danh Mục</a>
+                        <a class="nav-link" href="http://localhost/Booking-Hairdresser/home">Trang Chủ</a>
+                        <a class="nav-link" href="http://localhost/Booking-Hairdresser/listshop">Danh Mục</a>
                         <a class="nav-link" href="#">Khám Phá</a>
                         <a class="btn btn-business" onclick="clickBtndoitac()">Đối tác</a>
-                        <a class="btn btn-login" href="../html/login.html">Sign in / Login</a>
+                        <a class="btn btn-login" href="http://localhost/Booking-Hairdresser/login">Sign in / Login</a>
 
                     </div>
                     <label for="nav-check" class="nav-mobile-btn">

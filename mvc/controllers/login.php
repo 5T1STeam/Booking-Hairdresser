@@ -1,6 +1,6 @@
 <?php
 class login extends controller{
-    function SayHi(){
+    function Show(){
         $teo = $this->model("userModel");
         $teo->login();
        

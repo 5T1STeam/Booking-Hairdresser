@@ -2,7 +2,7 @@
 class userModel extends db{
    public function login(){
     if (isset($_SESSION['username'])) {
-        header("Location: homepage.php");
+        header("Location: homeview.php");
     }
     if (isset($_POST['submit'])) {
         $email = $_POST['email'];

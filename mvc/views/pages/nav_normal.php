@@ -26,10 +26,14 @@
                     Profile
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="./userprofile/infor">Trang cá nhân </a>
-                    <a class="dropdown-item" href="./userprofile/schedule">Lịch book</a>
-                    <a class="dropdown-item" href="./userprofile/notification">Thông báo</a>
-                    <a class="dropdown-item" href="./login">Đăng xuất</a>
+                    <?php
+                    echo "
+                    <a class='dropdown-item' href='http://localhost/Booking-Hairdresser/profile/thongtintaikhoan/". $_SESSION['Id']."'>Trang cá nhân </a>
+                    <a class='dropdown-item' href='http://localhost/Booking-Hairdresser/profile/lichhen/". $_SESSION['Id']."'>Lịch book</a>
+                    <a class='dropdown-item' href='http://localhost/Booking-Hairdresser/profile/thongbaocuatoi/". $_SESSION['Id']."'>Thông báo</a>
+                    <a class='dropdown-item' href='logout.php'>Đăng xuất</a>";
+                    
+                    ?>
                 </div>
             </div>
             <a class="btn btn-business" onclick="clickBtndoitac()">Đối tác</a>
