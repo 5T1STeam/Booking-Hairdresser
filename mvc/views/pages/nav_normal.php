@@ -2,7 +2,7 @@
 <div class="container px-0">
     <nav class=" row navbar px-3">
         <div class=" col-lg-1 col-sm-1 navbar-brand logo">
-            <a href="#"><img src="https://lh3.googleusercontent.com/nAq6IwLusfKijSp3h0EZddbHwX0cgA-e7H-81JBd5lvS6JmumBmf2ELgWDez3QbWqrGVap8DNuLu2G_NwnIkuyYxPw6FM6kCuP4n3p0_JAfEacDWebb0E_7EYtyziFV-I_JwVTjtFIDTGj2c-YPcffmWGTAuNEQK7UPuZ99ITKw3QfF-99wvRIkp65FPPM-7bLGoBRjsDSI4r2Qoljc2AhG578Qxb9489TXhJ5Kl8PUidgf2W-viwVHrevKYkUDXDcKcK8GfIgo0g24CFKEmuuHINh_1bb7oSYjxBFV7To1H3qpeRKgJt3Y2-rgQ3lMRFZUq5ay3vDWNUsOuyoDpht0nU-_zSXrQ4eiD4htRbhQHj6LQNG2HKzNAFWjq-_rLKMxYPqjqBeQSMDyZOqbg1DWBoZvsMMsa4zxeZHgsIZYLPes2zaG2PInDbLoiqdo1-q99duB1TJGmif4m5Aa9GB36mTp8o0THX3Slq-QFDKMQKOqdL0M_WtqQme-vNlMrUIzDp-md_h6fYaDNHytGVqwZ2hyoHJVeEgOLBvVkwuYUA3yCk_giZcDf7ByVcgFuA6jbU9aYekvhkWuGFpobqUBDoJDCoQ5Z_5LRpDiE3PJK1oEYOSqTRkTdxLYcn2ya2jelVjnU1yNKA22LuSoTzVkG8T_Js4z9Ob1pmsXYlnF2k7_6Chlfiz4ITyXuCzPzmlp1yniyql_9oKt0yzDa7R20=w1290-h832-no?authuser=0" style="width: 60px;"></a>
+            <a href="http://localhost/Booking-Hairdresser/home"><img src="../../../Booking-Hairdresser/public/img/logo.png" alt=""style="width: 60px;"></a>
         </div>
         <div class="nav nav-pc">
             <div class="form-search input-group form-inline col-lg-5 col-sm-7">
