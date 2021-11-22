@@ -2,7 +2,7 @@
 require_once "./mvc/models/oneShop.php";
 
 class listshop extends controller{
-    function sayhi(){
+    function show(){
         $this->view("listshop",['ALL'=>[],'page'=>1]);
     }
     function searchservice(){

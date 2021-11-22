@@ -7,6 +7,7 @@
                         province: provinceid
                     })
                     .done(function(data) {
+                        alert(data);
                         $('#district').html(data);
                     });
                 $('#wards').html("<option value=''>Phường / Xã</option>");

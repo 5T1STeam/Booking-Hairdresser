@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/listshopT.css">
 <div class="container px-0">
     <nav class=" row navbar px-3">
         <div class=" col-lg-1 col-sm-1 navbar-brand logo">
@@ -59,7 +60,7 @@
                 <?php
                     foreach ($category as $id=>$name)
                     {
-                       echo "<a class='nav-mblink nav-link' href='../listshop/category&dm=".$id."&page=1'>".$name."</a>";
+                       echo "<a class='nav-mblink nav-link' href='/booking-hairdresser/listshop/category&dm=".$id."&page=1'>".$name."</a>";
                     }
                 ?>
             
@@ -76,7 +77,7 @@
             <?php
                 foreach ($category as $id =>$name){
                     if($id < 8){
-                        echo " <a class='nav-link' href='../listshop/category&dm=".$id."&page=1'>".$name."</a>";
+                        echo " <a class='nav-link' href='/booking-hairdresser/listshop/category&dm=".$id."&page=1'>".$name."</a>";
                     }if($id >= 8){
                         if($id ==8){
                             echo "<div class='dropdown'>
@@ -84,9 +85,9 @@
                                     More
                                     </a>
                                     <div class='dropdown-menu'>
-                                    <a class='dropdown-item' href='../listshop/category&dm=".$id."&page=1'>".$name."</a>";
+                                    <a class='dropdown-item' href='/booking-hairdresser/listshop/category&dm=".$id."&page=1'>".$name."</a>";
                         }else{
-                            echo "<a class='dropdown-item' href='../listshop/category&dm=".$id."&page=1'>".$name."</a>";
+                            echo "<a class='dropdown-item' href='/booking-hairdresser/listshop/category&dm=".$id."&page=1'>".$name."</a>";
                         }if($id==count($category)+1){ echo "</div>";}
                     }
                 }
