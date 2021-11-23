@@ -2,7 +2,7 @@
 <div class="container px-0">
     <nav class=" row navbar px-3">
         <div class=" col-lg-1 col-sm-1 navbar-brand logo">
-            <a href="http://localhost/Booking-Hairdresser/home"><img src="../../../Booking-Hairdresser/public/img/logo.png" alt=""style="width: 60px;"></a>
+            <a href="<?php echo BASE_URL ?>/home"><img src="<?php echo BASE_URL ?>/public/img/logo.png" alt=""style="width: 60px;"></a>
         </div>
         <div class="nav nav-pc">
             <div class="form-search input-group form-inline col-lg-5 col-sm-7">
@@ -28,11 +28,10 @@
                 <div class="dropdown-menu">
                     <?php
                     echo "
-                    <a class='dropdown-item' href='http://localhost/Booking-Hairdresser/profile/thongtintaikhoan/". $_SESSION['Id']."'>Trang cá nhân </a>
-                    <a class='dropdown-item' href='http://localhost/Booking-Hairdresser/profile/lichhen/". $_SESSION['Id']."'>Lịch book</a>
-                    <a class='dropdown-item' href='http://localhost/Booking-Hairdresser/profile/thongbaocuatoi/". $_SESSION['Id']."'>Thông báo</a>
-                    <a class='dropdown-item' href='logout.php'>Đăng xuất</a>";
-                    
+                    <a class='dropdown-item' href='".BASE_URL."/profile/thongtintaikhoan/". $_SESSION['Id']."'>Trang cá nhân </a>
+                    <a class='dropdown-item' href='".BASE_URL."/profile/lichhen/". $_SESSION['Id']."'>Lịch book</a>
+                    <a class='dropdown-item' href='".BASE_URL."/profile/thongbaocuatoi/". $_SESSION['Id']."'>Thông báo</a>
+                    <a class='dropdown-item' href='".BASE_URL."/logout'>Đăng xuất</a>";
                     ?>
                 </div>
             </div>

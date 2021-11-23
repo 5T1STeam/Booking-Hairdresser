@@ -65,7 +65,7 @@
         <div style="min-height: auto;">
             <div class="container">
                 <nav class="navbar">
-                    <a href="Booking-Hairdresser/"><img class="navbar-brand" src="../../../Booking-Hairdresser/public/icon/logo.png" style="width:60px; float:left;"></a>
+                    <a href="Booking-Hairdresser/"><img class="navbar-brand" src="<?php echo BASE_URL ?>/public/icon/logo.png" style="width:60px; float:left;"></a>
 
                     <div class="nav justify-content-end topnav">
                         <a class="nav-link" href="<?php echo BASE_URL ?>/home">Trang Chủ</a>
@@ -164,7 +164,7 @@
                 </nav>
             </div>
         </div>
-
+   
         <div class="section-form">
             <!--Hiệu ứng chữ chạy-->
 
@@ -402,6 +402,7 @@
         </div>
 
     </div>
+            </div>
     <?php $libar->footer();  ?>
 
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
