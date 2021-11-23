@@ -11,7 +11,6 @@
 </head>
 
 <body class="my-login-page">
-
     <section class="h-100">
         <div class="container h-100">
             <div class="row justify-content-md-center h-100 ">
@@ -22,9 +21,10 @@
                     <div class="card fat cardInfo">
                         <div class="card-body">
                             <h4 class="card-title">Đăng nhập</h4>
-                            <php
-                       
-                          
+                            <?php
+                                if(isset($_GET['kq'])&&$_GET['kq']=='done'){
+                                    echo "<b style='color: green; font-size: 14px;'>Đăng kí thành công</b>";
+                                }
                             ?>
                             <form method="POST" class="my-login-validation" novalidate="" action="">
                                 <div class="form-group">
@@ -68,7 +68,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-4 text-center">
-                                    Bạn chưa có tài khoản? <a href="register.html" class="registerA">Đăng ký ngay</a>
+                                    Bạn chưa có tài khoản? <a href="<?php echo BASE_URL?>/register" class="registerA">Đăng ký ngay</a>
                                 </div>
                             </form>
                         </div>

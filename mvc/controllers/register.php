@@ -1,6 +1,6 @@
 <?php
 class register extends controller{
-    function SayHi(){
+    function Show(){
         $teo = $this->model("userModel");
         $teo->register();
         $this->view("register",[]);

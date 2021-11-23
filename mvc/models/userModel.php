@@ -38,11 +38,11 @@ class userModel extends db{
                             VALUES ('$username', '$email', '$password')";
                     $result = mysqli_query($this->con, $sql);
                     if ($result) {
-                        echo "<script>alert('Dang Ky Thanh Cong.')</script>";
                         $username = "";
                         $email = "";
                         $_POST['password'] = "";
                         $_POST['repassword'] = "";
+                        header("Location: ".BASE_URL."/login&kq=done");
                     } else {
                         echo "<script>alert('Dang ky that bai.')</script>";
                     }
@@ -58,10 +58,8 @@ class userModel extends db{
       
     }
     public function logout(){
-       if(isset($_POST['submit'])){
         session_destroy();
-        }
-        
+        header("Location: ".BASE_URL."/login");
     }
 
     public function GetFeedBack($id){

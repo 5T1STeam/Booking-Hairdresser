@@ -66,14 +66,35 @@
         <div style="min-height: auto;">
             <div class="container">
                 <nav class="navbar">
-                    <a href="Booking-Hairdresser/"><img class="navbar-brand" src="../../../Booking-Hairdresser/public/icon/logo.png" style="width:60px; float:left;"></a>
+                    <a href="<?php echo BASE_URL ?>/home"><img class="navbar-brand" src="../../../Booking-Hairdresser/public/icon/logo.png" style="width:60px; float:left;"></a>
 
                     <div class="nav justify-content-end topnav">
-                        <a class="nav-link" href="http://localhost/Booking-Hairdresser/home">Trang Chủ</a>
-                        <a class="nav-link" href="http://localhost/Booking-Hairdresser/listshop">Danh Mục</a>
+                        <a class="nav-link" href="<?php echo BASE_URL ?>/home">Trang Chủ</a>
+                        <a class="nav-link" href="<?php echo BASE_URL ?>/listshop">Danh Mục</a>
                         <a class="nav-link" href="#">Khám Phá</a>
                         <a class="btn btn-business" onclick="clickBtndoitac()">Đối tác</a>
-                        <a class="btn btn-login" href="http://localhost/Booking-Hairdresser/login">Sign in / Login</a>
+                        <?php
+                        if (isset($_SESSION['Id'])) {
+                            echo "<div class='dropdown'>
+                                <a class='dropdown-toggle nav-link' id='ddMenu' data-toggle='dropdown'><span><svg xmlns='http://www.w3.org/2000/svg' width='25' height='25' fill='currentColor' class='bi bi-person-circle' viewBox='0 0 18 18'>
+                                            <path d='M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z' />
+                                            <path fill-rule='evenodd' d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z' />
+                                        </svg></span>
+                                    Profile
+                                </a>
+                                <div class='dropdown-menu'>
+                                    <a class='dropdown-item' href='" . BASE_URL . "/profile/thongtintaikhoan/" . $_SESSION['Id'] . "'>Trang cá nhân </a>
+                                    <a class='dropdown-item' href='" . BASE_URL . "/profile/lichhen/" . $_SESSION['Id'] . "'>Lịch book</a>
+                                    <a class='dropdown-item' href='" . BASE_URL . "/profile/thongbaocuatoi/" . $_SESSION['Id'] . "'>Thông báo</a>
+                                    <a class='dropdown-item' href='" . BASE_URL . "/logout'>Đăng xuất</a>
+                                </div>
+                            </div>";
+                        } else {
+                            echo "<a class='btn btn-login' href='" . BASE_URL . "/login'>Sign in / Login</a>";
+                        }
+                        ?>
+
+
 
                     </div>
                     <label for="nav-check" class="nav-mobile-btn">
@@ -88,28 +109,38 @@
                                 <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z" />
                             </svg>
                         </label>
-                        <span class="avatar"> <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 18 18">
-                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                            </svg>
-                            Profile
-
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
-                                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
-                            </svg>
-                        </span>
-                        <input id="mbsearch" type="text" class="form-control" placeholder="Bạn đang tìm kiếm gì ?" data-toggle="modal" data-target="#popup-howto">
+                        <?php
+                        if (isset($_SESSION['Id'])) {
+                            echo "<span class='avatar'> <svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' fill='currentColor' class='bi bi-person-circle' viewBox='0 0 18 18'>
+                            <path d='M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z' />
+                            <path fill-rule='evenodd' d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z' />
+                        </svg>
+                        <a href='" . BASE_URL . "/profile'>Profile</a>
+                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-bell-fill' viewBox='0 0 16 16'>
+                            <path d='M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z' />
+                        </svg>
+                    </span>";
+                        } else {
+                            echo "<br/><br/><a class='nav-mblink nav-link ' style='margin-left:10px;' href='" . BASE_URL . "/login'>Sign in / Login</a>";
+                        }
+                        ?>
+                        <input id="mbsearch" type="text" style="margin-top: 0px;" class="form-control" placeholder="Bạn đang tìm kiếm gì ?" data-toggle="modal" data-target="#popup-howto">
 
                         <div class="nav-list px-2 ">
                             <?php
                             foreach ($category as $id => $name) {
-                                echo "<a class='nav-mblink nav-link' href='/booking-hairdresser/listshop/category&dm=" . $id . "&page=1'>" . $name . "</a>";
+                                echo "<a class='nav-mblink nav-link' href='" . BASE_URL . "/listshop/category&dm=" . $id . "&page=1'>" . $name . "</a>";
                             }
                             ?>
                         </div>
                         <div class="logout px-2">
                             <a class="nav-mblink nav-link " onclick="clickBtndoitac()">Đối tác</a>
-                            <a class="nav-mblink nav-link " href="#">Đăng xuất</a>
+                            <?php
+                            if (isset($_SESSION['Id'])) {
+                                echo "<a class='nav-mblink nav-link ' href='" . BASE_URL . "/logout'>Đăng xuất</a>";
+                            }
+                            ?>
+
                         </div>
 
                     </div>
@@ -136,7 +167,7 @@
                 <?php
                 foreach ($category as $id => $name) {
                     if ($id < 8) {
-                        echo " <a class='nav-link categoriz' href='/booking-hairdresser/listshop/category&dm=" . $id . "&page=1'>" . $name . "</a>";
+                        echo " <a class='nav-link categoriz' href='" . BASE_URL . "/listshop/category&dm=" . $id . "&page=1'>" . $name . "</a>";
                     }
                     if ($id >= 8) {
                         if ($id == 8) {
@@ -145,9 +176,9 @@
                                     More
                                     </a>
                                     <div class='dropdown-menu'>
-                                    <a class='dropdown-item' href='/booking-hairdresser/listshop/category&dm=" . $id . "&page=1'>" . $name . "</a>";
+                                    <a class='dropdown-item' href='" . BASE_URL . "/listshop/category&dm=" . $id . "&page=1'>" . $name . "</a>";
                         } else {
-                            echo "<a class='dropdown-item' href='/booking-hairdresser/listshop/category&dm=" . $id . "&page=1'>" . $name . "</a>";
+                            echo "<a class='dropdown-item' href='" . BASE_URL . "/listshop/category&dm=" . $id . "&page=1'>" . $name . "</a>";
                         }
                         if ($id == count($category) + 1) {
                             echo "</div>";
@@ -239,7 +270,7 @@
                     }
                     echo '
                 <div class=ml-2 mr-2>
-                    <a class=linkShoptoDetail href=BookingHairdresser/detail/' . $item['Id'] . '>
+                    <a class="linkShoptoDetail" href=' . BASE_URL . '/detail/' . $item['Id'] . '>
                         <div class="card">
                             <img src=' . $item['Avatar'] . ' alt="" class="card-img-top">
                             <div class="card-body text-left">

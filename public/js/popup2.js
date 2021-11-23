@@ -7,7 +7,6 @@
                         province: provinceid
                     })
                     .done(function(data) {
-                        alert(data);
                         $('#district').html(data);
                     });
                 $('#wards').html("<option value=''>Phường / Xã</option>");
@@ -142,7 +141,6 @@
             $('.booKing').on('submit', function(e) {
                 e.preventDefault();
                 str = $(this).serialize();
-
                 $.post('/Booking-Hairdresser/mvc/controllers/booking.php',
                         $(this).serialize()
                     )

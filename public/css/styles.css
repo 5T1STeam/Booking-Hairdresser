@@ -8,6 +8,8 @@ header {
     height: 50%;
 }
 
+
+/* 
 .btn-login {
     background-color: #FF421A;
     color: #fff;
@@ -28,7 +30,7 @@ header {
 .btn-business:hover {
     background-color: #FF421A;
     color: #FFFFFF;
-}
+} */
 
 #form-search {
     position: absolute;
