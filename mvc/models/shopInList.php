@@ -14,30 +14,34 @@
                 $data = mysqli_query($conn->con, $qr);
                 $allshop =[];
                 while($row = mysqli_fetch_assoc($data)){
-                    $shop = new oneShop();
-                    $shop->setId($row['Id']);
-                    $shop->setName($row['Name']);
-                    $shop->setLocation($row['FullAdress'].', '.$don->getFullAddress($row['AddressPath']));
-                    $shop->setImage($don->getBanner($row['Id']));
-                    $shop->setService($don->getService($row['Id']));
-                    $shop->setRate($row['RatingNum']=null? 0: $row['RatingNum']);
-                    $shop->setComment($row['QuantityRating']=null? 0: $row['QuantityRating'].' comments');
-                    array_push($allshop,$shop);
+                    if($row['RoleId']==2){
+                        $shop = new oneShop();
+                        $shop->setId($row['Id']);
+                        $shop->setName($row['Name']);
+                        $shop->setLocation($row['FullAdress'].', '.$don->getFullAddress($row['AddressPath']));
+                        $shop->setImage($don->getBanner($row['Id']));
+                        $shop->setService($don->getService($row['Id']));
+                        $shop->setRate($row['RatingNum']=null? 0: $row['RatingNum']);
+                        $shop->setComment($row['QuantityRating']=null? 0: $row['QuantityRating'].' comments');
+                        array_push($allshop,$shop);
+                    }
                 }
             }else{
                 $qr = "SELECT * FROM tbl_user where AddressPath =".$location;
                 $data = mysqli_query($conn->con, $qr);
                 $allshop =[];
                 while($row = mysqli_fetch_assoc($data)){
-                    $shop = new oneShop();
-                    $shop->setId($row['Id']);
-                    $shop->setName($row['Name']);
-                    $shop->setLocation($row['FullAdress'].', '.$don->getFullAddress($row['AddressPath']).'');
-                    $shop->setImage($don->getBanner($row['Id']));
-                    $shop->setService($don->getService($row['Id']));
-                    $shop->setRate($row['RatingNum']=null? 0: $row['RatingNum']);
-                    $shop->setComment($row['QuantityRating']=null? 0: $row['QuantityRating'].' comments');
-                    array_push($allshop,$shop);
+                    if($row['RoleId']==2){
+                        $shop = new oneShop();
+                        $shop->setId($row['Id']);
+                        $shop->setName($row['Name']);
+                        $shop->setLocation($row['FullAdress'].', '.$don->getFullAddress($row['AddressPath']));
+                        $shop->setImage($don->getBanner($row['Id']));
+                        $shop->setService($don->getService($row['Id']));
+                        $shop->setRate($row['RatingNum']=null? 0: $row['RatingNum']);
+                        $shop->setComment($row['QuantityRating']=null? 0: $row['QuantityRating'].' comments');
+                        array_push($allshop,$shop);
+                    }
                 }
             }
             $conn->freeSystem($conn->con, $data);
@@ -55,15 +59,17 @@
             $data = mysqli_query($conn->con, $qr);
             $allshop=[];
             while($row = mysqli_fetch_assoc($data)){
-                $shop = new oneShop();
-                $shop->setId($row['Id']);
-                $shop->setName($row['Name']);
-                $shop->setLocation($row['FullAdress'].', '.$don->getFullAddress($row['AddressPath']));
-                $shop->setImage($don->getBanner($row['Id']));
-                $shop->setService($don->getService($row['Id']));
-                $shop->setRate($row['RatingNum']=null? 0: $row['RatingNum']);
-                $shop->setComment($row['QuantityRating']=null? 0: $row['QuantityRating'].' comments');
-                array_push($allshop,$shop);
+                if($row['RoleId']==2){
+                    $shop = new oneShop();
+                    $shop->setId($row['Id']);
+                    $shop->setName($row['Name']);
+                    $shop->setLocation($row['FullAdress'].', '.$don->getFullAddress($row['AddressPath']));
+                    $shop->setImage($don->getBanner($row['Id']));
+                    $shop->setService($don->getService($row['Id']));
+                    $shop->setRate($row['RatingNum']=null? 0: $row['RatingNum']);
+                    $shop->setComment($row['QuantityRating']=null? 0: $row['QuantityRating'].' comments');
+                    array_push($allshop,$shop);
+                }
             }
             $conn->freeSystem($conn->con, $data);
             return $allshop;
@@ -79,15 +85,17 @@
             $data = mysqli_query($conn->con, $qr);
             $allshop=[];
             while($row = mysqli_fetch_assoc($data)){
-                $shop = new oneShop();
-                $shop->setId($row['Id']);
-                $shop->setName($row['Name']);
-                $shop->setLocation($row['FullAdress'].', '.$don->getFullAddress($row['AddressPath']));
-                $shop->setImage($don->getBanner($row['Id']));
-                $shop->setService($don->getService($row['Id']));
-                $shop->setRate($row['RatingNum']=null? 0: $row['RatingNum']);
-                $shop->setComment($row['QuantityRating']=null? 0: $row['QuantityRating'].' comments');
-                array_push($allshop,$shop);
+                if($row['RoleId']==2){
+                    $shop = new oneShop();
+                    $shop->setId($row['Id']);
+                    $shop->setName($row['Name']);
+                    $shop->setLocation($row['FullAdress'].', '.$don->getFullAddress($row['AddressPath']));
+                    $shop->setImage($don->getBanner($row['Id']));
+                    $shop->setService($don->getService($row['Id']));
+                    $shop->setRate($row['RatingNum']=null? 0: $row['RatingNum']);
+                    $shop->setComment($row['QuantityRating']=null? 0: $row['QuantityRating'].' comments');
+                    array_push($allshop,$shop);
+                }
             }
             $conn->freeSystem($conn->con, $data);
             return $allshop;

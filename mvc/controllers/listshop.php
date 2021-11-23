@@ -1,12 +1,13 @@
 <?php
 require_once "./mvc/models/oneShop.php";
-
+require_once "./mvc/models/homeModel.php";
 class listshop extends controller{
-    function show(){
-        $this->view("listshop",['ALL'=>[],'page'=>1]);
+    function show(){$carousel = new homeModel();
+        $this->view("listshop",['ALL'=>[],'page'=>1,"Suggest"=>$carousel->GetShopSuggest()]);
     }
     function searchservice(){
         if(isset($_POST['serviceChoose'])&&$_POST['serviceChoose']!=null){
+            $carousel = new homeModel();
             $tan = $this->model('shopInList');
             $data=$tan->getByService($_POST['serviceChoose']);
             $data1= [];
@@ -20,8 +21,9 @@ class listshop extends controller{
                 }
             }
             $_SESSION['serviceChoose'] = $_POST['serviceChoose'];
-            $this->view("listshop",[ "ALL"=>$data1,"page"=>floor(count($data)/5)]);
+            $this->view("listshop",[ "ALL"=>$data1,"page"=>floor(count($data)/5),"Suggest"=>$carousel->GetShopSuggest()]);
         }elseif(isset($_GET['page'])){
+            $carousel = new homeModel();
             $tan = $this->model('shopInList');
             $data=$tan->getByService($_SESSION['serviceChoose']);
             $data1= [];
@@ -34,21 +36,18 @@ class listshop extends controller{
                     $data1[$i]=$data[$i];
                 }    
             }
-            $this->view("listshop",[ "ALL"=>$data1,"page"=>floor(count($data)/5)]);
+            $this->view("listshop",[ "ALL"=>$data1,"page"=>floor(count($data)/5),"Suggest"=>$carousel->GetShopSuggest()]);
         }else{
-            $this->view("listshop",['ALL'=>[],'page'=>0]);
+            $carousel = new homeModel();
+            $this->view("listshop",['ALL'=>[],'page'=>0,"Suggest"=>$carousel->GetShopSuggest()]);
         }
     }
-    //  function all(){
-    //         $tan = $this->model('shopInList');
-    //         $data=$tan->getByLocation(18);
-    
-    //         $this->view("listshop",[ "ALL"=>$data,"page"=>floor(count($data)/5)]);
-    //     }
 
    
     function searchlocation(){
+        
         if(isset($_POST['wards']) and $_POST['wards']!=null){
+            $carousel = new homeModel();
             $tan = $this->model('shopInList');
             $data = $tan->getByLocation($_POST['wards']);
             $data1= [];
@@ -62,8 +61,9 @@ class listshop extends controller{
                 }
             }
             $_SESSION['location'] = $_POST['wards'];
-            $this->view("listshop",[ "ALL"=>$data1,"page"=>floor(count($data)/5)]);
+            $this->view("listshop",[ "ALL"=>$data1,"page"=>floor(count($data)/5),"Suggest"=>$carousel->GetShopSuggest()]);
         }elseif(isset($_POST['district']) and $_POST['district']!=null){
+            $carousel = new homeModel();
             $tan = $this->model('shopInList');
             $data = $tan->getByLocation($_POST['district']);
             $data1= [];
@@ -77,8 +77,9 @@ class listshop extends controller{
                 }
             }
             $_SESSION['location'] = $_POST['district'];
-            $this->view("listshop",[ "ALL"=>$data1,"page"=>floor(count($data)/5)]);  
+            $this->view("listshop",[ "ALL"=>$data1,"page"=>floor(count($data)/5),"Suggest"=>$carousel->GetShopSuggest()]);  
         }elseif(isset($_POST['province']) and $_POST['province']!=""){
+            $carousel = new homeModel();
             $tan = $this->model('shopInList');
             $data = $tan->getByLocation($_POST['province']);
             $data1= [];
@@ -92,8 +93,9 @@ class listshop extends controller{
                 }
             }
             $_SESSION['location'] = $_POST['province'];
-            $this->view("listshop",[ "ALL"=>$data1,"page"=>floor(count($data)/5)]);
+            $this->view("listshop",[ "ALL"=>$data1,"page"=>floor(count($data)/5),"Suggest"=>$carousel->GetShopSuggest()]);
         }elseif(isset($_GET['page'])&&!isset($_POST['province'])){
+            $carousel = new homeModel();
             $tan = $this->model('shopInList');
             $data=$tan->getByLocation($_SESSION['location']);
             $data1= [];
@@ -106,12 +108,14 @@ class listshop extends controller{
                     $data1[$i]=$data[$i];
                 }    
             }
-            $this->view("listshop",[ "ALL"=>$data1,"page"=>floor(count($data)/5)]);
+            $this->view("listshop",[ "ALL"=>$data1,"page"=>floor(count($data)/5),"Suggest"=>$carousel->GetShopSuggest()]);
         }else{
-            $this->view("listshop",['ALL'=>[]]);
+            $carousel = new homeModel();
+            $this->view("listshop",['ALL'=>[],"Suggest"=>$carousel->GetShopSuggest()]);
         }
     }
-    function category(){ 
+    function category(){
+        $carousel = new homeModel(); 
         $tan = $this->model('shopInList');
         $data = $tan->getByCategory($_GET['dm']);
         $data1= [];
@@ -135,7 +139,7 @@ class listshop extends controller{
             }    
         }
           
-        $this->view("listshop",[ "ALL"=>$data1,"page"=>floor(count($data)/5)]);
+        $this->view("listshop",[ "ALL"=>$data1,"page"=>floor(count($data)/5),"Suggest"=>$carousel->GetShopSuggest()]);
     }
         
 }

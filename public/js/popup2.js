@@ -3,7 +3,7 @@
             $('#province').change(function(event) {
                 provinceid = $('#province').val();
                 $('input[name="province"]').val(provinceid);
-                $.post('../mvc/controllers/loadlocation.php', {
+                $.post('/Booking-Hairdresser/mvc/controllers/loadlocation.php', {
                         province: provinceid
                     })
                     .done(function(data) {
@@ -17,7 +17,7 @@
             $('#district').change(function() {
                 districtId = $('#district').val();
                 $('input[name="district"]').val(districtId);
-                $.post('../mvc/controllers/loadlocation.php', {
+                $.post('/Booking-Hairdresser/mvc/controllers/loadlocation.php', {
                         district: districtId
                     })
                     .done(function(data) {
@@ -31,7 +31,7 @@
             $('#province_f').change(function(event) {
                 provinceid = $('#province_f').val();
                 $('input[name="province-f"]').val(provinceid);
-                $.post('../mvc/controllers/loadlocation.php', {
+                $.post('/Booking-Hairdresser/mvc/controllers/loadlocation.php', {
                         province: provinceid
                     })
                     .done(function(data) {
@@ -44,7 +44,7 @@
             $('#district_f').change(function() {
                 districtId = $('#district_f').val();
                 $('input[name="district-f"]').val(districtId);
-                $.post('../mvc/controllers/loadlocation.php', {
+                $.post('/Booking-Hairdresser/mvc/controllers/loadlocation.php', {
                         district: districtId
                     })
                     .done(function(data) {
@@ -143,7 +143,7 @@
                 e.preventDefault();
                 str = $(this).serialize();
 
-                $.post('../mvc/controllers/booking.php',
+                $.post('/Booking-Hairdresser/mvc/controllers/booking.php',
                         $(this).serialize()
                     )
                     .done(function(data) {
