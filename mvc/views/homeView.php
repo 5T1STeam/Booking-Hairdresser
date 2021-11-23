@@ -159,8 +159,8 @@
         </div>
 
         <div class="video-container">
-            <video autoplay="true" loop="true" mute id="video-bg">
-                <source src="../../../Booking-Hairdresser/public/video/banner.webm" type="video/webm">
+            <video autoplay="true" loop="true" muted id="video-bg">
+                <source src="../../../Booking-Hairdresser/public/video/home.mp4" type="video/mp4">
             </video>
         </div>
         <div id="navhide" class="navbar fixed-top" style="background: #111; z-index: 2;" hidden>
