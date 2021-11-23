@@ -72,7 +72,7 @@
                         <a class="nav-link" href="<?php echo BASE_URL ?>/listshop">Danh Mục</a>
                         <a class="nav-link" href="#">Khám Phá</a>
                         <a class="btn btn-business" onclick="clickBtndoitac()">Đối tác</a>
-                        <a class="btn btn-login" href="<?php echo BASE_URL ?>login">Sign in / Login</a>
+                        <a class="btn btn-login" href="<?php echo BASE_URL ?>/login">Sign in / Login</a>
 
                     </div>
                     <label for="nav-check" class="nav-mobile-btn">

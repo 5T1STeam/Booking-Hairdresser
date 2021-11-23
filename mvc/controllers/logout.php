@@ -1,10 +1,12 @@
 <?php
-class register extends controller{
+class logout extends controller{
     function Show(){
         $teo = $this->model("userModel");
-        $teo->register();
-        $this->view("register",[]);
+        $teo->logout();
+       
+        
      }
+
      
 
    

@@ -60,15 +60,15 @@
 									</button>
                                     <div class="row mt-3">
                                         <div class="col-8 mb-3">
-                                            <a href=""><img src="../source/img/Fblogo.png" alt="" class="imgfb">Đăng nhập bằng Facebook</a>
+                                            <a href=""><img src="<?php echo BASE_URL ?>/public/img/Fblogo.png" alt="" class="imgfb">Đăng nhập bằng Facebook</a>
                                         </div>
                                         <div class="col-8">
-                                            <a href=""><img src="../source/img/g+logo.png" alt="" class="imggg">Đăng nhập bằng Google</a>
+                                            <a href=""><img src="<?php echo BASE_URL ?>/public/img/g+logo.png" alt="" class="imggg">Đăng nhập bằng Google</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mt-4 text-center">
-                                    Bạn chưa có tài khoản? <a href="register.html" class="registerA">Đăng ký ngay</a>
+                                    Bạn chưa có tài khoản? <a href="<?php echo BASE_URL ?>/register" class="registerA">Đăng ký ngay</a>
                                 </div>
                             </form>
                         </div>

@@ -43,6 +43,7 @@ class userModel extends db{
                         $email = "";
                         $_POST['password'] = "";
                         $_POST['repassword'] = "";
+                       
                     } else {
                         echo "<script>alert('Dang ky that bai.')</script>";
                     }
@@ -58,9 +59,9 @@ class userModel extends db{
       
     }
     public function logout(){
-       if(isset($_POST['submit'])){
+      
         session_destroy();
-        }
+        header("Location:BASE_URL/home");
         
     }
 
