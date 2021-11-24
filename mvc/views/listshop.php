@@ -71,7 +71,7 @@
                 foreach ($data['Suggest'] as $item) {
                     echo '
                 <div class=ml-2 mr-2>
-                    <a class=linkShoptoDetail href=BookingHairdresser/detail/' . $item['Id'] . '>
+                    <a class=linkShoptoDetail href="'.BASE_URL.'/detail/show/'. $item['Id'] . '">
                         <div class="card">
                             <img src=' . $item['Avatar'] . ' alt="" class="card-img-top">
                             <div class="card-body text-left">
@@ -214,10 +214,6 @@
 
     </div>
     <?php $libar->footer();  ?>
-
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script src="../../../Booking-Hairdresser/public/js/owl.carousel.min.js"></script>
