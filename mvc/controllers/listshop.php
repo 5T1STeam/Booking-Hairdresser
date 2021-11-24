@@ -88,7 +88,7 @@ class listshop extends controller{
                     $data1[$i]=$data[$i];
                 }
             }else{
-                for($i=45;$i<55;$i++){
+                for($i=0;$i<5;$i++){
                     $data1[$i]=$data[$i];
                 }
             }

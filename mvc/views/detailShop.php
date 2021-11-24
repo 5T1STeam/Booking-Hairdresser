@@ -19,19 +19,19 @@
     <!-- Link app detailShop -->
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/App.css">
 
-    
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <!--  Link Popup -->
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/popup.css">
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    
+
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/style-sevice-page.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-    
+    <script src="../../../Booking-Hairdresser/public/js/detailShop.js"></script>
     <script src="../../../Booking-Hairdresser/public/js/popup2.js"></script>
     <style>
         #navhide {
@@ -461,80 +461,129 @@
                         </div>
                         <div class="rating-body">
                             <?php
-
-                            foreach ($data['GQ'] as $items) {
-
-
-                                echo "<div class='card-rating'>
-                            <div class='row'>
-                                <div class='col-md-6 mb-1 stars'>";
-                                for ($i = 1; $i <= 5; $i++) {
-                                    if ($i <= $items['Rating']) {
-                                        echo "<i class='fa fa-star'></i>";
-                                    } else {
-                                        echo "<span class='fa fa-star'></span>";
+                            $con = 3;//Số phần tử 3
+                            if (count($data['GQ']) <= $con) { 
+                                foreach ($data['GQ'] as $items) {
+                                    echo "<div class='card-rating'>
+                                <div class='row'>
+                                    <div class='col-md-6 mb-1 stars'>";
+                                    for ($i = 1; $i <= 5; $i++) {
+                                        if ($i <= $items['Rating']) {
+                                            echo "<i class='fa fa-star'></i>";
+                                        } else {
+                                            echo "<span class='fa fa-star'></span>";
+                                        }
                                     }
+                                    echo "   
+                                    </div>
+                                    <div class='col-md-6 text-md-right'>
+                                        <span class='location'>" . $items['Province'] . ",</span>
+                                        <span class='date-rating'>" . $items['CreateDate'] . "</span>
+                                    </div>
+                                </div>
+                                
+                                   <h6 class='service-name mb-1'>" . $items['ServiceName'] . "</h6>
+                                <h6 class='client-name mb-2'>" . $items['UserName'] . "</h6>
+                                <p class='comment'>" . $items['Content'] . "</p>
+                                <img class='pb-3' src='" . $items['Image'] . "' width='auto' height='200'>
+                                <div class='row'>
+                                    <div class='col-md-2'>
+                                        <button type='button' class='btn-in-rate'> " . $items['Like'] . "<span class='material-icons text-center ml-2'>thumb_up</span></button>
+                                    </div>
+                                    <div class='col-md-2'>
+                                        <button type='button' class='btn-in-rate'> " . $items['DLike'] . "<span class='material-icons text-center ml-2'>thumb_down</span></button>
+                                    </div>
+                                    <div class='col-md-4'></div>
+                                    <div class='col-md-4 text-right'>
+                                        <button type='button' class='btn-in-rate' data-toggle='modal' data-target='#popup-report'> Report <span class='material-icons text-center ml-2'>flag</span></button>
+    
+                                    </div>
+    
+                                </div>
+                                <div class=' row'>
+                                    <div class='col-md'>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>";
                                 }
-                                echo "   
+                            } else {
+                                for ($z = 0; $z < $con; $z++) {
+                                    $items = $data['GQ'][$z];
+                                    echo "<div class='card-rating'>
+                                <div class='row'>
+                                    <div class='col-md-6 mb-1 stars'>";
+                                    for ($i = 1; $i <= 5; $i++) {
+                                        if ($i <= $items['Rating']) {
+                                            echo "<i class='fa fa-star'></i>";
+                                        } else {
+                                            echo "<span class='fa fa-star'></span>";
+                                        }
+                                    }
+                                    echo "   
+                                    </div>
+                                    <div class='col-md-6 text-md-right'>
+                                        <span class='location'>" . $items['Province'] . ",</span>
+                                        <span class='date-rating'>" . $items['CreateDate'] . "</span>
+                                    </div>
                                 </div>
-                                <div class='col-md-6 text-md-right'>
-                                    <span class='location'>" . $items['Province'] . ",</span>
-                                    <span class='date-rating'>" . $items['CreateDate'] . "</span>
+                                
+                                   <h6 class='service-name mb-1'>" . $items['ServiceName'] . "</h6>
+                                <h6 class='client-name mb-2'>" . $items['UserName'] . "</h6>
+                                <p class='comment'>" . $items['Content'] . "</p>
+                                <img class='pb-3' src='" . $items['Image'] . "' width='auto' height='200'>
+                                <div class='row'>
+                                    <div class='col-md-2'>
+                                        <button type='button' class='btn-in-rate'> " . $items['Like'] . "<span class='material-icons text-center ml-2'>thumb_up</span></button>
+                                    </div>
+                                    <div class='col-md-2'>
+                                        <button type='button' class='btn-in-rate'> " . $items['DLike'] . "<span class='material-icons text-center ml-2'>thumb_down</span></button>
+                                    </div>
+                                    <div class='col-md-4'></div>
+                                    <div class='col-md-4 text-right'>
+                                        <button type='button' class='btn-in-rate' data-toggle='modal' data-target='#popup-report'> Report <span class='material-icons text-center ml-2'>flag</span></button>
+    
+                                    </div>
+    
                                 </div>
-                            </div>
-                            
-                               <h6 class='service-name mb-1'>" . $items['ServiceName'] . "</h6>
-                            <h6 class='client-name mb-2'>" . $items['UserName'] . "</h6>
-                            <p class='comment'>" . $items['Content'] . "</p>
-                            <img class='pb-3' src='" . $items['Image'] . "' width='auto' height='200'>
-                            <div class='row'>
-                                <div class='col-md-2'>
-                                    <button type='button' class='btn-in-rate'> " . $items['Like'] . "<span class='material-icons text-center ml-2'>thumb_up</span></button>
+                                <div class=' row'>
+                                    <div class='col-md'>
+                                        <hr>
+                                    </div>
                                 </div>
-                                <div class='col-md-2'>
-                                    <button type='button' class='btn-in-rate'> " . $items['DLike'] . "<span class='material-icons text-center ml-2'>thumb_down</span></button>
-                                </div>
-                                <div class='col-md-4'></div>
-                                <div class='col-md-4 text-right'>
-                                    <button type='button' class='btn-in-rate' data-toggle='modal' data-target='#popup-report'> Report <span class='material-icons text-center ml-2'>flag</span></button>
-
-                                </div>
-
-                            </div>
-                            <div class=' row'>
-                                <div class='col-md'>
-                                    <hr>
-                                </div>
-                            </div>
-                        </div>";
+                            </div>";
+                                }
                             }
+
 
                             ?>
                         </div>
+                        <input type="hidden" id='idShop' value='<?php echo $data['ID'] ?>' />
                         <div class="rating-footer">
                             <div class="row">
                                 <div class="col-md text-center">
                                     <div class="pagination_rounded">
                                         <ul>
                                             <li>
-                                                <a href="#" class="prev text-right"> <i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                                                <a class="prev text-right"> <i class="fa fa-angle-left" aria-hidden="true"></i></a>
                                             </li>
                                             <?php
-                                            $getUrlPage = $_GET["url"];
-                                            echo $getUrlPage;
+                                            if (count($data['GQ']) >= $con) {
 
-                                            $trang = ceil(($data['GF']['QuantityRating']) / 5);
+                                                $trang = round(count($data['GQ']) / $con);
+                                                for ($i = 1; $i <= $trang; $i++) {
+                                                    if ($i == 1) {
+                                                        echo "<li class='active' ><a class='commentPage'>1</a> </li>";
+                                                    } else {
+                                                        echo "<li class=''><a class='commentPage'>" . $i . "</a></li>";
+                                                    }
+                                                }
+                                            }
+
                                             echo "
+                                                <li><a class='next text-center'><i class='fa fa-angle-right' aria-hidden='true'></i></a> </li>
+                                                ";
 
-                                        <li ><a href='.($getUrlPage.'>1</a> </li>
-                                        
-                                        <li><a href='#'>2</a> </li>
-                                        <li ><a href='#'>3</a> </li>
-                                        <li ><a href='#'>4</a> </li>
-                                        <li ><a href='#'>5</a> </li>
-                                        <li ><a href='#'>...</a> </li>
-                                        <li><a href='#' class='next text-center'><i class='fa fa-angle-right' aria-hidden='true'></i></a> </li>
-                                        "
                                             ?>
                                         </ul>
                                     </div>
