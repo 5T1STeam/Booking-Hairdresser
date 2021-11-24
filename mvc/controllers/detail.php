@@ -50,7 +50,7 @@ class detail extends controller{
                                     "GC"=>$results,
                                     "GP"=>$teo->GetService(),
                                     "GO"=>$teo->GetServiceShop($id),
-                                    "ID"=>$id,
+
                                     ]
                                         );
 

@@ -226,7 +226,7 @@
                 foreach ($data['Suggest'] as $item) {
                     echo '
                 <div class=ml-2 mr-2>
-                    <a class=linkShoptoDetail href="'.BASE_URL.'/detail/show/' . $item['Id'] . '">
+                    <a class=linkShoptoDetail href=BookingHairdresser/detail/' . $item['Id'] . '>
                         <div class="card">
                             <img src=' . $item['Avatar'] . ' alt="" class="card-img-top">
                             <div class="card-body text-left">
@@ -270,7 +270,7 @@
                     }
                     echo '
                 <div class=ml-2 mr-2>
-                    <a class="linkShoptoDetail" href="' . BASE_URL . '/detail/' . $item['Id'] . '">
+                    <a class="linkShoptoDetail" href=' . BASE_URL . '/detail/' . $item['Id'] . '>
                         <div class="card">
                             <img src=' . $item['Avatar'] . ' alt="" class="card-img-top">
                             <div class="card-body text-left">
