@@ -29,13 +29,15 @@
 </head>
 <div class="row profile-page">
   <div class=" col-lg-4 col-xl-3  col-md-12 ">
-  <?php echo'
+  
     <div class="row avatar-profile"><span class="avt"> <div>
-            <img src="'.$data['GN']['Avatar'].'" style="border-radius: 500px;" width="80" height="80" >
-           <span class="nameuser"> '.$data['GN']['Name'].' </span>  </div>
+            <img src="<?php if($data['GN']['Avatar']!==null){
+                echo $data['GN']['Avatar'];
+            } else echo 'https://static2.yan.vn/YanNews/2167221/202102/facebook-cap-nhat-avatar-doi-voi-tai-khoan-khong-su-dung-anh-dai-dien-e4abd14d.jpg' ?>" style="border-radius: 500px;" width="80" height="80" >
+           <span class="nameuser"> <?php echo $data['GN']['Name'] ?></span>  </div>
         </span>
     </div>
-    
+    <?php echo'
     <a class="sss" href="../../../Booking-Hairdresser/profile/thongtintaikhoan/'.$data['GN']['Id'].'">
       <div class=" row list-profile infor-account"><span class="list"> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 18 18">
             <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z" />
