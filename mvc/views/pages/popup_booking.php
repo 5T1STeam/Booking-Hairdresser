@@ -1,4 +1,5 @@
 <?php
+$id =isset($_SESSION['Id'])?$_SESSION['Id']:'non';
  echo "<!-- Popup Book -->
  <div class='modal fade' id='book-" . $idshop . "-" . $idservice . "'>
      <div class='modal-dialog modal-lg'>
@@ -76,7 +77,7 @@
                          <form class='booKing'>
                             <button type='button' class='btn btn-cancel check' style='margin:5px 0;'>Xác Nhận</button>
                             <input type='hidden' name='time' class='timeBooking' value=''/>
-                            <input type='hidden' name='iduser' value='2'/>
+                            <input type='hidden' name='iduser' value='".$id."'/>
                             <input type='hidden' name='idshop' value='" . $idshop . "'/>
                             <input type='hidden' name='idservice' value='" . $idservice . "'/>
                             <button type='submit' class='btn btn-booking' href='#'>Đặt Lịch</button>

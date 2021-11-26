@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "../../mvc/models/Book.php";
 if(isset($_POST['time'])&&isset($_POST['idshop'])&&isset($_POST['idservice'])&&isset($_POST['iduser'])){
     $book = new Book();
