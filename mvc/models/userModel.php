@@ -14,6 +14,7 @@ class userModel extends db{
             $row = mysqli_fetch_assoc($result);
             $_SESSION['username'] = $row['Name'];
             $_SESSION['Id']=$row['Id'];
+            $_SESSION['Password'] = md5($row['PasswordHash']);
             header("Location: homepage.php");
         } else {
             echo "<script>alert('Email or Password is Wrong.')</script>";

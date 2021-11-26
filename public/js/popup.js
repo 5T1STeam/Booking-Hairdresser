@@ -197,11 +197,12 @@ $("input[name='radio-report']").click(function() {
 });
 
 //Search
-$('.inputService').keyup(function() {
+$('.inputService').keyup(function() { //Có thể chỉnh lại
     if ($(this).val().length > 0) {
         $('#serviceTyping').val($(this).val());
         $('.service').prop('disabled', true);
-    } else {
+    } else if ($(this).val().length == 0) {
+        $('#serviceTyping').val($(this).val());
         $('.service').prop('disabled', false);
     }
 })

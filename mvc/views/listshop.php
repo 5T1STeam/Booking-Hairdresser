@@ -112,13 +112,17 @@
         <div class="listservice">
 
             <?php
-            foreach ($data['ALL'] as $shop) {
-                $shop->showShop();
-                foreach ($shop->getService() as $service) {
-                    $shop->showService($service['id'], $service['name'], $service['price']);
-                    $popup->popupBooking($shop->getId(), $shop->getName(), $service['id'], $service['name'], $service['price'], $service['time']);
+            if($data['ALL']==null){
+                echo "<h3 style='text-align: center;color: #ff421a;'>Không tìm thấy Cửa hàng nào</h3>";
+            }else{
+                foreach ($data['ALL'] as $shop) {
+                    $shop->showShop();
+                    foreach ($shop->getService() as $service) {
+                        $shop->showService($service['id'], $service['name'], $service['price']);
+                        $popup->popupBooking($shop->getId(), $shop->getName(), $service['id'], $service['name'], $service['price'], $service['time']);
+                    }
+                    echo "</div></div></div>";
                 }
-                echo "</div></div></div>";
             }
             ?>
         </div>
