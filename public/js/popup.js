@@ -195,3 +195,13 @@ $(document).ready(function() {
 $("input[name='radio-report']").click(function() {
     document.getElementById('report-value').value = this.value;
 });
+
+//Search
+$('.inputService').keyup(function() {
+    if ($(this).val().length > 0) {
+        $('#serviceTyping').val($(this).val());
+        $('.service').prop('disabled', true);
+    } else {
+        $('.service').prop('disabled', false);
+    }
+})

@@ -6,7 +6,7 @@
             <div class="modal-content">
                 <!-- Modal Header -->
                 <div class="modal-header" style="background: #222222; color: #ff421a;">
-                    <b style="padding-top: 5px; ">Bạn tìm dịch vụ gì ?</b>
+                <input type="text" class="inputService" placeholder="Bạn tìm dịch vụ gì ?"></input>
                     <button type="button" class="close" data-dismiss="modal" style="color: #ff421a">&times;</button>
                 </div>
 
@@ -32,6 +32,7 @@
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <form method="POST" action="/Booking-Hairdresser/listshop/searchservice&page=1">
+                        <input type="text" id="serviceTyping" value="" />
                         <input type="hidden" id="serviceChoose" name="serviceChoose"  value=""/>
                         <button type="submit" class="btn" id="btn-search" >Tìm Kiếm</button>
                     </form>
