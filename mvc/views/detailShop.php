@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -210,8 +211,29 @@
 
                         <div class="shopInfo mb-1">
                             <?php
-
-                            echo "<h1 class='h1Detail'>" . $data['GN']['Name'] . "   <button class=' float-right'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='red' class='bi bi-heart-fill' viewBox='0 0 16 16'>
+                            $id = isset($_SESSION['Id'])?$_SESSION['Id'] :null;
+                            
+                            $checkFav = isset($_SESSION['Id'])? 'aaa' :'disabled';
+                            echo $checkFav;
+                            $color=null;
+                            if($checkFav=='aaa'){
+                                while($item = mysqli_fetch_assoc($data['Get'])){
+                                    if($id==$item['UserId']){
+                                        $color ='red';
+                                        
+                                        break;
+                                    }else{
+                                        $color ='white';
+                                        
+                                        break;
+                                    }
+                                }
+                            }else{
+                                $color='gray';
+                            }
+                            echo $color;
+                            
+                            echo "<h1 class='h1Detail'>" . $data['GN']['Name'] . " <button class=' float-right favouriteBtn' ".$checkFav."><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='".$color."' class='bi bi-heart-fill' viewBox='0 0 16 16'>
                             <path fill-rule='evenodd' d='M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z'/>
                           </svg></button></h1>
                         <div class='address'>" . $data['GN']['FullAdress'] . "," . $data['GN']['Ward'] . "," . $data['GN']['District'] . "," . $data['GN']['Province'] . "</div>";

@@ -348,7 +348,10 @@ class detailShopModel extends db{
 		
 		return $str;
 	}
-    
+    public function getFavourite($id){
+        $qr ="SELECT * FROM tbl_favoriteshop WHERE ShopId= $id ";
+        return mysqli_query($this->con,$qr);
+    }
     
 
 

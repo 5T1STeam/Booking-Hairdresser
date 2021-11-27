@@ -111,6 +111,7 @@ class userModel extends db{
         $result['OneStarRating']=$b;
         return $result;
     }
+    
    
 }
 ?>
