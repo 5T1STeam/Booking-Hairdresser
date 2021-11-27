@@ -63,7 +63,10 @@ class listshop extends controller{
             $_SESSION['shopChoose'] = $idshop;
             
             $data=$tan->getByServiceandId($idservice,$idshop);
-            if(count($data)<5){
+            $page1 = ($data==null)?0:floor(count($data)/5);
+            if($data==null){
+                $data1=null;
+            }elseif(count($data)<5){
                 for($i=0;$i<=count($data)-1;$i++){
                     $data1[$i]=$data[$i];
                 }
@@ -72,7 +75,7 @@ class listshop extends controller{
                     $data1[$i]=$data[$i];
                 }
             }
-            $this->view("listshop",[ "ALL"=>$data1,"page"=>floor(count($data)/5),"Suggest"=>$carousel->GetShopSuggest()]);
+            $this->view("listshop",[ "ALL"=>$data1,"page"=>$page1,"Suggest"=>$carousel->GetShopSuggest()]);
         }elseif(isset($_GET['page'])){      // tìm page
             $carousel = new homeModel();
             $tan = $this->model('shopInList');
