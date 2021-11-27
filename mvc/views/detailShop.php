@@ -188,7 +188,7 @@
                     </div>
                 </div>
             </div>
-
+            <input type="hidden" id='idShop' value='<?php echo $data['ID'] ?>' />
             <div class="content">
                 <div class="row">
                     <div class="col-md-8 col-sm-12 order-sm-1 content-left">
@@ -213,27 +213,23 @@
                             <?php
                             $id = isset($_SESSION['Id'])?$_SESSION['Id'] :null;
                             
-                            $checkFav = isset($_SESSION['Id'])? 'aaa' :'disabled';
-                            echo $checkFav;
+                            $checkFav = isset($_SESSION['Id'])? '' :'disabled';
+                            
                             $color=null;
-                            if($checkFav=='aaa'){
+                            if($checkFav==''){
                                 while($item = mysqli_fetch_assoc($data['Get'])){
                                     if($id==$item['UserId']){
                                         $color ='red';
-                                        
                                         break;
                                     }else{
-                                        $color ='white';
-                                        
-                                        break;
+                                        $color ='lightgray';
                                     }
                                 }
                             }else{
                                 $color='gray';
                             }
-                            echo $color;
                             
-                            echo "<h1 class='h1Detail'>" . $data['GN']['Name'] . " <button class=' float-right favouriteBtn' ".$checkFav."><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='".$color."' class='bi bi-heart-fill' viewBox='0 0 16 16'>
+                            echo "<h1 id='favCheck' class='h1Detail'>" . $data['GN']['Name'] . " <button class=' float-right favouriteBtn ".$color."' ".$checkFav."><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='".$color."' class='bi bi-heart-fill' viewBox='0 0 16 16'>
                             <path fill-rule='evenodd' d='M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z'/>
                           </svg></button></h1>
                         <div class='address'>" . $data['GN']['FullAdress'] . "," . $data['GN']['Ward'] . "," . $data['GN']['District'] . "," . $data['GN']['Province'] . "</div>";
@@ -735,6 +731,7 @@
 
         })
     </script>
+    <script src="../../../Booking-Hairdresser/public/js/favouriteShop.js"></script>
 </body>
 
 </html>

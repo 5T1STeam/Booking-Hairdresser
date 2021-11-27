@@ -352,6 +352,22 @@ class detailShopModel extends db{
         $qr ="SELECT * FROM tbl_favoriteshop WHERE ShopId= $id ";
         return mysqli_query($this->con,$qr);
     }
+    public function favour($id, $color){
+        $post_id=isset($_SESSION['Id'])? $_SESSION['Id']:'';
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $day =date("Y-m-d h:i:s");
+        
+        if($color=='lightgray'){
+            $qr ="INSERT INTO `tbl_favoriteshop` VALUES (NULL,".$post_id.",".$id.",'".$day."');";
+            return mysqli_query($this->con,$qr);      
+        }elseif($color=='red'){
+            $qr ="DELETE FROM tbl_favoriteshop WHERE UserId=".$post_id." AND ShopId= ".$id;
+            return mysqli_query($this->con,$qr);
+        }else{
+            return false;
+        }
+        
+    }
     
 
 
