@@ -1,6 +1,7 @@
 <?php
-header('location: Nearby/'.$_POST['latitude'].'/'.$_POST['longtitude']);
-if(isset($_POST['latitude'])&&isset($_POST['longtitude'])){
-    header('location: Nearby/'.$_POST['latitude'].'/'.$_POST['longtitude']);
+if(!empty($_POST['latitude']) && !empty($_POST['longitude'])){
+    header('location: nearby/'.$_POST['latitude'].'/'.$_POST['longtitude']);
 }
+
+
 ?>

@@ -10,7 +10,7 @@
                             echo'
                             <div class=" '.($item['IsCompleted']==true? "history-booking--success ": "history-booking--cancel ").' col-xl-12 col-12 row">
                             
-                            <div class="col-8 '.($item['IsCompleted']==true? "history-booking--success__info ": "history-booking--cancel__info ").' row align-content-around">
+                            <div class="col-9 '.($item['IsCompleted']==true? "history-booking--success__info ": "history-booking--cancel__info ").' row align-content-around">
                                 <button type="button" class="'.($item['IsCompleted']==true? "history-booking--success__info--btn btn-success ": "history-booking--cancel__info--btn btn-outline-danger bg-white ").' col-sm-7 col-md-5 col-9" disabled>
                                 '.($item['IsCompleted']==true? "Đã hoàn thành": "Đã hủy").'
                                 </button>
@@ -23,14 +23,21 @@
                                    <p class="col-12"><img width="30px" height="30px" he style="border-radius: 100%;" src="'.$item['ShopImg'].'"> '.$item['ShopName'].'</p>
                                     <span class="col-12">'.$item['Adress'].'</span>
                                 </div>
-                                <button class="'.($item['IsCompleted']==true? "history-booking--success__info--btn btn-danger ": "history-booking--cancel__info--btn btn-danger").' col-md-5 col-sm-7 col-9">Đặt lại</button>
+                                <div class="row">
+                                <div class="col-6">
+                                <button class="'.($item['IsCompleted']==true? "history-booking--success__info--btn btn-danger": "history-booking--cancel__info--btn btn-danger").'">Đặt lại</button>
+                                </div>
+                                <div class="col-6">
+                                '.($item['IsCompleted']==true?  '<button class=" history-booking--success__info--btn btn-warning">Đánh giá </button>':'').'
+                                </div>
+                                </div>
                             </div>';
                             $datatime= date_create($item['DateTime']);
                             $date =date_format($datatime,'d');
                             $month =date_format($datatime,'m');
                             $timeDone=$item['StartTime'];
                             echo'
-                            <div class="col-4  history-booking__time">
+                            <div class="col-3  history-booking__time">
                                 <h3 class="col-12"><b>'.$date.'</b></h3>
                                 <p class="col-12 ">Tháng '.$month.'</p>
                                 <p class="col-12">'.$timeDone.'</p>
