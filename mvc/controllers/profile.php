@@ -4,12 +4,15 @@ class profile extends controller{
    {
       $this->user = $this->model("detailShopModel");
       
+      
 
    }
     function thongtintaikhoan($id){
-
+      $teo = $this->model("userModel");
+      $teo->updateInfo($id);
+      
         $this->view("profile",["page"=>"thongtintaikhoan", "GN"=>$this->user->GetNameUser($id)]);
-
+         
      }
      function cuahangyeuthich($id){
         $fvrshop=$this->user->New($id);
