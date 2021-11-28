@@ -108,6 +108,7 @@
 
 
   </div>
+  <input id='base' type='hidden' value='<?php echo BASE_URL ?>'/>
   <div class="col-lg-8 col-xl-9 col-md-12">
   <?php
         require_once "./mvc/views/pages/".$data["page"].".php"

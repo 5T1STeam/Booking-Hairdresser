@@ -52,6 +52,7 @@
      <?php
         include_once './mvc/views/pages/topic'.$data["page"].'.php'
      ?>
+     <input id='base' type='hidden' value='<?php echo BASE_URL ?>'/>
     <footer>
         <div class="container">
             <!--Bắt Đầu Nội Dung Giới Thiệu-->

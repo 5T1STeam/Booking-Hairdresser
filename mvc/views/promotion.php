@@ -236,7 +236,7 @@
         </div>
 
     </div>
-
+    <input id='base' type='hidden' value='<?php echo BASE_URL ?>'/>
     <footer>
     <?php $libar->footer();  ?>
 

@@ -14,13 +14,13 @@
     <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/App.css">
     <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/styles.css">
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL ?>/public/css/style.css">
-    <link rel="stylesheet" type="text/css" href="../../../public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL ?>public/css/style.css">
 
     <!-- Main -->
 
     <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/popup.css">
     <!--Popup-->
-    <script src="../../Booking-Hairdresser/public/js/popup2.js"></script>
+    <script src="<?php echo BASE_URL ?>/public/js/popup2.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -390,7 +390,7 @@
             </div>
         </div>
     </div>
-
+    <input id='base' type='hidden' value='<?php echo BASE_URL ?>'/>
     </div>
     <?php $libar->footer();  ?>
 

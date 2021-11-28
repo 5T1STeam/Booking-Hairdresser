@@ -29,7 +29,7 @@ class Book
 
     public function SetBooking($idshop, $idservice, $iduser, $timebooked)
     {
-        $base = "http://localhost/Booking-Hairdresser";
+        $base = BASE_URL;
         $conn = new db();
         $pop = new Book();
         $time = explode(" ", $timebooked);

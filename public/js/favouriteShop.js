@@ -1,8 +1,9 @@
 $(document).ready(function() {
     $('.favouriteBtn').on('click', function() {
+        $base = $('#base').val();
         $click_btn = $(this);
         if ($click_btn.hasClass('red')) {
-            $.get('/Booking-Hairdresser/mvc/controllers/favourite.php', {
+            $.get($base + '/mvc/controllers/favourite.php', {
                 color: 'red',
                 id: $('#idShop').val(),
             }).done(function(data) {
@@ -14,7 +15,7 @@ $(document).ready(function() {
                 }
             })
         } else if ($click_btn.hasClass('lightgray')) {
-            $.get('/Booking-Hairdresser/mvc/controllers/favourite.php', {
+            $.get($base + '/mvc/controllers/favourite.php', {
                 color: 'lightgray',
                 id: $('#idShop').val(),
             }).done(function(data) {
