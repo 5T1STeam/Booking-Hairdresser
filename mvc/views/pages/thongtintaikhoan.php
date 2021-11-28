@@ -3,12 +3,13 @@
     <div class="  head-infor-account">
         <h3> Thông tin tài khoản </h3>
     </div>
-    <?php
-    echo ' 
+   
     <div class=" block-infor ">
         <form action="thongtintaikhoan.php" method="POST" enctype="multipart/form-data">
         <div class="row justify-content-center">
-            <img src="' . $data['GN']['Avatar'] . '" style="border-radius: 500px;" width="120" height="120"  id="profileDisplay" >
+            <img src="<?php if($data['GN']['Avatar']!==null){
+                echo $data['GN']['Avatar'];
+            } else echo 'https://static2.yan.vn/YanNews/2167221/202102/facebook-cap-nhat-avatar-doi-voi-tai-khoan-khong-su-dung-anh-dai-dien-e4abd14d.jpg' ?>" style="border-radius: 500px;" width="120" height="120"  id="profileDisplay" >
         </div>
         <label for="profileImage"  class="row text-center edit">
             <span class="col"> <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 18 18">
@@ -18,13 +19,13 @@
         <input type="file" name="profileImage" onchange="displayImage(this)" id="profileImage" style="display: none;">
    
         <hr>
-       
+      
         <div class="row row-infor">
             <div class="col-3">
                 <label class="lable">Họ tên: </label>
             </div>
             <div class="col-6 ">
-                <input type="text" class="form-control forrm" value="' . $data['GN']['Name'] . '">
+                <input type="text" class="form-control forrm" value="<?php echo $data['GN']['Name'] ?>">
             </div>
         </div>
         <div class="row row-infor">
@@ -32,7 +33,7 @@
                 <label class="lable">Số điện thoại: </label>
             </div>
             <div class="col-6">
-                <input type="text" class="form-control forrm" value="' . $data['GN']['PhoneNumber'] . '">
+                <input type="text" class="form-control forrm" value="<?php echo $data['GN']['PhoneNumber'] ?>">
             </div>
         </div>
         <div class="row row-infor">
@@ -40,7 +41,7 @@
                 <label class="lable">Email: </label>
             </div>
             <div class="col-6">
-                <input type="text" class="form-control forrm" value="' . $data['GN']['Email'] . '">
+                <input type="text" class="form-control forrm" value="<?php echo $data['GN']['Email'] ?>">
             </div>
         </div>
         <div class="row row-infor ">
@@ -48,7 +49,7 @@
                 <label class="lable">Địa chỉ: </label>
             </div>
             <div class="col-6">
-                <input type="text" class="form-control forrm" value="' . $data['GN']['FullAdress'] . ", " . $data['GN']['Ward'] . ", " . $data['GN']['District'] . ", " . $data['GN']['Province'] . '">
+               <?php echo' <input type="text" class="form-control forrm" value="' . $data['GN']['FullAdress'] . ", " . $data['GN']['Ward'] . ", " . $data['GN']['District'] . ", " . $data['GN']['Province'] . '">'?>
             </div>
         </div>
         <div class="row">
@@ -73,7 +74,7 @@
                 <label class="lable">Ngày sinh: </label>
             </div>
             <div class="col-6">
-                <input type="date" class="form-control forrm" value="' . $data['GN']['Birthday'] . '">
+                <input type="date" class="form-control forrm" value="<?php echo $data['GN']['Birthday'] ?>">
             </div>
         </div>
         <div class="row row-infor">
@@ -81,8 +82,7 @@
                 <label class="lable">Mật khẩu: </label>
             </div>
             <div class="col-6 ">
-           
-                <input id="password" type="password" class="form-control inputclass formmk" name="password" required data-eye value="' . $data['GN']['PasswordHash'] . '" disabled readonly>
+                <input type="password" class="form-control inputclass formmk" name="password"  value="<?php echo $data['GN']['PasswordHash'] ?>" disabled readonly>
             </div>
             <div class="change-password " data-toggle="collapse" data-target="#password">Thay đổi</div>
         </div>
@@ -93,7 +93,7 @@
                     <label class="lable">Mật khẩu cũ: </label>
                 </div>
                 <div class="col-6 ">
-                    <input type="text" class="form-control formmk" placeholder="Nhập mật khẩu cũ">
+                    <input type="password" class="form-control formmk" placeholder="Nhập mật khẩu cũ">
                 </div>
             </div>
             <div class="row row-infor">
@@ -101,7 +101,7 @@
                     <label class="lable">Mật khẩu mới: </label>
                 </div>
                 <div class="col-6 ">
-                    <input type="text" class="form-control formmk" placeholder="Nhập mật khẩu mới từ 6 đến 32 kí tự">
+                    <input type="password" class="form-control formmk" placeholder="Nhập mật khẩu mới từ 6 đến 32 kí tự">
                 </div>
             </div>
             <div class="row row-infor">
@@ -109,7 +109,7 @@
                     <label class="lable">Nhập lại: </label>
                 </div>
                 <div class="col-6 ">
-                    <input type="text" class="form-control formmk" placeholder="Nhập lại mật khẩu mới">
+                    <input type="password" class="form-control formmk" placeholder="Nhập lại mật khẩu mới">
                 </div>
             </div>
         </div>
@@ -118,9 +118,9 @@
         </div>
         </form>   
     
-      '
+      
 
-    ?>
+    
     <hr>
     <div class="row row-infor ">
         <div class="col">
