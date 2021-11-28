@@ -33,6 +33,12 @@
             include "./mvc/views/pages/nav_normal.php";
         }
 
+        public function Categories(){
+            $data = new PopupUse();
+            $category = $data->getCategory();
+            return $category;
+        }
+
         public function Footer(){
             include "./mvc/views/pages/footer.php";
         }

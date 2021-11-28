@@ -20,9 +20,9 @@
 
     <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/popup.css">
     <!--Popup-->
-    <script src="../../../Booking-Hairdresser/public/js/popup2.js"></script>
+    <script src="../../Booking-Hairdresser/public/js/popup2.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>    
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -56,23 +56,45 @@
 
 <body>
     <header id="header">
-    <?php
+        <?php
         require_once './mvc/controllers/popup.php';
         $popup = new Popup();
         $popup->popupSearch();
         $libar = new Library();
-    ?>
+        $category = $libar->Categories();
+        ?>
         <div style="min-height: auto;">
             <div class="container">
                 <nav class="navbar">
-                    <a href="Booking-Hairdresser/"><img class="navbar-brand" src="<?php echo BASE_URL ?>/public/icon/logo.png" style="width:60px; float:left;"></a>
+                    <a href="<?php echo BASE_URL ?>/home"><img class="navbar-brand" src="../../../Booking-Hairdresser/public/icon/logo.png" style="width:60px; float:left;"></a>
 
                     <div class="nav justify-content-end topnav">
                         <a class="nav-link" href="<?php echo BASE_URL ?>/home">Trang Chủ</a>
                         <a class="nav-link" href="<?php echo BASE_URL ?>/listshop">Danh Mục</a>
                         <a class="nav-link" href="#">Khám Phá</a>
                         <a class="btn btn-business" onclick="clickBtndoitac()">Đối tác</a>
-                        <a class="btn btn-login" href="<?php echo BASE_URL ?>/login">Sign in / Login</a>
+                        <?php
+                        if (isset($_SESSION['Id'])) {
+                            echo "<div class='dropdown'>
+                                <a class='dropdown-toggle nav-link' id='ddMenu' data-toggle='dropdown'><span><svg xmlns='http://www.w3.org/2000/svg' width='25' height='25' fill='currentColor' class='bi bi-person-circle' viewBox='0 0 18 18'>
+                                            <path d='M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z' />
+                                            <path fill-rule='evenodd' d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z' />
+                                        </svg></span>
+                                    Profile
+                                </a>
+                                <div class='dropdown-menu'>
+                                    <a class='dropdown-item' href='" . BASE_URL . "/profile/thongtintaikhoan/" . $_SESSION['Id'] . "'>Trang cá nhân </a>
+                                    <a class='dropdown-item' href='" . BASE_URL . "/profile/lichhen/" . $_SESSION['Id'] . "'>Lịch book</a>
+                                    <a class='dropdown-item' href='" . BASE_URL . "/profile/thongbaocuatoi/" . $_SESSION['Id'] . "'>Thông báo</a>
+                                    <a class='dropdown-item' href='" . BASE_URL . "/logout'>Đăng xuất</a>
+                                </div>
+                            </div>";
+                        } else {
+                            echo "<a class='btn btn-login' href='" . BASE_URL . "/login'>Sign in / Login</a>";
+                        }
+                        ?>
+
+
 
                     </div>
                     <label for="nav-check" class="nav-mobile-btn">
@@ -87,75 +109,38 @@
                                 <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z" />
                             </svg>
                         </label>
-                        <span class="avatar"> <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 18 18">
-                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                            </svg>
-                            Profile
+                        <?php
+                        if (isset($_SESSION['Id'])) {
+                            echo "<span class='avatar'> <svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' fill='currentColor' class='bi bi-person-circle' viewBox='0 0 18 18'>
+                            <path d='M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z' />
+                            <path fill-rule='evenodd' d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z' />
+                        </svg>
+                        <a href='" . BASE_URL . "/profile'>Profile</a>
+                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-bell-fill' viewBox='0 0 16 16'>
+                            <path d='M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z' />
+                        </svg>
+                    </span>";
+                        } else {
+                            echo "<br/><br/><a class='nav-mblink nav-link ' style='margin-left:10px;' href='" . BASE_URL . "/login'>Sign in / Login</a>";
+                        }
+                        ?>
+                        <input id="mbsearch" type="text" style="margin-top: 0px;" class="form-control" placeholder="Bạn đang tìm kiếm gì ?" data-toggle="modal" data-target="#popup-howto">
 
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
-                                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
-                            </svg>
-                        </span>
-                        <input id="mbsearch" type="text" class="form-control" placeholder="Bạn đang tìm kiếm gì ?" data-toggle="modal" data-target="#popup-howto">
-                        <div class="modal fade" id="popup-howto">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <!-- Modal Header -->
-                                    <div class="modal-header">
-                                        <input id="model-input-howto" type="text" class="popup-howto form-control" placeholder="Bạn tìm dịch vụ gì?">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
-
-                                    <!-- Modal body -->
-                                    <div class="modal-body">
-                                        <div class="service">
-                                            <h5 class="modal-title">Dịch vụ phổ biến</h5>
-                                            <br>
-                                            <!--Lấy dữ liệu từ SQL nên hiệu chỉnh sau-->
-                                            <div class="group-service">
-                                                <label>
-                                                    <input type="checkbox" name="service" class="service" style="display: none;">
-                                                    <span class="btn btn-service" for="">Cắt Tóc</span>
-                                                </label>
-                                                <label>
-                                                    <input type="checkbox" name="service" class="service" style="display: none;">
-                                                    <span class="btn btn-service">Làm Nail</span>
-                                                </label>
-                                                <label>
-                                                    <input type="checkbox" name="service" class="service" style="display: none;">
-                                                    <span class="btn btn-service">Duỗi Tóc</span>
-                                                </label>
-                                                <label>
-                                                    <input type="checkbox" name="service" class="service" style="display: none;">
-                                                    <span class="btn btn-service">Uốn Tóc</span>
-                                                </label>
-                                                <!--có thể thêm-->
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Modal footer -->
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn" id="btn-search" onclick="searchHowto()" data-dismiss="modal">Tìm Kiếm</button>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
                         <div class="nav-list px-2 ">
-                            <a class="nav-mblink " href="../html/listservice.html">Babershop</a>
-                            <a class="nav-mblink " href="../html/listservice.html">Nail Salon</a>
-                            <a class="nav-mblink " href="../html/listservice.html">Beauty Salon</a>
-                            <a class="nav-mblink " href="../html/listservice.html">Hair Salon</a>
-                            <a class="nav-mblink " href="../html/listservice.html">Massage</a>
-                            <a class="nav-mblink " href="../html/listservice.html">Makeup Arist</a>
-                            <a class="nav-mblink " href="../html/listservice.html">Day Spa</a>
+                            <?php
+                            foreach ($category as $id => $name) {
+                                echo "<a class='nav-mblink nav-link' href='" . BASE_URL . "/listshop/category&dm=" . $id . "&page=1'>" . $name . "</a>";
+                            }
+                            ?>
                         </div>
                         <div class="logout px-2">
                             <a class="nav-mblink nav-link " onclick="clickBtndoitac()">Đối tác</a>
-                            <a class="nav-mblink nav-link " href="#">Đăng xuất</a>
+                            <?php
+                            if (isset($_SESSION['Id'])) {
+                                echo "<a class='nav-mblink nav-link ' href='" . BASE_URL . "/logout'>Đăng xuất</a>";
+                            }
+                            ?>
+
                         </div>
 
                     </div>
@@ -179,28 +164,34 @@
 
         <div class="bottom-section container-fluid">
             <nav class="nav justify-content-lg-center">
-                <a class="nav-link categoriz" href="../html/listservice.html">Hair Salon</a>
-                <a class="nav-link categoriz" href="../html/listservice.html">Babershop</a>
-                <a class="nav-link categoriz" href="../html/listservice.html">Nail Salon</a>
-                <a class="nav-link categoriz" href="../html/listservice.html">Beauty Salon</a>
-                <a class="nav-link categoriz" href="../html/listservice.html">Massage</a>
-                <a class="nav-link categoriz" href="../html/listservice.html">Makeup Arist</a>
-                <a class="nav-link categoriz" href="../html/listservice.html">Day Spa</a>
-                <div class="dropdown">
-                    <a class="dropdown-toggle nav-link" id="ddMenu" data-toggle="dropdown">
-                        More
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="./listservice.html">Dưỡng Da</a>
-                        <!--Vân vân-->
-                    </div>
-                </div>
+                <?php
+                foreach ($category as $id => $name) {
+                    if ($id < 8) {
+                        echo " <a class='nav-link categoriz' href='" . BASE_URL . "/listshop/category&dm=" . $id . "&page=1'>" . $name . "</a>";
+                    }
+                    if ($id >= 8) {
+                        if ($id == 8) {
+                            echo "<div class='dropdown'>
+                                    <a class='dropdown-toggle nav-link categoriz' id='ddMenu' data-toggle='dropdown'>
+                                    More
+                                    </a>
+                                    <div class='dropdown-menu'>
+                                    <a class='dropdown-item' href='" . BASE_URL . "/listshop/category&dm=" . $id . "&page=1'>" . $name . "</a>";
+                        } else {
+                            echo "<a class='dropdown-item' href='" . BASE_URL . "/listshop/category&dm=" . $id . "&page=1'>" . $name . "</a>";
+                        }
+                        if ($id == count($category) + 1) {
+                            echo "</div>";
+                        }
+                    }
+                }
+                ?>
             </nav>
         </div>
 
         <div class="video-container">
-            <video autoplay="true" loop="true" mute id="video-bg">
-                <source src="../../../Booking-Hairdresser/public/video/banner.webm" type="video/webm">
+            <video autoplay="true" loop="true" muted id="video-bg">
+                <source src="../../../Booking-Hairdresser/public/video/home.mp4" type="video/mp4">
             </video>
         </div>
         <div id="navhide" class="navbar fixed-top" style="background: #111; z-index: 2;" hidden>
@@ -279,7 +270,7 @@
                     }
                     echo '
                 <div class=ml-2 mr-2>
-                    <a class=linkShoptoDetail href=BookingHairdresser/detail/' . $item['Id'] . '>
+                    <a class="linkShoptoDetail" href=' . BASE_URL . '/detail/' . $item['Id'] . '>
                         <div class="card">
                             <img src=' . $item['Avatar'] . ' alt="" class="card-img-top">
                             <div class="card-body text-left">
@@ -398,12 +389,12 @@
                 }
                 ?>
             </div>
-
         </div>
+    </div>
 
     </div>
-            </div>
     <?php $libar->footer();  ?>
+
 
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
@@ -412,7 +403,7 @@
     <script src="../../../Booking-Hairdresser/public/js/nav.js"></script>
     <script src="../../../Booking-Hairdresser/public/js/Detail2.script.js"></script>
     <!--Nav starts-->
-    <script src="../../../Booking-Hairdresser/public/js/popup.js"></script>
+    <script src="../../Booking-Hairdresser/public/js/popup2.js"></script>
     <!--Popup-->
 
     <script>
@@ -490,10 +481,10 @@
         // Sending location to server via POST request
         function update_location(position) {
             $.post("./mvc/controllers/getlocation.php", {
-                    latitude: position.coords.latitude,
-                    longtitude: position.coords.longitude
-                });
-                
+                latitude: position.coords.latitude,
+                longtitude: position.coords.longitude
+            });
+
         }
     </script>
 

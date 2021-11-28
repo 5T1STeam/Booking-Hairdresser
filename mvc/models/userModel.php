@@ -14,6 +14,7 @@ class userModel extends db{
             $row = mysqli_fetch_assoc($result);
             $_SESSION['username'] = $row['Name'];
             $_SESSION['Id']=$row['Id'];
+            $_SESSION['Password'] = md5($row['PasswordHash']);
             header("Location: homepage.php");
         } else {
             echo "<script>alert('Email or Password is Wrong.')</script>";
@@ -38,12 +39,11 @@ class userModel extends db{
                             VALUES ('$username', '$email', '$password')";
                     $result = mysqli_query($this->con, $sql);
                     if ($result) {
-                        echo "<script>alert('Dang Ky Thanh Cong.')</script>";
                         $username = "";
                         $email = "";
                         $_POST['password'] = "";
                         $_POST['repassword'] = "";
-                       
+                        header("Location: ".BASE_URL."/login&kq=done");
                     } else {
                         echo "<script>alert('Dang ky that bai.')</script>";
                     }
@@ -59,10 +59,8 @@ class userModel extends db{
       
     }
     public function logout(){
-      
         session_destroy();
-        header("Location:BASE_URL/home");
-        
+        header("Location: ".BASE_URL."/login");
     }
 
     public function GetFeedBack($id){
@@ -112,6 +110,30 @@ class userModel extends db{
         $result['TwoStarRating']=$v;
         $result['OneStarRating']=$b;
         return $result;
+    }
+    public function updateInfo($id){
+        if (isset($_POST['saveuser'])) {
+            $userName= $_POST['nameUser'];
+            $phoneUser = $_POST['phoneNumber'];
+            $email= $_POST['Emails'];
+            $dateUser= $_POST['dateBirth'];
+            $passwordUser = $_POST['passwordUser'];
+            $password= $_POST['oldPass'];
+            $newPass= $_POST['newPass'];
+            $repassword=$_POST['newPassConfirm'];
+            $gender= $_POST['inlineRadioOptions'];
+            if($passwordUser==$password && $newPass==$repassword){
+                $qr ="UPDATE tbl_user SET `Name` ='$userName',`PhoneNumber`='$phoneUser',`Email`='$email',`Birthday` ='$dateUser',PasswordHash='$newPass' ";
+                return mysqli_query($this->con,$qr);
+            }
+            else{
+                $qr ="UPDATE tbl_user SET `Name` ='$userName',`PhoneNumber`='$phoneUser',`Email`='$email',`Birthday` ='$dateUser' WHERE Id= $id ";
+                return mysqli_query($this->con,$qr);
+            }
+            
+
+
+        }
     }
    
 }

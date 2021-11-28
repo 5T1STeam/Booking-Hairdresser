@@ -169,7 +169,7 @@
                                         <p style='margin-top:-15px; font-size: 12px; font-weight: lighter'>" . $rows['Time'] . " phút</p>
                                     </div>
                                     <div class='col-2' style='text-align:right;'>
-                                        <button type='button' class='btn' id='btn-search' data-toggle='modal' data-target='#popup-book'>Book</button>
+                                        <button type='button' class='btn' id='btn-search' data-toggle='modal' data-target='#book-".$data['ID']."-".$rows['ServiceId']."'>Book</button>
                                     </div>
                                     <hr>
                                 </div>";
@@ -237,14 +237,15 @@
                             while ($col = mysqli_fetch_array($data["GM"])) {
                                 array_push($list, $col);
                             };
-
+                            
                             while ($rows = mysqli_fetch_array($data["GS"])) {
-
+                                $nameService='';
                                 echo "
                                  <div class='listService'>
                                     <div class='SN'>";
                                 foreach ($list as $key) {
                                     if ($rows["ServiceId"] == $key["Id"]) {
+                                        $nameService = $key['Name'];
                                         echo "<h3>" . $key["Name"] . "</h3>";
                                     }
                                 };
@@ -260,7 +261,7 @@
                                              <!-- Popup Book -->
                                                  <div title='popup-book'>
                                                  <!-- Button to Open the Modal -->
-                                                 <button class=' Btn' data-toggle='modal' data-target='#popup-book'>Book</button>
+                                                 <button class=' Btn' data-toggle='modal' data-target='#book-".$data['ID']."-".$rows["ServiceId"]."'>Book</button>
      
                                                  <!-- The Modal -->
      
@@ -270,9 +271,11 @@
                                     </div>
                                 </div>
                              <hr>";
+                                $popup->popupBooking($data['ID'], $data['GN']['Name'], $rows["ServiceId"], $nameService, $rows['Price'], $rows['Time']); 
                             }
                             ?>
                         </div>
+                        <div id='kq'></div>
                         <div class="rulesz">
                             <h2>Quy định an toàn tại cửa hàng</h2>
                             <div class="row">

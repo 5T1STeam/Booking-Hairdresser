@@ -64,6 +64,20 @@ input.service:checked+span.btn-service {
     box-shadow: none !important;
 }
 
+input.service:disabled+span.btn-service {
+    background-color: #646464 !important;
+    color: #fff;
+    border: 1px solid #d6d6d6 !important;
+    box-shadow: none !important;
+}
+
+input.service:disabled+span.btn-service:hover {
+    background-color: #646464 !important;
+    color: #fff;
+    border: 1px solid #d6d6d6 !important;
+    box-shadow: none !important;
+}
+
 #btn-search {
     background-color: #FF421A;
     color: #fff;
@@ -299,4 +313,21 @@ input.radiotime:disabled+span.btn-time:hover {
     100% {
         transform: rotate(360deg);
     }
+}
+
+.inputService {
+    background: none !important;
+    border: none !important;
+    border-radius: 50px;
+    color: #ff421a;
+    padding: 5px 10px;
+}
+
+.inputService::placeholder {
+    color: #ff421a;
+    font-weight: bold;
+}
+
+.inputService:focus {
+    outline: none;
 }
