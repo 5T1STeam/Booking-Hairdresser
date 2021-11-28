@@ -23,9 +23,20 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/popup.css">
   <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/userprofileStyle/style-profile-page.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
  
   
 </head>
+<header>
+        <?php
+        require_once './mvc/controllers/popup.php';
+        $popup = new Popup();
+        $libar = new Library();
+        $libar->Nav();
+        $popup->popupSearch();
+        ?>
+    </header>
+
 <div class="row profile-page">
   <div class=" col-lg-4 col-xl-3  col-md-12 ">
   <?php echo'
@@ -103,5 +114,6 @@
   ?>
   </div>
 </div>
-
+<?php $libar->footer();?> 
+<script src="../../../Booking-Hairdresser/public/js/popup2.js"></script>
 </html>

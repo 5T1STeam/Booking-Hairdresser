@@ -6,7 +6,7 @@
     <?php
     echo ' 
     <div class=" block-infor ">
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="" method="POST" class="up" enctype="multipart/form-data">
         <div class="row justify-content-center">
             <img src="' . $data['GN']['Avatar'] . '" style="border-radius: 500px;" width="120" height="120"  id="profileDisplay" >
         </div>
@@ -121,6 +121,7 @@
       '
 
     ?>
+    <div class="update"></div>
     <hr>
     <div class="row row-infor ">
         <div class="col">
@@ -162,4 +163,16 @@
             reader.readAsDataURL(e.file[0]);
         }
     }
+
+    $('.up').on('submit', function(e) {
+                e.preventDefault();
+                str = $(this).serialize();
+                $.post('/Booking-Hairdresser/mvc/controllers/updatePro.php',
+                        $(this).serialize()
+                    )
+                    .done(function(data) {
+                        $('.update').html(data)
+                        $('#kqBook').modal('show');
+                    });
+            })
 </script>
