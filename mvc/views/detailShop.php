@@ -16,7 +16,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <!-- CSS carousel -->
     <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="<?php echo BASE_URL ?>public/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/owl.theme.default.min.css">
     <!-- Link app detailShop -->
     <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/App.css">
 
