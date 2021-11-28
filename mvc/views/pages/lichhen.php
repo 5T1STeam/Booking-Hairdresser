@@ -8,15 +8,16 @@
                 </div>
                     <?php
                    $i=0;
-                    
+                    $z=0;
                     foreach($data['GB'] as $item){
-                        $datatime= date_create($data['GB'][0]['DateTime']);
+                        $datatime= date_create($data['GB'][$z]['DateTime']);
                         $day =date_format($datatime,'l');
                         $date =date_format($datatime,'d');
                         $month =date_format($datatime,'F');
                         $year =date_format($datatime,'Y');
                      $timeDone=$item['StartTime'];
-                      
+                        echo $data['GB'][$z]['DateTime'];
+                        echo $day, $month, $year , $date;
                         echo"
                         <div class='appointment-schedule '>
                         <h4 class='pt-4  pl-5'>".$item['StartTime'].", $day, Ngày $date, $month, năm $year.</h4>
@@ -78,6 +79,7 @@
 
                         </div>
                     </div> ";
+                    $z++;
                     }
                   
                     ?>
