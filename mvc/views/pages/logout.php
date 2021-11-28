@@ -2,5 +2,5 @@
 session_start();
 unset($_SESSION['Id']);
 unset($_SESSION['Email']);
-header('Location:http://localhost/Booking-Hairdresser/login');
+header('Location:".BASE_URL."/login');
 ?>

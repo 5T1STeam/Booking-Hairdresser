@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/userprofileStyle/policies.css">
+<link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/userprofileStyle/policies.css">
 <div class="container">
                     <div class="  head-infor-account">
                         <h3>Chính Sách bảo mật </h3>
