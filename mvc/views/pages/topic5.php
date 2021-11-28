@@ -85,7 +85,7 @@
             </div>
 
             <div class="col-lg-4 mb-4">
-                <a class="linkBlogtoDetail" href="<?php echo BASE_URL ?>/topic/show/7">
+                <a class="linkBlogtoDetail" href="<?php echo BASE_URL ?>/topic/show/8">
                     <div class="card" >
                         <img src="<?php echo BASE_URL ?>/public/img/Beard.jpg" alt="" class="card-img-top">
                         <div class="card-img-overlay">

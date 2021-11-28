@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/userprofileStyle/historyStyle.css">
+<link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/userprofileStyle/historyStyle.css">
     <div class="container-fluid">
             <div class="col-lg-8 col-xl-9 col-12">
                 <div id="history-booking" class="container active">
