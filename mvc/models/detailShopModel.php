@@ -93,6 +93,7 @@ class detailShopModel extends db{
         $querry= mysqli_query($this->con,$qr);
         $item= mysqli_fetch_array($querry);
             $a= $item["AddressPath"];
+            if($a!=0){
             $qa= "SELECT * FROM  tbl_addresspath where Id=$a";
             $querry1= mysqli_query($this->con,$qa);
             $row1=mysqli_fetch_array($querry1);
@@ -107,11 +108,13 @@ class detailShopModel extends db{
             $querry3=mysqli_query($this->con,$qc);
             $row3=mysqli_fetch_array($querry3);
             $item['Province']= $row3['Name'];
-       
+            }
+            else {
+                $item['Ward']='';
+                $item['District'] ='';
+                $item['Province']='';
+            }
         return $item;
-
-       
-
     }
     public function GetStaff($id){
         $qr = "SELECT * FROM tbl_staff WHERE ShopId=$id";

@@ -1,14 +1,15 @@
-<link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/userprofileStyle/style-infor-page.css">
+<link rel="stylesheet"href="<?php echo BASE_URL ?>/public/css/userprofileStyle/style-infor-page.css">
 <div class="container">
     <div class="  head-infor-account">
         <h3> Thông tin tài khoản </h3>
     </div>
-    <?php
-    echo ' 
+   
     <div class=" block-infor ">
-        <form action="" method="POST" class="up" enctype="multipart/form-data">
+        <form action="" method="POST" enctype="multipart/form-data">
         <div class="row justify-content-center">
-            <img src="' . $data['GN']['Avatar'] . '" style="border-radius: 500px;" width="120" height="120"  id="profileDisplay" >
+            <img src="<?php if($data['GN']['Avatar']!==null){
+                echo $data['GN']['Avatar'];
+            } else echo 'https://static2.yan.vn/YanNews/2167221/202102/facebook-cap-nhat-avatar-doi-voi-tai-khoan-khong-su-dung-anh-dai-dien-e4abd14d.jpg' ?>" style="border-radius: 500px;" width="120" height="120"  id="profileDisplay" >
         </div>
         <label for="profileImage"  class="row text-center edit">
             <span class="col"> <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 18 18">
@@ -18,7 +19,8 @@
         <input type="file" name="profileImage" onchange="displayImage(this)" id="profileImage" style="display: none;">
    
         <hr>
-       
+        <?php
+        echo'
         <div class="row row-infor">
             <div class="col-3">
                 <label class="lable">Họ tên: </label>
@@ -121,7 +123,6 @@
       '
 
     ?>
-    <div class="update"></div>
     <hr>
     <div class="row row-infor ">
         <div class="col">
@@ -163,16 +164,4 @@
             reader.readAsDataURL(e.file[0]);
         }
     }
-
-    $('.up').on('submit', function(e) {
-                e.preventDefault();
-                str = $(this).serialize();
-                $.post('/Booking-Hairdresser/mvc/controllers/updatePro.php',
-                        $(this).serialize()
-                    )
-                    .done(function(data) {
-                        $('.update').html(data)
-                        $('#kqBook').modal('show');
-                    });
-            })
 </script>

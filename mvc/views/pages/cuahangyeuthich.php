@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/userprofileStyle/style-favorite-page.css">
+<link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/userprofileStyle/style-favorite-page.css">
 <div class="container">
     <div class=" head-infor-account">
         <h3> Cửa hàng yêu thích </h3>
@@ -20,7 +20,7 @@
                    <p>' .$item['FullAdress'].",".$item['Ward'].",".$item['District']. '</p>
                    <p class="ita">' . $item["Introduction"] . '</p>
                 </div>  
-                <div class="col-lg-2 col-md-2 "><a class="unlike btn"href="../Booking-Hairdresser/mvc/models    /deleteFS.php?ShopId=' . $item["Id"] . '"> Bỏ thích </a></div>
+                <div class="col-lg-2 col-md-2 "><button type="submit" class="unlike btn"> Bỏ thích </button></div>
                 </div>              
                 <hr>';
                 

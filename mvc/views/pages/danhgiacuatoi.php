@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/userprofileStyle/reviewStyle.css">
+<link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/userprofileStyle/reviewStyle.css">
 
 <div id="my-review" class="my-review">
                     <div class="my-review__title">
