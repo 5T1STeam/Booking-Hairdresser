@@ -123,7 +123,7 @@ class userModel extends db{
             $repassword=$_POST['newPassConfirm'];
             $gender= $_POST['inlineRadioOptions'];
             if($passwordUser==$password && $newPass==$repassword){
-                $qr ="UPDATE tbl_user SET `Name` ='$userName',`PhoneNumber`='$phoneUser',`Email`='$email',`Birthday` ='$dateUser',PasswordHash='$newPass' ";
+                $qr ="UPDATE tbl_user SET `Name` ='$userName',`PhoneNumber`='$phoneUser',`Email`='$email',`Birthday` ='$dateUser',PasswordHash='$newPass' WHERE Id=$id";
                 return mysqli_query($this->con,$qr);
             }
             else{
