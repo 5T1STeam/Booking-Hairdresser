@@ -55,6 +55,8 @@ class profile extends controller{
 
    }
    function lichhen($id){
+      $teo = $this->model("userModel");
+      $teo->deleteLich($id);
       $teo = $this->model("detailShopModel");
       $lichhen =$teo->getBooking($id);
       $arr=array();
@@ -67,6 +69,7 @@ class profile extends controller{
          $item['Adress']=  str_replace(" ","%20",$item['Adress']); 
          array_push($arr,$item);
       }
+      
 
       $this->view("profile",["page"=>"lichhen","GN"=>$this->user->GetNameUser($id),
                                                 "GB"=>$arr,

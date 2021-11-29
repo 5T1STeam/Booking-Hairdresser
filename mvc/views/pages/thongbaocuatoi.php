@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/userprofileStyle/style-notification-page.css">
+<link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/userprofileStyle/style-notification-page.css">
 <div class="container">
                     <div class="row ">
                         <div class=" col-10 head-infor-account">

@@ -153,6 +153,17 @@ class userModel extends db{
 
         }
     }
+    public function deleteLich($id){
+        if(isset($_POST['cancel'])){
+            $bookingId= $_POST['bookingId'];
+            $qr= "DELETE FROM tbl_booking WHERE UserId= $id AND Id=$bookingId";
+            $qrs= "DELETE FROM tbl_bookingservice WHERE BookingId=$bookingId";
+            mysqli_query($this->con,$qr);
+            mysqli_query($this->con,$qrs);
+            return  header("Location: " . BASE_URL . "/profile/lichhen/$id");
+        }
+        
+    }
    
 }
 ?>

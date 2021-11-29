@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/userprofileStyle/memberstyle.css">
+<link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/userprofileStyle/memberstyle.css">
 <div class="container">
     <div class="  head-infor-account">
         <h3> Hội viên </h3>

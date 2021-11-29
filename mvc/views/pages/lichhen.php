@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/userprofileStyle/scheduleStyle.css">
+<link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/userprofileStyle/scheduleStyle.css">
                 
                         
                     
@@ -9,6 +9,9 @@
                     <?php
                    $i=0;
                     $z=0;
+                   echo "<pre>";
+                   print_r($data['GB']);
+                   echo "</pre>";
                     foreach($data['GB'] as $item){
                         $datatime= date_create($data['GB'][$z]['DateTime']);
                         $day =date_format($datatime,'l');
@@ -67,17 +70,18 @@
                                 </div>
                             </div>
                         </div>
+                        <form action='' method='POST'>
                         <div class='appointment-schedule__btn'>
                             <div class='row pt-4'>
-                                <div class='col-2 offset-3'>
-                                    <button class='changeSce w-100'>Hủy</button>
+                                <div class='col-4 offset-3'>
+                                    <input type='hidden' name='bookingId' value='".$item['Id']."'>
+                                    <button type='submit' name='cancel' class='changeSce w-100'>Hủy</button>
                                 </div>
-                                <div class='col-2'>
-                                    <button class='changeSce w-100'>Thay đổi</button>
-                                </div>
+                                
                             </div>
 
                         </div>
+                        </form>
                     </div> ";
                     $z++;
                     }
