@@ -2,45 +2,49 @@
 class profile extends controller{
    function __construct()
    {
-      $this->user = $this->model("detailShopModel");
-      
-      
-
+      $this->user = $this->model("detailShopModel");  
    }
-    function thongtintaikhoan($id){
+    function thongtintaikhoan(){
+      $id = $_SESSION['Id'];
       $teo = $this->model("userModel");
       $teo->updateInfo($id);
       
         $this->view("profile",["page"=>"thongtintaikhoan", "GN"=>$this->user->GetNameUser($id)]);
          
      }
-     function cuahangyeuthich($id){
+     function cuahangyeuthich(){
+      $id = $_SESSION['Id'];
         $fvrshop=$this->user->New($id);
         $this->view("profile",["page"=>"cuahangyeuthich","GN"=>$this->user->GetNameUser($id),                                                           
                                                          "Gf"=>  $fvrshop]);
 
 
      }
-     function thongbaocuatoi($id){
+     function thongbaocuatoi(){
+      $id = $_SESSION['Id'];
         $this->view("profile",["page"=>"thongbaocuatoi","GN"=>$this->user->GetNameUser($id)]);
 
      }
-     function danhgiacuatoi($id){
+     function danhgiacuatoi(){
+      $id = $_SESSION['Id'];
       $this->view("profile",["page"=>"danhgiacuatoi","GN"=>$this->user->GetNameUser($id),
                                                       "GG"=>$this->user->danhgia($id)]);
 
    }
-     function chinhsachbaomat($id){
+     function chinhsachbaomat(){
+      $id = $_SESSION['Id'];
       $this->view("profile",["page"=>"chinhsachbaomat","GN"=>$this->user->GetNameUser($id)]);
 
    }
-   function dieukhoandichvu($id){
+   function dieukhoandichvu(){
+      $id = $_SESSION['Id'];
       $this->view("profile",["page"=>"dieukhoandichvu","GN"=>$this->user->GetNameUser($id)]);
 
    }
 
   
-   function magiamgia($id){
+   function magiamgia(){
+      $id = $_SESSION['Id'];
       $this->view("profile",["page"=>"magiamgia","GN"=>$this->user->GetNameUser($id),
                                                 "DO"=>$this->user->magiamrankdong(),
                                                 "BA"=>$this->user->magiamrankbac(),
@@ -49,12 +53,14 @@ class profile extends controller{
                                                 "ALL"=>$this->user->magiamall()]);
 
    }
-   function hoivien($id){
+   function hoivien(){
+      $id = $_SESSION['Id'];
       $this->view("profile",["page"=>"hoivien","GN"=>$this->user->GetNameUser($id),
                                                 "MM"=>$this->user->mem($id)]);
 
    }
-   function lichhen($id){
+   function lichhen(){
+      $id = $_SESSION['Id'];
       $teo = $this->model("userModel");
       $teo->deleteLich($id);
       $teo = $this->model("detailShopModel");
@@ -79,7 +85,8 @@ class profile extends controller{
                                          ]);
    }
    
-   function lichsu($id){
+   function lichsu(){
+      $id = $_SESSION['Id'];
       $teo = $this->model("detailShopModel");
       $lichhen =$teo->getBookingHistory($id);
       $arr=array();

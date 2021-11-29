@@ -7,20 +7,16 @@
                     
                 </div>
                     <?php
-                   $i=0;
                     $z=0;
-                   echo "<pre>";
-                   print_r($data['GB']);
-                   echo "</pre>";
                     foreach($data['GB'] as $item){
+                        $time =count($item['Bookingservice']);
                         $datatime= date_create($data['GB'][$z]['DateTime']);
                         $day =date_format($datatime,'l');
                         $date =date_format($datatime,'d');
                         $month =date_format($datatime,'F');
                         $year =date_format($datatime,'Y');
-                     $timeDone=$item['StartTime'];
-                        echo $data['GB'][$z]['DateTime'];
-                        echo $day, $month, $year , $date;
+                        $timeDone=strtotime($item['StartTime']);
+                        $timeSuc=date("H:i:s",$timeDone+$time*60*60);
                         echo"
                         <div class='appointment-schedule '>
                         <h4 class='pt-4  pl-5'>".$item['StartTime'].", $day, Ngày $date, $month, năm $year.</h4>
@@ -30,18 +26,15 @@
                             </div>
                         </div>
                         <div class='appointment-schedule__name-user mt-3'>
-                            <div class=' pl-5' style='font-size: 20px; font-weight: bold;'> <img style='width: 30px;' src='../../source/img/Ellipse 22.png' alt=''>".$item['ShopName']."</div>
+                            <div class=' pl-5' style='font-size: 20px; font-weight: bold;'> ".$item['ShopName']."</div>
                             <div class='row pl-5'>
                                 <div class=' pl-5' style='font-size: 15px;'>
-                                <div class=' pl-5' style='font-size: 15px;'>".$timeDone."</div>
+                                <div class=' pl-5' style='font-size: 15px;'>".$item['StartTime']." - ".$timeSuc ."</div>
                                 </div>
                                 </div>
                                 </div>
                                 <div class='appointment-schedule__name-services'>";
                                 foreach($item['Bookingservice'] as $bs){
-                                    if($bs['ServiceId']=true){
-                                        $i++;
-                                    }
                                     echo " 
 
                         

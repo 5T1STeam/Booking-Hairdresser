@@ -51,6 +51,13 @@
         .owl-theme .owl-nav [class*="owl-"]:hover {
             background-color: transparent;
         }
+        .topic a, a:focus, a:active {
+            color: inherit;
+            text-decoration: none;
+        }
+        .topic a:hover {
+            color: #ff421a;
+        }
     </style>
 </head>
 
@@ -335,7 +342,7 @@
                 <div class="row text-center">
                     <?php
                     foreach ($data['Promotion'] as $item) {
-                        echo ' <a class="col-md-4" href = '.BASE_URL.'/promotion/show/'.$item['Id'].'>
+                        echo ' <a class="col-md-4 mb-3" href = '.BASE_URL.'/promotion/show/'.$item['Id'].'>
                     <p class="promotionText eff"> ' . $item['Content'] . '</p>
                     <img class="promotionimg mx-auto d-block eff" src="' . $item['Image'] . '" alt="promotion">
                     </img>
@@ -355,11 +362,11 @@
                         <?php
                         foreach ($data['Topic'] as $topic) {
                             echo
-                            '<div class="mr-2 mb-2 ml-2">
+                            '<div class="mr-2 mb-2 ml-2 topic">
                         <a class="card infoTopic" href = '.BASE_URL.'/topic/show/'.$topic['Id'].'>
                             <img src="' . $topic['Icon'] . '" alt="" class="imgTopic">
                             <div class="card-body text-left">
-                                <h5 class="card-title text-center">' . $topic['Name'] . '</h5>
+                                <h5 class="card-title text-center topicName">' . $topic['Name'] . '</h5>
                             </div>
                         </a>
                     </div>';

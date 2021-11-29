@@ -552,10 +552,10 @@
                                 <p class='comment'>" . $items['Content'] . "</p>
                                 <img class='pb-3' src='" . $items['Image'] . "' width='auto' height='200'>
                                 <div class='row'>
-                                    <div class='col-md-2'>
+                                    <div class='col-md-2 mb-2'>
                                         <button type='button' class='btn-in-rate'> " . $items['Like'] . "<span class='material-icons text-center ml-2'>thumb_up</span></button>
                                     </div>
-                                    <div class='col-md-2'>
+                                    <div class='col-md-2 mb-2'>
                                         <button type='button' class='btn-in-rate'> " . $items['DLike'] . "<span class='material-icons text-center ml-2'>thumb_down</span></button>
                                     </div>
                                     <div class='col-md-4'></div>
@@ -626,12 +626,7 @@
                         <h1 class="Intro">Giới thiệu</h1>
                         <?php
                         echo "<p>" . $data['GN']['Introduction'] . "</p>";
-
                         ?>
-
-                        <a href="#" class="Mores">Xem thêm <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewbox="2 2 16 16">
-                                <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
-                            </svg></a>
                         <h1 class="Intro">Nhân viên</h1>
                         <hr>
 

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Đăng nhập</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../../../Booking-Hairdresser/public/css/Loginstyle.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL ?>/public/css/Loginstyle.css">
 </head>
 
 <body class="my-login-page">
@@ -16,7 +16,9 @@
             <div class="row justify-content-md-center h-100 ">
                 <div class="card-wrapper">
                     <div class="brand">
-                        <img src="../../../Booking-Hairdresser/public/img/logo.png" alt="logo">
+                        <a href="<?php echo BASE_URL ?>">
+                        <img  src="<?php echo BASE_URL ?>/public/img/logo.png" alt="logo">
+                        </a>
                     </div>
                     <div class="card fat cardInfo">
                         <div class="card-body">
@@ -36,10 +38,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="password">Mật khẩu
-										<a href="forgot.html" class="float-right forgota">
-											Quên mật khẩu?
-										</a>
+                                    <label for="password">Mật khẩu							
 									</label>
                                     <input id="password" type="password" class="form-control inputclass" name="password" required data-eye placeholder="Nhập mật khẩu">
                                     <div class="invalid-feedback">
