@@ -368,10 +368,7 @@ class detailShopModel extends db{
         }
         
     }
-    public function deleteLich($id){
-        $qr= "DELETE FROM tbl_booking WHERE Id=$id";
-        return mysqli_query($this->con,$qr);
-    }
+    
     
 
 

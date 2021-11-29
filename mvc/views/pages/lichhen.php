@@ -9,6 +9,9 @@
                     <?php
                    $i=0;
                     $z=0;
+                   echo "<pre>";
+                   print_r($data['GB']);
+                   echo "</pre>";
                     foreach($data['GB'] as $item){
                         $datatime= date_create($data['GB'][$z]['DateTime']);
                         $day =date_format($datatime,'l');
@@ -67,15 +70,18 @@
                                 </div>
                             </div>
                         </div>
+                        <form action='' method='POST'>
                         <div class='appointment-schedule__btn'>
                             <div class='row pt-4'>
                                 <div class='col-4 offset-3'>
-                                    <button class='changeSce w-100'>Hủy</button>
+                                    <input type='hidden' name='bookingId' value='".$item['Id']."'>
+                                    <button type='submit' name='cancel' class='changeSce w-100'>Hủy</button>
                                 </div>
                                 
                             </div>
 
                         </div>
+                        </form>
                     </div> ";
                     $z++;
                     }
