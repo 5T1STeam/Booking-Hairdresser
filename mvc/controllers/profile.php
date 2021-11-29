@@ -16,6 +16,8 @@ class profile extends controller{
      }
      function cuahangyeuthich($id){
         $fvrshop=$this->user->New($id);
+        $teo = $this->model("userModel");
+         $teo->xoa($id);
         $this->view("profile",["page"=>"cuahangyeuthich","GN"=>$this->user->GetNameUser($id),                                                           
                                                          "Gf"=>  $fvrshop]);
 

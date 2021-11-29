@@ -16,11 +16,16 @@
                    <div class="review text-center"> <span class="rate">'. $item["RatingNum"] .'</span> <br> '. $item["QuantityRating"] .' reviews</div>
                </div>
                <div class="col-lg-4 col-xl-5 col-md-4 col-xs-5">
-                   <h4>' . $item["Name"] . '</h4>
+                   <h4 name="nameShop">' . $item["Name"] . '</h4>
                    <p>' .$item['FullAdress'].",".$item['Ward'].",".$item['District']. '</p>
                    <p class="ita">' . $item["Introduction"] . '</p>
                 </div>  
-                <div class="col-lg-2 col-md-2 "><button type="submit" class="unlike btn"> Bỏ thích </button></div>
+                <div class="col-lg-2 col-md-2 " >
+                <form action="" method="POST" class="up" enctype="multipart/form-data">
+                <input type="hidden" name="shopid" value="'.$item['Id'].'">
+                <button type="submit" name="xoa" class="unlike btn"> Bỏ thích </button>
+                </form>
+                </div>
                 </div>              
                 <hr>';
                 
