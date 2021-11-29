@@ -2,7 +2,8 @@ $(document).ready(function() {
     $('.commentPage').click(function() {
         $("li").removeClass('active');
         $(this).closest('li').addClass('active');
-        $.get('/Booking-Hairdresser/mvc/controllers/pagingcomment.php', {
+        $base = $('#base').val();
+        $.get($base + '/mvc/controllers/pagingcomment.php', {
             id: $('#idShop').val(),
             page: $(this).text()
         }).done(function(data) {
@@ -20,7 +21,8 @@ $(document).ready(function() {
                     col[i].closest('li').classList.add('active');
                 }
             }
-            $.get('/Booking-Hairdresser/mvc/controllers/pagingcomment.php', {
+            $base = $('#base').val();
+            $.get($base + '/mvc/controllers/pagingcomment.php', {
                 id: $('#idShop').val(),
                 page: page
             }).done(function(data) {
@@ -39,7 +41,8 @@ $(document).ready(function() {
                     col[i].closest('li').classList.add('active');
                 }
             }
-            $.get('/Booking-Hairdresser/mvc/controllers/pagingcomment.php', {
+            $base = $('#base').val();
+            $.get($base + '/mvc/controllers/pagingcomment.php', {
                 id: $('#idShop').val(),
                 page: page
             }).done(function(data) {

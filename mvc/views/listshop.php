@@ -13,16 +13,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <!-- CSS -->
-    <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/App.css">
-    <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/popup.css">
-    <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/listshopT.css">
-    <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/style-sevice-page.css">
-    <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/style.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL?>/public/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL?>/public/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL?>/public/css/App.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL?>/public/css/popup.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL?>/public/css/listshopT.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL?>/public/css/style-sevice-page.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL?>/public/css/style.css">
 
     <!--Popup-->
-    <script src="../../Booking-Hairdresser/public/js/popup2.js"></script>
+    
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
@@ -215,14 +215,15 @@
                 </div>
             </div>
         </div>
-
+        <input id='base' type='hidden' value='<?php echo BASE_URL ?>'/>                    
     </div>
     <?php $libar->footer();  ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-    <script src="../../../Booking-Hairdresser/public/js/owl.carousel.min.js"></script>
-    <script src="../../Booking-Hairdresser/public/js/popup.js"></script>
-    <script src="../../../Booking-Hairdresser/public/js/nav-sevice-page.js"></script>
+    <script src="<?php echo BASE_URL?>/public/js/owl.carousel.min.js"></script>
+    <script src="<?php echo BASE_URL?>/public/js/popup.js"></script>
+    <script src="<?php echo BASE_URL?>/public/js/nav-sevice-page.js"></script>
+    <script src="<?php echo BASE_URL?>/public/js/popup2.js"></script>
 
     <!--Carousel-->
     <script>

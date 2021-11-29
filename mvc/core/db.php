@@ -3,10 +3,10 @@
 class db{
 
     public $con;
-    protected $servername = "localhost";
-    protected $username = "root";
-    protected $password = "";
-    protected $dbname = "bookstylist";
+    protected $servername = '127.0.0.1';
+    protected $username = "webgr06";
+    protected $password = "dSjOZWvhXNpeGlNb";
+    protected $dbname = "webgr06";
 
     function __construct(){
         $this->con = mysqli_connect($this->servername, $this->username, $this->password);

@@ -111,6 +111,48 @@ class userModel extends db{
         $result['OneStarRating']=$b;
         return $result;
     }
+    public function updateInfo($id){
+        if (isset($_POST['nameUser'])) {
+            $userName= $_POST['nameUser'];
+            $phoneUser = $_POST['phoneNumber'];
+            $email= $_POST['Emails'];
+            $dateUser= $_POST['dateBirth'];
+            $passwordUser = $_POST['passwordUser'];
+            $password= $_POST['oldPass'];
+            $newPass= $_POST['newPass'];
+            $repassword=$_POST['newPassConfirm'];
+            $gender= $_POST['inlineRadioOptions'];
+            if($passwordUser==$password && $newPass==$repassword){
+                $qr ="UPDATE tbl_user SET `Name` ='$userName',`PhoneNumber`='$phoneUser',`Email`='$email',`Birthday` ='$dateUser',PasswordHash='$newPass' WHERE Id=$id";
+                $result = mysqli_query($this->con,$qr);
+            }
+            else{
+                $qr ="UPDATE tbl_user SET `Name` ='$userName',`PhoneNumber`='$phoneUser',`Email`='$email',`Birthday` ='$dateUser' WHERE Id= $id ";
+                $result = mysqli_query($this->con,$qr);
+            }
+            if($result){
+                echo "<div id='kqBook' class='modal fade'>
+                    <div class='modal-dialog modal-dialog-centered'>
+                        <div style='background:	#00FF00; border-radius: 30px; padding: 50px; '>
+                            <h2 style='text-align: center; color: #fff'> Cập nhật thành công</h2>
+                        </div>  
+                    </div>
+                </div>
+                ";
+            }else{
+                echo "<div id='kqBook' class='modal fade'>
+                    <div class='modal-dialog modal-dialog-centered'>
+                        <div style='background:#ff0000; border-radius: 30px; padding: 50px; '>
+                            <h2 style='text-align: center; color: #fff'> Cập nhật không thành công</h2>
+                        </div>  
+                    </div>
+                </div>";
+            }
+            
+
+
+        }
+    }
    
 }
 ?>

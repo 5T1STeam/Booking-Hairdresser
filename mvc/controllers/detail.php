@@ -51,6 +51,7 @@ class detail extends controller{
                                     "GP"=>$teo->GetService(),
                                     "GO"=>$teo->GetServiceShop($id),
                                     "ID"=>$id,
+                                    "Get"=>$teo->getFavourite($id)
                                     ]
                                         );
 

@@ -14,25 +14,25 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <!-- CSS carousel -->
-    <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/owl.theme.default.min.css">
     <!-- Link app detailShop -->
-    <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/App.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/App.css">
 
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <!--  Link Popup -->
-    <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/popup.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/popup.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
-    <link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/style-sevice-page.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/style-sevice-page.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/listshopT.css">
 
 
-    <script src="../../../Booking-Hairdresser/public/js/detailShop.js"></script>
-    <script src="../../../Booking-Hairdresser/public/js/popup2.js"></script>
+
     <style>
         #navhide {
             display: none;
@@ -100,9 +100,7 @@
                 </div>
                 <div class="booknowBtn">
                     <div class="centerBtn">
-                        <button class="sas mr-3"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
-                            </svg></button>
+
                         <button type="button" class="btn booknow" data-toggle="modal" data-target="#popup-book-shop">Book now</button>
                         <!-- Popup bookshop -->
 
@@ -169,7 +167,7 @@
                                         <p style='margin-top:-15px; font-size: 12px; font-weight: lighter'>" . $rows['Time'] . " phút</p>
                                     </div>
                                     <div class='col-2' style='text-align:right;'>
-                                        <button type='button' class='btn' id='btn-search' data-toggle='modal' data-target='#book-".$data['ID']."-".$rows['ServiceId']."'>Book</button>
+                                        <button type='button' class='btn' id='btn-search' data-toggle='modal' data-target='#book-" . $data['ID'] . "-" . $rows['ServiceId'] . "'>Book</button>
                                     </div>
                                     <hr>
                                 </div>";
@@ -187,7 +185,7 @@
                     </div>
                 </div>
             </div>
-
+            <input type="hidden" id='idShop' value='<?php echo $data['ID'] ?>' />
             <div class="content">
                 <div class="row">
                     <div class="col-md-8 col-sm-12 order-sm-1 content-left">
@@ -210,8 +208,25 @@
 
                         <div class="shopInfo mb-1">
                             <?php
+                            $id = isset($_SESSION['Id']) ? $_SESSION['Id'] : null;
 
-                            echo "<h1 class='h1Detail'>" . $data['GN']['Name'] . "   <button class=' float-right'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='red' class='bi bi-heart-fill' viewBox='0 0 16 16'>
+                            $checkFav = isset($_SESSION['Id']) ? '' : 'disabled';
+
+                            $color = null;
+                            if ($checkFav == '') {
+                                while ($item = mysqli_fetch_assoc($data['Get'])) {
+                                    if ($id == $item['UserId']) {
+                                        $color = 'red';
+                                        break;
+                                    } else {
+                                        $color = 'lightgray';
+                                    }
+                                }
+                            } else {
+                                $color = 'gray';
+                            }
+
+                            echo "<h1 id='favCheck' class='h1Detail'>" . $data['GN']['Name'] . " <button class=' float-right favouriteBtn " . $color . "' " . $checkFav . "><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='" . $color . "' class='bi bi-heart-fill' viewBox='0 0 16 16'>
                             <path fill-rule='evenodd' d='M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z'/>
                           </svg></button></h1>
                         <div class='address'>" . $data['GN']['FullAdress'] . "," . $data['GN']['Ward'] . "," . $data['GN']['District'] . "," . $data['GN']['Province'] . "</div>";
@@ -237,9 +252,9 @@
                             while ($col = mysqli_fetch_array($data["GM"])) {
                                 array_push($list, $col);
                             };
-                            
+
                             while ($rows = mysqli_fetch_array($data["GS"])) {
-                                $nameService='';
+                                $nameService = '';
                                 echo "
                                  <div class='listService'>
                                     <div class='SN'>";
@@ -261,7 +276,7 @@
                                              <!-- Popup Book -->
                                                  <div title='popup-book'>
                                                  <!-- Button to Open the Modal -->
-                                                 <button class=' Btn' data-toggle='modal' data-target='#book-".$data['ID']."-".$rows["ServiceId"]."'>Book</button>
+                                                 <button class='btn btn-book' style='margin:5px 10px' data-toggle='modal' data-target='#book-" . $data['ID'] . "-" . $rows["ServiceId"] . "'>Book</button>
      
                                                  <!-- The Modal -->
      
@@ -271,9 +286,12 @@
                                     </div>
                                 </div>
                              <hr>";
-                                $popup->popupBooking($data['ID'], $data['GN']['Name'], $rows["ServiceId"], $nameService, $rows['Price'], $rows['Time']); 
+                                $popup->popupBooking($data['ID'], $data['GN']['Name'], $rows["ServiceId"], $nameService, $rows['Price'], $rows['Time']);
                             }
                             ?>
+                        </div>
+                        <div class="overlay">
+                            <div class="loader"></div>
                         </div>
                         <div id='kq'></div>
                         <div class="rulesz">
@@ -464,8 +482,8 @@
                         </div>
                         <div class="rating-body">
                             <?php
-                            $con = 3;//Số phần tử 3
-                            if (count($data['GQ']) <= $con) { 
+                            $con = 3; //Số phần tử 3
+                            if (count($data['GQ']) <= $con) {
                                 foreach ($data['GQ'] as $items) {
                                     echo "<div class='card-rating'>
                                 <div class='row'>
@@ -746,13 +764,16 @@
 
         </div>
     </div>
+    <input id='base' type='hidden' value='<?php echo BASE_URL ?>' />
     <?php $libar->footer();  ?>
 
-    <script src="../../../Booking-Hairdresser/public/js/Detail2.script.js"></script>
+    <script src="<?php echo BASE_URL ?>/public/js/Detail2.script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-    <script src="../../../Booking-Hairdresser/public/js/owl.carousel.min.js"></script>
-    <script src="../../../Booking-Hairdresser/public/js/nav.js"></script>
-    <script src="../../../Booking-Hairdresser/public/js/popup.js"></script>
+    <script src="<?php echo BASE_URL ?>/public/js/owl.carousel.min.js"></script>
+    <script src="<?php echo BASE_URL ?>/public/js/nav.js"></script>
+    <script src="<?php echo BASE_URL ?>/public/js/popup.js"></script>
+    <script src="<?php echo BASE_URL ?>/public/js/detailShop.js"></script>
+    <script src="<?php echo BASE_URL ?>/public/js/popup2.js"></script>
     <script>
         $('.owl-carousel').owlCarousel({
             items: 1,
@@ -762,6 +783,7 @@
 
         })
     </script>
+    <script src="<?php echo BASE_URL ?>/public/js/favouriteShop.js"></script>
 </body>
 
 </html>

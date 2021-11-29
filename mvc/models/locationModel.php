@@ -1,7 +1,7 @@
 <?php
 class locationModel extends db{
     public function UpdateLocation(){
-        $sql = "SELECT * FROM tbl_user WHERE Latitude = 0";
+        $sql = "SELECT * FROM tbl_user WHERE Latitude = 0 OR Longtitude = 0";
         $qr = mysqli_query($this->con,$sql);
         $data = array();
         while($row = mysqli_fetch_array($qr,1)){

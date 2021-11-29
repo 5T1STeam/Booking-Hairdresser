@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Đăng nhập</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../../../Booking-Hairdresser/public/css/Loginstyle.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL;?>/public/css/Loginstyle.css">
 </head>
 
 <body class="my-login-page">
@@ -60,10 +60,10 @@
 									</button>
                                     <div class="row mt-3">
                                         <div class="col-8 mb-3">
-                                            <a href=""><img src="../source/img/Fblogo.png" alt="" class="imgfb">Đăng nhập bằng Facebook</a>
+                                            <a href=""><img src="<?php echo BASE_URL ?>/public/img/Fblogo.png" alt="" class="imgfb">Đăng nhập bằng Facebook</a>
                                         </div>
                                         <div class="col-8">
-                                            <a href=""><img src="../source/img/g+logo.png" alt="" class="imggg">Đăng nhập bằng Google</a>
+                                            <a href=""><img src="<?php echo BASE_URL ?>/public/img/g+logo.png" alt="" class="imggg">Đăng nhập bằng Google</a>
                                         </div>
                                     </div>
                                 </div>
@@ -79,6 +79,7 @@
                 </div>
             </div>
         </div>
+        <input id='base' type='hidden' value='<?php echo BASE_URL ?>'/>
     </section>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
