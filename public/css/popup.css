@@ -331,3 +331,33 @@ input.radiotime:disabled+span.btn-time:hover {
 .inputService:focus {
     outline: none;
 }
+
+.howto-input {
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    margin: 0;
+    box-shadow: none;
+}
+
+.howto-input:hover {
+    border-color: #FF421A;
+}
+
+.howto-input:focus {
+    border-color: #FF421A;
+}
+
+.location-input {
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    margin: 0;
+    box-shadow: none;
+}
+
+.location-input:hover {
+    border-color: #FF421A;
+}
+
+.location-input:focus {
+    border-color: #FF421A;
+}
