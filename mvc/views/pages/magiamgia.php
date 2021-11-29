@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/userprofileStyle/voucherStyle.css">
+<link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/userprofileStyle/voucherStyle.css">
 <div class="container vouchers">
     <h3 class="voucherHeader"> Mã giảm giá</h3>
 

@@ -1,7 +1,7 @@
 <?php
 class topic extends controller{
     function Show($id){
-        $this->view("detailBlog".$id."");
+        $this->view("topic",["page"=> $id]);
 
     }
 }

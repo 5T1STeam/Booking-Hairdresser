@@ -33,6 +33,7 @@
     overflow: hidden;
     font-size: 15px;
     color: #FAFAFA;
+    width: 120px !important;
 }
 
 .history-booking--success__info--main-text {
@@ -79,4 +80,5 @@
 
 .history-booking--cancel__info--btn {
     border-radius: 20px;
+    width: 120px !important;
 }

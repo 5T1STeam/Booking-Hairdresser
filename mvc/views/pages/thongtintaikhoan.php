@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../../Booking-Hairdresser/public/css/userprofileStyle/style-infor-page.css">
+<link rel="stylesheet" href="<?php echo BASE_URL?>/public/css/userprofileStyle/style-infor-page.css">
 <div class="container">
     <div class="  head-infor-account">
         <h3> Thông tin tài khoản </h3>
@@ -6,7 +6,7 @@
     <?php
     echo ' 
     <div class=" block-infor ">
-        <form action="thongtintaikhoan.php" method="POST" enctype="multipart/form-data">
+        <form action="" method="POST" class="up" enctype="multipart/form-data">
         <div class="row justify-content-center">
             <img src="' . $data['GN']['Avatar'] . '" style="border-radius: 500px;" width="120" height="120"  id="profileDisplay" >
         </div>
@@ -24,7 +24,7 @@
                 <label class="lable">Họ tên: </label>
             </div>
             <div class="col-6 ">
-                <input type="text" class="form-control forrm" value="' . $data['GN']['Name'] . '">
+                <input type="text" name="nameUser" class="form-control forrm" value="' . $data['GN']['Name'] . '">
             </div>
         </div>
         <div class="row row-infor">
@@ -32,7 +32,7 @@
                 <label class="lable">Số điện thoại: </label>
             </div>
             <div class="col-6">
-                <input type="text" class="form-control forrm" value="' . $data['GN']['PhoneNumber'] . '">
+                <input type="text" name="phoneNumber" class="form-control forrm" value="' . $data['GN']['PhoneNumber'] . '">
             </div>
         </div>
         <div class="row row-infor">
@@ -40,7 +40,7 @@
                 <label class="lable">Email: </label>
             </div>
             <div class="col-6">
-                <input type="text" class="form-control forrm" value="' . $data['GN']['Email'] . '">
+                <input type="text" name="Emails" class="form-control forrm" value="' . $data['GN']['Email'] . '">
             </div>
         </div>
         <div class="row row-infor ">
@@ -48,7 +48,7 @@
                 <label class="lable">Địa chỉ: </label>
             </div>
             <div class="col-6">
-                <input type="text" class="form-control forrm" value="' . $data['GN']['FullAdress'] . ", " . $data['GN']['Ward'] . ", " . $data['GN']['District'] . ", " . $data['GN']['Province'] . '">
+                <input type="text" name="Location" class="form-control forrm" value="' . $data['GN']['FullAdress'] . ", " . $data['GN']['Ward'] . ", " . $data['GN']['District'] . ", " . $data['GN']['Province'] . '">
             </div>
         </div>
         <div class="row">
@@ -73,7 +73,7 @@
                 <label class="lable">Ngày sinh: </label>
             </div>
             <div class="col-6">
-                <input type="date" class="form-control forrm" value="' . $data['GN']['Birthday'] . '">
+                <input type="date" name="dateBirth" class="form-control forrm" value="' . $data['GN']['Birthday'] . '">
             </div>
         </div>
         <div class="row row-infor">
@@ -82,7 +82,7 @@
             </div>
             <div class="col-6 ">
            
-                <input id="password" type="password" class="form-control inputclass formmk" name="password" required data-eye value="' . $data['GN']['PasswordHash'] . '" disabled readonly>
+                <input name="passwordUser"  type="password" class="form-control inputclass formmk" name="password" required  value="' . $data['GN']['PasswordHash'] . '"  readonly>
             </div>
             <div class="change-password " data-toggle="collapse" data-target="#password">Thay đổi</div>
         </div>
@@ -93,7 +93,7 @@
                     <label class="lable">Mật khẩu cũ: </label>
                 </div>
                 <div class="col-6 ">
-                    <input type="text" class="form-control formmk" placeholder="Nhập mật khẩu cũ">
+                    <input name="oldPass" type="text" class="form-control formmk" placeholder="Nhập mật khẩu cũ">
                 </div>
             </div>
             <div class="row row-infor">
@@ -101,7 +101,7 @@
                     <label class="lable">Mật khẩu mới: </label>
                 </div>
                 <div class="col-6 ">
-                    <input type="text" class="form-control formmk" placeholder="Nhập mật khẩu mới từ 6 đến 32 kí tự">
+                    <input name="newPass" type="text" class="form-control formmk" placeholder="Nhập mật khẩu mới từ 6 đến 32 kí tự">
                 </div>
             </div>
             <div class="row row-infor">
@@ -109,18 +109,19 @@
                     <label class="lable">Nhập lại: </label>
                 </div>
                 <div class="col-6 ">
-                    <input type="text" class="form-control formmk" placeholder="Nhập lại mật khẩu mới">
+                    <input name="newPassConfirm" type="text" class="form-control formmk" placeholder="Nhập lại mật khẩu mới">
                 </div>
             </div>
         </div>
         <div class="row justify-content-center">
-            <button type="submit" name="save-user" class="btn-update col-6 ">Cập nhật</button>
+            <button type="submit" name="saveuser" class="btn-update col-6 ">Cập nhật</button>
         </div>
         </form>   
     
       '
 
     ?>
+    <div class="update"></div>
     <hr>
     <div class="row row-infor ">
         <div class="col">
@@ -162,4 +163,17 @@
             reader.readAsDataURL(e.file[0]);
         }
     }
+
+    $('.up').on('submit', function(e) {
+                e.preventDefault();
+                str = $(this).serialize();
+                $base = $('#base').val();
+                $.post($base+'/mvc/controllers/updatePro.php',
+                        $(this).serialize()
+                    )
+                    .done(function(data) {
+                        $('.update').html(data)
+                        $('#kqBook').modal('show');
+                    });
+            })
 </script>
