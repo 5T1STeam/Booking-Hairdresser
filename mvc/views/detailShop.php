@@ -614,7 +614,11 @@
                     </div>
                     <div class="col-md-4 col-sm-12 order-sm-2 content-right">
                         <div class="location">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d250875.47715672414!2d106.59748635152886!3d10.739930049995595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f225c70667f%3A0x80a1b67feed6e90d!2zTGnDqm0gQmFyYmVyIFNob3AgUXXhuq1uIDM!5e0!3m2!1svi!2s!4v1631669555373!5m2!1svi!2s" width="350" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            <?php
+                            echo "
+                            <iframe width='100%' height='300' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' id='gmap_canvas' src='https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=".$data['GL']."+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'></iframe> 
+                                "; ?>
+                           
                             <!-- <div class="GPS">
 
                         </div> -->

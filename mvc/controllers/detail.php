@@ -35,7 +35,11 @@ class detail extends controller{
             $item['End']=$items['EndTime'];
             array_push($results,$item);
         }
-        
+        $location =$teo->GetNameUser($id);
+        $Fullad=$location['FullAdress'] . " , " .$location['Ward'] . " , " .$location['District']." , " .$location['Province']  ;
+        $Fullad=$teo->convert_name( $Fullad);
+         $Fullad=  str_replace(" ","%20",$Fullad); 
+
         $this->view("detailShop",["GAU"=>$teo->GetImgShop($id),
                                     "GN"=>$teo->GetNameUser($id),
                                     "GS"=>$teo->GetServiceShop($id),
@@ -51,7 +55,8 @@ class detail extends controller{
                                     "GP"=>$teo->GetService(),
                                     "GO"=>$teo->GetServiceShop($id),
                                     "ID"=>$id,
-                                    "Get"=>$teo->getFavourite($id)
+                                    "Get"=>$teo->getFavourite($id),
+                                    "GL"=>$Fullad
                                     ]
                                         );
 

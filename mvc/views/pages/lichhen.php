@@ -69,12 +69,10 @@
                         </div>
                         <div class='appointment-schedule__btn'>
                             <div class='row pt-4'>
-                                <div class='col-2 offset-3'>
+                                <div class='col-4 offset-3'>
                                     <button class='changeSce w-100'>Hủy</button>
                                 </div>
-                                <div class='col-2'>
-                                    <button class='changeSce w-100'>Thay đổi</button>
-                                </div>
+                                
                             </div>
 
                         </div>
