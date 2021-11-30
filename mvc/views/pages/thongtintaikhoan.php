@@ -35,7 +35,6 @@
     </div>
 
     <div class=" block-infor ">
-
         <div class="row justify-content-center">
             <img src="<?php if ($data['GN']['Avatar'] !== null) {
                             echo  'data:image/jpeg;base64,' . base64_encode($data['GN']['Avatar']);
@@ -203,6 +202,9 @@
                   
                     $('.update').html(data)
                     $('#kqBook').modal('show');
+                    setTimeout(function() {
+                        location.reload();
+                    },1000)
                 });
         })
         $('#submit').click(function() {

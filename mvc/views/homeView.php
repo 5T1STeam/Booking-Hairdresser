@@ -20,9 +20,9 @@
 
     <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/popup.css">
     <!--Popup-->
-    <script src="<?php echo BASE_URL ?>/public/js/popup2.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -409,8 +409,10 @@
     <script src="<?php echo BASE_URL ?>/public/js/nav.js"></script>
     <script src="<?php echo BASE_URL ?>/public/js/Detail2.script.js"></script>
     <!--Nav starts-->
-    <script src="<?php echo BASE_URL ?>/public/js/popup2.js"></script>
+    
     <!--Popup-->
+    <script src="<?php echo BASE_URL ?>/public/js/popup.js"></script>
+    <script src="<?php echo BASE_URL ?>/public/js/popup2.js"></script>
 
     <script>
         $('#carousel1').owlCarousel({
