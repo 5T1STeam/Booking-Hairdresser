@@ -8,28 +8,40 @@ class Book
         //INSERT INTO `tbl_report`(`Id`, `UserId`, `IsReportShop`, `ShopId`, `IsReportFeedback`, `FeedbackId`, `ReasonId`, `CreateDate`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]')
         $conn = new db();
         $day = date('Y-m-d H:i:s');
-        if ($isreportshop = 1 || $isreportfeedback = 1) {
+        if ($isreportshop == 1 ) {
             //shop
-            $qr = "INSERT INTO tbl_report VALUES (NULL,$iduser,$isreportshop,$shopid,$isreportfeedback,$idfeedback,$reason,$day)";
+            $qr = "INSERT INTO `tbl_report` VALUES (NULL,$iduser,$isreportshop,$shopid,NULL,$idfeedback,$reason,'$day')";
             $kq = mysqli_query($conn->con, $qr);
+            
+        }elseif($isreportfeedback == 1){
+            $qr = "INSERT INTO `tbl_report` VALUES (NULL,$iduser,NULL,$shopid,$isreportfeedback,$idfeedback,$reason,'$day')";
+            $kq = mysqli_query($conn->con, $qr);
+            
         }
         if ($kq) {
             //thành công
-            echo "<div id='kqBook' class='modal fade'>
+            echo "<div id='kqReport' class='modal fade'>
                 <div class='modal-dialog modal-dialog-centered'>
-                    <div style='background:#ff421a; border-radius: 30px; padding: 50px; '>
-                        <h2 style='text-align: center; color: #fff'> Cảm ơn bạn đã sử dụng dịch vụ của Cửa hàng</h2>
+                    <div style='background:#00ffff; border-radius: 30px; padding: 50px; '>
+                        <h2 style='text-align: center; color: #fff'> Báo cáo thành công</h2>
                     </div>  
                 </div>
             </div>";
         } else {
             //không thành công
+            echo "<div id='kqReport' class='modal fade'>
+                <div class='modal-dialog modal-dialog-centered'>
+                    <div style='background:#ff0000; border-radius: 30px; padding: 50px; '>
+                        <h2 style='text-align: center; color: #fff'> Báo cáo không thành công</h2>
+                    </div>  
+                </div>
+            </div>";
         }
     }
 
     public function SetBooking($idshop, $idservice, $iduser, $timebooked)
     {
-        $base = BASE_URL;
+        $base = 'http://localhost/Booking-Hairdresser';
         $conn = new db();
         $pop = new Book();
         $time = explode(" ", $timebooked);

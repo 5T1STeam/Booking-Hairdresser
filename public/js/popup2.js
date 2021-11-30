@@ -4,7 +4,7 @@ $(document).ready(function() {
         provinceid = $('#province').val();
         $('input[name="province"]').val(provinceid);
         $base = $('#base').val();
-        $.post($base + 'mvc/controllers/loadlocation.php', {
+        $.post($base + '/mvc/controllers/loadlocation.php', {
                 province: provinceid
             })
             .done(function(data) {

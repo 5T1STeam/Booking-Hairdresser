@@ -12,7 +12,7 @@ header {
     border-radius: 50px !important;
     background-color: #FF421A !important;
     color: white !important;
-    margin-right: 15px !important;
+    margin: auto !important;
 }
 
 .btn-login:hover {
@@ -24,7 +24,7 @@ header {
     border-radius: 50px !important;
     color: #ffffff !important;
     border: 2px solid #FF421A !important;
-    margin-right: 15px;
+    margin: auto !important;
 }
 
 .btn-business:hover {
