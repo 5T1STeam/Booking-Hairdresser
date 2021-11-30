@@ -30,13 +30,14 @@ class userModel extends db{
             $username = $_POST['name'];
             $password = ($_POST['password']);
             $repassword = ($_POST['repassword']);
+            $role = 1;
         
             if ($password == $repassword) {
                 $sql = "SELECT * FROM tbl_user WHERE Email='$email'";
                 $result = mysqli_query($this->con, $sql);
                 if (!$result->num_rows > 0) {
-                    $sql = "INSERT INTO tbl_user (`Name`, Email, PasswordHash)
-                            VALUES ('$username', '$email', '$password')";
+                    $sql = "INSERT INTO tbl_user (`Name`, Email, PasswordHash, RoleId) 
+                    VALUES ('$username', '$email', '$password', '$role')";
                     $result = mysqli_query($this->con, $sql);
                     if ($result) {
                         $username = "";
