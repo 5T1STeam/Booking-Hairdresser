@@ -361,3 +361,153 @@ input.radiotime:disabled+span.btn-time:hover {
 .location-input:focus {
     border-color: #FF421A;
 }
+
+.radio-report {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    margin: 0px auto;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.radio-report input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.radio-report-fix {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 1px solid #FF421A;
+}
+
+.radio-report input:checked~.radio-report-fix {
+    color: #FF421A;
+}
+
+.radio-report-fix:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.radio-report input:checked~.radio-report-fix:after {
+    display: block;
+}
+
+.radio-report .radio-report-fix:after {
+    top: 2px;
+    left: 2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #FF421A;
+}
+
+#btn-report {
+    border-radius: 50px;
+    background-color: #FF421A;
+    color: #fff;
+}
+
+#btn-report:focus {
+    box-shadow: 0px 0px 1px 2px #ff8d76;
+}
+
+#btn-rate {
+    border-radius: 50px;
+    background-color: #FF421A;
+    color: #fff;
+}
+
+#btn-rate:focus {
+    box-shadow: 0px 0px 1px 2px #ff8d76;
+}
+
+#btn-popup-rate {
+    border-radius: 50px;
+    background-color: #FF421A;
+    color: #fff;
+}
+
+#btn-popup-rate:focus {
+    box-shadow: 0px 0px 1px 2px #ff8d76;
+}
+
+label {
+    margin: 0;
+    padding: 0;
+}
+
+
+/****** Style Star Rating Widget *****/
+
+#rating {
+    border: none;
+    float: left;
+}
+
+#rating>input {
+    display: none;
+}
+
+
+/*ẩn input radio - vì chúng ta đã có label là GUI*/
+
+#rating>label:before {
+    margin: -2px 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005";
+}
+
+
+/*1 ngôi sao*/
+
+#rating>.half:before {
+    content: "\f089";
+    position: absolute;
+}
+
+
+/*0.5 ngôi sao*/
+
+#rating>label {
+    color: #ddd;
+    float: right;
+}
+
+
+/*float:right để lật ngược các ngôi sao lại đúng theo thứ tự trong thực tế*/
+
+
+/*thêm màu cho sao đã chọn và các ngôi sao phía trước*/
+
+#rating>input:checked~label,
+#rating:not(:checked)>label:hover,
+#rating:not(:checked)>label:hover~label {
+    color: #FF421A;
+}
+
+
+/* Hover vào các sao phía trước ngôi sao đã chọn*/
+
+#rating>input:checked+label:hover,
+#rating>input:checked~label:hover,
+#rating>label:hover~input:checked~label,
+#rating>input:checked~label:hover~label {
+    color: #ff8d76;
+}

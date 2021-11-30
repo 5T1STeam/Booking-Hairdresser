@@ -196,7 +196,11 @@ $(document).ready(function() {
 
     //Report
     $("input[name='radio-report']").click(function() {
-        document.getElementById('report-value').value = this.value;
+        var check = document.getElementsByClassName("report-value");
+        for (var i = 0; i < check.length; i++) {
+            check[i].value = $(this).val();
+        }
+
     });
 
     //Search
@@ -208,5 +212,28 @@ $(document).ready(function() {
             $('#serviceTyping').val($(this).val());
             $('.service').prop('disabled', false);
         }
+    })
+
+    $('.reporting').on('submit', function(e) {
+        e.preventDefault();
+        str = $(this).serialize();
+        $base = $('#base').val();
+        $.post($base + '/mvc/controllers/reporting.php',
+                $(this).serialize()
+            )
+            .done(function(data) {
+                alert(data);
+                $('#kq').html(data)
+            });
+    })
+
+    $('.btn-reporting').on('click', function() {
+        $('.modal').modal('hide');
+        $('.overlay').show();
+        setTimeout(function() {
+            $('.overlay').hide();
+            $('#kqReport').modal('show');
+        }, 2000)
+
     })
 })

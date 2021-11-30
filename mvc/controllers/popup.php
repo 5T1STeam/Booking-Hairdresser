@@ -22,7 +22,7 @@
             include "./mvc/views/pages/popup_booking.php";
         }
 
-        public function popupReports($userid,$isreportshop,$shopid,$isreportfeedback,$feedback,$reasonid,$createdate){
+        public function popupReports($isreportshop,$shopid,$isreportfeedback,$feedback){
             include "./mvc/views/pages/popup_reports.php";
         }
     }

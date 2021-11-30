@@ -486,8 +486,8 @@
                             if (count($data['GQ']) <= $con) {
                                 foreach ($data['GQ'] as $items) {
                                     echo "<div class='card-rating'>
-                                <div class='row'>
-                                    <div class='col-md-6 mb-1 stars'>";
+                                            <div class='row'>
+                                                <div class='col-md-6 mb-1 stars'>";
                                     for ($i = 1; $i <= 5; $i++) {
                                         if ($i <= $items['Rating']) {
                                             echo "<i class='fa fa-star'></i>";
@@ -496,44 +496,44 @@
                                         }
                                     }
                                     echo "   
-                                    </div>
-                                    <div class='col-md-6 text-md-right'>
-                                        <span class='location'>" . $items['Province'] . ",</span>
-                                        <span class='date-rating'>" . $items['CreateDate'] . "</span>
-                                    </div>
-                                </div>
-                                
-                                   <h6 class='service-name mb-1'>" . $items['ServiceName'] . "</h6>
-                                <h6 class='client-name mb-2'>" . $items['UserName'] . "</h6>
-                                <p class='comment'>" . $items['Content'] . "</p>
-                                <img class='pb-3' src='" . $items['Image'] . "' width='auto' height='200'>
-                                <div class='row'>
-                                    <div class='col-md-2'>
-                                        <button type='button' class='btn-in-rate'> " . $items['Like'] . "<span class='material-icons text-center ml-2'>thumb_up</span></button>
-                                    </div>
-                                    <div class='col-md-2'>
-                                        <button type='button' class='btn-in-rate'> " . $items['DLike'] . "<span class='material-icons text-center ml-2'>thumb_down</span></button>
-                                    </div>
-                                    <div class='col-md-4'></div>
-                                    <div class='col-md-4 text-right'>
-                                        <button type='button' class='btn-in-rate' data-toggle='modal' data-target='#popup-report'> Report <span class='material-icons text-center ml-2'>flag</span></button>
-    
-                                    </div>
-    
-                                </div>
-                                <div class=' row'>
-                                    <div class='col-md'>
-                                        <hr>
-                                    </div>
-                                </div>
-                            </div>";
+                                                </div>
+                                                <div class='col-md-6 text-md-right'>
+                                                    <span class='location'>" . $items['Province'] . ",</span>
+                                                    <span class='date-rating'>" . $items['CreateDate'] . "</span>
+                                                </div>
+                                            </div>
+                                    
+                                            <h6 class='service-name mb-1'>" . $items['ServiceName'] . "</h6>
+                                            <h6 class='client-name mb-2'>" . $items['UserName'] . "</h6>
+                                            <p class='comment'>" . $items['Content'] . "</p>
+                                            <img class='pb-3' src='" . $items['Image'] . "' width='auto' height='200'>
+                                            <div class='row'>
+                                                <div class='col-md-2'>
+                                                    <button type='button' class='btn-in-rate'> " . $items['Like'] . "<span class='material-icons text-center ml-2'>thumb_up</span></button>
+                                                </div>
+                                                <div class='col-md-2'>
+                                                    <button type='button' class='btn-in-rate'> " . $items['DLike'] . "<span class='material-icons text-center ml-2'>thumb_down</span></button>
+                                                </div>
+                                                <div class='col-md-4'></div>
+                                                <div class='col-md-4 text-right'>
+                                                    <button type='button' class='btn-in-rate' data-toggle='modal' data-target='#report-" . $id . "-" . $items['UserId'] . "'> Report <span class='material-icons text-center ml-2'>flag</span></button>
+                                                </div>
+                                            </div>
+                                            <div class=' row'>
+                                                <div class='col-md'>
+                                                    <hr>
+                                                </div>
+                                            </div>
+                                        </div>";
+                                        //comment
+                                    $popup->popupReports(null,$items['UserId'],1,$items['Id']);
                                 }
                             } else {
                                 for ($z = 0; $z < $con; $z++) {
                                     $items = $data['GQ'][$z];
                                     echo "<div class='card-rating'>
-                                <div class='row'>
-                                    <div class='col-md-6 mb-1 stars'>";
+                                            <div class='row'>
+                                                <div class='col-md-6 mb-1 stars'>";
                                     for ($i = 1; $i <= 5; $i++) {
                                         if ($i <= $items['Rating']) {
                                             echo "<i class='fa fa-star'></i>";
@@ -542,39 +542,39 @@
                                         }
                                     }
                                     echo "   
-                                    </div>
-                                    <div class='col-md-6 text-md-right'>
-                                        <span class='location'>" . $items['Province'] . ",</span>
-                                        <span class='date-rating'>" . $items['CreateDate'] . "</span>
-                                    </div>
-                                </div>
+                                                </div>
+                                                <div class='col-md-6 text-md-right'>
+                                                    <span class='location'>" . $items['Province'] . ",</span>
+                                                    <span class='date-rating'>" . $items['CreateDate'] . "</span>
+                                                </div>
+                                            </div>
                                 
-                                   <h6 class='service-name mb-1'>" . $items['ServiceName'] . "</h6>
-                                <h6 class='client-name mb-2'>" . $items['UserName'] . "</h6>
-                                <p class='comment'>" . $items['Content'] . "</p>
-                                <img class='pb-3' src='" . $items['Image'] . "' width='auto' height='200'>
-                                <div class='row'>
-                                    <div class='col-md-2'>
-                                        <button type='button' class='btn-in-rate'> " . $items['Like'] . "<span class='material-icons text-center ml-2'>thumb_up</span></button>
-                                    </div>
-                                    <div class='col-md-2'>
-                                        <button type='button' class='btn-in-rate'> " . $items['DLike'] . "<span class='material-icons text-center ml-2'>thumb_down</span></button>
-                                    </div>
-                                    <div class='col-md-4'></div>
-                                    <div class='col-md-4 text-right'>
-                                        <button type='button' class='btn-in-rate' data-toggle='modal' data-target='#popup-report'> Report <span class='material-icons text-center ml-2'>flag</span></button>
-    
-                                    </div>
-    
-                                </div>
-                                <div class=' row'>
-                                    <div class='col-md'>
-                                        <hr>
-                                    </div>
-                                </div>
-                            </div>";
-                                }
-                            }
+                                            <h6 class='service-name mb-1'>" . $items['ServiceName'] . "</h6>
+                                            <h6 class='client-name mb-2'>" . $items['UserName'] . "</h6>
+                                            <p class='comment'>" . $items['Content'] . "</p>
+                                            <img class='pb-3' src='" . $items['Image'] . "' width='auto' height='200'>
+                                            <div class='row'>
+                                                <div class='col-md-2'>
+                                                    <button type='button' class='btn-in-rate'> " . $items['Like'] . "<span class='material-icons text-center ml-2'>thumb_up</span></button>
+                                                </div>
+                                                <div class='col-md-2'>
+                                                    <button type='button' class='btn-in-rate'> " . $items['DLike'] . "<span class='material-icons text-center ml-2'>thumb_down</span></button>
+                                                </div>
+                                                <div class='col-md-4'></div>
+                                                <div class='col-md-4 text-right'>
+                                                    <button type='button' class='btn-in-rate' data-toggle='modal' data-target='#report-" . $id . "-" . $items['UserId'] . "'> Report <span class='material-icons text-center ml-2'>flag</span></button>
+                
+                                                </div>
+                
+                                            </div>
+                                            <div class=' row'>
+                                                <div class='col-md'>
+                                                    <hr>
+                                                </div>
+                                            </div>
+                                        </div>";
+                                            }
+                                        }
 
 
                             ?>
@@ -691,70 +691,7 @@
                                         <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
                                     </svg></span></a>
                             <!-- Modal -->
-                            <div class="modal fade" id="popup-report" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-body" style="text-align: center;">
-                                            <h5>Báo cáo hình ảnh hoặc nội dung</h5>
-                                            <hr />
-                                        </div>
-                                        <div class="modal-body" style="margin:-30px 70px 0; text-align:left;">
-                                            <label class="radio-report">
-                                                <input type="radio" name="radio-report">
-                                                <span class="radio-report-fix"></span>
-                                                <span>Nội dung phản cảm</span>
-                                            </label>
-                                            <hr>
-                                            <label class="radio-report">
-                                                <input type="radio" name="radio-report">
-                                                <span class="radio-report-fix"></span>
-                                                <span>Nội dung quá bạo lực</span>
-                                            </label>
-                                            <hr>
-                                            <label class="radio-report">
-                                                <input type="radio" name="radio-report">
-                                                <span class="radio-report-fix"></span>
-                                                <span>Chứa nội dung gây hấn</span>
-                                            </label>
-                                            <hr>
-                                            <label class="radio-report">
-                                                <input type="radio" name="radio-report">
-                                                <span class="radio-report-fix"></span>
-                                                <span>Cổ xúy hành động nguy hiểm</span>
-                                            </label>
-                                            <hr>
-                                            <label class="radio-report">
-                                                <input type="radio" name="radio-report">
-                                                <span class="radio-report-fix"></span>
-                                                <span>Ngược đãi trẻ em</span>
-                                            </label>
-                                            <hr>
-                                            <label class="radio-report">
-                                                <input type="radio" name="radio-report">
-                                                <span class="radio-report-fix"></span>
-                                                <span>Xâm hại quyền riêng tư của tôi</span>
-                                            </label>
-                                            <hr>
-                                            <label class="radio-report">
-                                                <input type="radio" name="radio-report">
-                                                <span class="radio-report-fix"></span>
-                                                <span>Phân biệt chúng tộc</span>
-                                            </label>
-                                            <hr>
-                                            <label class="radio-report">
-                                                <input type="radio" name="radio-report">
-                                                <span class="radio-report-fix"></span>
-                                                <span>Spam</span>
-                                            </label>
 
-                                        </div>
-                                        <div class="modal-footer justify-content-center">
-                                            <button type="button" class="btn btn-cancel" data-dismiss="modal">Hủy</button>
-                                            <button type="button" class="btn" id="btn-report">Báo Cáo</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
                         </div>
                         <hr>
