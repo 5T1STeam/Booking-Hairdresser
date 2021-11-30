@@ -10,8 +10,10 @@ class profile extends controller{
     function thongtintaikhoan($id){
       $teo = $this->model("userModel");
       $teo->updateInfo($id);
+      $teo->anh($id);
+
       
-        $this->view("profile",["page"=>"thongtintaikhoan", "GN"=>$this->user->GetNameUser($id)]);
+      $this->view("profile",["page"=>"thongtintaikhoan", "GN"=>$this->user->GetNameUser($id)]);
          
      }
      function cuahangyeuthich($id){

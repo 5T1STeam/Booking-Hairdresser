@@ -126,6 +126,7 @@ class userModel extends db
                 $result = mysqli_query($this->con, $qr);
             } else {
                 $qr = "UPDATE tbl_user SET `Name` ='$userName',`PhoneNumber`='$phoneUser',`Email`='$email',`Birthday` ='$dateUser' WHERE Id= $id ";
+                echo $qr;
                 $result = mysqli_query($this->con, $qr);
             }
             if ($result) {
@@ -149,6 +150,20 @@ class userModel extends db
         }
     }
 
+    public function anh($id){
+        if(isset($_POST["submit"]))  
+        {  
+             $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));  
+             $query = "UPDATE tbl_user SET `Avatar` = '$file' where Id=$id";  
+             if(mysqli_query($this->con, $query))  
+             {  
+                  echo '<script>alert("Cập nhật ảnh thành công")</script>';  
+             }  
+        }  	  
+	
+
+}
+       
     public function xoa($id)
     {
         if (isset($_POST['xoa'])) {
