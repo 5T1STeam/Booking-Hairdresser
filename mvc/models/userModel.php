@@ -175,7 +175,6 @@ class userModel extends db
             
         }
     }
-<<<<<<< HEAD
     public function deleteLich($id){
         if(isset($_POST['cancel'])){
             $bookingId= $_POST['bookingId'];
@@ -188,6 +187,4 @@ class userModel extends db
         
     }
    
-=======
->>>>>>> ProFi
 }
