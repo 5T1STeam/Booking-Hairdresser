@@ -101,7 +101,7 @@
                     echo '
                         <div class="col-md-4 col-sm-12 mt-3">
                             <div class="row  proColDiamond">
-                                <div class="col-3 ">
+                                <div class="col-4 ">
                                     <img class="img-pro img-fluid" src="' . $row['Image'] . '" alt="">
                                     <div class="vl"></div>
                                     <p class="mt-2 proPercent">' . $row['ValuePromotion'] . '</p>
@@ -126,7 +126,7 @@
                     echo '
                         <div class="col-md-4 col-sm-12 mt-3">
                             <div class="row  proColGold">
-                                <div class="col-3 ">
+                                <div class="col-4 ">
                                     <img class="img-pro img-fluid" src="' . $row['Image'] . '" alt="">
                                     <div class="vl"></div>
                                     <p class="mt-2 proPercent">Giảm ' . $row['ValuePromotion'] . '</p>
@@ -151,7 +151,7 @@
                     echo '
                         <div class="col-md-4 col-sm-12 mt-3">
                             <div class="row  proColSilver">
-                                <div class="col-3 ">
+                                <div class="col-4 ">
                                     <img class="img-pro img-fluid" src="' . $row['Image'] . '" alt="">
                                     <div class="vl"></div>
                                     <p class="mt-2 proPercent">Giảm ' . $row['ValuePromotion'] . '</p>
@@ -176,7 +176,7 @@
                     echo '
                         <div class="col-md-4 col-sm-12 mt-3">
                             <div class="row  proColBro">
-                                <div class="col-3 ">
+                                <div class="col-4 ">
                                     <img class="img-pro img-fluid" src="' . $row['Image'] . '" alt="">
                                     <div class="vl"></div>
                                     <p class="mt-2 proPercent">Giảm ' . $row['ValuePromotion'] . '</p>
@@ -203,7 +203,7 @@
                 echo '
                       <div class="col-md-4 col-sm-12 mt-3 ">
                       <div class="row proCol">
-                          <div class="col-3 ">
+                          <div class="col-4 ">
                               <img class="img-pro img-fluid" src="' . $row['Image'] . '" alt="">
                               <div class="vl"></div>
                               <p class="mt-2 proPercent">Giảm ' . $row['ValuePromotion'] . '</p>

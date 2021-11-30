@@ -50,7 +50,7 @@
     font-weight: bold;
 }
 .proCol {
-    background: linear-gradient(180deg, #ffc0cb00 10%, #646464 100%, #ff676700 10%);
+    background-color: #ff3f2a96;
     width: 100%;
     height: 100%;
     border-radius: 10px;

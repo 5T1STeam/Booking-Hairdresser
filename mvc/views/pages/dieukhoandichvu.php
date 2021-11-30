@@ -98,7 +98,7 @@
                     echo'
                     <h5>5. Quyền bảo mật</h5>
                     Bạn đồng ý và chấp thuận việc Book Stylist sử dụng và xử lý thông tin cá nhân của Bạn như được nêu
-                    trong <a class="bm" href="../../../Booking-Hairdresser/profile/chinhsachbaomat/'.$data['GN']['Id'].'"> Chính Sách Bảo Mật</a>, được sửa đổi bổ sung vào từng thời điểm.
+                    trong <a class="bm" href="' . BASE_URL . '/profile/chinhsachbaomat/' . $data['GN']['Id'] . '"> Chính Sách Bảo Mật</a>, được sửa đổi bổ sung vào từng thời điểm.
                 
                     ' 
                     ?>

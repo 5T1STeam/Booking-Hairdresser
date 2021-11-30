@@ -8,13 +8,17 @@ class profile extends controller{
       $id = $_SESSION['Id'];
       $teo = $this->model("userModel");
       $teo->updateInfo($id);
+      $teo->anh($id);
+
       
-        $this->view("profile",["page"=>"thongtintaikhoan", "GN"=>$this->user->GetNameUser($id)]);
+      $this->view("profile",["page"=>"thongtintaikhoan", "GN"=>$this->user->GetNameUser($id)]);
          
      }
      function cuahangyeuthich(){
       $id = $_SESSION['Id'];
         $fvrshop=$this->user->New($id);
+        $teo = $this->model("userModel");
+         $teo->xoa($id);
         $this->view("profile",["page"=>"cuahangyeuthich","GN"=>$this->user->GetNameUser($id),                                                           
                                                          "Gf"=>  $fvrshop]);
 
