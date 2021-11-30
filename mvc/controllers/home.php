@@ -8,14 +8,7 @@ class home extends controller{
         $promotion = $home ->GetPromotion();
         $topic = $home->GetTopic();
         $service = $home->GetService();
-        if(isset($_SESSION['lat']) && isset($_SESSION['long'])){
-            $lat = $_SESSION['lat'];
-            $long = $_SESSION['long'];
-            $nearby = $home-> GetShopNearby($lat, $long);
-        }
-        else{
-            $nearby =[];
-        }
+        $nearby =[];
         $this->view("homeView",["Suggest"=>$suggest,
                                 "Promotion" => $promotion,
                                 "Topic"=>$topic,
@@ -25,10 +18,11 @@ class home extends controller{
     }
 
     function Nearby($lat, $long){
-        $_SESSION['lat'] = $lat;
-        $_SESSION['long'] = $long;
+    
         $home = $this->model("homeModel");
        $nearby = $home-> GetShopNearby($lat, $long);
+       usort($nearby, function($a, $b) {
+        return $a['Distance'] <=> $b['Distance'];});
         $suggest = $home->GetShopSuggest();
         $promotion = $home ->GetPromotion();
         $topic = $home->GetTopic();

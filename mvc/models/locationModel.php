@@ -1,7 +1,7 @@
 <?php
 class locationModel extends db{
     public function UpdateLocation(){
-        $sql = "SELECT * FROM tbl_user WHERE RoleId = 2 AND(Latitude = 0 OR Longtitude = 0)";
+        $sql = "SELECT * FROM tbl_user WHERE Latitude = 0 OR Longtitude = 0";
         $qr = mysqli_query($this->con,$sql);
         $data = array();
         while($row = mysqli_fetch_array($qr,1)){
@@ -20,8 +20,7 @@ class locationModel extends db{
 
         foreach($data as $item)
         {
-            $address = $item['FullAdress']." ".$item['AddressPath3']." ".$item['AddressPath2']." ".$item['AddressPath1'];
-            echo $address;
+            $address = $item['FullAdress']." , ".$item['AddressPath3'].", ".$item['AddressPath2'].",".$item['AddressPath1'];
             $queryString = http_build_query([
                 'auth' => '',
                 'scantext' => $address,
@@ -42,7 +41,6 @@ class locationModel extends db{
             $id = $item['Id'];
             $sqlupdate = "UPDATE tbl_user SET Latitude = $lat, Longtitude = $lng WHERE id = $id";
             mysqli_query($this->con, $sqlupdate);
-            sleep(2);
         }
     }
    
