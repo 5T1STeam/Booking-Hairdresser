@@ -16,7 +16,7 @@
                 <div class="modal-body" style="text-align: center;margin-top:-20px;">
                     <form action="" method="POST" enctype="multipart/form-data">
                         <input type="file" name="image" id="imagess">
-                        <input class="btn" type="submitImg" name="submit" id="submit" value="Xác Nhận">
+                        <input class="btn" type="submit" name="submit" id="submit" value="Xác Nhận">
                     </form>
                 </div>
                 <style>
@@ -35,6 +35,7 @@
     </div>
 
     <div class=" block-infor ">
+
         <div class="row justify-content-center">
             <img src="<?php if ($data['GN']['Avatar'] !== null) {
                             echo  'data:image/jpeg;base64,' . base64_encode($data['GN']['Avatar']);
@@ -83,7 +84,7 @@
                 </div>
                 <div class="col-6">
                     <input type="text" name="Location" class="form-control forrm" value="<?php if ($data['GN']['AddressPath'] == 0) {
-                                                                                                echo $data['GN']['FullAdress'];
+                                                                                                echo '';
                                                                                             } else {
                                                                                                 echo $data['GN']['FullAdress'] . ', ' . $data['GN']['Ward'] . ', ' . $data['GN']['District'] . ', ' . $data['GN']['Province'];
                                                                                             } ?>">
@@ -199,15 +200,12 @@
                     $(this).serialize()
                 )
                 .done(function(data) {
-                    
+                  
                     $('.update').html(data)
-                    $('#kqBook').modal('show')
-                    setTimeout(function() {
-                        location.reload();
-                    },1000)
+                    $('#kqBook').modal('show');
                 });
         })
-        $('#submitImg').click(function() {
+        $('#submit').click(function() {
             var image_name = $('#imagess').val();
             if (image_name == '') {
                 alert("Vui lòng chọn hình ảnh");

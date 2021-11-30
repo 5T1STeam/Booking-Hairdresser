@@ -20,9 +20,9 @@
 
     <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/popup.css">
     <!--Popup-->
+    <script src="<?php echo BASE_URL ?>/public/js/popup2.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -51,10 +51,14 @@
         .owl-theme .owl-nav [class*="owl-"]:hover {
             background-color: transparent;
         }
-        .topic a, a:focus, a:active {
+
+        .topic a,
+        a:focus,
+        a:active {
             color: inherit;
             text-decoration: none;
         }
+
         .topic a:hover {
             color: #ff421a;
         }
@@ -77,8 +81,9 @@
 
                     <div class="nav justify-content-end topnav">
                         <a class="nav-link" href="<?php echo BASE_URL ?>/home">Trang Chủ</a>
-                        <a class="nav-link" href="<?php echo BASE_URL ?>/listshop/category&dm=1&page=1">Danh Mục</a>
+                        <a class="nav-link" href="<?php echo BASE_URL ?>/listshop">Danh Mục</a>
                         <a class="nav-link" href="#">Khám Phá</a>
+                        <a class="btn btn-business" onclick="clickBtndoitac()">Đối tác</a>
                         <?php
                         if (isset($_SESSION['Id'])) {
                             echo "<div class='dropdown'>
@@ -99,7 +104,7 @@
                             echo "<a class='btn btn-login' href='" . BASE_URL . "/login'>Sign in / Login</a>";
                         }
                         ?>
-                        <a class="btn btn-business" onclick="clickBtndoitac()">Đối tác</a>
+
 
 
                     </div>
@@ -210,27 +215,8 @@
                     <input id="location-2" type="text" class="form-control" placeholder="Địa điểm" data-toggle="modal" data-target="#popup-location" style="background-color: #fff;">
                 </div>
                 <div class="nav justify-content-end btn-topnavhide">
-                    <?php
-                    if (isset($_SESSION['Id'])) {
-                        echo "<div class='dropdown'>
-                            <a class='dropdown-toggle nav-link' id='ddMenu' data-toggle='dropdown'><span><svg xmlns='http://www.w3.org/2000/svg' width='25' height='25' fill='currentColor' class='bi bi-person-circle' viewBox='0 0 18 18'>
-                                        <path d='M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z' />
-                                        <path fill-rule='evenodd' d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z' />
-                                    </svg></span>
-                                Profile
-                            </a>
-                            <div class='dropdown-menu'>
-                                <a class='dropdown-item' href='".BASE_URL."/profile/thongtintaikhoan/" . $_SESSION['Id'] . "'>Trang cá nhân </a>
-                                <a class='dropdown-item' href='".BASE_URL."/profile/lichhen/" . $_SESSION['Id'] . "'>Lịch book</a>
-                                <a class='dropdown-item' href='".BASE_URL."/profile/thongbaocuatoi/" . $_SESSION['Id'] . "'>Thông báo</a>
-                                <a class='dropdown-item' href='".BASE_URL."/logout.php'>Đăng xuất</a>
-                            </div>
-                        </div>";
-                    } else {
-                        echo "<a class='btn btn-login' href='".BASE_URL."/login'>Sign in / Login</a>";
-                    }
-                    ?>
                     <a class="btn btn-business" onclick="clickBtndoitac()">Đối tác</a>
+                    <a class="btn btn-login" href="../html/login.html">Sign in / Login</a>
                     <label for="nav-check" class="nav-mobile-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" class="bi bi-list" viewBox="0 0 15 15">
                             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
@@ -249,12 +235,11 @@
                 <?php
 
                 foreach ($data['Suggest'] as $item) {
-                    $items=$item['Avatar']!==null ? 'data:image/jpeg;base64,' . base64_encode($item['Avatar']):BASE_URL.'/public/img/noimage.jpg';
                     echo '
                 <div class=ml-2 mr-2>
-                    <a class=linkShoptoDetail href="'.BASE_URL.'/detail/show/' . $item['Id'] . '">
+                    <a class=linkShoptoDetail href="' . BASE_URL . '/detail/show/' . $item['Id'] . '">
                         <div class="card">
-                            <img src=' . $items . ' alt="" class="card-img-top">
+                            <img src=' . $item['Avatar'] . ' alt="" class="card-img-top">
                             <div class="card-body text-left">
                                 <h5 class="card-title text-left SZ"> ' . $item['Name'] . '</h5>
                                 <h5 class="text-left ratezx ">Rate: <span style="font-size:20px;cursor:pointer;"';
@@ -284,7 +269,9 @@
                 ?>
             </div>
         </div>
-        <div class="wrapper" id="TurnonLocation">
+        <div class="wrapper" id="TurnonLocation" <?php if (isset($_SESSION['lat'])) {
+                                                        echo 'style ="display: none"';
+                                                    } ?>>
             <div class="col-md-12 pt-5">
                 <div class="shadow p-3 mb-5 bg-white">
                     <div class="row justify-content-center">
@@ -296,7 +283,7 @@
                             <br>
                             <div class="row btn-location">
                                 <div class="col-md-3 mb-2 col-12">
-                                    <a class="btn btn-full" id="GetLocation" onclick="request_location()">Tìm kiếm gần tôi</a>
+                                    <a class="btn btn-full" id="GetLocation">Tìm kiếm gần tôi</a>
                                 </div>
                                 <div class="col-md-2  col-12">
                                     <a class="btn btn-outline " id="notNows">Không phải bây giờ</a>
@@ -310,7 +297,9 @@
                 </div>
             </div>
         </div>
-        <div class="nearme">
+        <div class="nearme" <?php if (!isset($_SESSION['lat'])) {
+                                echo 'style ="display: none"';
+                            } ?>>
             <h1 class="h1Re">Gần tôi</h1>
             <div class="owl-carousel owl-theme" id="carousel2">
                 <?php
@@ -320,12 +309,11 @@
                     if ($i > 20) {
                         break;
                     }
-                    $items=$item['Avatar']!==null ? 'data:image/jpeg;base64,' . base64_encode($item['Avatar']):BASE_URL.'/public/img/noimage.jpg';
                     echo '
                 <div class=ml-2 mr-2>
                     <a class="linkShoptoDetail" href="' . BASE_URL . '/detail/' . $item['Id'] . '">
                         <div class="card">
-                            <img src=' . $items. ' alt="" class="card-img-top">
+                            <img src=' . $item['Avatar'] . ' alt="" class="card-img-top">
                             <div class="card-body text-left">
                                 <h5 class="card-title text-left SZ"> ' . $item['Name'] . '</h5>
                                 <h5 class="text-left ratezx ">Rate: <span style="font-size:20px;cursor:pointer;"';
@@ -354,70 +342,84 @@
                 }
                 ?>
             </div>
-            <div class=" wrapper">
-                <div class="row">
-                    <h1 class="col-md-6">Ưu đãi nổi bật</h1>
-                    <p class="col-md-6 text-right watchmore">Xem thêm >>> </p>
-                </div>
-                <div class="row text-center">
-                    <?php
-                    foreach ($data['Promotion'] as $item) {
-                        echo ' <a class="col-md-4 mb-3" href = '.BASE_URL.'/promotion/show/'.$item['Id'].'>
-                    <p class="promotionText eff"> ' . $item['Content'] . '</p>
-                    <img class="promotionimg mx-auto d-block eff" src="' . $item['Image'] . '" alt="promotion">
-                    </img>
-                </a>';
-                    }
-                    ?>
-                </div>
+        </div>
+        <div class=" wrapper">
+            <div class="row">
+                <h1 class="col-md-6">Ưu đãi nổi bật</h1>
             </div>
-            <div class="wrapper">
-                <div class="inspiredbg text-center">
-                    <br>
-                    <h1 style="color: #ff421a;">Chủ đề làm đẹp</h1>
-                    <p class="sub" style="color: black;">
-                        Bí quyết làm đẹp vạn người mê
-                    </p>
-                    <div class="owl-carousel owl-theme" id="carousel3">
-                        <?php
-                        foreach ($data['Topic'] as $topic) {
-                            echo
-                            '<div class="mr-2 mb-2 ml-2 topic">
-                        <a class="card infoTopic" href = '.BASE_URL.'/topic/show/'.$topic['Id'].'>
+            <div class="owl-carousel owl-theme" id="carousel4">
+                <?php
+
+                foreach ($data['Promotion'] as $item) {
+                    echo '
+                <div class=ml-2 mr-2>
+                    <a class=linkShoptoDetail href="' . BASE_URL . '/listshop/' . $item['Id'] . '">
+                        <div class="card">
+                            <img src=' . $item['Image'] . ' alt="" class="card-img-top">
+                            <div class="card-body text-left">
+                                <h5 class="card-title text-left SZ"> ' . $item['Code'] . '</h5>';
+                    echo '
+                                <div class="contentP">
+                                <h6 style="font-size: 13px">' . $item['Value'] . ' ' . $item['Condition'] . '</h6>
+                                <h6 style="font-size: 13px">' . $item['Max'] . '</h6>
+                                <h6 style="font-size: 13px">' . $item['Recipient'] . '</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>';
+                }
+                ?>
+            </div>
+        </div>
+       
+        <div class="wrapper">
+            <div class="inspiredbg text-center">
+                <br>
+                <h1 style="color: #ff421a;">Chủ đề làm đẹp</h1>
+                <p class="sub" style="color: black;">
+                    Bí quyết làm đẹp vạn người mê
+                </p>
+                <div class="owl-carousel owl-theme" id="carousel3">
+                    <?php
+                    foreach ($data['Topic'] as $topic) {
+                        echo
+                        '<div class="mr-2 mb-2 ml-2 topic">
+                        <a class="card infoTopic" href = ' . BASE_URL . '/topic/show/' . $topic['Id'] . '>
                             <img src="' . $topic['Icon'] . '" alt="" class="imgTopic">
                             <div class="card-body text-left">
                                 <h5 class="card-title text-center topicName">' . $topic['Name'] . '</h5>
                             </div>
                         </a>
                     </div>';
-                        }
-                        ?>
+                    }
+                    ?>
 
-                    </div>
                 </div>
             </div>
-            <div class="wrapper" style="position: relative;">
-                <h1 style="margin-bottom: 20px;">Dịch vụ phổ biến</h1>
-                <?php
-                $i = 0;
-                foreach ($data['Service'] as $service) {
-                    $i++;
-                    if ($i == 1) {
-                        echo ' <div class="row text-center">';
-                    }
-                    if ($i == 4) {
-                        echo ' </div>
-                    <div class="row text-center">';
-                    }
-                    echo ' <div class="col-md categoriR">
-                <a class="btn btn-outline-secondary btn-lg">' . $service['Name'] . ' &rarr;</a>
-            </div>';
+        </div>
+        <div class="wrapper" style="position: relative;">
+            <h1 style="margin-bottom: 20px;">Dịch vụ phổ biến</h1>
+            <?php
+            $i = 0;
+            foreach ($data['Service'] as $service) {
+                $i++;
+                if ($i == 1) {
+                    echo ' <div class="row text-center">';
                 }
-                ?>
-            </div>
+                if ($i == 4) {
+                    echo ' </div>
+                    <div class="row text-center">';
+                }
+                echo ' <div class="col-md categoriR">
+                <button  onclick="chooseService('.$service['Id'].')" " class="btn btn-outline-secondary btn-lg">' . $service['Name'] . ' &rarr;</button>
+            </div>';
+            }
+            ?>
         </div>
     </div>
-    <input id='base' type='hidden' value='<?php echo BASE_URL ?>'/>
+    </div>
+    <input id='base' type='hidden' value='<?php echo BASE_URL ?>' />
     </div>
     <?php $libar->footer();  ?>
 
@@ -429,10 +431,8 @@
     <script src="<?php echo BASE_URL ?>/public/js/nav.js"></script>
     <script src="<?php echo BASE_URL ?>/public/js/Detail2.script.js"></script>
     <!--Nav starts-->
-    
-    <!--Popup-->
-    <script src="<?php echo BASE_URL ?>/public/js/popup.js"></script>
     <script src="<?php echo BASE_URL ?>/public/js/popup2.js"></script>
+    <!--Popup-->
 
     <script>
         $('#carousel1').owlCarousel({
@@ -495,16 +495,50 @@
             }
 
         });
+        $('#carousel4').owlCarousel({
+
+            items: 4,
+            dots: false,
+            loop: true,
+            margin: 10,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1
+
+                },
+                600: {
+                    items: 3
+                }
+
+            }
+
+
+        });
     </script>
     <script>
         document.getElementById("GetLocation").onclick = function() {
             navigator.geolocation.getCurrentPosition(update_location);
             document.getElementById("TurnonLocation").style.display = 'none';
         };
+
         function update_location(position) {
-            window.location.href="<?php echo BASE_URL ?>/home/nearby/"+position.coords.latitude+"/"+position.coords.longitude;
+            window.location.href = "<?php echo BASE_URL ?>/home/nearby/" + position.coords.latitude + "/" + position.coords.longitude;
 
         }
+       
+        function chooseService($id) {
+            $.ajax({
+           type: "POST",
+           url: 'mvc/controllers/listshop.php',
+           data:{serviceChoose:$id}
+ 
+        }).done(function(data) {
+            alert(data);
+            window.location.href = "<?php echo BASE_URL ?>/listshop/searchservice&page=1";
+        });   
+        }
+
     </script>
 
 </body>

@@ -16,7 +16,7 @@
             <div class="row justify-content-md-center h-100 ">
                 <div class="card-wrapper">
                     <div class="brand">
-                        <a href="<?php echo BASE_URL ?>/home">
+                        <a href="<?php echo BASE_URL ?>">
                         <img  src="<?php echo BASE_URL ?>/public/img/logo.png" alt="logo">
                         </a>
                     </div>
