@@ -19,11 +19,10 @@
                         $timeSuc=date("H:i:s",$timeDone+$time*60*60);
                         echo"
                         <div class='appointment-schedule '>
-                        <h4 class='pt-4  pl-5'>".$item['StartTime'].", $day, Ngày $date, $month, năm $year.</h4>
+                        <h4 class='pt-4  pl-5'>" . $item['StartTime'] . ", $day, Ngày $date, $month, năm $year.</h4>
                         <div class='row'>
                             <div class='col-11 pl-5' style='height: 300px;'>
-                            <iframe width='100%' height='300' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' id='gmap_canvas' src='https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=".$item['Adress']."+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'></iframe> 
-                            </div>
+                            <iframe width='100%' height='300' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' id='gmap_canvas' src='https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=" . $item['Adress'] . "+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'></iframe>                             </div>
                         </div>
                         <div class='appointment-schedule__name-user mt-3'>
                             <div class=' pl-5' style='font-size: 20px; font-weight: bold;'> ".$item['ShopName']."</div>

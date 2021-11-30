@@ -24,7 +24,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <!-- location -->
-    <script src="https://cdn.jsdelivr.net/gh/vietblogdao/js/districts.min.js"></script>
     <style>
         .img_Top {
             display: block;

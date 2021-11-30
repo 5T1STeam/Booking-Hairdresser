@@ -121,9 +121,9 @@ class userModel extends db
             $password = $_POST['oldPass'];
             $newPass = $_POST['newPass'];
             $repassword = $_POST['newPassConfirm'];
-            $gender = $_POST['inlineRadioOptions'];
+            $location = $_POST['Location'];
             if ($passwordUser == $password && $newPass == $repassword) {
-                $qr = "UPDATE tbl_user SET `Name` ='$userName',`PhoneNumber`='$phoneUser',`Email`='$email',`Birthday` ='$dateUser',PasswordHash='$newPass' WHERE Id=$id";
+                $qr = "UPDATE tbl_user SET `Name` ='$userName',`FullAdress`='$location',`PhoneNumber`='$phoneUser',`Email`='$email',`Birthday` ='$dateUser',PasswordHash='$newPass' WHERE Id=$id";
                 $result = mysqli_query($this->con, $qr);
             } else {
                 $qr = "UPDATE tbl_user SET `Name` ='$userName',`PhoneNumber`='$phoneUser',`Email`='$email',`Birthday` ='$dateUser' WHERE Id= $id ";

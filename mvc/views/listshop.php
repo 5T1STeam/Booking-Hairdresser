@@ -69,11 +69,12 @@
             <div class="owl-carousel owl-theme" id="carousel1">
                 <?php
                 foreach ($data['Suggest'] as $item) {
+                    $items=$item['Avatar']!==null ? 'data:image/jpeg;base64,' . base64_encode($item['Avatar']):BASE_URL.'/public/img/noimage.jpg';
                     echo '
                 <div class=ml-2 mr-2>
                     <a class=linkShoptoDetail href="'.BASE_URL.'/detail/show/'. $item['Id'] . '">
                         <div class="card">
-                            <img src=' . $item['Avatar'] . ' alt="" class="card-img-top">
+                        <img src=' . $items. ' alt="" class="card-img-top">
                             <div class="card-body text-left">
                                 <h5 class="card-title text-left SZ"> ' . $item['Name'] . '</h5>
                                 <h5 class="text-left ratezx ">Rate: <span style="font-size:20px;cursor:pointer;"';

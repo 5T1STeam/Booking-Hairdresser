@@ -27,10 +27,11 @@ class oneShop {
 
     
     public function showShop(){
+        $base = BASE_URL;
         if($this->service!=null){
             echo "  <div class='row mb-3'>
                         <div class='col-md-4 col-12'>
-                            <a class='linkShoptoDetail' href='/booking-hairdresser/detail/show/".$this->id."'>
+                        <a class='linkShoptoDetail' href='".$base."/detail/show/".$this->id."'>
                                 <div class='item-list'>
                                     <img src='".$this->image."' alt='' class='img-fluid px-2'>
                                     <div class='ratingList'>
@@ -41,11 +42,10 @@ class oneShop {
                             </a>
                         </div>
                         <div class='col-md-8 col-12 infoListz'>
-                            <a class='nameShopList' href='/booking-hairdresser/detail/show/".$this->id."'>".$this->name."</a>
+                            <a class='nameShopList' href='".$base."/detail/show/".$this->id."'>".$this->name."</a>
                             <div class='locationList'>".$this->location."</div>
                             <div class='hr'></div>
-                        <div>";
-                            
+                        <div>";             
         }
     }
 

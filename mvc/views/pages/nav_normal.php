@@ -1,16 +1,15 @@
-<link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/listshopT.css">
 <div class="container px-0">
-    <nav class=" row navbar px-3">
-        <div class=" col-lg-1 col-sm-1 navbar-brand logo">
+<nav class=" row navbar">
+        <div class="col-xl-1 col-lg-1 col-sm-1 navbar-brand logo">
             <a href="<?php echo BASE_URL ?>/home"><img src="<?php echo BASE_URL ?>/public/img/logo.png" alt=""style="width: 60px;"></a>
         </div>
-        <div class="nav nav-pc">
-            <div class="form-search input-group form-inline col-lg-5 col-sm-7">
+        <div class="nav nav-pc col-xl-10 col-lg-10">
+            <div class="form-search input-group form-inline col-xl-7 col-lg-6 col-sm-6">
                 <input type="text" class="howto-input form-control " placeholder=" Bạn muốn tìm kiếm gì?" data-toggle="modal" data-target="#popup-howto">
                 <input type="text" class="location-input form-control " placeholder="Địa điểm " data-toggle="modal" data-target="#popup-location">
             </div>
             <div class="dropdown">
-                <a class="dropdown-toggle nav-link" id="ddMenu" data-toggle="dropdown"><span><img style="width: 25;height: 25px;" src="../public/img/emojione_flag-for-vietnam.png" alt=""></span>
+            <a class="dropdown-toggle nav-link" id="ddMenu" data-toggle="dropdown"><span><img style="width: 25;height: 25px;" src="<?php echo BASE_URL ?>/public/img/emojione_flag-for-vietnam.png" alt=""></span>
                     Việt Nam
                 </a>
                 <div class="dropdown-menu">
@@ -56,7 +55,7 @@
             </label>
             <?php
             if (isset($_SESSION['Id'])) {
-                echo "<span class='avatar'> <svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' fill='currentColor' class='bi bi-person-circle' viewBox='0 0 18 18'>
+                echo "<span class='avatar mb-3'> <svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' fill='currentColor' class='bi bi-person-circle' viewBox='0 0 18 18'>
                             <path d='M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z' />
                             <path fill-rule='evenodd' d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z' />
                         </svg>
@@ -120,16 +119,15 @@
 </div>
 <div id="navhide" class=" container-fluid fixed-top" style="background: #111; " hidden>
     <div class="navbar container px-0">
-        <div class=" col-lg-1 col-sm-1 navbar-brand logo">
-            <a href="#"><img src="https://lh3.googleusercontent.com/nAq6IwLusfKijSp3h0EZddbHwX0cgA-e7H-81JBd5lvS6JmumBmf2ELgWDez3QbWqrGVap8DNuLu2G_NwnIkuyYxPw6FM6kCuP4n3p0_JAfEacDWebb0E_7EYtyziFV-I_JwVTjtFIDTGj2c-YPcffmWGTAuNEQK7UPuZ99ITKw3QfF-99wvRIkp65FPPM-7bLGoBRjsDSI4r2Qoljc2AhG578Qxb9489TXhJ5Kl8PUidgf2W-viwVHrevKYkUDXDcKcK8GfIgo0g24CFKEmuuHINh_1bb7oSYjxBFV7To1H3qpeRKgJt3Y2-rgQ3lMRFZUq5ay3vDWNUsOuyoDpht0nU-_zSXrQ4eiD4htRbhQHj6LQNG2HKzNAFWjq-_rLKMxYPqjqBeQSMDyZOqbg1DWBoZvsMMsa4zxeZHgsIZYLPes2zaG2PInDbLoiqdo1-q99duB1TJGmif4m5Aa9GB36mTp8o0THX3Slq-QFDKMQKOqdL0M_WtqQme-vNlMrUIzDp-md_h6fYaDNHytGVqwZ2hyoHJVeEgOLBvVkwuYUA3yCk_giZcDf7ByVcgFuA6jbU9aYekvhkWuGFpobqUBDoJDCoQ5Z_5LRpDiE3PJK1oEYOSqTRkTdxLYcn2ya2jelVjnU1yNKA22LuSoTzVkG8T_Js4z9Ob1pmsXYlnF2k7_6Chlfiz4ITyXuCzPzmlp1yniyql_9oKt0yzDa7R20=w1290-h832-no?authuser=0" style="width: 60px;"></a>
+    <div class="col-xl-1 col-lg-1 col-sm-1 navbar-brand logo">
+            <a href="http://125.234.104.133/web_php/gr06/"><img src="<?php echo BASE_URL ?>/public/img/logo.png" style="width: 60px;"></a>
         </div>
-        <div class="nav nav-pc">
-            <div class="form-search input-group form-inline col-lg-5 col-sm-7">
-                <input type="text" class="howto-input form-control " placeholder=" Bạn muốn tìm kiếm gì?" data-toggle="modal" data-target="#popup-howto">
+        <div class="nav nav-pc col-xl-10 col-lg-10">
+            <div class="form-search input-group form-inline col-xl-7 col-lg-6 col-sm-6">
                 <input type="text" class="location-input form-control " placeholder="Địa điểm " data-toggle="modal" data-target="#popup-location">
             </div>
             <div class="dropdown">
-                <a class="dropdown-toggle nav-link" id="ddMenu" data-toggle="dropdown"><span><img style="width: 25;height: 25px;" src="../../Booking-Hairdresser/public/img/emojione_flag-for-vietnam.png" alt=""></span>
+            <a class="dropdown-toggle nav-link" id="ddMenu" data-toggle="dropdown"><span><img style="width: 25;height: 25px;" src="<?php echo BASE_URL ?>/public/img/emojione_flag-for-vietnam.png" alt=""></span>
                     Việt Nam
                 </a>
                 <div class="dropdown-menu">
