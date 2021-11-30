@@ -488,14 +488,7 @@ footer .container .noi-dung.about p {
 .card .card-img-overlay p{
     margin: 0;
 }
-.img_Top{
-    display: block; 
-    margin-left: auto; 
-    margin-right: auto;
-    object-fit: fill;
-    width: 400px;
-    height: 400px;
-} 
+ 
 .bannerD .jumbotron{
     background-color: whitesmoke;
 }
@@ -528,4 +521,9 @@ footer .container .noi-dung.about p {
 .img-container{
     margin: auto;
     overflow: hidden;
+}
+.thumbnail{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }

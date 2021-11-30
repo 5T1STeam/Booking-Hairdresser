@@ -3,6 +3,9 @@ class profile extends controller{
    function __construct()
    {
       $this->user = $this->model("detailShopModel");  
+      if(!isset($_SESSION['Id'])){
+         header("location:".BASE_URL."/login");
+      }
    }
     function thongtintaikhoan(){
       $id = $_SESSION['Id'];

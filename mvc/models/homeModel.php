@@ -20,10 +20,36 @@ class homeModel extends db{
         return $data;   
     }
     public function GetPromotion(){
-        $sql = "SELECT * FROM tbl_promotion WHERE DateStart <= now() and DateEnd >= now() LIMIT 3";
+        $sql = "SELECT * FROM tbl_promotion WHERE DateStart <= now() and DateEnd >= now()";
         $qr = mysqli_query($this->con,$sql);
         $data = array();
         while($row = mysqli_fetch_array($qr,1)){
+            if($row['TypePromotionId'] == 2){
+                $row['Value'] = "Giảm ".$row['ValuePromotion'].".000 VNĐ ";
+            }
+            else{
+                $row['Value'] = "Giảm ".$row['ValuePromotion']."% ";
+            }
+            if($row['MinInvoice'] == null){
+                $row['Condition'] = "cho hóa đơn từ 0đ. ";
+            }
+            else{
+                $row['Condition'] = "cho hóa đơn từ ".$row['MinInvoice'].".000 VNĐ. ";
+            }
+            if($row['MaxValuePromotion'] == null){
+                $row['Max'] = "Không giới hạn giá trị khuyến mãi. ";
+            }
+            else{
+                $row['Max'] = "Giảm tối đa ".$row['MaxValuePromotion'].".000 VNĐ, ";
+            }
+            switch ($row['PromotionRecipientId']){
+                case 1: $row['Recipient'] = "Áp dụng cho tất cả khách hàng. "; break;
+                case 2: $row['Recipient'] = "Áp dụng cho khách hàng hạng Kim cương. "; break;
+                case 3: $row['Recipient'] = "Áp dụng cho khách hàng hạng vàng. "; break;
+                case 4: $row['Recipient'] = "Áp dụng cho khách hàng hạng Bạc. "; break;
+                case 5: $row['Recipient'] = "Áp dụng cho khách hàng hạng Đồng. "; break;
+                case 6: $row['Recipient'] = "Áp dụng cho khách hàng là thành viên của cửa hàng trong chương trình khuyến mãi. "; break;
+            }
             array_push($data,$row);   
         }
         return $data;
@@ -49,41 +75,26 @@ class homeModel extends db{
         }
         return $data;
     }
-
-    public $lat_a = 0;
-    public $lon_a = 0;
- 
-    public $measure_unit = 'kilometers';
- 
-    public $measure_state = false;
- 
-    public $measure = 0;
- 
-    public $error = '';
- 
- 
- 
-    public function DistAB($lat_b, $lon_b)
+    public function DistAB($latitude1,   $longitude1,  $latitude2, $longitude2)
  
       {
-          $delta_lat = $lat_b - $this->lat_a ;
-          $delta_lon = $lon_b - $this->lon_a ;
- 
-          $earth_radius = 6372.795477598;
- 
-          $alpha    = $delta_lat/2;
-          $beta     = $delta_lon/2;
-          $a        = sin(deg2rad($alpha)) * sin(deg2rad($alpha)) + cos(deg2rad($this->lat_a)) * cos(deg2rad($lat_b)) * sin(deg2rad($beta)) * sin(deg2rad($beta)) ;
-          $c        = asin(min(1, sqrt($a)));
-          $distance = 2*$earth_radius * $c;
-          $distance = round($distance, 4);
- 
-          $this->measure = $distance;
- 
+        //Converting to radians
+        $longi1 = deg2rad($longitude1); 
+        $longi2 = deg2rad($longitude2); 
+        $lati1 = deg2rad($latitude1); 
+        $lati2 = deg2rad($latitude2); 
+   
+        //Haversine Formula 
+        $difflong = $longi2 - $longi1; 
+        $difflat = $lati2 - $lati1; 
+   
+        $val = pow(sin($difflat/2),2)+cos($lati1)*cos($lati2)*pow(sin($difflong/2),2); 
+        $res2 =6378.8 * (2 * asin(sqrt($val))); 
+        return $res2;//for kilometers
       }
       //function get list of user nearest by lat and long in tbl_user
     public function GetShopNearby($lat_b, $lon_b){
-        $sql = "SELECT * FROM tbl_user";
+        $sql = "SELECT * FROM tbl_user WHERE RoleId = 2";
         $qr = mysqli_query($this->con,$sql);
         $data = array();
         while($row = mysqli_fetch_array($qr,1)){
@@ -97,12 +108,13 @@ class homeModel extends db{
                 $row['AddressPath'.$i.'']=$row2['Name'];
                 $idAddressPath =  $row2['ParentPathId'];
             }
-            $this->lat_a = $row['Latitude'];
-            $this->lon_a = $row['Longtitude'];
-            $this->DistAB($lat_b, $lon_b);
-            $row['Distance'] = $this->measure;
+            $lat_1 = $row['Latitude'];
+            $lon_1 = $row['Longtitude'];
+            $row['Distance'] = $this-> DistAB($lat_1, $lon_1, $lat_b, $lon_b);
             array_push($data,$row);   
         }
+        usort($data, function($a, $b) {
+            return $a['Distance'] <=> $b['Distance'];});
         return $data;
    
 }
