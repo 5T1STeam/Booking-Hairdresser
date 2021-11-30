@@ -77,9 +77,8 @@
 
                     <div class="nav justify-content-end topnav">
                         <a class="nav-link" href="<?php echo BASE_URL ?>/home">Trang Chủ</a>
-                        <a class="nav-link" href="<?php echo BASE_URL ?>/listshop">Danh Mục</a>
+                        <a class="nav-link" href="<?php echo BASE_URL ?>/listshop/category&dm=1&page=1">Danh Mục</a>
                         <a class="nav-link" href="#">Khám Phá</a>
-                        <a class="btn btn-business" onclick="clickBtndoitac()">Đối tác</a>
                         <?php
                         if (isset($_SESSION['Id'])) {
                             echo "<div class='dropdown'>
@@ -100,7 +99,7 @@
                             echo "<a class='btn btn-login' href='" . BASE_URL . "/login'>Sign in / Login</a>";
                         }
                         ?>
-
+                        <a class="btn btn-business" onclick="clickBtndoitac()">Đối tác</a>
 
 
                     </div>
@@ -211,8 +210,27 @@
                     <input id="location-2" type="text" class="form-control" placeholder="Địa điểm" data-toggle="modal" data-target="#popup-location" style="background-color: #fff;">
                 </div>
                 <div class="nav justify-content-end btn-topnavhide">
+                    <?php
+                    if (isset($_SESSION['Id'])) {
+                        echo "<div class='dropdown'>
+                            <a class='dropdown-toggle nav-link' id='ddMenu' data-toggle='dropdown'><span><svg xmlns='http://www.w3.org/2000/svg' width='25' height='25' fill='currentColor' class='bi bi-person-circle' viewBox='0 0 18 18'>
+                                        <path d='M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z' />
+                                        <path fill-rule='evenodd' d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z' />
+                                    </svg></span>
+                                Profile
+                            </a>
+                            <div class='dropdown-menu'>
+                                <a class='dropdown-item' href='".BASE_URL."/profile/thongtintaikhoan/" . $_SESSION['Id'] . "'>Trang cá nhân </a>
+                                <a class='dropdown-item' href='".BASE_URL."/profile/lichhen/" . $_SESSION['Id'] . "'>Lịch book</a>
+                                <a class='dropdown-item' href='".BASE_URL."/profile/thongbaocuatoi/" . $_SESSION['Id'] . "'>Thông báo</a>
+                                <a class='dropdown-item' href='".BASE_URL."/logout.php'>Đăng xuất</a>
+                            </div>
+                        </div>";
+                    } else {
+                        echo "<a class='btn btn-login' href='".BASE_URL."/login'>Sign in / Login</a>";
+                    }
+                    ?>
                     <a class="btn btn-business" onclick="clickBtndoitac()">Đối tác</a>
-                    <a class="btn btn-login" href="../html/login.html">Sign in / Login</a>
                     <label for="nav-check" class="nav-mobile-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" class="bi bi-list" viewBox="0 0 15 15">
                             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
@@ -231,11 +249,12 @@
                 <?php
 
                 foreach ($data['Suggest'] as $item) {
+                    $items=$item['Avatar']!==null ? 'data:image/jpeg;base64,' . base64_encode($item['Avatar']):BASE_URL.'/public/img/noimage.jpg';
                     echo '
                 <div class=ml-2 mr-2>
                     <a class=linkShoptoDetail href="'.BASE_URL.'/detail/show/' . $item['Id'] . '">
                         <div class="card">
-                            <img src=' . $item['Avatar'] . ' alt="" class="card-img-top">
+                            <img src=' . $items . ' alt="" class="card-img-top">
                             <div class="card-body text-left">
                                 <h5 class="card-title text-left SZ"> ' . $item['Name'] . '</h5>
                                 <h5 class="text-left ratezx ">Rate: <span style="font-size:20px;cursor:pointer;"';
@@ -301,11 +320,12 @@
                     if ($i > 20) {
                         break;
                     }
+                    $items=$item['Avatar']!==null ? 'data:image/jpeg;base64,' . base64_encode($item['Avatar']):BASE_URL.'/public/img/noimage.jpg';
                     echo '
                 <div class=ml-2 mr-2>
                     <a class="linkShoptoDetail" href="' . BASE_URL . '/detail/' . $item['Id'] . '">
                         <div class="card">
-                            <img src=' . $item['Avatar'] . ' alt="" class="card-img-top">
+                            <img src=' . $items. ' alt="" class="card-img-top">
                             <div class="card-body text-left">
                                 <h5 class="card-title text-left SZ"> ' . $item['Name'] . '</h5>
                                 <h5 class="text-left ratezx ">Rate: <span style="font-size:20px;cursor:pointer;"';

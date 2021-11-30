@@ -12,11 +12,11 @@ class Book
             //shop
             $qr = "INSERT INTO `tbl_report` VALUES (NULL,$iduser,$isreportshop,$shopid,NULL,$idfeedback,$reason,'$day')";
             $kq = mysqli_query($conn->con, $qr);
-            echo $qr;
+            
         }elseif($isreportfeedback == 1){
             $qr = "INSERT INTO `tbl_report` VALUES (NULL,$iduser,NULL,$shopid,$isreportfeedback,$idfeedback,$reason,'$day')";
             $kq = mysqli_query($conn->con, $qr);
-            echo $qr;
+            
         }
         if ($kq) {
             //thành công
@@ -41,7 +41,7 @@ class Book
 
     public function SetBooking($idshop, $idservice, $iduser, $timebooked)
     {
-        $base = BASE_URL;
+        $base = 'http://localhost/Booking-Hairdresser';
         $conn = new db();
         $pop = new Book();
         $time = explode(" ", $timebooked);

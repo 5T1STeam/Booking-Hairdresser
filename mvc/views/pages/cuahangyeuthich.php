@@ -9,11 +9,12 @@
        
      
        foreach($data['Gf'] as $item ){
+            $items=$item['Avatar']!==null ? 'data:image/jpeg;base64,' . base64_encode($item['Avatar']):BASE_URL.'/public/img/noimage.jpg';
                     echo '
            <div class="row">
                <div class="col-lg-6 col-xl-5 col-md-6 ">
                
-                   <img src="' . $item["Avatar"] . '" width="100%" height="250px" style="border-radius: 5px;">
+                   <img src="' . $items . '" width="100%" height="250px" style="border-radius: 5px;">
                    <div class="review text-center"> <span class="rate">'. $item["RatingNum"] .'</span> <br> '. $item["QuantityRating"] .' reviews</div>
                </div>
                <div class="col-lg-4 col-xl-5 col-md-4 col-xs-5">
