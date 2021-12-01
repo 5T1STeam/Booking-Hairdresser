@@ -60,6 +60,20 @@
         .topic a:hover {
             color: #ff421a;
         }
+        @media screen and (max-width: 700px) {
+            .owl-prev {
+            left: -20px;
+        }
+
+        .owl-next {
+            right: -20px;
+        }
+        .imgTopic{
+            
+            height: 130px;
+        }
+
+}
     </style>
 </head>
 
@@ -299,16 +313,16 @@
                             </p>
                             <br>
                             <div class="row btn-location">
-                                <div class="col-md-3 mb-2 col-12">
+                                <div class="col-md-3  mb-2 col-6">
                                     <a class="btn btn-full" id="GetLocation">Tìm kiếm gần tôi</a>
                                 </div>
-                                <div class="col-md-2  col-12">
+                                <div class="col-md-2  col-6">
                                     <a class="btn btn-outline " id="notNows">Không phải bây giờ</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-2 text-center">
-                            <img src="<?php echo BASE_URL ?>/public/icon/Group 43.png" width="70%">
+                            <img class="logoLocation" src="<?php echo BASE_URL ?>/public/icon/Group 43.png" >
                         </div>
                     </div>
                 </div>

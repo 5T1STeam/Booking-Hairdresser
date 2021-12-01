@@ -49,6 +49,15 @@
         .owl-theme .owl-nav [class*="owl-"]:hover {
             background-color: transparent;
         }
+        @media screen and (max-width: 700px) {
+            .owl-prev {
+            left: -20px;
+        }
+
+        .owl-next {
+            right: -20px;
+        }
+    }
     </style>
 </head>
 
