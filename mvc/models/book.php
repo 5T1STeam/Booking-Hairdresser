@@ -8,14 +8,13 @@ class Book
         //INSERT INTO `tbl_report`(`Id`, `UserId`, `IsReportShop`, `ShopId`, `IsReportFeedback`, `FeedbackId`, `ReasonId`, `CreateDate`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]')
         $conn = new db();
         $day = date('Y-m-d H:i:s');
-        if ($isreportshop == 1 ) {
+        if ($isreportshop == 1) {
             //shop
             $qr = "INSERT INTO `tbl_report` VALUES (NULL,$iduser,$isreportshop,$shopid,NULL,$idfeedback,$reason,'$day')";
             $kq = mysqli_query($conn->con, $qr);
-        }elseif($isreportfeedback == 1){
+        } elseif ($isreportfeedback == 1) {
             $qr = "INSERT INTO `tbl_report` VALUES (NULL,$iduser,NULL,$shopid,$isreportfeedback,$idfeedback,$reason,'$day')";
             $kq = mysqli_query($conn->con, $qr);
-
         }
         if ($kq) {
             //thành công
@@ -45,7 +44,7 @@ class Book
         $pop = new Book();
         $time = explode(" ", $timebooked);
         $check = $pop->checkLogin($iduser);
-        if ('non-user'===$check) {
+        if ('non-user' === $check) {
             echo $check;
             echo "<div id='kqBook' class='modal fade'>
                 <div class='modal-dialog modal-dialog-centered'>
@@ -54,7 +53,7 @@ class Book
                     </div>  
                 </div>
             </div>";
-        } elseif ($check==1) {
+        } elseif ($check == 1) {
             if ($pop->checkBooked($idshop, $iduser, $time[0])) {
                 echo "<div id='kqBook' class='modal fade'>
                 <div class='modal-dialog modal-dialog-centered'>
@@ -151,7 +150,44 @@ class Book
                 $('#kqBook').modal('hide');
                 $('.overlay').show(); 
             },4000)
-            setTimeout(function(){window.location.href = '".$base."/login'; },6000) </script>";
+            setTimeout(function(){window.location.href = '" . $base . "/login'; },6000) </script>";
+        }
+    }
+
+    public function SetRating($userid, $shopid, $bookid, $content, $rate)
+    {
+        $conn = new db();
+        $day = date('Y-m-d H:i:s');
+        // INSERT INTO `tbl_feedbacks`(`Id`, `Content`, `UserId`, `CreateDate`, `UpdateDate`, `IsDeleded`, `ShopId`, `BookId`, `Rating`, `Image`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]','[value-10]')
+
+        if($rate!=''&&$content!=''){
+            $qr = "INSERT INTO `tbl_feedbacks` VALUES (NULL,'$content',$userid,'$day','$day',0,$shopid,$bookid,$rate,NULL);";
+            echo $qr;
+            $data = mysqli_query($conn->con, $qr);
+        }else{
+            $data =false;
+        }
+        
+
+
+        if ($data) {
+            //thành công
+            echo "<div id='kqReport' class='modal fade'>
+                <div class='modal-dialog modal-dialog-centered'>
+                    <div style='background:#00ffff; border-radius: 30px; padding: 50px; '>
+                         <h2 style='text-align: center; color: #fff'> Cảm ơn bạn đã dùng dịch vụ</h2>
+                    </div>  
+                </div>
+            </div>";
+        } else {
+            //không thành công
+            echo "<div id='kqReport' class='modal fade'>
+            <div class='modal-dialog modal-dialog-centered'>
+                <div style='background:#ff0000; border-radius: 30px; padding: 50px; '>
+                    <h2 style='text-align: center; color: #fff'> Đánh giá không thành công</h2>
+                </div>  
+            </div>
+        </div>";
         }
     }
 
@@ -210,34 +246,32 @@ class Book
     public function checkId($id)
     {
         $conn = new db();
-        $ss = isset($_SESSION['Password'])? $_SESSION['Password'] : 0;
+        $ss = isset($_SESSION['Password']) ? $_SESSION['Password'] : 0;
         $qr = "SELECT * FROM `tbl_user` WHERE `Id` = " . $id . ";";
         $data = mysqli_query($conn->con, $qr);
         $rows = mysqli_fetch_assoc($data);
         if ($rows == null) {
             return false;
         } elseif ($rows['RoleId'] == 1) {
-            if (md5($rows['PasswordHash']) == $ss){ 
+            if (md5($rows['PasswordHash']) == $ss) {
                 return true;
-            }else { 
+            } else {
                 return false;
             }
-        } else{
+        } else {
             return 'non-user';
         }
-
     }
-
     public function checkLogin($id)
     {
         $pop = new book();
         $check = $pop->checkId($id);
         if ($id == 'non') {
             return false;
-        }elseif ((int)$check==1) {
+        } elseif ((int)$check == 1) {
             //Đã đăng nhập
             return true;
-        }elseif ($check === 'non-user') {
+        } elseif ($check === 'non-user') {
             return 'non-user';
         } else {
             return false;

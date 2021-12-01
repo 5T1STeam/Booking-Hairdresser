@@ -40,7 +40,7 @@
     <div class="row avatar-profile"><span class="avt">
         <div>
           <img src="<?php if ($data['GN']['Avatar'] !== null) {
-                                                        echo  'data:image/jpeg;base64,'.base64_encode($data['GN']['Avatar']);
+                                                        echo  BASE_URL.'/public/uploads/avatar/'.$data['GN']['Avatar'];
                                                     } else echo 'https://static2.yan.vn/YanNews/2167221/202102/facebook-cap-nhat-avatar-doi-voi-tai-khoan-khong-su-dung-anh-dai-dien-e4abd14d.jpg' ?>" style="border-radius: 500px;" width="80" height="80">
           <span class="nameuser"> <?php echo $data['GN']['Name'] ?></span>
         </div>
@@ -119,4 +119,5 @@
 </div>
 <?php $libar->footer();?> 
 <script src="<?php echo BASE_URL ?>/public/js/popup2.js"></script>
+<script src="<?php echo BASE_URL ?>/public/js/popup.js"></script>
 </html>

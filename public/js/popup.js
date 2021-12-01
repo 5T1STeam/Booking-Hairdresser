@@ -171,13 +171,6 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-    // preview img content
-    $('#imagecontent').change(function() {
-        $("#previewcontent").html('');
-        for (var i = 0; i < $(this)[0].files.length; i++) {
-            $("#previewcontent").append('<img src="' + window.URL.createObjectURL(this.files[i]) + '" width="100px" height="100px" style="margin:5px; border-radius:10px;"/>');
-        }
-    });
 
     //rate content
     function calcRate(r) {
@@ -185,14 +178,38 @@ $(document).ready(function() {
             id = 'star' + f + (r % f ? 'half' : '')
         id && (document.getelementbyid(id).checked = !0)
     } // đưa ra từ sql
+
+
     $("input[name='rating']").click(function() {
-        if (this.value.length == 1) {
-            document.getElementById("markrate").value = this.value;
-        } else {
-            let rate = this.value.slice(0, 1) + '.5';
-            document.getElementById("markrate").value = rate;
+        var rate = document.getElementsByClassName("markrate")
+        for (var i = 0; i < rate.length; i++) {
+            rate[i].value = 6 - $(this).val();
         }
     });
+
+    $('.form-rating').on('submit', function(e) {
+        e.preventDefault();
+        str = $(this).serialize();
+        base = $('#base').val();
+        $.post(base + '/mvc/controllers/rating.php',
+                $(this).serialize()
+            )
+            .done(function(data) {
+                $('.update').html(data)
+            });
+
+    });
+    $('.btn-rate').on('click', function() {
+        $('.modal').modal('hide');
+        $('.overlay').show();
+        setTimeout(function() {
+            $('.overlay').hide();
+            $('#kqReport').modal('show');
+        }, 2000)
+
+    })
+
+
 
     //Report
     $("input[name='radio-report']").click(function() {

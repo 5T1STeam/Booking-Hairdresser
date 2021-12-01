@@ -155,17 +155,42 @@ class userModel extends db
 
     public function anh($id){
         if(isset($_POST["submit"]))  
-        {  
-             $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));  
-             $query = "UPDATE tbl_user SET `Avatar` = '$file' where Id=$id";  
-             if(mysqli_query($this->con, $query))  
-             {  
-                  echo '<script>alert("Cập nhật ảnh thành công")</script>';  
-             }  
-        }  	  
-	
+        // Uploads ảnh
+        {
+            //Get name
+            $filename = $_FILES['image']['name'];
+            $name  = explode('.', $filename);
+            while (true) {
+                $filename = str_replace('.','',uniqid($name[0], true));
+                if (!file_exists(sys_get_temp_dir() . ($filename.'.'.$name[1]))) break;
+            }
+            $_FILES['image']['name'] = $filename.'.'.$name[1];
+            $filename = $_FILES['image']['name'];
+            // destination of the file on the server
+            $destination = 'public/uploads/avatar/' . $filename;
 
+            // get the file extension
+            $extension = pathinfo($filename, PATHINFO_EXTENSION);
+
+            // the physical file on a temporary uploads directory on the server
+            $file = $_FILES['image']['tmp_name'];
+
+            if ($_FILES['image']['size'] > 2000000) { // file shouldn't be larger than 1Megabyte
+                echo "<script>alert('Kích thước ảnh quá lớn hơn 2MB')</script>";
+            } else {
+                // move the uploaded (temporary) file to the specified destination
+                if (move_uploaded_file($file, $destination)) {
+                    $sql = "UPDATE tbl_user SET `Avatar` = '$filename' where Id=$id"; 
+                    if (mysqli_query($this->con, $sql)) {
+
+                        echo '<script>alert("Cập nhật ảnh thành công")</script>';
+                    }
+                } else {
+                    echo '<script>alert("Cập nhật ảnh không thành công")</script>';
+                }
+            }
 }
+    }
        
     public function xoa($id)
     {

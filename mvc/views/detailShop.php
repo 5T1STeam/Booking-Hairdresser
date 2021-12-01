@@ -337,22 +337,29 @@
                                             break;
                                         }
                                         $rows = mysqli_fetch_array($data["GI"]);
-                                        array_push($arr, $rows['Image']);
-                                        if ($arr[$i] != null) {
-
-                                            $j++;
-                                            echo "
-                                        <div class='col-md-4 '>
-                                            <a class='thumbnail' href='#' data-image-id='' data-toggle='modal' data-title='' data-image=" . $rows['Image'] . " data-target='#image-gallery'>
-                                                <img class='imgFeedback rounded mt-4' src=" . $rows['Image'] . " width='100%' height='180'  alt='Another alt text'>
-                                            </a>
-                                        </div>
-                                        ";
-                                        } else {
+                                        if($rows ==null){
                                             echo "<h4 class='pl-3'>Chưa có hình ảnh đánh giá nào </h4>";
                                             $arr = 0;
                                             break;
+                                        }else{
+                                            array_push($arr, $rows['Image']);
+                                            if ($arr[$i] != null) {
+
+                                                $j++;
+                                                echo "
+                                            <div class='col-md-4 '>
+                                                <a class='thumbnail' href='#' data-image-id='' data-toggle='modal' data-title='' data-image=" . $rows['Image'] . " data-target='#image-gallery'>
+                                                    <img class='imgFeedback rounded mt-4' src=" . $rows['Image'] . " width='100%' height='180'  alt='Another alt text'>
+                                                </a>
+                                            </div>
+                                            ";
+                                            } else {
+                                                echo "<h4 class='pl-3'>Chưa có hình ảnh đánh giá nào </h4>";
+                                                $arr = 0;
+                                                break;
+                                            }
                                         }
+                                        
                                     }
                                     ?>
 
@@ -419,7 +426,8 @@
                                             <div class="col-md-6 text-center">
                                                 <div class="row text-center">
                                                     <?php
-                                                    echo "
+                                                    if($data['GF']!=null){
+                                                        echo "
                                                 <div class='col five-star align-items-center d-flex'>5
                                                     <span class='stars'><i class='fa fa-star mr-2' style='font-size: 10px;'></i></span>
                                                     <span class='progress '>
@@ -427,11 +435,23 @@
                                                             aria-valuemin='0' aria-valuemax='100'></i>
                                                     </span> " . $data['GF']['FiveStarRating'] . "
                                                 </div>";
+                                                    }else{
+                                                        echo "
+                                                <div class='col five-star align-items-center d-flex'>5
+                                                    <span class='stars'><i class='fa fa-star mr-2' style='font-size: 10px;'></i></span>
+                                                    <span class='progress '>
+                                                        <i class='progress-bar' role='progressbar' style='width: 0%' aria-valuenow='0'
+                                                            aria-valuemin='0' aria-valuemax='100'></i>
+                                                    </span> 
+                                                </div>";
+                                                    }
+                                                    
                                                     ?>
                                                 </div>
                                                 <div class="row">
                                                     <?php
-                                                    echo "
+                                                    if($data['GF']!=null){
+                                                        echo "
                                                 <div class='col five-star align-items-center d-flex'>4
                                                     <span class='stars'><i class='fa fa-star mr-2' style='font-size: 10px;'></i></span>
                                                     <span class='progress'>
@@ -439,11 +459,23 @@
                                                             aria-valuemin='0' aria-valuemax='100'></i>
                                                     </span> " . $data['GF']['FourStarRating'] . "
                                                 </div>";
+                                                    }else{
+                                                        echo "
+                                                <div class='col five-star align-items-center d-flex'>4
+                                                    <span class='stars'><i class='fa fa-star mr-2' style='font-size: 10px;'></i></span>
+                                                    <span class='progress '>
+                                                        <i class='progress-bar' role='progressbar' style='width: 0%' aria-valuenow='0'
+                                                            aria-valuemin='0' aria-valuemax='100'></i>
+                                                    </span> 
+                                                </div>";
+                                                    }
+                                                    
                                                     ?>
                                                 </div>
                                                 <div class="row">
                                                     <?php
-                                                    echo "
+                                                    if($data['GF']!=null){
+                                                        echo "
                                                 <div class='col five-star align-items-center d-flex'>3
                                                     <span class='stars'><i class='fa fa-star mr-2' style='font-size: 10px;'></i></span>
                                                     <span class='progress'>
@@ -451,11 +483,23 @@
                                                             aria-valuemin='0' aria-valuemax='100'></i>
                                                     </span> " . $data['GF']['ThreeStarRating'] . "
                                                 </div>";
+                                                    }else{
+                                                        echo "
+                                                <div class='col five-star align-items-center d-flex'>3
+                                                    <span class='stars'><i class='fa fa-star mr-2' style='font-size: 10px;'></i></span>
+                                                    <span class='progress '>
+                                                        <i class='progress-bar' role='progressbar' style='width: 0%' aria-valuenow='0'
+                                                            aria-valuemin='0' aria-valuemax='100'></i>
+                                                    </span> 
+                                                </div>";
+                                                    }
+                                                    
                                                     ?>
                                                 </div>
                                                 <div class="row">
                                                     <?php
-                                                    echo "
+                                                    if($data['GF']!=null){
+                                                        echo "
                                                 <div class='col five-star align-items-center d-flex'>2
                                                     <span class='stars'><i class='fa fa-star mr-2' style='font-size: 10px;'></i></span>
                                                     <span class='progress'>
@@ -463,11 +507,23 @@
                                                             aria-valuemin='0' aria-valuemax='100'></i>
                                                     </span> " . $data['GF']['TwoStarRating'] . "
                                                 </div>";
+                                                    }else{
+                                                        echo "
+                                                <div class='col five-star align-items-center d-flex'>2
+                                                    <span class='stars'><i class='fa fa-star mr-2' style='font-size: 10px;'></i></span>
+                                                    <span class='progress '>
+                                                        <i class='progress-bar' role='progressbar' style='width: 0%' aria-valuenow='0'
+                                                            aria-valuemin='0' aria-valuemax='100'></i>
+                                                    </span> 
+                                                </div>";
+                                                    }
+                                                    
                                                     ?>
                                                 </div>
                                                 <div class="row">
                                                     <?php
-                                                    echo "
+                                                    if($data['GF']!=null){
+                                                        echo "
                                                 <div class='col five-star align-items-center d-flex'>1
                                                     <span class='stars'><i class='fa fa-star mr-2' style='font-size: 10px;'></i></span>
                                                     <span class='progress'>
@@ -475,6 +531,17 @@
                                                             aria-valuemin='0' aria-valuemax='100'></i>
                                                     </span> " . $data['GF']['OneStarRating'] . "
                                                 </div>";
+                                                    }else{
+                                                        echo "
+                                                <div class='col five-star align-items-center d-flex'>2
+                                                    <span class='stars'><i class='fa fa-star mr-2' style='font-size: 10px;'></i></span>
+                                                    <span class='progress '>
+                                                        <i class='progress-bar' role='progressbar' style='width: 0%' aria-valuenow='0'
+                                                            aria-valuemin='0' aria-valuemax='100'></i>
+                                                    </span> 
+                                                </div>";
+                                                    }
+                                                    
                                                     ?>
                                                 </div>
                                             </div>
