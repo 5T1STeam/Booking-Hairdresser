@@ -155,6 +155,10 @@ class Book
         }
     }
 
+    public function SetRating(){
+        
+    }
+
     //Check lịch trùng
     public function checkBooked($idshop, $iduser, $daybook)
     {
@@ -227,7 +231,6 @@ class Book
         }
 
     }
-
     public function checkLogin($id)
     {
         $pop = new book();

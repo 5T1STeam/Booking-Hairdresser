@@ -6,7 +6,5 @@ include_once "../../mvc/models/userModel.php";
     $up = new userModel();
     echo $id;
     $up-> updateInfo($id);
-    
-
 
 ?>

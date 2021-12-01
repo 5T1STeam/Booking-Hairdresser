@@ -6,10 +6,10 @@
                 <h3>Lịch sử booking</h3>
             </div>
             <pre>
-<?php
-print_r($data['booked']);
-?>
-</pre>
+            <?php
+            print_r($data['booked']);
+            ?>
+            </pre>
             <?php
             $id = $_SESSION['Id'];
 

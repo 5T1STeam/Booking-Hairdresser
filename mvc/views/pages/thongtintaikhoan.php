@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/userprofileStyle/style-infor-page.css">
 <div class="container">
+    <!-- Thay đổi ảnh đại diện -->
     <div class="modal fade" id="updateImg" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -38,7 +39,7 @@
 
         <div class="row justify-content-center">
             <img src="<?php if ($data['GN']['Avatar'] !== null) {
-                            echo  'data:image/jpeg;base64,' . base64_encode($data['GN']['Avatar']);
+                            echo  BASE_URL.'/public/uploads/avatar/'.$data['GN']['Avatar'];
                         } else echo 'https://static2.yan.vn/YanNews/2167221/202102/facebook-cap-nhat-avatar-doi-voi-tai-khoan-khong-su-dung-anh-dai-dien-e4abd14d.jpg' ?>" style="border-radius: 500px;" width="120" height="120" id="profileDisplay" />
         </div>
         <label class="row text-center edit" data-toggle="modal" data-target="#updateImg">
@@ -224,7 +225,7 @@
         $('#imagess').change(function() {
             $("#previewcontent").html('');
             for (var i = 0; i < $(this)[0].files.length; i++) {
-                $("#previewcontent").append('<img src="' + window.URL.createObjectURL(this.files[i]) + '" width="200px" height="200px" style="margin:5px; border-radius:100px;"/>');
+                $("#previewcontent").append('<img src="' + window.URL.createObjectURL(this.files[i]) + '" width="200px" height="200px" style="border-radius:100px;"/>');
             }
         });
     });
