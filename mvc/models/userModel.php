@@ -125,9 +125,12 @@ class userModel extends db
             if ($passwordUser == $password && $newPass == $repassword) {
                 $qr = "UPDATE tbl_user SET `Name` ='$userName',`FullAdress`='$location',`PhoneNumber`='$phoneUser',`Email`='$email',`Birthday` ='$dateUser',PasswordHash='$newPass' WHERE Id=$id";
                 $result = mysqli_query($this->con, $qr);
-            } else {
+            } elseif ($password=='' && $newPass==''&& $repassword=='') {
                 $qr = "UPDATE tbl_user SET `Name` ='$userName',`FullAdress`='$location',`PhoneNumber`='$phoneUser',`Email`='$email',`Birthday` ='$dateUser' WHERE Id= $id ";
                 $result = mysqli_query($this->con, $qr);
+               
+            } else{
+                $result= false;
             }
             if ($result) {
                 echo "<div id='kqBook' class='modal fade'>
