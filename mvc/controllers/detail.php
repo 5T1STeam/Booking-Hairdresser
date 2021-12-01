@@ -8,8 +8,9 @@ class detail extends controller{
         
         foreach($list as $innerArray)
         {
-            $rawz=mysqli_fetch_array($teo->GetServiceById($innerArray['ServiceId']),1);
-               $innerArray['ServiceName'] =  $rawz['Name'];
+            $ss = $teo->GetServicebyIdBook($innerArray['BookId']);
+            
+               $innerArray['ServiceName'] =  $ss[0]['Name'];
                $user = $teo->GetNameUser($innerArray['UserId']);               
                 
                 $innerArray['UserName']= $user['Name'];

@@ -119,4 +119,5 @@
 </div>
 <?php $libar->footer();?> 
 <script src="<?php echo BASE_URL ?>/public/js/popup2.js"></script>
+<script src="<?php echo BASE_URL ?>/public/js/popup.js"></script>
 </html>

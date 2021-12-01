@@ -25,7 +25,7 @@
         public function popupReports($isreportshop,$shopid,$isreportfeedback,$feedback){
             include "./mvc/views/pages/popup_reports.php";
         }
-        public function popupRate($userid,$shopid,$feedbackid,$createdate){
+        public function popupRate($shopid,$bookid,$nameshop,$bookservice){
             include "./mvc/views/pages/popup_rate.php";
         }
     }

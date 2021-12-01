@@ -1,8 +1,8 @@
 <?php
 if(isset($_SESSION['Id'])){
     echo"    <!-- Popup Reports -->
-    <div class='modal fade' id='report-".$_SESSION['Id']."-".$shopid."' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-        <div class='modal-dialog modal-sm' role='document'>
+    <div class='modal fade' id='report-".$_SESSION['Id']."-".$shopid."' >
+        <div class='modal-dialog modal-sm'>
             <div class='modal-content'>
                 <div class='modal-header justify-content-center'>
                     <h5>Báo cáo hình ảnh - nội dung</h5>
@@ -66,7 +66,7 @@ if(isset($_SESSION['Id'])){
                         <input type='hidden' name='feedback' value='".$feedback."'/>
                         <input type='hidden' class='report-value' name='reasonid' value=''/>
                         <button type='button' class='btn btn-cancel' data-dismiss='modal'>Hủy</button>
-                        <button type='submit' class='btn btn-reporting' id='btn-report'>Báo Cáo</button>
+                        <button type='submit' class='btn btn-reporting btn-report'>Báo Cáo</button>
                     </form>
                 </div>
             </div>

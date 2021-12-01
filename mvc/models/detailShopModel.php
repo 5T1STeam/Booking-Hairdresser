@@ -59,20 +59,25 @@ class detailShopModel extends db{
                 case 1:{
                     $b++;
                 }
+                case 0:{
+                   
+                }
                 default: {
                     break;
                 }
             }
         }
-       
-        $ts= round($sumR / count($result),1);
-        $result['AverageRating']=$ts;
-        $result['QuantityRating']=$z+$x+$c+$v+$b;
-        $result['FiveStarRating']=$z;
-        $result['FourStarRating']=$x;
-        $result['ThreeStarRating']=$c;
-        $result['TwoStarRating']=$v;
-        $result['OneStarRating']=$b;
+        if($result != null){
+            $ts= round($sumR / count($result),1);
+            $result['AverageRating']=$ts;
+            $result['QuantityRating']=$z+$x+$c+$v+$b;
+            $result['FiveStarRating']=$z;
+            $result['FourStarRating']=$x;
+            $result['ThreeStarRating']=$c;
+            $result['TwoStarRating']=$v;
+            $result['OneStarRating']=$b;
+        }
+        
         return $result;
     }
     public function GetServiceById($id){
@@ -87,6 +92,18 @@ class detailShopModel extends db{
             array_push($result,$rows);
         }
         return $result;
+    }
+    public function GetServicebyIdBook($id){
+        $qr = 'SELECT * FROM tbl_bookingservice WHERE Id='.$id;
+        $querry = mysqli_query($this->con,$qr);
+        $data =[];
+        while($row = mysqli_fetch_array($querry)){
+            $qa = 'SELECT * FROM  `tbl_services` WHERE $id = ' . $row['ShopserviceId'];
+            $quarry = mysqli_query($this->con,$qr);
+            $item = mysqli_fetch_array($quarry);
+            array_push($data,$item);
+        }
+        return $data;
     }
     public function GetNameUser($id){
         $qr ="SELECT * FROM tbl_user WHERE Id=$id";
