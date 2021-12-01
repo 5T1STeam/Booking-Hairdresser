@@ -371,7 +371,7 @@
                 foreach ($data['Promotion'] as $item) {
                     echo '
                 <div class=ml-2 mr-2>
-                    <a class=linkShoptoDetail href="' . BASE_URL . '/listshop/' . $item['Id'] . '">
+                    <a class=linkShoptoDetail href="' . BASE_URL . '/listshop/promotion/category&km=' . $item['Id'] . '&page=1">
                         <div class="card">
                             <img src=' . $item['Image'] . ' alt="" class="card-img-top">
                             <div class="card-body text-left">
@@ -551,8 +551,7 @@
            url: 'mvc/controllers/listshop.php',
            data:{serviceChoose:$id}
  
-        }).done(function(data) {
-            alert(data);
+        }).done(function() {
             window.location.href = "<?php echo BASE_URL ?>/listshop/searchservice&page=1";
         });   
         }

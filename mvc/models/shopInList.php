@@ -335,5 +335,19 @@
             
             return $idshop;
         }   
+        public function getByPromotion($id){
+            $conn = new db();
+            $qr = "SELECT * FROM tbl_shoppromotion WHERE PromotionId=$id";
+            $data = mysqli_query($conn->con, $qr);
+            $idShop = "";
+            while ($row = mysqli_fetch_array($data))
+            {
+               $idShop = ''.$idShop.','.$row['ShopId'].'';
+            };
+            $idShop = substr($idShop,1,strlen($idShop)-1);
+            $serviceId = null;
+            $allShop = $this->getByServiceandId($serviceId,$idShop);
+            return $allShop;
+        }
 
 }

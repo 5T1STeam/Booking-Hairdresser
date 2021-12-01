@@ -215,6 +215,32 @@ class listshop extends controller{
           
         $this->view("listshop",[ "ALL"=>$data1,"page"=>floor(count($data)/5),"Suggest"=>$carousel->GetShopSuggest()]);
     }
+    function promotion(){
+        $carousel = new homeModel(); 
+        $tan = $this->model('shopInList');
+        $data = $tan->getByPromotion($_GET['km']);
+        $data1= [];
+        if($_GET['page']==1){
+            if(count($data)<5){
+                for($i=0;$i<count($data)-1;$i++){
+                    $data1[$i]=$data[$i];
+                }
+            }else{
+                for($i=0;$i<5;$i++){
+                    $data1[$i]=$data[$i];
+                }
+            }
+        }elseif($_GET['page']==floor(count($data)/5)){
+            for($i=($_GET['page']-1)*5;$i<count($data)-1;$i++){
+                $data1[$i]=$data[$i];
+            }
+        }else{
+            for($i=($_GET['page']-1)*5;$i<($_GET['page']-1)*5+5;$i++){
+                $data1[$i]=$data[$i];
+            }    
+        }
+          
+        $this->view("listshop",[ "ALL"=>$data1,"page"=>floor(count($data)/5),"Suggest"=>$carousel->GetShopSuggest()]);}
         
 }
 ?>
