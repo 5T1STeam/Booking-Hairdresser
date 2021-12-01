@@ -117,7 +117,7 @@
 <div id="navhide" class="container-fluid fixed-top" style="background: #111; z-index:2" hidden>
     <div class="navbar container px-0">
     <div class="col-xl-1 col-lg-1 col-sm-1 navbar-brand logo">
-            <a href="http://125.234.104.133/web_php/gr06/"><img src="<?php echo BASE_URL ?>/public/img/logo.png" style="width: 60px;"></a>
+            <a href="<?php echo BASE_URL?>/home"><img src="<?php echo BASE_URL ?>/public/img/logo.png" style="width: 60px;"></a>
         </div>
         <div class="nav nav-pc col-xl-10 col-lg-10">
             <div class="form-search input-group form-inline col-xl-7 col-lg-6 col-sm-6">
