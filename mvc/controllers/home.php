@@ -11,6 +11,7 @@ class home extends controller{
         if(isset($_SESSION['lat']) && isset($_SESSION['long'])){
             $lat = $_SESSION['lat'];
             $long = $_SESSION['long'];
+            echo $long;
             $nearby = $home-> GetShopNearby($lat, $long);
         }
         else{

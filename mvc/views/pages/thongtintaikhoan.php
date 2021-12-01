@@ -16,11 +16,11 @@
                 <div class="modal-body" style="text-align: center;margin-top:-20px;">
                     <form action="" method="POST" enctype="multipart/form-data">
                         <input type="file" name="image" id="imagess">
-                        <input class="btn" type="submitImg" name="submit" id="submit" value="Xác Nhận">
+                        <input class="btn" type="submit" name="submit" id="submitImg" value="Xác Nhận">
                     </form>
                 </div>
                 <style>
-                    #submit {
+                    #submitImg {
                         background-color: #FF421A;
                         color: #fff;
                         border-radius: 50px;
@@ -200,7 +200,6 @@
                     $(this).serialize()
                 )
                 .done(function(data) {
-                  
                     $('.update').html(data)
                     $('#kqBook').modal('show')
                     setTimeout(function() {

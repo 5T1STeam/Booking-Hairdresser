@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/App.css">
     <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/css/styles.css">
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL ?>/public/css/style.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL ?>public/css/style.css">
+
 
     <!-- Main -->
 
@@ -450,6 +450,7 @@
     <script src="<?php echo BASE_URL ?>/public/js/Detail2.script.js"></script>
     <!--Nav starts-->
     <script src="<?php echo BASE_URL ?>/public/js/popup2.js"></script>
+    <script src="<?php echo BASE_URL ?>/public/js/popup.js"></script>
     <!--Popup-->
 
     <script>

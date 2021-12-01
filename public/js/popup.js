@@ -222,7 +222,6 @@ $(document).ready(function() {
                 $(this).serialize()
             )
             .done(function(data) {
-                alert(data);
                 $('#kq').html(data)
             });
     })

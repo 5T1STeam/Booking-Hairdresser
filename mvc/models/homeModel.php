@@ -76,7 +76,6 @@ class homeModel extends db{
         return $data;
     }
     public function DistAB($latitude1,   $longitude1,  $latitude2, $longitude2)
- 
       {
         //Converting to radians
         $longi1 = deg2rad($longitude1); 

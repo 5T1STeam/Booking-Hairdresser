@@ -21,7 +21,7 @@ if(isset($_SESSION['Id'])){
                     </label>
                     <hr/>
                     <label class='radio-report'>
-                        <input type='radio' name='radio-report' value='Chứa nội dung gây hấn'>
+                        <input type='radio' name='radio-report' value=3>
                         <span class='radio-report-fix'></span>
                         <span>Chứa nội dung gây hấn</span>
                     </label>
@@ -39,19 +39,19 @@ if(isset($_SESSION['Id'])){
                     </label>
                     <hr>
                     <label class='radio-report'>
-                    <input type='radio' name='radio-report' value=5>
+                    <input type='radio' name='radio-report' value=6>
                         <span class='radio-report-fix'></span>
                         <span>Xâm hại quyền riêng tư của tôi</span>
                     </label>
                     <hr>
                     <label class='radio-report'>
-                        <<input type='radio' name='radio-report' value=6>
+                        <input type='radio' name='radio-report' value=7>
                         <span class='radio-report-fix'></span>
                         <span>Phân biệt chúng tộc</span>
                     </label>
                     <hr>
                     <label class='radio-report'>
-                        <input type='radio' name='radio-report' value='Spam'>
+                        <input type='radio' name='radio-report' value=8>
                         <span class='radio-report-fix'></span>
                         <span>Spam</span>
                     </label>
