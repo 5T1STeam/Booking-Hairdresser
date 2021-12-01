@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
-                                    <button class="' . ($item['IsCompleted'] == true ? "history-booking--success__info--btn btn-danger" : "history-booking--cancel__info--btn btn-danger") . '">Đặt lại</button>
+                                    <button onclick="window.location.href=\''.BASE_URL.'/detail/show/'.$item['ShopId'].'\'"  class="' . ($item['IsCompleted'] == true ? "history-booking--success__info--btn btn-danger" : "history-booking--cancel__info--btn btn-danger") . '">Đặt lại</button>
                                     </div>
                                     <div class="col-6">
                                     ' . ($item['IsCompleted'] == true ?  '<button class=" history-booking--success__info--btn btn-warning" data-toggle="modal" data-target="#rate-' . $id . '-' . $item['ShopId'] . '-' . $item['Id'] . '">Đánh giá </button>' : '') . '
