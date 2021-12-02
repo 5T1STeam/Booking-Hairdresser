@@ -65,8 +65,8 @@
                 echo "<br/><br/><a class='nav-mblink nav-link ' style='margin-left:10px;' href='" . BASE_URL . "/login'>Sign in / Login</a>";
             }
             ?>
-            <input id="mbsearch" type="text" style="margin-top:0px;" class="form-control mt-3" placeholder="Bạn đang tìm kiếm gì ?" data-toggle="modal" data-target="#popup-howto">
-            <div class="nav-list px-2">
+            <input type="text" class="form-control mt-3 mbsearch" placeholder="Bạn đang tìm kiếm gì ?" data-toggle="modal" data-target="#popup-howto">
+            <input  type="text" class="form-control mt-2 mbsearch" placeholder="Địa điểm tìm kiếm gì ?" data-toggle="modal" data-target="#popup-location">            <div class="nav-list px-2">
                 <?php
                 foreach ($category as $id => $name) {
                     echo "<a class='nav-mblink nav-link' href='".BASE_URL."/listshop/category&dm=" . $id . "&page=1'>" . $name . "</a>";

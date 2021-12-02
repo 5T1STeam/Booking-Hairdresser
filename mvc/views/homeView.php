@@ -137,7 +137,7 @@
                             <path d='M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z' />
                             <path fill-rule='evenodd' d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z' />
                         </svg>
-                        <a href='" . BASE_URL . "/profile'>Profile</a>
+                        <a href='" . BASE_URL . "/profile/thongtintaikhoan'>Profile</a>
                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-bell-fill' viewBox='0 0 16 16'>
                             <path d='M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z' />
                         </svg>
@@ -146,8 +146,8 @@
                             echo "<br/><br/><a class='nav-mblink nav-link ' style='margin-left:10px;' href='" . BASE_URL . "/login'>Sign in / Login</a>";
                         }
                         ?>
-                        <input id="mbsearch" type="text" style="margin-top: 0px;" class="form-control" placeholder="Bạn đang tìm kiếm gì ?" data-toggle="modal" data-target="#popup-howto">
-
+                        <input type="text" class="form-control mt-3 mbsearch" placeholder="Bạn đang tìm kiếm gì ?" data-toggle="modal" data-target="#popup-howto">
+                        <input  type="text" class="form-control mt-2 mbsearch" placeholder="Địa điểm tìm kiếm gì ?" data-toggle="modal" data-target="#popup-location">
                         <div class="nav-list px-2 ">
                             <?php
                             foreach ($category as $id => $name) {
@@ -229,7 +229,7 @@
                 <?php
                     if (isset($_SESSION['Id'])) {
                         echo "<div class='dropdown'>
-                            <a class='dropdown-toggle nav-link' id='ddMenu' data-toggle='dropdown'><span><svg xmlns='http://www.w3.org/2000/svg' width='25' height='25' fill='currentColor' class='bi bi-person-circle' viewBox='0 0 18 18'>
+                            <a class='dropdown-toggle nav-link mr-2' id='ddMenu' data-toggle='dropdown'><span><svg xmlns='http://www.w3.org/2000/svg' width='25' height='25' fill='currentColor' class='bi bi-person-circle' viewBox='0 0 18 18'>
                                         <path d='M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z' />
                                         <path fill-rule='evenodd' d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z' />
                                     </svg></span>
