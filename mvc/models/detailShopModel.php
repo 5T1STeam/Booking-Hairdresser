@@ -176,16 +176,23 @@ class detailShopModel extends db{
             $QE= mysqli_query($this->con,$qa);
             $row1=mysqli_fetch_array($QE);
             $it['ShopName']= $row1['Name'];
-            $qq= "SELECT * FROM  tbl_shopservices where ShopId=$a";
+            $qq= "SELECT * FROM  tbl_booking where Id=".$row["BookId"];
             $QS= mysqli_query($this->con,$qq);
             $rows=mysqli_fetch_array($QS);
-            $it['Price']= $rows['Price'];
+            $it['Price']= $rows['TotalBill'];
 
-            $b= $row["ServiceId"];
-            $qb= "SELECT * FROM  tbl_services where Id=$b";
+            $b= $row["BookId"];
+            $qb= "SELECT * FROM  tbl_bookingservice where BookingId=$b";
             $QW= mysqli_query($this->con,$qb);
-            $row2=mysqli_fetch_array($QW);
-            $it['ServiceName']= $row2['Name'];
+            $str=[];
+            while($row2=mysqli_fetch_array($QW)){
+                $qc="SELECT * FROM tbl_services WHERE Id=".$row2['ShopserviceId'];
+                $QZ = mysqli_query($this->con,$qc);
+                array_push($str,mysqli_fetch_array($QZ)['Name']);
+            }
+            $str1= implode(", ",$str);
+
+            $it['ServiceName']= $str1;
 
             $t= $row["CreateDate"];
             $it['CreateDate']=$t;
