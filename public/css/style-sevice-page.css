@@ -359,11 +359,6 @@ footer .container .noi-dung.about p {
     font-size: 20px;
 }
 
-.nav-mblink:hover {
-    background-color: #FF421A;
-    color: #fff;
-}
-
 .logout {
     margin-top: 20px;
 }

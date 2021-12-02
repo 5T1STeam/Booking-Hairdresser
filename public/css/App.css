@@ -70,11 +70,6 @@
     font-size: 20px;
 }
 
-.nav-mblink:hover {
-    background-color: #FF421A;
-    color: #fff;
-}
-
 .logout {
     margin-top: 20px;
 }
@@ -475,8 +470,6 @@ h1 {
     transition: top 0.3s;
     z-index: 3;
 }
-
-
 
 .menus {
     display: flex;
