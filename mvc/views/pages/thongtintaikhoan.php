@@ -197,7 +197,8 @@
         $('.up').on('submit', function(e) {
             e.preventDefault();
             str = $(this).serialize();
-            $.post('/Booking-Hairdresser/mvc/controllers/updatePro.php',
+            base = $('#base').val();
+            $.post(base+'/mvc/controllers/updatePro.php',
                     $(this).serialize()
                 )
                 .done(function(data) {

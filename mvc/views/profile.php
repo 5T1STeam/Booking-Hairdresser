@@ -83,7 +83,7 @@
           </svg> Lịch sử booking</span></div>
     </a>
     <a class="sss" href="' . BASE_URL . '/profile/magiamgia/' . $data['GN']['Id'] . '">
-      <div class=" row list-profile voucher"><span class="list"><img class="icon-infor" src="../../../Booking-Hairdresser/public/icon/magiamgia.png" alt=""> Mã giảm giá</div>
+      <div class=" row list-profile voucher"><span class="list"><img class="icon-infor" src="'.BASE_URL.'/public/icon/magiamgia.png" alt=""> Mã giảm giá</div>
     </a>
     <a class="sss" href="' . BASE_URL . '/profile/hoivien/' . $data['GN']['Id'] . '">
       <div class=" row list-profile hoivien"><span class="list"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-square" viewBox="0 0 18 18">
@@ -97,7 +97,7 @@
           </svg> Chính sách bảo mật</span></div>
     </a>
     <a class="sss" href="' . BASE_URL . '/profile/dieukhoandichvu/' . $data['GN']['Id'] . '">
-      <div class=" row list-profile term"><span class="list"><img class="icon-infor" src="../../../Booking-Hairdresser/public/icon/dkdv.png" alt=""> Điều khoản dịch vụ</span> </div>
+      <div class=" row list-profile term"><span class="list"><img class="icon-infor" src="'.BASE_URL.'/public/icon/dkdv.png" alt=""> Điều khoản dịch vụ</span> </div>
     </a>
     <a class="sss" href="' . BASE_URL . '/logout">
       <div class=" row list-profile "><span class="list"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 18 18">

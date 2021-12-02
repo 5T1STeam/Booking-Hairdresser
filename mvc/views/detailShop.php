@@ -144,7 +144,7 @@
                                         <i class='bi bi-star-fill' style='color: #ff421a;'></i>
                                         <i class='bi bi-star-half' style='color: #ff421a;'></i>
                                     </div>
-                                    <p style='font-size: 12px; font-weight: italic;'>" . $data['GF']['QuantityRating'] . "&nbsp lượt đánh giá</p>
+                                    <p style='font-size: 12px; font-weight: italic;'>" . $data['GN']['QuantityRating'] . "&nbsp lượt đánh giá</p>
                                 </div>";
                                     ?>
                                 </div>
