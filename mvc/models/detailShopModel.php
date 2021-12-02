@@ -94,16 +94,17 @@ class detailShopModel extends db{
         return $result;
     }
     public function GetServicebyIdBook($id){
-        $qr = 'SELECT * FROM tbl_bookingservice WHERE Id='.$id;
+        $qr = 'SELECT * FROM tbl_bookingservice WHERE BookingId='.$id;
         $querry = mysqli_query($this->con,$qr);
         $data =[];
         while($row = mysqli_fetch_array($querry)){
-            $qa = 'SELECT * FROM  `tbl_services` WHERE $id = ' . $row['ShopserviceId'];
-            $quarry = mysqli_query($this->con,$qr);
+            $qa = 'SELECT * FROM  `tbl_services` WHERE Id = ' . $row['ShopserviceId'];
+            $quarry = mysqli_query($this->con,$qa);
             $item = mysqli_fetch_array($quarry);
-            array_push($data,$item);
+            array_push($data,$item['Name']);
         }
-        return $data;
+        $str = implode(", ",$data);
+        return $str;
     }
     public function GetNameUser($id){
         $qr ="SELECT * FROM tbl_user WHERE Id=$id";

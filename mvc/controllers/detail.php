@@ -10,7 +10,7 @@ class detail extends controller{
         {
             $ss = $teo->GetServicebyIdBook($innerArray['BookId']);
             
-               $innerArray['ServiceName'] =  $ss[0]['Name'];
+               $innerArray['ServiceName'] =  $ss;
                $user = $teo->GetNameUser($innerArray['UserId']);               
                 
                 $innerArray['UserName']= $user['Name'];
