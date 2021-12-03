@@ -12,8 +12,8 @@ if(isset($_GET["page"]))
     $list = $teo->GetServiceFeedback($id);
 
     foreach ($list as $innerArray) {
-        $rawz = mysqli_fetch_array($teo->GetServiceById($innerArray['ServiceId']), 1);
-        $innerArray['ServiceName'] =  $rawz['Name'];
+        $rawz = $teo->GetServiceByIdBook($innerArray['BookId']);
+        $innerArray['ServiceName'] =  $rawz;
         $user = $teo->GetNameUser($innerArray['UserId']);
 
         $innerArray['UserName'] = $user['Name'];

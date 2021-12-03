@@ -177,6 +177,7 @@ class detailShopModel extends db{
             $QE= mysqli_query($this->con,$qa);
             $row1=mysqli_fetch_array($QE);
             $it['ShopName']= $row1['Name'];
+            $it['ShopId']=$a;
             $qq= "SELECT * FROM  tbl_booking where Id=".$row["BookId"];
             $QS= mysqli_query($this->con,$qq);
             $rows=mysqli_fetch_array($QS);

@@ -176,7 +176,10 @@ $(document).ready(function() {
     function calcRate(r) {
         const f = ~~r, //tương tự math.floor(r)
             id = 'star' + f + (r % f ? 'half' : '')
-        id && (document.getelementbyid(id).checked = !0)
+        var a = document.getElementsByClassName(id)
+        for (var i = 0; i < a.length; i++) {
+            a.checked = !0;
+        }
     } // đưa ra từ sql
 
 

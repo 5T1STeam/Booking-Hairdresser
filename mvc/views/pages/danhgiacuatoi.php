@@ -18,7 +18,7 @@
                             foreach($data['GG'] as $item ){
                                 echo '
                                 <tr>
-                                <td class="col-2 table-col__one"><a href="">' . $item["ShopName"] . '</a></td>
+                                <td class="col-2 table-col__one"><a href="'.BASE_URL.'/detail/show/'.$item['ShopId'].'">' . $item["ShopName"] . '</a></td>
                                 <td class="col-2 ">' . $item["ServiceName"] . '</td>
                                 <td class="col-2 "> ' .number_format( $item["Price"]) . 'đ</td>
                                 
