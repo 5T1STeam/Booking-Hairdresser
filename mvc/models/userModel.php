@@ -205,10 +205,9 @@ class userModel extends db
     public function deleteLich($id){
         if(isset($_POST['cancel'])){
             $bookingId= $_POST['bookingId'];
-            $qr= "DELETE FROM tbl_booking WHERE UserId= $id AND Id=$bookingId";
-            $qrs= "DELETE FROM tbl_bookingservice WHERE BookingId=$bookingId";
-            mysqli_query($this->con,$qr);
-            mysqli_query($this->con,$qrs);
+            //update column IsCanceled = true and IsRequest = false in tbl_booking
+            $sql = "UPDATE tbl_booking SET IsCanceled = 1, IsRequest = 0 WHERE Id = $bookingId";
+            mysqli_query($this->con, $sql);
             return  header("Location: " . BASE_URL . "/profile/lichhen/$id");
         }
         

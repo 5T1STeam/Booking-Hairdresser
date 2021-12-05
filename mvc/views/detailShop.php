@@ -96,7 +96,7 @@
                             echo "
                             <h1 class='h1Menu'>" . $data['GN']['Name'] . "</h1>
                         </div>
-                        <span class='addressMenu'>" . $data['GN']['FullAdress'] . "," . $data['GN']['Ward'] . "," . $data['GN']['District'] . "," . $data['GN']['Province'] . "</span>"
+                        <span class='addressMenu'>" . $data['GN']['FullAdress'] . ", " . $data['GN']['Ward'] . ", " . $data['GN']['District'] . ", " . $data['GN']['Province'] . "</span>"
                             ?>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
                                     <?php
                                     echo "
                                     <h4>" . $data['GN']['Name'] . "</h4>
-                                    <p>" . $data['GN']['FullAdress'] . "," . $data['GN']['Ward'] . "," . $data['GN']['District'] . "," . $data['GN']['Province'] . "</p>
+                                    <p>" . $data['GN']['FullAdress'] . ", " . $data['GN']['Ward'] . ", " . $data['GN']['District'] . ", " . $data['GN']['Province'] . "</p>
                                 </div>
                                 <div class='col-2' style='text-align:center;'>
                                     <div class='row justify-content-center' name='star'>
@@ -232,7 +232,7 @@
                             echo "<h1 id='favCheck' class='h1Detail'>" . $data['GN']['Name'] . " <button class=' float-right favouriteBtn ".$color."' ".$checkFav."><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='".$color."' class='bi bi-heart-fill' viewBox='0 0 16 16'>
                             <path fill-rule='evenodd' d='M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z'/>
                           </svg></button></h1>
-                        <div class='address'>" . $data['GN']['FullAdress'] . "," . $data['GN']['Ward'] . "," . $data['GN']['District'] . "," . $data['GN']['Province'] . "</div>";
+                        <div class='address'>" . $data['GN']['FullAdress'] . ", " . $data['GN']['Ward'] . ", " . $data['GN']['District'] . ", " . $data['GN']['Province'] . "</div>";
                             ?>
                         </div>
                         <div class="service">

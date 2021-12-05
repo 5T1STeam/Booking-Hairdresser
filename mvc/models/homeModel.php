@@ -1,7 +1,7 @@
 <?php
 class homeModel extends db{
     public function GetShopSuggest(){
-        $sql = "SELECT * FROM tbl_user ORDER BY RatingNum DESC LIMIT 12";
+        $sql = "SELECT * FROM tbl_user WHERE RoleId = 2 ORDER BY RatingNum DESC LIMIT 12";
         $qr = mysqli_query($this->con,$sql);
         $data = array();
         while($row = mysqli_fetch_array($qr,1)){

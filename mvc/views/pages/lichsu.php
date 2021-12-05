@@ -49,10 +49,11 @@
                                 <p class="col-12">' . $timeDone . '</p>
                             </div>
                         </div>
-                        
                             ';
-
-                $popup->popupRate($item['ShopId'], $item['Id'], $item['ShopName'], $item['Bookingservice']);
+                
+                $popup -> popupRate($item['ShopId'],$item['Id'],$item['ShopName'],$item['Bookingservice']);
+            
+            
             }
 
 

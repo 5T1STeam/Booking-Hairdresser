@@ -171,6 +171,11 @@ class Book
             $qr = "INSERT INTO `tbl_feedbacks` VALUES (NULL,'$content',$userid,'$day','$day',0,$shopid,$bookid,$rate,NULL);";
             echo $qr;
             $data = mysqli_query($conn->con, $qr);
+            $qr = "UPDATE `tbl_user` SET `QuantityRating`=`QuantityRating`+1 WHERE `Id`=$shopid;";
+            $data = mysqli_query($conn->con, $qr);
+            $qr = "UPDATE `tbl_user` SET `RatingNum`=(`RatingNum`*(`QuantityRating`-1)+$rate)/`QuantityRating` WHERE `Id`=$shopid;";
+            $data = mysqli_query($conn->con, $qr);
+
         }else{
             $data =false;
         }
