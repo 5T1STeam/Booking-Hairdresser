@@ -75,23 +75,30 @@ class Book
                     $qr0 = "SELECT * FROM tbl_booking WHERE `ShopId` =" . $idshop . " AND `UserId` =" . $iduser . " AND `DateTime` = '" . $time[0] . "'";
                     $temp1 = mysqli_query($conn->con, $qr0);
                     while ($temp = mysqli_fetch_assoc($temp1)) {
-                        $qr1 = "INSERT INTO tbl_bookingservice VALUES (NULL," . $temp['Id'] . "," . $idservice . ",0)";
-                        $mmm = $pop->getPrice($idshop, $idservice);
-                        $qr2 = "UPDATE `tbl_booking` SET `TotalBill`=" . $mmm . " WHERE `Id`=" . (int)$temp['Id'] . ";";
-                        $add = mysqli_query($conn->con, $qr1);
-                        $add = mysqli_query($conn->con, $qr2);
-                        $kq = 2;
+                        $qr3 = "SELECT * FROM `tbl_shopservices` WHERE `ShopId`= ".$idshop." AND `ServiceId` = ".$idservice;
+                        $temp2 = mysqli_query($conn->con,$qr3);
+                        while ($row = mysqli_fetch_assoc($temp2)){
+                            $qr1 = "INSERT INTO tbl_bookingservice VALUES (NULL," . $temp['Id'] . "," . $row['Id'] . ",0)";
+                            $mmm = $pop->getPrice($idshop, $idservice);
+                            $qr2 = "UPDATE `tbl_booking` SET `TotalBill`=" . $mmm . " WHERE `Id`=" . (int)$temp['Id'] . ";";
+                            $add = mysqli_query($conn->con, $qr1);
+                            $add = mysqli_query($conn->con, $qr2);
+                            $kq = 2;
+                        }
                     }
                 } else {
-                    //thêm dịch vụ
-                    if ($pop->checkServiceBooked((int)$temp['Id'], $idservice)) {
-                        $kq = 0;
-                    } else {
-                        $kq = $pop->addSeviceBook((int)$temp['Id'], $idservice, (int)$temp['ShopId'], (int)$temp['TotalBill']);
-                        $kq  = 3;
+                    $qr3 = "SELECT * FROM `tbl_shopservices` WHERE `ShopId`= ".$idshop." AND `ServiceId` = ".$idservice;
+                    $temp2 = mysqli_query($conn->con,$qr3);
+                    while ($row = mysqli_fetch_array($temp2)){
+                        //thêm dịch vụ
+                        if ($pop->checkServiceBooked((int)$temp['Id'], $row['Id'])) {
+                            $kq = 0;
+                        } else {
+                            $kq = $pop->addSeviceBook((int)$temp['Id'], $row['Id'], (int)$temp['ShopId'], (int)$temp['TotalBill']);
+                            $kq  = 3;
+                        }
                     }
                 }
-
 
 
                 if ($kq == 1) {
@@ -237,11 +244,16 @@ class Book
     {
         $pop = new book();
         $conn = new db();
-        $qr = "INSERT INTO tbl_bookingservice VALUES (NULL," . $idbook . "," . $idservice . ",'non')";
-        $data = mysqli_query($conn->con, $qr);
-        $qr = "UPDATE `tbl_booking` SET `TotalBill`=" . $pop->getPrice($idshop, $idservice) + $bill . " WHERE `Id`=" . $idbook . ";";
-        $data = mysqli_query($conn->con, $qr);
-        $conn->freeSystem($conn->con, $data);
+        $qr0="SELECT * FROM `tbl_shopservices` WHERE `Id` = ".$idservice;
+        $data0 = mysqli_query($conn->con, $qr0);
+        while ($row = mysqli_fetch_assoc($data0)){
+            $qr = "INSERT INTO tbl_bookingservice VALUES (NULL," . $idbook . "," . $row['Id'] . ",'non')";
+            $data = mysqli_query($conn->con, $qr);
+            $qr = "UPDATE `tbl_booking` SET `TotalBill`=" . $pop->getPrice($idshop, $row['ServiceId']) + $bill . " WHERE `Id`=" . $idbook . ";";
+            $data = mysqli_query($conn->con, $qr);
+            $conn->freeSystem($conn->con, $data);
+        }
+        
     }
     public function checkId($id)
     {

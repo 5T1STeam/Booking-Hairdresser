@@ -173,22 +173,30 @@ $(document).ready(function() {
 $(document).ready(function() {
 
     //rate content
-    function calcRate(r) {
-        const f = ~~r, //tương tự math.floor(r)
-            id = 'star' + f + (r % f ? 'half' : '')
-        var a = document.getElementsByClassName(id)
-        for (var i = 0; i < a.length; i++) {
-            a.checked = !0;
-        }
-    } // đưa ra từ sql
+    // function calcRate(r) {
+    //     const f = ~~r,
+    //         id = 'star' + f + (r % f ? 'half' : '')
+    //     var a = document.getElementsByClassName(id)
+    //     for (var i = 0; i < a.length; i++) {
+    //         a.checked = !0;
+    //     }
+    // }
 
 
-    $("input[name='rating']").click(function() {
+    // $("input[name='rating']").click(function() {
+    //     var rate = document.getElementsByClassName("markrate")
+    //     for (var i = 0; i < rate.length; i++) {
+    //         rate[i].value = 6 - $(this).val();
+    //     }
+    // });
+    $('.full').click(function() {
         var rate = document.getElementsByClassName("markrate")
         for (var i = 0; i < rate.length; i++) {
-            rate[i].value = 6 - $(this).val();
+            rate[i].value = $(this).children().val();
         }
-    });
+        $(this).children().prop("checked", true);
+
+    })
 
     $('.form-rating').on('submit', function(e) {
         e.preventDefault();
