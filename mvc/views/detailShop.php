@@ -413,13 +413,25 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="content text-center ">
-                                                    <?php
+                                                <?php
 
                                                     echo "<div class='ratings'><span class='product-rating'>" . $data['GN']['RatingNum'] . "</span><span>/5</span>
-                                                <div class='stars'> <i class='fa fa-star'></i> <i class='fa fa-star'></i> <i class='fa fa-star'></i> <i class='fa fa-star'></i> <i class='fa fa-star'></i></div>
-                                                <div class='rating-text'> <span>" . $data['GN']['QuantityRating'] . " đánh giá</span> </div>
-                                            </div>";
-                                                    ?>
+                                                    <div>";
+                                                    for ($i = 1; $i <= 5; $i++) {
+                                                        if ($data['GN']['RatingNum'] > $i - 0.5) {
+                                                            echo '<span style="font-size:20px;cursor:pointer;" class="fa fa-star checked ml-2"></span>';
+                                                        } else {
+                                                            if ($data['GN']['RatingNum'] > $i - 1) {
+                                                                echo '<span style="font-size:20px;cursor:pointer;" class="fa fa-star-half-full checked ml-2"></span>';
+                                                            } else {
+                                                                echo '<span style="font-size:20px;cursor:pointer;" class="fa fa-star-o checked ml-2"></span>';
+                                                            }
+                                                        }
+                                                    }
+                                                    echo"</div>
+                                                    <div class='rating-text'> <span>" . $data['GN']['QuantityRating'] . " đánh giá</span> </div>
+                                                    </div>";
+                                                ?>
 
                                                 </div>
                                             </div>
