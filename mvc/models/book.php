@@ -77,14 +77,14 @@ class Book
                     while ($temp = mysqli_fetch_assoc($temp1)) {
                         $qr3 = "SELECT * FROM `tbl_shopservices` WHERE `ShopId`= ".$idshop." AND `ServiceId` = ".$idservice;
                         $temp2 = mysqli_query($conn->con,$qr3);
-                        while ($row = mysqli_fetch_assoc($temp2)){
+                        $row = mysqli_fetch_assoc($temp2);
                             $qr1 = "INSERT INTO tbl_bookingservice VALUES (NULL," . $temp['Id'] . "," . $row['Id'] . ",0)";
                             $mmm = $pop->getPrice($idshop, $idservice);
                             $qr2 = "UPDATE `tbl_booking` SET `TotalBill`=" . $mmm . " WHERE `Id`=" . (int)$temp['Id'] . ";";
                             $add = mysqli_query($conn->con, $qr1);
                             $add = mysqli_query($conn->con, $qr2);
                             $kq = 2;
-                        }
+                        
                     }
                 } else {
                     $qr3 = "SELECT * FROM `tbl_shopservices` WHERE `ShopId`= ".$idshop." AND `ServiceId` = ".$idservice;
